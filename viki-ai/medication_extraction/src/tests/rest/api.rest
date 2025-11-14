@@ -1,0 +1,38 @@
+@host_local = http://127.0.0.1:17000
+
+#TODO: Update the host_dev, host_qa, host_stage, host_prod
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app  
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_local}}
+eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+
+#@token = eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1In0.6ag-
+
+
+### Call Status Endpoint -------------------------------------------------------------------
+GET {{host}}/health
+
+###
+@identity_token2 = eyJhbGciOiJSUzI1NiIsImtpZCI6IjIzZjdhMzU4Mzc5NmY5NzEyOWU1NDE4ZjliMjEzNmZjYzBhOTY0NjIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6InFhZHdEdnBEZUF2VjAzdHpPXzM3WFEiLCJpYXQiOjE3NDU4NjM5NTEsImV4cCI6MTc0NTg2NzU1MX0.NInsdKzKcMHMpA6_IJYgbJPzkO7_9qmUKjHqG6FhE3Wkfn-pIaRP1ri2Xz0u9iFhNkBWjUtLS9r08aY0gIoCqcP-J3J6l86VQY4HcYNedjau9DFUqJvMELW86B6_lEizCZvZSfSHv6_4mDDPK7W9qSpChupLwh_SI8sA8Mc36quaYjef-CPpesEV6fDRvg1HIKZ8j3LZT2n5HsrMIpIhzHqN83T8XKLW3CpF7QlC0jPpklePp4DnI0eGVkGZt4nK7p739J4C6HApoeF5eCQ8cWzDugTSZYJSIaL-oLbYodKSKKEZulA2297nAT4_X-YYRMo0FJcO7MzoS_lljgWSBw
+@drug = Reglan 5 mg oral tablet by mouth
+
+
+### Medispan search
+GET https://ai-medispan-api-18900418456.us-east4.run.app/api/drugs/search?query={{drug}}&top_k=10&similarity_threshold=0.7
+Authorization: Bearer {{identity_token2}}
+
+
+
+### Medispan loadtest poke
+
+GET https://ai-medication-extraction-18900418456.us-east4.run.app/api/medispan/loadtest/poke?search_strategy=alloydb
+Authorization: Bearer {{identity_token2}}
+
+### Medispan loadtest poke
+GET http://127.0.0.1:17000/api/medispan/loadtest/poke
+Authorization: Bearer {{identity_token2}}
+

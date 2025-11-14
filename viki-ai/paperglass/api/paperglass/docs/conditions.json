@@ -1,0 +1,12 @@
+{
+    "conditions": [
+        {
+            "name": "diabities",
+            "active": "yes | no"
+        },
+        {
+            "name": "PVD",
+            "active": "rash on head"
+        }
+    ]
+}

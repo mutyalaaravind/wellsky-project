@@ -1,0 +1,28 @@
+steps:
+  # perform a checkout of the code, see https://wellsky.stackenterprise.co/questions/1251
+  - checkout: self
+    fetchDepth: 0
+
+  - task: gitversion/setup@3
+    displayName: Setup GitVersion
+    inputs:
+      versionSpec: 5.x
+
+  - task: gitversion/execute@3
+    displayName: Run GitVersion
+    inputs:
+      useConfigFile: true
+      configFilePath: $(System.DefaultWorkingDirectory)/GitVersion.yml
+
+  - bash: |
+      # log values for troubleshooting; BuildNumber is used with gitversion, see the param description
+      echo "BUILD_NUM: $(BUILD_NUM) | SemVer: $(GITVERSION.SemVer) | AssemblySemVer: $(GITVERSION.AssemblySemVer) | GitHubSha : $(GITVERSION.SHA)"
+
+      # Save Variables to be used in this job's scope
+      ########################################################
+      echo "##vso[task.setvariable variable=semVer;isOutput=true]$(GITVERSION.SemVer)"
+      echo "##vso[task.setvariable variable=assemblySemVer;isOutput=true]$(GITVERSION.AssemblySemVer)"
+      echo "##vso[task.setvariable variable=gitHubSha;isOutput=true]$(GITVERSION.SHA)"
+
+    displayName: Identify Version
+    name: version

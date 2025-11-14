@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Dosage_Form",
+    "type": "STRING"
+  },
+  {
+    "name": "ExternalDrugId",
+    "type": "STRING"
+  },
+  {
+    "name": "GenericName",
+    "type": "STRING"
+  },
+  {
+    "name": "NameDescription",
+    "type": "STRING"
+  },
+  {
+    "name": "Route",
+    "type": "STRING"
+  },
+  {
+    "name": "Strength",
+    "type": "STRING"
+  },
+  {
+    "name": "StrengthUnitOfMeasure",
+    "type": "STRING"
+  },
+  {
+    "name": "med_embedding.__type__",
+    "type": "STRING"
+  },
+  {
+    "name": "med_embedding.value",
+    "type": "ARRAY<FLOAT>"
+  }
+]

@@ -1,0 +1,31 @@
+I need to ask you a few questions about your eyes, ears, mouth, throat, nose, and sinuses. Is that okay? 
+
+Yes, that's fine. 
+
+Do you wear glasses or contacts? 
+
+Yes, I wear glasses. 
+
+Are you able to see adequately with your glasses? 
+
+Yes, I can see well with my glasses. 
+
+Do you have any hearing difficulty? 
+
+Yes, I have difficulty hearing. 
+
+Is it bilateral hearing difficulty? 
+
+Yes, it is bilateral. 
+
+Do you wear any dentures or partials? 
+
+Yes, I wear upper dentures/partials. 
+
+Do they fit properly? 
+
+Yes, they fit properly. 
+
+Are there any problems with your nose or sinuses? 
+
+No, there are no problems. 

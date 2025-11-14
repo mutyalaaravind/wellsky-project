@@ -1,0 +1,138 @@
+{
+    "allergy_profile.radio_nka": {
+        "question": "Do you have any NKA(Food/ Drug/ Latex/ Environmental)?",
+        "instructions": "If patient have then select value as nka"
+    },
+    "allergy_profile.radio_allergies": {
+        "question": "Do you have any Allergies and Sensitivities?",
+        "instructions": "If patient have then some allergies then select value as allergies_sensitivities"
+    },
+    "allergy_profile.substance_reaction_Section": {
+        "question": "Could you please provide details about the substances and their reactions?",
+        "instructions": "please return whatever answer patients gives to the above question as array of substance and reaction.Key should be as substance and reaction only"
+    },
+    "allergy_profile.other_allergies.other_allergies_details.other_substance": {
+        "question": "Could you please provide details about the other substances you are allergic to?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "allergy_profile.other_allergies.other_allergies_details.other_reaction": {
+        "question": "Could you describe the reactions you experienced?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "allergy_profile.medication_type": {
+        "question": "What type of medications do you take?",
+        "instructions": "If the input type is Medication then select Medication as a value, select value as Nonstandard Dosage for Nonstandard Dosage input value, select value as Off Market/ Unlisted for Off Market/ Unlisted input value"
+    },
+    "allergy_profile.order_date": {
+        "question": "What is the order date of the medication?",
+        "instructions": "please return whatever answer patients gives to the above question in the format mm/dd/yyyy"
+    },
+    "allergy_profile.new_medication_type": {
+        "question": "What type of medications do you take?",
+        "instructions": "please return values from the provided list: ['Longstanding','Change','New']"
+    },
+    "allergy_profile.start_date": {
+        "question": "What is the start date of the medication?",
+        "instructions": "please return whatever answer patients gives to the above question in the format mm/dd/yyyy"
+    },
+    "allergy_profile.drug_strength": {
+        "question": "What is the drug/route/form/strength of the medication?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "allergy_profile.amount": {
+        "question": "What is the price of the medication?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "allergy_profile.frequency_instructions": {
+        "question": "What are the instructions regarding the medication?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "allergy_profile.discontinue_date": {
+        "question": "What is the discontinuation date for the medication?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "allergy_profile.iv_access_check": {
+        "question": "Do you have IV access?",
+        "instructions": "If patient has then select Yes, otherwise select No."
+    },
+    "allergy_profile.type": {
+        "question": "What is the type of IV?",
+        "instructions": "please return whatever answer patients gives to the above question."
+    },
+    "allergy_profile.insertion_date": {
+        "question": "What is the date of IV insertion?",
+        "instructions": "please return whatever answer patients gives to the above question."
+    },
+    "allergy_profile.dressing_change_date": {
+        "question": "What is the date when last dressing was changed?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "section_1710434905.Antispychotic_check": {
+        "question": "Do you take any antipsychotic drugs?",
+        "instructions": "select 1 as a value  if patient Is Taking, select 2 as a value for Indication Noted, otherwise select NA as a value for Not Assessed/ No information."
+    },
+    "section_1710434905.Anticoagulant_check": {
+        "question": "Do you take any anticoagulant drugs?",
+        "instructions": "select 1 as a value if patient Is Taking, select 2 as a value for Indication Noted, otherwise select NA as a value for Not Assessed/ No information."
+    },
+    "section_1710434905.Antibiotic_Check": {
+        "question": "Do you take any antibiotic drugs?",
+        "instructions": "select 1 as a value if patient Is Taking, select 2 as a value for Indication Noted, otherwise select NA as a value for Not Assessed/ No information."
+    },
+    "section_1710434905.Opioid_check": {
+        "question": "Do you take any opioid drugs?",
+        "instructions": "select 1 as a value if patient Is Taking, select 2 as a value for Indication Noted, otherwise select NA as a value for Not Assessed/ No information."
+    },
+    "section_1710434905.Antiplatelet_Check": {
+        "question": "Do you take any antiplatelet drugs?",
+        "instructions": "select 1 as a value if patient Is Taking, select 2 as value for Indication Noted, otherwise select NA as a value for Not Assessed/ No information."
+    },
+    "section_1710434905.Hypoglycemic_check": {
+        "question": "Do you take any hypoglycemic drugs?",
+        "instructions": "select 1 as a value if patient Is Taking, select 2 as a value for Indication Noted, otherwise select NA as a value for Not Assessed/ No information."
+    },
+    "section_1710434905.Nan_check": {
+        "question": "Are you currently taking none of the above drugs?",
+        "instructions": "If patient is taking then select 1 as a value"
+    },
+    "section_1710434905.drug_review_radio_1708067090": {
+        "question": "During the complete drug regimen review, was there any potential clinically significant medical issue?",
+        "instructions": "If no,select 0. If yes, select 1. If patient is not taking any medication, select 9. Else select no info."
+    },
+    "section_1710434905.drug_followup_radio_1708067404": {
+        "question": "Did the agency contact a physician by midnight of next day to complete prescribed actions in response to potential clinically significant medical issue?",
+        "instructions": "If Yes,select 0. If No, select 1."
+    },
+    "section_1710434905.drug_edu_radio_1708067448": {
+        "question": "Do you/caregiver recieve instructions on special precautions  for all hig risk medicines and how and when to report the problem?",
+        "instructions": "If Yes,select 0. If No, select 1. Else select NA for Patient not taking any high risk drugs."
+    },
+    "section_1710434905.drug_oralmgmt_radio_1708067498": {
+        "question": "Are you able to prepare and take all the oral medications reliably and safely, including administration of previous entries and doses correctly at proper time?",
+        "instructions": "If able to take proper medication in correct doses at proper time, select 0. Able to take medication at proper time if dosage is given by other person or drug diary is given by other person, select 1. Able to take medication at proper time if reminder is given by other person, select 2. Unable to take medication at proper time unless given by other person, select 3. If no medication is prescribed, select NA."
+    },
+    "section_1710434905.drug_medimgmt_radio_1708067835": {
+        "question": "Are you able to prepare and take all the injectable medications reliably and safely, including administration of previous entries and doses correctly at proper time?",
+        "instructions": "If able to take proper medication in correct doses at proper time, select 0. Able to take medication at proper time if dosage is given by other person or drug diary is given by other person, select 1. Able to take medication at proper time if reminder is given by other person, select 2. Unable to take medication at proper time unless given by other person, select 3. If no medication is prescribed, select NA."
+    },
+    "section_1708067359.section_1708067590.mar_time_in": {
+        "question": "What is the time in for Medication administration record?",
+        "instructions": "please return whatever additional information shared by the patient"
+    },
+    "section_1708067359.section_1708067590.mar_time_out_input": {
+        "question": "What is the time out Medication administration record?",
+        "instructions": "please return whatever additional information shared by the patient"
+    },
+    "section_1708067359.section_1708067590.mar_date": {
+        "question": "What is the date Medication administration record?",
+        "instructions": "please return whatever additional information shared by the patient"
+    },
+    "section_1708067359.section_1708067590.mar_time_input": {
+        "question": "What is the time for Medication administration record?",
+        "instructions": "please return whatever additional information shared by the patient"
+    },
+    "section_1708067359.mar_medication_section": {
+        "question": "Could you please provide details about the medication and their related details?",
+        "instructions": "please return whatever answer patients gives to the above question and the Key should be as medication,dose,route,frequency,prn_reason,location,patient_response and comment only.Return the response as a array format like  'value': [{'key1': {'value1': 'answer by patient','verbatim_source': ''},'key2': {'value2': 'answer by patient','verbatim_source': ''}}],'verbatim_source': ''"
+    }
+}

@@ -1,0 +1,56 @@
+version: '3.0'
+services:
+  dashboard:
+    image: demo-dashboard
+    build:
+      context: dashboard
+      dockerfile: Dockerfile.dev
+      secrets:
+        - npmrc
+    ports:
+      - '13001:13001'
+    volumes:
+      - type: bind
+        source: ./dashboard/src
+        target: /dashboard/src
+      - type: bind
+        source: ./dashboard/public
+        target: /dashboard/public
+
+  api:
+    image: demo-api
+    build:
+      context: api
+    ports:
+      - '13000:13000'
+    tty: true # Colors
+    env_file:
+      - ../.env
+    environment:
+      SERVICE: demo
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      GCS_BUCKET_NAME: wscc-dev-eai
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      GCP_MULTI_REGION_FIRESTORE_LOCATON: nam5
+      GCP_FIRESTORE_DB: viki-dev
+      #GOOGLE_CLOUD_PROJECT: viki-dev-app-wsky #Emulator off
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080 #Emulator on
+      PYTHONUNBUFFERED: "1" # Flush `print`s immediately
+      GOOGLE_SPEECH_API_VERSION: 'v1'
+      OKTA_DISABLE: 'true'
+      OKTA_ISSUER: 'https://wellsky-ciam.oktapreview.com/oauth2/ausajt8hv1B8S7hkh1d7' # Dev env issuer
+      OKTA_AUDIENCE: viki.dev.wellsky.io # Dev audience
+      OKTA_SCOPE: api.wellsky.viki.ai.transcription
+      OKTA_PAPERGLASS_CLIENT_ID: ${S__OKTA_PAPERGLASS_CLIENT_ID}
+      OKTA_PAPERGLASS_CLIENT_SECRET: ${S__OKTA_PAPERGLASS_CLIENT_SECRET}
+      OKTA_PAPERGLASS_SCOPE: ${S__OKTA_PAPERGLASS_SCOPE}
+      OKTA_PAPERGLASS_TOKEN_ISSUER_URL: ${S__OKTA_PAPERGLASS_TOKEN_ISSUER_URL}
+    volumes:
+      - './api/main:/api/main'
+      - '$HOME/.config/gcloud:/root/.config/gcloud'
+
+secrets:
+  npmrc:
+    file: ../.npmrc

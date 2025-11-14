@@ -1,0 +1,24 @@
+Are you within normal limits?
+yes i am
+Do you have any issues with your lungs?
+yes i do hear a couple of Wheezes and cracles sometimes
+Do you produce any sputum because of any repiratory infection or the sort?
+yes i do when i occasionaly cough
+What is the amount of sputum that was produced?
+around 70ml in a day i guess
+What color, consistency or odor is the sputum of?
+its usually a runny yellow color and generally odourless
+Could you tell me your O2 AT levels?
+yes, they are around 85%
+Could you tell the value of rate of O2 in LPM?
+yes, it was 2 LPM
+Could you tell me your O2 SAT levels?
+no i do not remember
+Are you currently using a Nebulizer for Respiration?
+No im not using any nebulizer right now
+Do you have any sort of a cough?
+yes i do have a nonproductive kind of cough
+Do you want to share any further comments?
+yes the mode of administration was Nasal Cannula, the type of oxygen was Concentrator and usually feel shortness of breath
+When do you usually feel dyspenic or noticeably short of breath?
+it happens with minimial exertion or with agitation you could say 

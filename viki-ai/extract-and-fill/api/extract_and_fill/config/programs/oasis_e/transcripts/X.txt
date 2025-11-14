@@ -1,0 +1,28 @@
+Are you within normal limits?
+yes i am within normal limits
+Are you Diabetic?
+yes i am diabetic
+Are you dependant on Insulin?
+yes i am 
+Are you able to draw up a correct dose of insulin independently?
+no i am not able to do that
+Can you properly administer your own insulin?
+yes i can do it on my own
+Are you taking an oral hypoglycemic agent?
+no i am not
+Is your caregiver able to draw up and administer insulin?
+yes he is able to do it for me
+Is your caregiver independant with glucometer use?
+yes he is
+Do you or your caregiver routinely perform inspection of your lower extremities?
+Yes i do it on my own
+Do you have any endocrine related problems?
+Yes i am dealing with Polyphagia and polydipsia 
+Could you tell me your blood sugar levels?
+yes they were 126 as far as i remember
+Can you tell me who your blood sugar was checked by?
+no i do not remember
+At which site was your blood sugar checked at?
+no i do not remember where it was checked
+Do you have any further comments?
+yes i do i have a feeling of increased thirstiness

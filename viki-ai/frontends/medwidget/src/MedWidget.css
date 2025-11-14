@@ -1,0 +1,38 @@
+.scrollable-chakra-tabs .chakra-tabs__tablist {
+  overflow-x: auto;
+  /* Internet Explorer 10+ */
+  /* -ms-overflow-style: none; */
+  /* Firefox */
+  /* scrollbar-width: none; */
+
+  padding-bottom: 2px;
+
+  /* Required since the bottom border somehow gets cut off when horizontal scroll is enabled */
+}
+
+.scrollable-chakra-tabs .chakra-tabs__tablist::-webkit-scrollbar {
+  /* Safari and Chrome */
+  /* display: none; */
+
+  /* position: absolute; */
+  /* top: 0; */
+}
+
+.chakra-modal__content {
+  max-height: 90%;
+  padding-top: var(--chakra-space-4) !important;
+  /* margin-bottom: var(--chakra-space-6) !important; */
+}
+
+.chakra-slide.chakra-modal__content {
+  box-shadow: 0px 0px 11px 8px rgba(0, 0, 0, 0.1);
+}
+
+#document-tabs > div[role="tablist"] {
+  padding-bottom: 0.25em;
+}
+
+chakra-modal__body {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}

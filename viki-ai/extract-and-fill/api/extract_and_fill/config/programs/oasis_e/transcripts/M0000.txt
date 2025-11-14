@@ -1,0 +1,95 @@
+Have you suffered from or suffering with CHF,cardiomyopathy,arrhythmia,chest pain,MI,CAD,HTN,PVD,Murmur?
+Yes i did had some chest pain
+Any cancer in remission?
+No as such
+Have you suffered from any osteoarthritis or DJD?
+Yes i did
+Have you suffered from or suffering with rheumatoid arthritis,gait problems,fractures,falls?
+No neither of these
+Have you done with any joint replacement?
+yes i did recently
+Have you suffered from or suffering with CVA,TIA,MS,Heimplegia,Seizures,Headaches,Dizziness or Vertigo?
+No neither of these
+Have you suffered from or suffering with IBS,Crohn's disease,diverticulitis or diverticulosis,constipation,diarrhea,facal incontinence?
+Yes was having constipation
+Have you suffered from or suffering with liver or gall bladder problems?
+Yes suffering with liver problems
+Have you suffered from or suffering with depression,anxiety,dementia,alzhelmers?
+Yes with depression sometime back
+Have you suffered from or suffering from any substance abuse?
+No nothing like that
+Have you suffered from or suffering with mental disorder?
+No nothing like that
+Have you suffered from or suffering with pressure ulcers,stasis ulcer,diabetic ulcer,trauma wound or any other?
+Yes with diabetic ulcers
+Have you suffered from or suffering with chronic kidney disease,renal failure,dialysis?
+Yes was with dialysis
+Have you suffered from or suffering with anemia,abnormal coagulation,blood clots?
+Yes with some blood clots
+Have you suffered from or suffering with diabetes,thyroid problems?
+No such as i think of
+Have you suffered from or suffering with COPD,asthma,chronic obstructive bronchitis,emphysema,chronic obstructive asthma?
+Yes with asthma
+Have you suffered from or suffering with urinary incontinence,urinary retention,BPH,recent or frequent UTI?
+No such as i think of
+Have you suffered from or suffering with tuberculosis,hepatitis?
+Yes with hepatitis
+Have you suffered from or suffering from any infectious disease?
+No not such
+Have you any tobacco dependence?
+No such
+What was the type of tobacco dependence?
+No, Never had
+Any amount for tobacco dependence?
+No as never had
+Do you remember length of time you used tobacco?
+No as never had
+Any vision problems or hearing loss you noticed?
+Yes in hearing
+Any other health history you want to share?
+No, not as of now
+Any past surgical history to share?
+No, not as of now
+Did u went through recent Pneumonia immuinization as part of up to date immunization?
+Yes i did had that
+Did u went through recent Flu immuinization as part of up to date immunization?
+No not the flu one
+Did u went through recent Tetanus immuinization as part of up to date immunization?
+No not with Tetanus
+Did u went through recent TB immuinization as part of up to date immunization?
+Yes i did had that
+Did u went through recent TB exposure immuinization as part of up to date immunization?
+No i did not
+Did u went through recent Hepatitus B immuinization as part of up to date immunization?
+No i did not
+Any additional immuinization u had apart from these?
+No, Not as of now
+Any additional comments you want to share?
+No, Not as of now
+What was the date of your last cholesterol level check?
+Yes, It was 20/01/2024
+What was the date of your last mammogram?
+Yes, It was 21/01/2024
+Do you perform any selft breast exams?
+No as such
+What was the date of your last pap smear?
+No, I dont remember
+What was the date of your last PSA?
+No, not able to recall
+What was the date of your last prostate exam?
+No, not able to recall
+What was the date of your last colonoscopy?
+No, Not aware of
+Are you type of homebound?
+Yes nowadays
+Whether you are having any advance directives?
+Yes sort of living will
+Whether you are having surrogate?
+No such
+Whether you were provided with written and verbal information on advance directives?
+Yes, i was provided
+Any prognosis you want to share?
+Not as of now
+Any functional limitations you seem of having?
+Yes of hearing and speech
+

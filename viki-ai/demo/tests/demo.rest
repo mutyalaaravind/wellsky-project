@@ -1,0 +1,221 @@
+
+###
+GET http://127.0.0.1:13000/api/clients/54321/patients/9e01906eccfa4e8db14171b1f7ccc914/medications
+
+
+###
+POST http://127.0.0.1:13000/api/clients/54321/patients/9e01906eccfa4e8db14171b1f7ccc914/medications                               
+
+{"catalogType": "medispan", "catalogId": "00904-6823-61", "name": "Gabapentin", "strength": "600 MG null", "dosage": "1", "form": "TABLET", "route": "PO", "frequency": "", "instructions": "", "startDate": "05/16/2025", "discontinueDate": null, "isLongStanding": false, "isNonStandardDose": false}
+
+
+
+###
+GET https://ai-demo-api-145042810266.us-east4.run.app/api/clients/54321/patients/f34a2aa407a04bfe84e8f72971156fd1/attachments
+
+
+###
+POST http://127.0.0.1:13000/api/entities/medication_extraction
+Content-Type: application/json
+
+{
+  "app_id": "demo_app",
+  "tenant_id": "54321",
+  "patient_id": "9e01906eccfa4e8db14171b1f7ccc914",
+  "document_id": "doc_12345",
+  "entity_schema_id": "medication_schema_v1",
+  "run_id": "run_12345_medication",
+  "data": [
+    {
+      "medication_name": "Gabapentin",
+      "strength": "600 MG",
+      "dosage": "1",
+      "form": "TABLET",
+      "route": "PO",
+      "frequency": "BID",
+      "instructions": "Take with food",
+      "start_date": "2025-05-16",
+      "confidence_score": 0.95
+    },
+    {
+      "medication_name": "Lisinopril",
+      "strength": "10 MG",
+      "dosage": "1",
+      "form": "TABLET",
+      "route": "PO",
+      "frequency": "QD",
+      "instructions": "Take in morning",
+      "start_date": "2025-05-16",
+      "confidence_score": 0.88
+    }
+  ]
+}
+
+
+###
+POST http://127.0.0.1:13000/api/entities/lab_results
+Content-Type: application/json
+
+{
+  "app_id": "demo_app",
+  "tenant_id": "54321",
+  "patient_id": "9e01906eccfa4e8db14171b1f7ccc914",
+  "document_id": "doc_67890",
+  "entity_schema_id": "lab_results_schema_v1",
+  "run_id": "run_67890_lab_results",
+  "data": [
+    {
+      "test_name": "Hemoglobin A1C",
+      "value": "7.2",
+      "unit": "%",
+      "reference_range": "< 7.0",
+      "status": "HIGH",
+      "test_date": "2025-05-15",
+      "confidence_score": 0.92
+    },
+    {
+      "test_name": "Total Cholesterol",
+      "value": "185",
+      "unit": "mg/dL",
+      "reference_range": "< 200",
+      "status": "NORMAL",
+      "test_date": "2025-05-15",
+      "confidence_score": 0.89
+    }
+  ]
+}
+
+
+###
+# Test the new document processing complete callback endpoint WITH SOURCE_ID
+POST http://127.0.0.1:13000/api/entities
+Content-Type: application/json
+
+{
+  "app_id": "demo_app",
+  "tenant_id": "54321",
+  "patient_id": "9e01906eccfa4e8db14171b1f7ccc914",
+  "document_id": "56c3ee9e673611f098d30242ac140005",
+  "source_id": "host_doc_ABC123",
+  "status": "completed",
+  "timestamp": "2025-07-28T15:45:00.000Z",
+  "run_id": "20250728T194019-fd20508e63b7405886d1d9f8c41e780f",
+  "metadata": {
+    "processing_duration_ms": 15000,
+    "extraction_type": "entity_extraction",
+    "model_version": "v2.1.0"
+  },
+  "data": [
+    {
+      "entity_type": "medication",
+      "medication_name": "Metformin",
+      "strength": "500 MG",
+      "dosage": "2",
+      "form": "TABLET",
+      "route": "PO",
+      "frequency": "BID",
+      "instructions": "Take with meals",
+      "start_date": "2025-07-28",
+      "confidence_score": 0.94,
+      "extracted_text": "Metformin 500mg tablets, take 2 by mouth twice daily with meals"
+    },
+    {
+      "entity_type": "lab_result",
+      "test_name": "Glucose",
+      "value": "145",
+      "unit": "mg/dL",
+      "reference_range": "70-100",
+      "status": "HIGH",
+      "test_date": "2025-07-27",
+      "confidence_score": 0.91,
+      "extracted_text": "Glucose: 145 mg/dL (H)"
+    },
+    {
+      "entity_type": "diagnosis",
+      "diagnosis_code": "E11.9",
+      "diagnosis_name": "Type 2 diabetes mellitus without complications",
+      "confidence_score": 0.87,
+      "extracted_text": "Type 2 DM without complications"
+    }
+  ]
+}
+
+###
+# Test the document processing complete callback endpoint WITHOUT SOURCE_ID (backward compatibility)
+POST http://127.0.0.1:13000/api/entities
+Content-Type: application/json
+
+{
+  "app_id": "demo_app",
+  "tenant_id": "54321",
+  "patient_id": "9e01906eccfa4e8db14171b1f7ccc914",
+  "document_id": "56c3ee9e673611f098d30242ac140005_NO_SOURCE",
+  "status": "completed",
+  "timestamp": "2025-07-28T15:45:00.000Z",
+  "run_id": "20250728T194019-fd20508e63b7405886d1d9f8c41e780f_NO_SOURCE",
+  "metadata": {
+    "processing_duration_ms": 15000,
+    "extraction_type": "entity_extraction",
+    "model_version": "v2.1.0"
+  },
+  "data": [
+    {
+      "entity_type": "medication",
+      "medication_name": "Metformin",
+      "strength": "500 MG",
+      "dosage": "2",
+      "form": "TABLET",
+      "route": "PO",
+      "frequency": "BID",
+      "instructions": "Take with meals",
+      "start_date": "2025-07-28",
+      "confidence_score": 0.94,
+      "extracted_text": "Metformin 500mg tablets, take 2 by mouth twice daily with meals"
+    }
+  ]
+}
+
+
+###
+# Test callback endpoint with no entities (empty data array)
+POST http://127.0.0.1:13000/api/entities
+Content-Type: application/json
+
+{
+  "app_id": "demo_app",
+  "tenant_id": "54321",
+  "patient_id": "9e01906eccfa4e8db14171b1f7ccc914",
+  "document_id": "doc_no_entities_12345",
+  "source_id": "host_empty_doc_DEF456",
+  "status": "completed",
+  "timestamp": "2025-07-28T15:45:00.000Z",
+  "run_id": "run_no_entities_12345",
+  "metadata": {
+    "processing_duration_ms": 8000,
+    "extraction_type": "entity_extraction",
+    "model_version": "v2.1.0"
+  },
+  "data": []
+}
+
+
+###
+# Test callback endpoint with null data (no entities found)
+POST http://127.0.0.1:13000/api/entities
+Content-Type: application/json
+
+{
+  "app_id": "demo_app",
+  "tenant_id": "54321",
+  "patient_id": "9e01906eccfa4e8db14171b1f7ccc914",
+  "document_id": "doc_null_data_12345",
+  "status": "completed",
+  "timestamp": "2025-07-28T15:45:00.000Z",
+  "run_id": "run_null_data_12345",
+  "metadata": {
+    "processing_duration_ms": 5000,
+    "extraction_type": "entity_extraction",
+    "model_version": "v2.1.0"
+  },
+  "data": null
+}

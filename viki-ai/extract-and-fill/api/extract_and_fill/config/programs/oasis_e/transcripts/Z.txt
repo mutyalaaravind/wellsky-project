@@ -1,0 +1,24 @@
+Are you within normal limits?
+Yes i am
+Do you feel any Dizziness?
+Yes, I feel a little dizzy
+Are you feeling any Chest pain?
+No i do not feel any chest pain
+Do you have an edema?
+No i do not have an edema
+Do you have a dependant edema?
+Yes i do have a Pitting dependant edema
+Is there any Neck Vein Distention?
+Yes i do feel distention in the neck vein sometimes 
+Do you feel any peripheral pulses?
+No i do not
+Do you require any cap refills?
+Yes, i require cap refills of 6 seconds
+Do you hear any heart sounds?
+Yes i do hear a Gallop kind of heart sound
+Could you tell me when you had your Pacemaker inserted?
+yes,i had it inserted on thursday 10/12/23
+Could you tell me when you had you AICD inserted?
+No,I didnt have an AICD inserted 
+Do you want to share any further comments?
+No as of now

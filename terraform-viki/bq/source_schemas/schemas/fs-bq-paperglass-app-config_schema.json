@@ -1,0 +1,98 @@
+[
+  {
+    "name": "active",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "config.enable_ocr",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.evidence_weak_matching_enabled",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.evidence_weak_matching_firsttoken_enabled",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.extract_allergies",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.extract_conditions",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.extract_immunizations",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.extraction_persisted_to_medication_profile",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.medispan_matching_version",
+    "type": "STRING"
+  },
+  {
+    "name": "config.on_demand_external_files_config.enabled",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.on_demand_external_files_config.uploaded_date_cut_off_window_in_days",
+    "type": "INTEGER"
+  },
+  {
+    "name": "config.orchestration_confirm_evidence_linking_enabled",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.retry_config",
+    "type": "STRING"
+  },
+  {
+    "name": "config.tenant_allow_list",
+    "type": "STRING"
+  },
+  {
+    "name": "config.use_extract_and_classify_strategy",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.use_ordered_events",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.use_pagination",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "config.use_v3_orchestration_engine",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  }
+]

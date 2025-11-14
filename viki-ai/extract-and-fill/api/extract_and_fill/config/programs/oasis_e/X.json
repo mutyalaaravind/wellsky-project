@@ -1,0 +1,59 @@
+{
+    "X0000-0": {
+      "question": "Are you within normal limits?",
+      "instructions": "if patient is within normal limits , select true otherwise false"
+    },
+    "X0000-1": {
+      "question": "Are you Diabetic?",
+      "instructions": "if patient is diabetic, select true otherwise false"
+    },
+    "X0000-2": {
+      "question": "Are you dependant on Insulin?",
+      "instructions": "if patient is dependant on insulin, select true otherwise false"
+    },
+    "X0000-3": {
+        "question": "Are you able to draw up a correct dose of insulin independently?",
+        "instructions": "if patient is able to draw up a correct dose of insulin independently, select true otherwise false"
+    },
+    "X0000-4": {
+        "question": "Can you properly administer your own insulin?",
+        "instructions": "if patient has can properly administer their own insulin, select true otherwise false"
+    },
+    "X0000-5": {
+        "question": "Are you taking an oral hypoglycemic agent?",
+        "instructions": "if patient is taking a oral hypoglycemic agent, select true otherwise false"
+    },
+    "X0000-6": {
+        "question": "Is your caregiver able to draw up and administer insulin",
+        "instructions": "if care giver is able to draw up and administer insulin, select true, if there is no caregiver select N/A otherwise false"
+    },
+    "X0000-7": {
+        "question": "Is your caregiver independant with glucometer use",
+        "instructions": "if the caregiver is independant with glucometer use, select true, if there is no caregiver select N/A otherwise false"
+    },
+    "X0000-8": {
+        "question": "Do you or your caregiver routinely perform inspection of your lower extremities?",
+        "instructions": "if patient or caregiver performs a routine inspection of your lower extremity, select true otherwise false"
+    },
+    "X0000-9": {
+        "question": "Do you have any endocrine related problems",
+        "instructions": "If patient has provided with any endocrine related problems, select true otherwise false"
+    },
+    "X0000-10": {
+        "question": "Could you tell me your blood sugar levels?",
+        "instructions": "If patient has provided with the blood sugar levels, select true otherwise false"
+    },
+    "X0000-11": {
+        "question": "Can you tell me who your blood sugar was checked by?",
+        "instructions": "If patient has provided information of their blood sugar was checked by, then select true otherwise false"
+    },
+    "X0000-12": {
+        "question": "At which site was your blood sugar checked at?",
+        "instructions": "If patient has provided information of where their blood sugar was checked at, then select true otherwise false"
+    },
+    "X0000-13": {
+        "question": "Do you have any further comments?",
+        "instructions": "If patient has provided addition information then select true otherwise false"
+    }
+  }
+  

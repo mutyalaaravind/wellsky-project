@@ -1,0 +1,559 @@
+# Build, Package & Deploy Pipeline - Similar to Azure DevOps flow
+name: Build, Package & Deploy
+
+on:
+  # Run on pushes to main branch only
+  push:
+    branches:
+      - main
+    # Exclude tags from triggering the pipeline
+    tags-ignore:
+      - 'v*'
+  # Run on PRs to main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read   # This is required for actions/checkout
+  id-token: write  # This is required for requesting the JWT
+
+env:
+  # Environment variables
+  DEV_MGMT_WIP: projects/766679521273/locations/global/workloadIdentityPools/ci-cd-dev/providers/wellsky-github
+  DEV_MGMT_SA: github-builder@viki-dev-mgmt-wsky.iam.gserviceaccount.com
+
+  DEV_APP_WIP: projects/145042810266/locations/global/workloadIdentityPools/ci-cd-app-dev/providers/wellsky-github-app
+  DEV_APP_SA: github-builder-app@viki-dev-app-wsky.iam.gserviceaccount.com
+
+  QA_APP_WIP: projects/18900418456/locations/global/workloadIdentityPools/ci-cd-app-qa/providers/wellsky-github-app
+  QA_APP_SA: github-builder-app@viki-qa-app-wsky.iam.gserviceaccount.com
+
+  DEV_GAR_URL: us-east4-docker.pkg.dev/viki-dev-mgmt-wsky/images
+  DEV_GCS_BUCKET: viki-static-dev
+  GOOGLE_CLOUD_PROJECT: viki-dev-mgmt-wsky
+
+  DEV_APP_PROJECT: viki-dev-app-wsky
+  QA_APP_PROJECT: viki-qa-app-wsky
+
+  # Shared service matrix configuration
+  SERVICES_MATRIX: |
+    [
+      {
+        "name": "autoscribe_api",
+        "dockerfile_path": "autoscribe/api/Dockerfile",
+        "app_name": "autoscribe-api",
+        "build_context": "autoscribe/api",
+        "service_type": "api",
+        "deploy": true,
+        "service_name": "ai-autoscribe-api"
+      },
+      {
+        "name": "autoscribe_widget",
+        "dockerfile_path": "autoscribe/widget/Dockerfile",
+        "app_name": "autoscribe-widget",
+        "build_context": "autoscribe/widget",
+        "service_type": "frontend",
+        "deploy": true,
+        "service_name": "ai-autoscribe-widget"
+      },
+      {
+        "name": "extract_and_fill_api",
+        "dockerfile_path": "extract-and-fill/api/Dockerfile",
+        "app_name": "extract-and-fill-api",
+        "build_context": "extract-and-fill/api",
+        "service_type": "api",
+        "deploy": true,
+        "service_name": "ai-extract-and-fill-api"
+      },
+      {
+        "name": "extract_and_fill_widget",
+        "dockerfile_path": "extract-and-fill/widget/Dockerfile",
+        "app_name": "extract-and-fill-widget",
+        "build_context": "extract-and-fill/widget",
+        "service_type": "frontend",
+        "deploy": true,
+        "service_name": "ai-extract-and-fill-widget"
+      },
+      {
+        "name": "demo_api",
+        "dockerfile_path": "demo/api/Dockerfile",
+        "app_name": "demo-api",
+        "build_context": "demo/api",
+        "service_type": "api",
+        "deploy": true,
+        "service_name": "ai-demo-api"
+      },
+      {
+        "name": "demo_dashboard",
+        "dockerfile_path": "demo/dashboard/Dockerfile",
+        "app_name": "demo-dashboard",
+        "build_context": "demo/dashboard",
+        "service_type": "frontend",
+        "deploy": true,
+        "service_name": "ai-demo-dashboard"
+      },
+      {
+        "name": "admin_api",
+        "dockerfile_path": "admin/api/Dockerfile",
+        "app_name": "admin-api",
+        "build_context": ".",
+        "service_type": "api",
+        "deploy": true,
+        "service_name": "ai-admin-api"
+      },
+      {
+        "name": "admin_ui",
+        "dockerfile_path": "admin/ui/Dockerfile",
+        "app_name": "admin-ui",
+        "build_context": "admin/ui",
+        "service_type": "frontend",
+        "deploy": true,
+        "service_name": "ai-admin-ui"
+      },
+      {
+        "name": "nlparse_api",
+        "dockerfile_path": "nlparse/api/Dockerfile",
+        "app_name": "nlparse-api",
+        "build_context": "nlparse/api",
+        "service_type": "api",
+        "deploy": true,
+        "service_name": "ai-nlparse-api"
+      },
+      {
+        "name": "nlparse_widget",
+        "dockerfile_path": "nlparse/widget/Dockerfile",
+        "app_name": "nlparse-widget",
+        "build_context": "nlparse/widget",
+        "service_type": "frontend",
+        "deploy": true,
+        "service_name": "ai-nlparse-widget"
+      },
+      {
+        "name": "paperglass_api",
+        "dockerfile_path": "paperglass/api/Dockerfile",
+        "app_name": "paperglass-api",
+        "build_context": "paperglass/api",
+        "service_type": "api",
+        "deploy": true,
+        "service_name": "ai-paperglass-api"
+      },
+      {
+        "name": "paperglass_widget",
+        "dockerfile_path": "paperglass/widget/Dockerfile",
+        "app_name": "paperglass-widget",
+        "build_context": "paperglass/widget",
+        "service_type": "frontend",
+        "deploy": true,
+        "service_name": "ai-paperglass-widget"
+      },
+      {
+        "name": "medication_extraction",
+        "dockerfile_path": "medication_extraction/Dockerfile",
+        "app_name": "medication-extraction",
+        "build_context": "medication_extraction",
+        "service_type": "standalone",
+        "deploy": true,
+        "service_name": "ai-medication-extraction"
+      },
+      {
+        "name": "entity_extraction",
+        "dockerfile_path": "entity_extraction/Dockerfile",
+        "app_name": "entity-extraction",
+        "build_context": "entity_extraction",
+        "service_type": "standalone",
+        "deploy": true,
+        "service_name": "ai-entity-extraction"
+      },
+      {
+        "name": "distributed_job_tracking",
+        "dockerfile_path": "distributed_job_tracking/Dockerfile",
+        "app_name": "distributed-job-tracking",
+        "build_context": "distributed_job_tracking",
+        "service_type": "standalone",
+        "deploy": true,
+        "service_name": "ai-distributed-job-tracking"
+      }
+    ]
+
+
+jobs:
+  #################################### VERSION STAGE ################################################
+  version:
+    name: Version
+    runs-on: ubuntu-latest
+    outputs:
+      semver: ${{ steps.gitversion.outputs.semver }}
+      image_tag: ${{ steps.generate_tags.outputs.image_tag }}
+      head_ref: ${{ steps.generate_tags.outputs.head_ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.10.2
+        with:
+          versionSpec: '5.x'
+
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.10.2
+        with:
+          useConfigFile: true
+
+      - name: Generate Docker image tags
+        id: generate_tags
+        run: |
+          IMAGE_TAG=$(git describe --tags --always)
+          HEAD_REF=$(git rev-parse HEAD)
+          echo "Image tag: $IMAGE_TAG"
+          echo "Head ref: $HEAD_REF"
+          echo "image_tag=$IMAGE_TAG" >> "$GITHUB_OUTPUT"
+          echo "head_ref=$HEAD_REF" >> "$GITHUB_OUTPUT"
+
+  #################################### SETUP SERVICES MATRIX ################################################
+  setup-matrix:
+    name: Setup Services Matrix
+    runs-on: ubuntu-latest
+    outputs:
+      services-matrix: ${{ steps.matrix.outputs.services-matrix }}
+      deploy-matrix: ${{ steps.filter.outputs.deploy-matrix }}
+    steps:
+      - name: Setup services matrix
+        id: matrix
+        run: |
+          SERVICES_MATRIX='${{ env.SERVICES_MATRIX }}'
+          # Use EOF delimiter to handle multiline JSON properly
+          {
+            echo "services-matrix<<EOF"
+            echo "$SERVICES_MATRIX"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Filter deployable services
+        id: filter
+        run: |
+          SERVICES_MATRIX='${{ env.SERVICES_MATRIX }}'
+          DEPLOY_SERVICES=$(echo "$SERVICES_MATRIX" | jq -c '[.[] | select(.deploy == true)]')
+          # Use EOF delimiter for multiline JSON
+          {
+            echo "deploy-matrix<<EOF"
+            echo "$DEPLOY_SERVICES"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "Deployable services:"
+          echo "$DEPLOY_SERVICES" | jq -r '.[] | "- \(.name) (\(.app_name))"'
+
+  #################################### TESTS STAGE ################################################
+  medication-extraction-tests:
+    name: Run Medication Extraction Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        working-directory: ./medication_extraction
+        run: |
+          pip install uv
+          uv venv
+          source .venv/bin/activate
+          uv pip install .
+          uv pip install ".[test]"
+
+      - name: Run unit tests
+        working-directory: ./medication_extraction
+        run: set -a && . ./.env.local && set +a && uv run pytest tests/unit/ -v --cov=src --cov-report=term-missing --cov-report=html
+
+  entity-extraction-tests:
+    name: Run Entity Extraction Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        working-directory: ./entity_extraction
+        run: |
+          pip install uv
+          uv venv
+          source .venv/bin/activate
+          uv pip install .
+          uv pip install ".[test]"
+
+      - name: Run unit tests
+        working-directory: ./entity_extraction
+        run: uv run pytest tests/unit/ -v --cov=src --cov-report=term-missing --cov-fail-under=80
+
+  #################################### PACKAGE STAGE (Pull Requests) ################################################
+  package:
+    name: Package (Build Only)
+    if: github.event_name == 'pull_request'
+    needs: [version, setup-matrix, medication-extraction-tests, entity-extraction-tests]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.setup-matrix.outputs.services-matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Copy shared directory
+        run: |
+          # Copy shared directory to the build context (skip if already at root)
+          if [ "${{ matrix.build_context }}" != "." ]; then
+            cp -r shared ${{ matrix.build_context }}/
+          fi
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.build_context }}
+          file: ${{ matrix.dockerfile_path }}
+          secrets: |
+            "npmrc=${{ secrets.NPMRC }}"
+          push: false
+          tags: |
+            ai-${{ matrix.app_name }}:${{ needs.version.outputs.head_ref }}
+
+  #################################### PACKAGE AND PUBLISH STAGE (Push to Main) ################################################
+  package-and-publish:
+    name: Package & Publish
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [version, setup-matrix, medication-extraction-tests, entity-extraction-tests]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.setup-matrix.outputs.services-matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Authenticate to Google Cloud
+        id: auth_dev
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ env.DEV_MGMT_WIP }}
+          service_account: ${{ env.DEV_MGMT_SA }}
+          token_format: access_token
+
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v3
+        with:
+          registry: us-east4-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth_dev.outputs.access_token }}
+
+      - name: Copy shared directory
+        run: |
+          # Copy shared directory to the build context (skip if already at root)
+          if [ "${{ matrix.build_context }}" != "." ]; then
+            cp -r shared ${{ matrix.build_context }}/
+          fi
+
+      - name: Build & push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.build_context }}
+          file: ${{ matrix.dockerfile_path }}
+          secrets: |
+            "npmrc=${{ secrets.NPMRC }}"
+          push: true
+          tags: |
+            ${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}:latest
+            ${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}:${{ needs.version.outputs.image_tag }}
+            ${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}:${{ needs.version.outputs.head_ref }}
+          cache-from: |
+            type=registry,ref=${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}-cache:latest
+          cache-to: |
+            type=registry,ref=${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}-cache:latest,mode=max
+
+  #################################### DEPLOY TO DEV STAGE ################################################
+  deploy-to-dev:
+    name: Deploy to Dev Environment
+    if: github.ref == 'refs/heads/main'
+    needs: [version, package-and-publish, setup-matrix]
+    runs-on: ubuntu-latest
+    environment: viki-dev
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.setup-matrix.outputs.deploy-matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Authenticate to Google Cloud
+        id: auth_dev
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ env.DEV_APP_WIP }}
+          service_account: ${{ env.DEV_APP_SA }}
+
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 450.0.0'
+          project_id: ${{ env.DEV_APP_PROJECT }}
+
+      - name: Validate Cloud Run Service
+        run: |
+          gcloud run services describe ${{ matrix.service_name }} \
+            --project=${{ env.DEV_APP_PROJECT }} \
+            --region=us-east4 || echo "Service does not exist yet"
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ matrix.service_name }} \
+            --image=${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}:${{ needs.version.outputs.head_ref }} \
+            --project=${{ env.DEV_APP_PROJECT }} \
+            --region=us-east4
+
+      - name: Update Traffic to Latest
+        run: |
+          gcloud run services update-traffic ${{ matrix.service_name }} \
+            --to-latest \
+            --project=${{ env.DEV_APP_PROJECT }} \
+            --region=us-east4
+
+  #################################### DEPLOY TO QA STAGE ################################################
+  deploy-to-qa:
+    name: Deploy to QA Environment
+    if: github.ref == 'refs/heads/main'
+    needs: [version, package-and-publish, deploy-to-dev, setup-matrix]
+    runs-on: ubuntu-latest
+    environment: viki-qa
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.setup-matrix.outputs.deploy-matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Authenticate to Google Cloud
+        id: auth_qa
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ env.QA_APP_WIP }}
+          service_account: ${{ env.QA_APP_SA }}
+
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 450.0.0'
+          project_id: ${{ env.QA_APP_PROJECT }}
+
+      - name: Validate Cloud Run Service
+        run: |
+          gcloud run services describe ${{ matrix.service_name }} \
+            --project=${{ env.QA_APP_PROJECT }} \
+            --region=us-east4 || echo "Service does not exist yet"
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ matrix.service_name }} \
+            --image=${{ env.DEV_GAR_URL }}/ai-${{ matrix.app_name }}:${{ needs.version.outputs.head_ref }} \
+            --project=${{ env.QA_APP_PROJECT }} \
+            --region=us-east4
+
+      - name: Update Traffic to Latest
+        run: |
+          gcloud run services update-traffic ${{ matrix.service_name }} \
+            --to-latest \
+            --project=${{ env.QA_APP_PROJECT }} \
+            --region=us-east4
+
+  #################################### BUILD FRONTENDS ################################################
+  # build-frontends:
+  #   name: Build & Deploy Frontends
+  #   if: github.ref == 'refs/heads/main'
+  #   needs: [version]
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       frontend:
+  #         - sample
+  #         - medwidget
+  #   defaults:
+  #     run:
+  #       working-directory: ./frontends/${{ matrix.frontend }}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #         ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         cache: 'npm'
+  #         cache-dependency-path: ./frontends/${{ matrix.frontend }}/package-lock.json
+
+  #     - name: Authenticate to Google Cloud
+  #       id: auth_dev
+  #       uses: 'google-github-actions/auth@v2'
+  #       with:
+  #         workload_identity_provider: ${{ env.DEV_APP_WIP }}
+  #         service_account: ${{ env.DEV_APP_SA }}
+
+  #     - name: Set up Cloud SDK
+  #       uses: 'google-github-actions/setup-gcloud@v2'
+  #       with:
+  #         version: '>= 450.0.0'
+  #         project_id: viki-dev-mgmt-wsky
+
+  #     - name: Configure .npmrc
+  #       env:
+  #         NPMRC: ${{ secrets.NPMRC }}
+  #       run: |
+  #         printf "$NPMRC" > ./.npmrc
+
+  #     - name: Build static
+  #       run: |
+  #         npm ci
+  #         npm run build
+
+  #     - name: Deploy to GCS
+  #       run: |
+  #         gsutil -m cp -r ./build/* gs://${{ env.DEV_GCS_BUCKET }}/frontends/${{ matrix.frontend }}/${{ needs.version.outputs.image_tag }}/
+  #         gsutil -m cp -r ./build/* gs://${{ env.DEV_GCS_BUCKET }}/frontends/${{ matrix.frontend }}/${{ needs.version.outputs.head_ref }}/

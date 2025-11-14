@@ -1,0 +1,272 @@
+# build on all branches and let the pipeline configure the conditional logic.
+trigger:
+  branches:
+    include:
+      - '*'
+    exclude:
+      # exclude tags from triggering the pipeline because we are releasing off the main branch
+      - 'refs/tags/*'
+  # paths:
+  #   include:
+  #     - autoscribe
+  #     - extract-and-fill
+  #     - demo
+  #     - nlparse
+  #     - paperglass
+  #     - medication_extraction
+  #     - entity_extraction
+  #     - distributed_job_tracking
+  #     - frontends
+
+pr:
+  branches:
+    include:
+      - main
+
+# pr: none # disable PR builds because our merge strategy is to squash and merge
+
+variables:
+  - group: npm-secrets
+  - name: System.Debug
+    value: true
+  - name: DEV_GAR_URL
+    value: 'us-east4-docker.pkg.dev/viki-dev-mgmt-wsky/images'
+  - name: DEV_GCS_BUCKET
+    value: 'viki-static-dev'
+  - name: GOOGLE_CLOUD_PROJECT
+    value: 'viki-dev-mgmt-wsky'
+
+parameters:
+  - name: githubConnection
+    type: string
+    default: enterprise-platform
+
+  - name: artifactProjectId
+    type: string
+    default: viki-dev-mgmt-wsky
+
+  - name: sources
+    type: object
+    default:
+      - name: autoscribe_api
+        dockerFilePath: autoscribe/api/Dockerfile
+        appName: autoscribe-api
+        buildContext: autoscribe/api
+      # - name: autoscribe_widget
+      #   dockerFilePath: autoscribe/widget/Dockerfile
+      #   appName: autoscribe-widget
+      #   buildContext: autoscribe/widget
+      # - name: extract_and_fill_api
+      #   dockerFilePath: extract-and-fill/api/Dockerfile
+      #   appName: extract-and-fill-api
+      #   buildContext: extract-and-fill/api
+      # - name: extract_and_fill_widget
+      #   dockerFilePath: extract-and-fill/widget/Dockerfile
+      #   appName: extract-and-fill-widget
+      #   buildContext: extract-and-fill/widget
+      # - name: demo_api
+      #   dockerFilePath: demo/api/Dockerfile
+      #   appName: demo-api
+      #   buildContext: demo/api
+      # - name: demo_dashboard
+      #   dockerFilePath: demo/dashboard/Dockerfile
+      #   appName: demo-dashboard
+      #   buildContext: demo/dashboard
+      # - name: nlparse_api
+      #   dockerFilePath: nlparse/api/Dockerfile
+      #   appName: nlparse-api
+      #   buildContext: nlparse/api
+      # - name: nlparse_widget
+      #   dockerFilePath: nlparse/widget/Dockerfile
+      #   appName: nlparse-widget
+      #   buildContext: nlparse/widget
+      # - name: paperglass_api
+      #   dockerFilePath: paperglass/api/Dockerfile
+      #   appName: paperglass-api
+      #   buildContext: paperglass/api
+      # - name: paperglass_widget
+      #   dockerFilePath: paperglass/widget/Dockerfile
+      #   appName: paperglass-widget
+      #   buildContext: paperglass/widget
+      # - name: medication_extraction
+      #   dockerFilePath: medication_extraction/Dockerfile
+      #   appName: medication-extraction
+      #   buildContext: medication_extraction
+      # - name: entity_extraction
+      #   dockerFilePath: entity_extraction/Dockerfile
+      #   appName: entity-extraction
+      #   buildContext: entity_extraction
+      # - name: distributed_job_tracking
+      #   dockerFilePath: distributed_job_tracking/Dockerfile
+      #   appName: distributed-job-tracking
+      #   buildContext: distributed_job_tracking
+
+  - name: frontends
+    type: object
+    default:
+      - sample
+      - medwidget
+
+stages:
+  #################################### VERSION STAGE ################################################
+  - stage: Version
+    displayName: Version
+    jobs:
+      - job: Version
+        displayName: Version
+        steps:
+          - template: .azure-pipelines-templates/gitversion-version.yml
+          
+          # - template: .azure-pipelines-templates/github-release.yml
+          #   parameters:
+          #     githubConnection: ${{ parameters.githubConnection }}
+          #     version: $(semVer)
+  #################################### PACKAGE AND PUBLISH STAGE ################################################
+  # only package on all branches except main
+  - ${{ if not(eq(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
+    - stage: Package
+      displayName: Package
+      dependsOn:
+        - Version
+      jobs:
+        - ${{ each source in parameters.sources }}:
+            - job: ${{ source.name }}
+              displayName: ${{ source.name }}
+              variables:
+                semVer: $[ stageDependencies.Version.Version.outputs['version.semVer'] ]
+              steps:
+                # Generate Docker image tags
+                - script: |
+                    IMAGE_TAG=$(git describe --tags --always)
+                    HEAD_REF=$(git rev-parse HEAD)
+                    echo "##vso[task.setvariable variable=IMAGE_TAG]$IMAGE_TAG"
+                    echo "##vso[task.setvariable variable=HEAD_REF]$HEAD_REF"
+                    echo "Image tag: $IMAGE_TAG"
+                    echo "Head ref: $HEAD_REF"
+                  displayName: Generate Docker image tags
+
+                - template: .azure-pipelines-templates/docker-build.yml
+                  parameters:
+                    dockerFilePath: ${{ source.dockerFilePath }}
+                    dockerImageName: ai2-${{ source.appName }}
+                    buildContext: ${{ source.buildContext }}
+                    version: $(HEAD_REF)
+
+  # package and publish only on main (note that we need to do this in one job because we are pushing from the local docker registry to the Google Artifact Registry)
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+    - stage: PackageAndPublish
+      displayName: Package And Publish
+      dependsOn:
+        - Version
+      jobs:
+        - ${{ each source in parameters.sources }}:
+            - job: ${{ source.name }}
+              displayName: ${{ source.name }}
+              variables:
+                semVer: $[ stageDependencies.Version.Version.outputs['version.semVer'] ]
+              steps:
+                # Generate Docker image tags
+                - script: |
+                    IMAGE_TAG=$(git describe --tags --always)
+                    HEAD_REF=$(git rev-parse HEAD)
+                    echo "##vso[task.setvariable variable=IMAGE_TAG]$IMAGE_TAG"
+                    echo "##vso[task.setvariable variable=HEAD_REF]$HEAD_REF"
+                    echo "Image tag: $IMAGE_TAG"
+                    echo "Head ref: $HEAD_REF"
+                  displayName: Generate Docker image tags
+
+                - template: .azure-pipelines-templates/docker-build.yml
+                  parameters:
+                    dockerFilePath: ${{ source.dockerFilePath }}
+                    dockerImageName: ai2-${{ source.appName }}
+                    buildContext: ${{ source.buildContext }}
+                    version: $(HEAD_REF)
+
+                - template: .azure-pipelines-templates/gcp-artifactregistry-push.yml
+                  parameters:
+                    adoServiceConnection: ${{ parameters.artifactProjectId }}
+                    dockerImageName: ai2-${{ source.appName }}
+                    projectId: ${{ parameters.artifactProjectId }}
+                    version: $(HEAD_REF)
+
+    ################################### DEPLOY TO DEV GCP PROJECT ################################################
+    - stage: DeployToDev
+      displayName: Deploy To Dev Environment
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+      dependsOn:
+        - Version
+        - PackageAndPublish
+      jobs:
+        - ${{ each source in parameters.sources }}:
+            - deployment: ${{ source.name }}
+              displayName: ${{ source.name }}
+              environment: viki-dev
+              variables:
+                semVer: $[ stageDependencies.Version.Version.outputs['version.semVer'] ]
+              strategy:
+                runOnce:
+                  deploy:
+                    steps:
+                      # avoid downloading artifacts (note that this is auto injected for the deploy part but we do not need it, see https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops#descriptions-of-lifecycle-hooks)
+                      - download: none
+                      
+                      # Generate Docker image tags
+                      - script: |
+                          IMAGE_TAG=$(git describe --tags --always)
+                          HEAD_REF=$(git rev-parse HEAD)
+                          echo "##vso[task.setvariable variable=IMAGE_TAG]$IMAGE_TAG"
+                          echo "##vso[task.setvariable variable=HEAD_REF]$HEAD_REF"
+                          echo "Image tag: $IMAGE_TAG"
+                          echo "Head ref: $HEAD_REF"
+                        displayName: Generate Docker image tags
+                      
+                      - template: .azure-pipelines-templates/gcp-cloudrun-deploy.yml
+                        parameters:
+                          adoServiceConnection: viki-dev-app-wsky
+                          artifactRegistryProjectId: ${{ parameters.artifactProjectId }}
+                          dockerImageName: ai2-${{ source.appName }}
+                          projectId: viki-dev-app-wsky
+                          region: us-east4
+                          service: ai2-${{ source.appName }}
+                          version: $(HEAD_REF)
+
+    ################################### DEPLOY TO QA GCP PROJECT ################################################
+    # - stage: DeployToQa
+    #   displayName: Deploy To QA Environment
+    #   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    #   dependsOn:
+    #     - Version
+    #     - DeployToDev
+    #   jobs:
+    #     - ${{ each source in parameters.sources }}:
+    #         - deployment: ${{ source.name }}
+    #           displayName: ${{ source.name }}
+    #           environment: viki-qa
+    #           variables:
+    #             semVer: $[ stageDependencies.Version.Version.outputs['version.semVer'] ]
+    #           strategy:
+    #             runOnce:
+    #               deploy:
+    #                 steps:
+    #                   # avoid downloading artifacts (note that this is auto injected for the deploy part but we do not need it, see https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops#descriptions-of-lifecycle-hooks)
+    #                   - download: none
+
+    #                   # Generate Docker image tags
+    #                   - script: |
+    #                       IMAGE_TAG=$(git describe --tags --always)
+    #                       HEAD_REF=$(git rev-parse HEAD)
+    #                       echo "##vso[task.setvariable variable=IMAGE_TAG]$IMAGE_TAG"
+    #                       echo "##vso[task.setvariable variable=HEAD_REF]$HEAD_REF"
+    #                       echo "Image tag: $IMAGE_TAG"
+    #                       echo "Head ref: $HEAD_REF"
+    #                     displayName: Generate Docker image tags
+
+    #                   - template: .azure-pipelines-templates/gcp-cloudrun-deploy.yml
+    #                     parameters:
+    #                       adoServiceConnection: viki-qa-app-wsky
+    #                       artifactRegistryProjectId: ${{ parameters.artifactProjectId }}
+    #                       dockerImageName: ai2-${{ source.appName }}
+    #                       projectId: viki-qa-app-wsky
+    #                       region: us-east4
+    #                       service: ai2-${{ source.appName }}
+    #                       version: $(HEAD_REF)

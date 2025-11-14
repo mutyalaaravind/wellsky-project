@@ -1,0 +1,27 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+input FormField {
+    name: String!
+    question: String!
+}
+
+type FormValue {
+    name: String!
+    value: String!
+}
+
+type CompleteFormResult {
+    error: String
+    form_values: [FormValue!]
+}
+
+type Query {
+    version: String!
+}
+
+type Mutation {
+    complete_form(text: String!, form_fields: [FormField!]!): CompleteFormResult
+}

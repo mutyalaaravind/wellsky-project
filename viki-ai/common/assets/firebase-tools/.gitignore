@@ -1,0 +1,8 @@
+.cache
+.config
+*.log
+/data
+/.npm
+/.ash_history
+/.bash_history
+/firebase-export-*

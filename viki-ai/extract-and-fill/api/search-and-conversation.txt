@@ -1,0 +1,325 @@
+pipenv run python extract_and_fill/entrypoints/medical_coding_tests.py
+SearchPager<results {
+  id: "1ee076ce99452447f0b53577232cc920"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/1ee076ce99452447f0b53577232cc920"
+    id: "1ee076ce99452447f0b53577232cc920"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "Visit note redacted record"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "YES <b>ALL DIAGNOSIS LISTED</b> IN THIS ASSESSMENT HAVE BEEN VERIFIED WITH THE ... <b>SYMPTOMS</b> REPORTED - RANGING FROM MILD <b>SYMPTOMS</b> TO SEVERE ILLNESS. <b>SYMPTOMS</b> MAY&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/Visit note redacted record.pdf"
+        }
+      }
+    }
+  }
+}
+results {
+  id: "ede132a2965bd9243572995205584194"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/ede132a2965bd9243572995205584194"
+    id: "ede132a2965bd9243572995205584194"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "485 orders redacted chart"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "... <b>DIAGNOSIS</b>, LAST REHOSPITALIZATION, ER, OR URGENCY CARE VISIT): PT <b>REFERRED TO</b> HOME S/P HOSPITALIZATION DUE TO HEADACHE, NECK PAIN, <b>FOUND</b> TO HAVE CNS&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/485 orders redacted chart.pdf"
+        }
+      }
+    }
+  }
+}
+results {
+  id: "8348559eeca554348f96f811eeabd13d"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/8348559eeca554348f96f811eeabd13d"
+    id: "8348559eeca554348f96f811eeabd13d"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "Client Coordination Notes Report-redacted info"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "... <b>DIAGNOSIS</b>: R51.9HEADACHE, UNSPECIFIED. THERE WAS NO F2F <b>DOCUMENT</b> SCANNED INTO THIS MEDICAL RECORD AT THE TIME OF CLINICAL REVIEW. ... <b>ANY</b> OASIS CHANGES&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/Client Coordination Notes Report-redacted info.pdf"
+        }
+      }
+    }
+  }
+}
+results {
+  id: "fac855401f1009ce1912432e974b48c4"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/fac855401f1009ce1912432e974b48c4"
+    id: "fac855401f1009ce1912432e974b48c4"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "MD documentation redacted chart"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "Anywhere Hospital 1111 Main St <b>Any</b> Town, USA 12345 Patient Name: MOUSE, MINNIE MR#: 123456789 Print Date/Time: 1/4&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/MD documentation redacted chart.pdf"
+        }
+      }
+    }
+  }
+}
+results {
+  id: "a35c98e8e14437bb59cfd6bf09ad0cfd"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/a35c98e8e14437bb59cfd6bf09ad0cfd"
+    id: "a35c98e8e14437bb59cfd6bf09ad0cfd"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "MD documentation 2 redacted chart"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "... <b>DIAGNOSIS</b>: End-stage osteoarthritis, right shoulder. POSTOPERATIVE <b>DIAGNOSIS</b> ... <b>Please</b> note, due to the complexity of this case, need for help positioning&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/MD documentation 2 redacted chart.pdf"
+        }
+      }
+    }
+  }
+}
+results {
+  id: "1668bd026db76a6fe207e5bedcc4de4b"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/1668bd026db76a6fe207e5bedcc4de4b"
+    id: "1668bd026db76a6fe207e5bedcc4de4b"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "MedList redacted chart"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "... <b>DIAGNOSIS</b> 2 R65.21 SEVERE SEPSIS WITH SEPTIC SHOCK EXACERBATION 12/29/2021 <b>DIAGNOSIS</b> Client: MR No: Address: Physician: Address: JOHN DOE, MD 14444 MAIN ST <b>ANY</b>&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/MedList redacted chart.pdf"
+        }
+      }
+    }
+  }
+}
+results {
+  id: "0c7bbf6e348d9638a2c95cada9faf84d"
+  document {
+    name: "projects/145042810266/locations/us/collections/default_collection/dataStores/oasis-redacted-samples_1707246676419/branches/0/documents/0c7bbf6e348d9638a2c95cada9faf84d"
+    id: "0c7bbf6e348d9638a2c95cada9faf84d"
+    derived_struct_data {
+      fields {
+        key: "title"
+        value {
+          string_value: "Wound Record Report-redacted chart"
+        }
+      }
+      fields {
+        key: "snippets"
+        value {
+          list_value {
+            values {
+              struct_value {
+                fields {
+                  key: "snippet"
+                  value {
+                    string_value: "... <b>LISTED</b> IN SUPPORTING DOCUMENTATION FOR RISK OF HOSPITAL READMISSION SECTION OF THE PLAN OF CARE. OCCUPATIONAL THERAPY TO EVALUATE PATIENT FOR OT SERVICES&nbsp;..."
+                  }
+                }
+                fields {
+                  key: "snippet_status"
+                  value {
+                    string_value: "SUCCESS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      fields {
+        key: "link"
+        value {
+          string_value: "gs://viki-ai-provisional-dev/medical-coding-examples/Wound Record Report-redacted chart.pdf"
+        }
+      }
+    }
+  }
+}
+total_size: 60
+attribution_token: "XvBdCgsIm-mCrwYQgrfrVBIkNjVkZjlkYjYtMDAwMC0yMDI3LTlhZjktMjQwNTg4NzI1ZWQ0IgdHRU5FUklDKiCjgJciuJmhIo33pyLC8J4VxcvzF46-nRXUsp0VkPenIg"
+summary {
+  summary_text: "The patient has the following conditions: CNS infection, bacterial meningitis, sepsis, DVT bilateral LES, depression, HTN, pitting edema bilateral LES [3]."
+  safety_attributes {
+    categories: "Dangerous Content"
+    categories: "Harassment"
+    categories: "Hate Speech"
+    categories: "Sexually Explicit"
+    scores: 0.5
+    scores: 0.4
+    scores: 0.3
+    scores: 0.2
+  }
+}
+>

@@ -1,0 +1,26 @@
+{
+    "id": "7d0cca5d476b405c98e097fc9c0f4cce",
+    "created_at": "2024-08-23T13:20:56.564567+00:00",
+    "modified_at": "2024-08-23T13:20:56.564574+00:00",
+    "created_by": "eric.coiner@wellsky.com",
+    "modified_by": "eric.coiner@wellsky.com",
+    "events": [],
+    "name": "Test case 1:  lined up.pdf",
+    "test_type": "orchestration",
+    "input_data": {
+        "document_id": "4d35fb1e8cc211ef88e042004e494300",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJmMmJjNWQ1ZDRmODI0ZjEyODZlZGJlN2U5OTA4ODhiYiIsImFtdXNlcmtleSI6IjEyMzQ1In0.q4-pGkS8507cXKKn-XCypdhsQNq1X5JguDYaR_ZJCjU"
+    },
+    "test_conditions": {
+        "max_duration_of_test_execution": 120,
+        "total_count": 3,
+        "medispan_matched_count": 3,
+        "unlisted_count": 0,
+        "list_of_medispan_ids": [
+            "29298",
+            "80777",
+            "284"
+        ],
+        "minimum_overall_score": 0.9
+    }
+}

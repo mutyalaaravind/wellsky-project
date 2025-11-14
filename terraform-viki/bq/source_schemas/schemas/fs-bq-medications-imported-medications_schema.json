@@ -1,0 +1,182 @@
+[
+  {
+    "name": "active",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "host_medication_id",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.classification",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.discontinued_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.dosage",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.end_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.form",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.frequency",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.instructions",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.medispan_id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.name",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.route",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.start_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.strength",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_id",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.amount",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.dateType",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.discontinueDate",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.dose",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.generateOrder",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "original_payload.isChange",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "original_payload.isLongStanding",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "original_payload.isNew",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "original_payload.medication",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.medicationId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "original_payload.medicationInstructions",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.orderDate",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.orderPhysicianKey",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.patientMedispanKey",
+    "type": "INTEGER"
+  },
+  {
+    "name": "original_payload.patientMedispanRegistryKey",
+    "type": "INTEGER"
+  },
+  {
+    "name": "original_payload.route",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.saveToMedicationProfile",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "original_payload.startDate",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.strength",
+    "type": "STRING"
+  },
+  {
+    "name": "original_payload.unitPerDose",
+    "type": "STRING"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  }
+]

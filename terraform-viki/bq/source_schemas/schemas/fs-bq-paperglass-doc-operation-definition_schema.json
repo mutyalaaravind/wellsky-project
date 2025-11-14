@@ -1,0 +1,186 @@
+[
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "description",
+    "type": "STRING"
+  },
+  {
+    "name": "disabled",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "document_workflow_id",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "name",
+    "type": "STRING"
+  },
+  {
+    "name": "operation_name",
+    "type": "STRING"
+  },
+  {
+    "name": "operation_type",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.ALLERGIES_EXTRACTION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.ALLERGIES_EXTRACTION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.ALLERGIES_EXTRACTION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CLASSIFICATION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CLASSIFICATION.description ",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CLASSIFICATION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CLASSIFICATION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CONDITIONS_EXTRACTION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CONDITIONS_EXTRACTION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.CONDITIONS_EXTRACTION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.EVIDENCE_CREATION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.EVIDENCE_CREATION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.EVIDENCE_CREATION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.EXTRACTED_MEDICATION_GRADER.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.EXTRACTED_MEDICATION_GRADER.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.EXTRACTED_MEDICATION_GRADER.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.IMMUNIZATIONS_EXTRACTION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.IMMUNIZATIONS_EXTRACTION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.IMMUNIZATIONS_EXTRACTION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDICATIONS_EXTRACTION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDICATIONS_EXTRACTION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDICATIONS_EXTRACTION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDISPAN_MATCHING.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDISPAN_MATCHING.description_alt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDISPAN_MATCHING.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.MEDISPAN_MATCHING.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.NORMALIZE_MEDICATIONS.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.NORMALIZE_MEDICATIONS.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.NORMALIZE_MEDICATIONS.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.TEXT_EXTRACTION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.TEXT_EXTRACTION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.TEXT_EXTRACTION.prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.TEXT_EXTRACTION_AND_CLASSIFICATION.description",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.TEXT_EXTRACTION_AND_CLASSIFICATION.model",
+    "type": "STRING"
+  },
+  {
+    "name": "step_config.TEXT_EXTRACTION_AND_CLASSIFICATION.prompt",
+    "type": "STRING"
+  }
+]

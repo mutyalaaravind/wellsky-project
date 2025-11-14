@@ -1,0 +1,82 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_local}}
+
+# Test token for 007 app, tenant 54321, patient c211f67a0a594ceab691e566b8b37c32
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+### Get Entity TOC for a document (replace with actual document ID)
+GET {{host}}/api/v2/documents/53e440dc626f11f0beb40242ac140005/toc
+Authorization: Bearer {{token}}
+
+### Expected Response Format:
+### {
+###   "document_id": "189f7190625111f094a80242ac140005",
+###   "total_entities": 25,
+###   "categories": [
+###     {
+###       "category": "medication",
+###       "label": "Medication", 
+###       "count": 15
+###     },
+###     {
+###       "category": "health_condition",
+###       "label": "Health Condition",
+###       "count": 8
+###     },
+###     {
+###       "category": "allergy",
+###       "label": "Allergy",
+###       "count": 2
+###     }
+###   ],
+###   "runs": [
+###     {
+###       "run_id": "active-run-456",
+###       "total_entities": 25,
+###       "categories": [
+###         {
+###           "category": "medication",
+###           "label": "Medication",
+###           "count": 15
+###         },
+###         {
+###           "category": "health_condition", 
+###           "label": "Health Condition",
+###           "count": 8
+###         },
+###         {
+###           "category": "allergy",
+###           "label": "Allergy", 
+###           "count": 2
+###         }
+###       ],
+###       "created_at": "2025-01-15T10:30:00Z",
+###       "updated_at": "2025-01-15T10:35:00Z"
+###     }
+###   ]
+### }
+
+### Get Entity TOC for a specific run
+GET {{host}}/api/v2/documents/189f7190625111f094a80242ac140005/toc?run_id=specific-run-id
+Authorization: Bearer {{token}}
+
+### Test with non-existent document (should return 404)
+GET {{host}}/api/v2/documents/non-existent-doc-id/toc
+Authorization: Bearer {{token}}
+
+### Test with document that has no entity extraction data (should return empty structure)
+GET {{host}}/api/v2/documents/doc-with-no-entities/toc
+Authorization: Bearer {{token}}
+
+### Expected Response for document with no entities:
+### {
+###   "document_id": "doc-with-no-entities",
+###   "total_entities": 0,
+###   "categories": [],
+###   "runs": []
+### }

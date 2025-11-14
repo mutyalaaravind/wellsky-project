@@ -1,0 +1,58 @@
+[
+  {
+    "name": "active_document_operation_definition_id",
+    "type": "STRING"
+  },
+  {
+    "name": "active_document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "operation_type",
+    "type": "STRING"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  }
+]

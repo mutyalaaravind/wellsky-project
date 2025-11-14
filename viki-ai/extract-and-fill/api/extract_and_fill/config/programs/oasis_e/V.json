@@ -1,0 +1,86 @@
+{
+    "V0000-1": {
+        "question": "Do you possess any vitals signs like for Pulse Apical?",
+        "instructions": "if patient has any select reg otherwise select irreg"
+    },
+    "V0000-2": {
+        "question": "Do you possess any vitals signs like for Pulse Radial?",
+        "instructions": "if patient has any select reg otherwise select irreg"
+    },
+    "V0000-3": {
+        "question": "Are you aware of vital temp value?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-4": {
+        "question": "Are you aware of vital resp value?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-5": {
+        "question": "Aware of your height?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-6": {
+        "question": "Aware of your weight?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-7": {
+        "question": "Aware of your vital sign for BP that too left lying?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-8": {
+        "question": "Aware of your vital sign for BP that too left sitting?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-9": {
+        "question": "Aware of your vital sign for BP that too left standing?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-10": {
+        "question": "Aware of your vital sign for BP that too right lying?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-11": {
+        "question": "Aware of your vital sign for BP that too right sitting?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-12": {
+        "question": "Aware of your vital sign for BP that too right standing?",
+        "instructions": "if patient is aware select value as true otherwise select false"
+    },
+    "V0000-13": {
+        "question": "Whether there is a need to notify physician of your temperature greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-14": {
+        "question": "Whether there is a need to notify physician of your pulse greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-15": {
+        "question": "Whether there is a need to notify physician of your respirations greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-16": {
+        "question": "Whether there is a need to notify physician of your systolic BP greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-17": {
+        "question": "Whether there is a need to notify physician of your diastolic greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-18": {
+        "question": "Whether there is a need to notify physician of your O2 sat less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-19": {
+        "question": "Whether there is a need to notify physician of your fasting blood sugar greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-20": {
+        "question": "Whether there is a need to notify physician of your random blood sugar greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    },
+    "V0000-21": {
+        "question": "Whether there is a need to notify physician of your weight greater then or less than?",
+        "instructions": "if patient has any input provided,select value as true otherwise select false"
+    }
+}

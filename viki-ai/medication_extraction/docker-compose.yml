@@ -1,0 +1,99 @@
+version: "3.8"
+
+services:
+  medication-extraction-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "17000:17000"
+    volumes: &volumes
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /home/.config/gcloud
+      - type: bind
+        source: ./src/
+        target: /app/medication_extraction
+    extra_hosts:
+      - host.docker.internal:${HOST_IP:-host-gateway} # Dynamic IP or fallback to host-gateway
+    environment:
+      PYTHONUNBUFFERED: 1
+      SERVICE: medication_extraction
+      STAGE: dev
+      VERSION: dev
+      DEBUG: "true"
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      #GOOGLE_CLOUD_PROJECT: viki-dev-app-wsky #Emulator off
+      #GCP_PUBSUB_PROJECT_ID: viki-dev-app-wsky #Emulator off
+      GCP_PUBSUB_PROJECT_ID: google-cloud-firestore-emulator #Emulator on
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080 #Emulator on
+      PUBSUB_EMULATOR_HOST: firebase-tools:8085 #Emulator on
+      EXTRACTION_CLASSIFY_INTERNAL_TOPIC: extract_v4_classify_internal_topic
+      EXTRACTION_MEDICATION_INTERNAL_TOPIC: extract_v4_medication_internal_topic
+      EXTRACTION_STANDARDIZE_MEDICATION_INTERNAL_TOPIC: extract_v4_standardize_medication_internal_topic
+      EXTRACTION_DOCUMENT_STATUS_TOPIC: extract_v4_document_status_topic
+      PAPERGLASS_INTEGRATION_TOPIC: extract_v4_paperglass_medications_topic
+      PAPERGLASS_API_URL: http://paperglass-api:15000
+      GCS_BUCKET_NAME: viki-ai-provisional-dev
+      GCP_LOCATION: us
+      GCP_LOCATION_2: us-east4
+      GCP_LOCATION_3: us-central1
+      GCP_MULTI_REGION_FIRESTORE_LOCATON: nam5
+      GCP_FIRESTORE_DB: viki-dev
+      CLOUD_PROVIDER: local
+      GCP_DOCAI_DOC_PROCESSOR_ID: 621fe166d8f57278
+      GCP_DOCAI_DOC_PROCESSOR_VERSION: pretrained
+      MEDICATION_EXTRACTION_V4_TOPIC: extract_v4_topic
+      SERVICE_ACCOUNT_EMAIL: viki-ai-dev-sa@viki-dev-app-wsky.iam.gserviceaccount.com
+      SELF_API_URL: http://medication-extraction-api:17000
+      SELF_API_URL_2: http://medication-extraction-api:17000
+      DEFAULT_PRIORITY_QUEUE_API_URL: http://medication-extraction-api:17000
+      HIGH_PRIORITY_QUEUE_API_URL: http://medication-extraction-api:17000
+      QUARANTINE_QUEUE_API_URL: http://medication-extraction-api:17000
+      CLOUD_TASK_QUEUE_NAME: paperglass-extraction-queue
+      CLOUD_TASK_QUEUE_NAME_2: paperglass-classification-queue
+      CLOUD_TASK_QUEUE_NAME_PRIORITY: paperglass-classification-priority-queue
+      CLOUD_TASK_QUEUE_NAME_PRIORITY_2: paperglass-classification-priority-queue
+      CLOUD_TASK_QUEUE_NAME_QUARANTINE: paperglass-quarantine-queue
+      CLOUD_TASK_QUEUE_NAME_QUARANTINE_2: paperglass-quarantine-queue
+      MEDICATION_EXTRACTION_V4_CLOUD_TASK_QUEUE_NAME: v4-extraction-entrypoint-queue
+      MEDICATION_EXTRACTION_V4_CLOUD_TASK_QUEUE_NAME_PRIORITY: v4-extraction-entrypoint-priority-queue
+      MEDICATION_EXTRACTION_V4_CLOUD_TASK_QUEUE_NAME_QUARANTINE: v4-extraction-entrypoint-quarantine-queue
+      MEDICATION_EXTRACTION_V4_STATUS_CHECK_QUEUE_NAME: v4-status-check-queue
+      MEDICATION_EXTRACTION_V4_STATUS_CHECK_QUEUE_NAME_PRIORITY: v4-status-check-priority-queue
+      MEDICATION_EXTRACTION_V4_STATUS_CHECK_QUEUE_NAME_QUARANTINE: v4-status-check-quarantine-queue
+      MEDICATION_EXTRACTION_V4_STATUS_UPDATE_QUEUE_NAME: v4-paperglass-integration-status-update-queue
+      MEDICATION_EXTRACTION_V4_STATUS_UPDATE_QUEUE_NAME_PRIORITY: v4-paperglass-integration-status-update-priority-queue
+      MEDICATION_EXTRACTION_V4_STATUS_UPDATE_QUEUE_NAME_QUARANTINE: v4-paperglass-integration-status-update-quarantine-queue
+      PAPERGLASS_INTEGRATION_CLOUD_TASK_QUEUE_NAME: v4-paperglass-medications-integration-queue
+      PAPERGLASS_INTEGRATION_CLOUD_TASK_QUEUE_NAME_PRIORITY: v4-paperglass-medications-integration-priority-queue
+      PAPERGLASS_INTEGRATION_CLOUD_TASK_QUEUE_NAME_QUARANTINE: v4-paperglass-medications-integration-quarantine-queue
+      AUDIT_LOGGER_TOPIC: audit_logger_topic
+      AUDIT_LOGGER_CLOUD_TASK_QUEUE_NAME: prompt-logger-queue
+      AUDIT_LOGGER_API_URL: http://prompt-logger-api:18000
+      GOOGLE_APPLICATION_CREDENTIALS: /home/.config/gcloud/application_default_credentials.json
+      LOADTEST_LLM_EMULATOR_ENABLED: "false"
+      LLM_PROMPT_AUDIT_ENABLED: "true"
+      STEP_CLASSIFY_LLM_MODEL: "gemini-2.5-flash-lite"
+      STEP_EXTRACTMEDICATION_LLM_MODEL: "gemini-2.5-flash-lite"
+      STEP_MEDISPANMATCH_LLM_MODEL: "gemini-2.5-flash-lite"
+      MEDISPAN_API_BASE_URL: https://ai-medispan-api-145042810266.us-east4.run.app/api/
+      PGVECTOR_HOST: host.docker.internal
+      PGVECTOR_PORT: "5433"
+      PGVECTOR_USER: "postgres"
+      PGVECTOR_PASSWORD: "DummyPasswordForTesting@2025"
+      PGVECTOR_DATABASE: "postgres"
+      PGVECTOR_SSL_MODE: "require"
+      PGVECTOR_TABLE_MEDISPAN: "medispan_drugs_gcp_768_2"
+      PGVECTOR_TABLE_MERATIVE: "merative_drugs_gcp_768_2"
+      PGVECTOR_EMBEDDING_DIMENSION: "768"
+      PGVECTOR_SEARCH_FUNCTION_MEDISPAN: "medispan_search_gcp_768_2" #cosine similarity
+      PGVECTOR_SEARCH_FUNCTION_MERATIVE: "merative_search_gcp_768_2" #cosine similarity
+    command: uv run uvicorn main:app --reload --host 0.0.0.0 --port 17000 # Use uvicorn with hot reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:17000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped

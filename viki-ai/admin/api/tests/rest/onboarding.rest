@@ -1,0 +1,129 @@
+### Admin API Onboarding Tests
+
+### Test onboard save endpoint - creates app config and entity schema
+POST http://localhost:14000/api/v1/onboard/save
+Content-Type: application/json
+
+{
+  "app_id": "sc-test-app-456",
+  "business_unit": "Healthcare",
+  "solution_code": "HSC001",
+  "app_name": "Test Onboard App",
+  "app_description": "Testing the onboard save functionality",
+  "entity_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Test Entity Schema",
+    "description": "Schema for testing onboard save functionality",
+    "type": "object",
+    "properties": {
+      "patient_name": {
+        "type": "string",
+        "description": "The name of the patient"
+      },
+      "medical_record_number": {
+        "type": "string",
+        "description": "The unique medical record identifier"
+      },
+      "date_of_birth": {
+        "type": "string",
+        "format": "date",
+        "description": "Patient's date of birth"
+      }
+    },
+    "required": ["patient_name", "medical_record_number"]
+  },
+  "extraction_prompt": "Extract patient information from this medical document focusing on the patient name and medical record number.",
+  "pipeline_template": "template.whole_document-1.0"
+}
+
+### Test onboard save with insurance card schema (complex example)
+POST http://localhost:14000/api/v1/onboard/save
+Content-Type: application/json
+
+{
+  "app_id": "sc-insurance-test",
+  "business_unit": "pacf",
+  "solution_code": "sc",
+  "app_name": "Insurance Card Test",
+  "app_description": "Testing insurance card schema creation",
+  "entity_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Medical Insurance Card",
+    "description": "Schema for extracting information from a medical insurance card.",
+    "type": "object",
+    "properties": {
+      "payer_name": {
+        "type": "string",
+        "description": "The name of the insurance provider or administrator."
+      },
+      "member_name": {
+        "type": "string",
+        "description": "The name of the primary subscriber."
+      },
+      "member_id": {
+        "type": "string",
+        "description": "The unique identification number for the primary subscriber."
+      },
+      "group_number": {
+        "type": "string",
+        "description": "The group number associated with the insurance plan."
+      },
+      "division": {
+        "type": "string",
+        "description": "The division or subgroup within the plan."
+      },
+      "dependents": {
+        "type": "array",
+        "description": "A list of dependents covered under the plan.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "medical_plan": {
+        "type": "object",
+        "description": "Details about the medical plan.",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "description": "The name of the medical plan."
+          },
+          "coverage_type": {
+            "type": "string",
+            "description": "The type of coverage (e.g., Family, Single)."
+          },
+          "network": {
+            "type": "string",
+            "description": "The network associated with the plan (e.g., Aetna Network)."
+          }
+        },
+        "required": ["plan_name", "coverage_type", "network"]
+      },
+      "pharmacy_plan": {
+        "type": "object",
+        "description": "Details about the pharmacy plan.",
+        "properties": {
+          "pbm": {
+            "type": "string",
+            "description": "The Pharmacy Benefit Manager (e.g., CVS Caremark)."
+          },
+          "rx_bin": {
+            "type": "string",
+            "description": "The pharmacy benefit routing number."
+          },
+          "rx_pcn": {
+            "type": "string",
+            "description": "The processor control number."
+          },
+          "rx_group": {
+            "type": "string",
+            "description": "The pharmacy group number."
+          }
+        },
+        "required": ["rx_bin", "rx_pcn", "rx_group"]
+      }
+    },
+    "required": ["payer_name", "member_name", "member_id", "group_number", "medical_plan", "pharmacy_plan"]
+  },
+  "extraction_prompt": "You are an expert AI data extraction system. Your task is to accurately extract information from the provided OCR text of a medical insurance card. Extract the data exactly as it appears in the text and output a valid JSON object.",
+  "pipeline_template": "whole_document"
+}

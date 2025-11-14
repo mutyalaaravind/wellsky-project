@@ -1,0 +1,49 @@
+parameters:
+  - name: adoServiceConnection
+    type: string
+
+  - name: artifactRegistryProjectId
+    type: string
+
+  - name: artifactRegistryRepository
+    type: string
+    default: images
+
+  - name: dockerImageName
+    type: string
+
+  - name: projectId
+    type: string
+
+  - name: region
+    type: string
+
+  - name: service
+    type: string
+
+  - name: version
+    type: string
+
+steps:
+  - task: GcpWifAuth@0
+    displayName: Authenticate Workload Identity Federation
+    inputs:
+      connectedServiceId: ${{ parameters.adoServiceConnection }}
+
+  - task: Bash@3
+    displayName: Validate Cloud Run Service
+    inputs:
+      targetType: inline
+      script: gcloud run services describe ${{ parameters.service }} --project ${{ parameters.projectId }} --region ${{ parameters.region }}
+
+  - task: Bash@3
+    displayName: Deploy Cloud Run Service
+    inputs:
+      targetType: inline
+      script: gcloud run deploy ${{ parameters.service }} --image=us-east4-docker.pkg.dev/${{ parameters.artifactRegistryProjectId }}/images/${{ parameters.dockerImageName }}:${{ parameters.version }} --project ${{ parameters.projectId }} --region=${{ parameters.region }}
+      
+  - task: Bash@3
+    displayName: Update Traffic To New Cloud Run Revision
+    inputs:
+      targetType: 'inline'
+      script: gcloud run services update-traffic ${{ parameters.service }} --to-latest --project ${{ parameters.projectId }} --region ${{ parameters.region }}

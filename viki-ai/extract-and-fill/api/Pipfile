@@ -1,0 +1,42 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiohttp = "==3.8.5"
+aiohttp-client-cache = "==0.7.3"
+ariadne = "==0.20.1"  # GraphQL executor
+starlette = "==0.23.1"  # AsyncIO HTTP microframework
+uvicorn = "==0.18.3"  # ASGI web server
+kink = "==0.6.5"  # Dependency injection
+google-cloud-storage = "==2.7.0"
+google-cloud-firestore = "==2.9.1"
+google-cloud-pubsub = "==2.18.4"
+google-cloud-discoveryengine = "==0.11.7"
+google-cloud-documentai = "2.20.2"
+google-events = "==0.7.0"  # Protobuf definitions for Eventarc events
+watchdog = "==3.0.0"  # `watchmedo` command for auto-reloading
+pydantic = "==1.10.8"  # Typed models
+gcloud-aio-storage = "==8.2.0"  # AsyncIO version of google-cloud-storage
+google_cloud_aiplatform = "==1.36.3"
+langchain = "==0.0.229"
+chromadb = "==0.3.26"
+async-timeout = "==4.0.3"  # Required by aiohttp
+coloredlogs = "==15.0.1"  # Because colors
+pinecone-client = "==2.2.4"
+#sentence_transformers = "==2.2.2"
+#torch = ">=2.0.0, !=2.0.1, !=2.1.0"
+json-five = "==1.1.1"
+
+[dev-packages]
+black = "==23.7.0"
+pylint = "==2.16.1"
+pytest = "==7.2.1"
+pytest-cov = "==4.0.0"
+radon = "==6.0.1"
+mypy = "==0.991"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.5"

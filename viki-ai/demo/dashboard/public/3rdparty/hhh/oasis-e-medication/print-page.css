@@ -1,0 +1,219 @@
+/* general styles
+--------------------------------------------------------------------------------*/
+body {line-height:13px; font-size:12px;}
+table {line-height:13px; font-size:12px;}
+thead {display:table-header-group;}  
+
+textarea {line-height:13px;}
+/* currently font is set to 10px the below class makes the font 12px */
+.printLarger{font-size:12px}
+
+/* used to tell tables to use up the entire space of the printed page */
+.printFull, .eftPrint{width:750px; float:none}
+
+table.tr {page-break-inside: avoid;}
+
+.sigBlock {display:block; float:left; width:100%; clear:left}
+.hideFromScreen {display:inline}
+.hideFromPrintView, .noPrint {display:none;}
+.floatRightPrint{float:right}
+.textRightPrint{text-align:right; padding-right:5px}
+.left{float: left;}
+.right{float: right;}
+
+.sectionHeader{width:100%; float:none;}
+.sectionHeader h1, .sectionHeader h3 {font-size:14px; font-weight:bold; line-height:14px}
+.sectionViewTable {line-height:14px; width:763px}
+
+/*Very similar to regular CSS but took off width and changed the flot to none so would properly print pages*/
+.sectionContentTable, .sectionContentTableTop{width: auto; float:none; clear:both; border-width:0px; border-style: solid; border-color:#999999; margin:0; .padding:0 border-collapse:separate;}
+
+.taskBox{width:740px; border:#999 solid 1px; float:none; clear:left;}
+.taskBox ul, .taskBox tr {width:735px; line-height:12px}
+.taskBoxHeader{width:740px; height:22px;}
+.taskBoxTable{width:740px; float:none; clear:left;}
+
+/* to get equel spacing in schedual report between IE7 and IE8 */
+.schedReportHeader{padding-top:12px}
+
+
+.plainBox {float:auto;}
+
+.menuBoxTable, .menuBoxWideTable{width:740px; margin:0px; padding-right:0px}
+.menuBoxHalfLeft {width:465px; float:left; margin-left:10px}
+.menuBoxHalfRight {width:460px; float:left; margin-left:10px}
+
+.taskComment{width:735px;}
+.episodeComment{width:735px;}
+
+.textAreaFull{width:715px;}
+
+.alert-yellow-right{}
+.footerActionButton, .footerActionButtonNoMargin, .footerActionButtonSmallMargin, .footerActionButtonTall {display:none}
+
+/*the keyboard short cut keys were showing up on print view. the below solved it*/
+.menuBarAccessKeys{display:none}
+
+.patRoster{
+	width:760px; 
+	line-height:12px; 
+	font-size:12px
+}
+/*master cal*/
+.calPrint{width:100%}
+
+.redtext{color : #cc3300;}
+
+/* Calender Styles
+--------------------------------------------------------------------------------*/
+.commentborder{border : 1px solid #999;}
+
+.orangeborder, .Orangeborder {border : 1px solid #554433;}
+.oasisCborder {border : 1px solid #788FFF;}
+
+.blueborder, .blueBorder, .BlueBorder, .Blueborder{border : 1px solid #7777aa;}
+
+.purpledisplay, .PurpleDisplay{border : 1px solid #997799;}
+
+.hospitalborder, .HospitalBorder{border : 1px solid #003399;background:#b6b6b6;}
+
+.redborder{border : 1px solid #ff9933;}
+
+.greenborder, .GreenBorder{border : 1px solid #889977;}
+
+/* Oasis Print View
+--------------------------------------------------------------------------------*/
+.letterSpacing{letter-spacing:-0.1em}
+.printdata, .printData{font-family:"Courier New", Courier, monospace; color:#000; font-size:11px; line-height:10px; margin-bottom:-10px} /* controlls date from inpute fields.*/
+
+.oasisBox, .box485, .boxCaseMix{float:auto; margin:0px; padding:0px; width:100%; border-bottom:none; line-height:12px}
+
+/*This controls text areas in the oaisis c*/
+.oaisisTextArea{height:20px; margin-bottom:-12px}
+.oasisWoundCareComments{height:1152px}
+
+.oasisBox p, .box485 p, .boxCaseMix p {padding:0 10px 2px 0px;}
+
+.oasisBox ul,.box485 ul, .boxCaseMix ul{clear:left; width:100%;padding:0 0 0 2px;}
+.oasisBox li, .box485 li, .boxCaseMix li {padding:0 0 0 2px;}
+.oasisBox img, .box485 img, .boxCaseMix img {padding:1px 0px 0 0px}
+
+.oasisInnerBox {width:100%;float:left; margin: 0px; padding: 0px 0px 0px 1px;}
+
+.oasisInnerBox p {padding:2px 2px;}
+
+.oasisBox table#mainTable, .box485 table#mainTable, .boxCaseMix table#mainTable{width:100%; margin:0px; padding:0px;border-color:#788FFF; border-style:solid;border-width:0px 0px 0px 0px;}
+
+.oasisBox table#mainTable td, .box485 table#mainTable td, .boxCaseMix table#mainTable td {padding:1px 2px 1px 2px; border-color:#788FFF; border-style:solid;border-width:0px 1px 1px 0px;}
+
+.oasisBox table#mainTable th, .box485 table#mainTable th, .boxCaseMix table#mainTable th {border-color:#788FFF; border-style:solid;border-width:1px 1px 0px 0px;padding:0px;background-image:url(../../packages/images/task-header-grad-bg.png); background-position: bottom left; background-repeat:repeat-x; background-color:#e0e0c1;}
+
+.oasisBox table#noBorder td, .box485 table#noBorder td, .boxCaseMix table#noBorder td {border:none; padding:2px 0px}
+
+.oasisBox table#mainTable li, .box485 table#mainTable li, .boxCaseMix table#mainTable li {margin:0px; padding:0px}
+.oasisBox table#mainTable ul, .box485 table#mainTable ul, .boxCaseMix table#mainTable ul {margin:0px; padding:0px}
+
+.formContainerWide{width:763px; border: 1px solid #999; vertical-align:baseline;}
+.title{font-size:10pt;font-weight :bold;}
+.OASISheader{font-size:10px; padding:2px 0 2px 0}
+.OasisData{font-size:12px; color:#000000;}
+.OasisHeading{font-size: 12pt; font-weight:bold; background-color:#788FFF; color:#fff; padding:4px 0 0 0px; height:18px; margin:0px}
+.pContent{ font-size :10pt;}
+
+/*This CSS file has the header and main nav CSS as well since some print views
+will require to have the Header and Nav area.
+
+These are marked as Hidden
+
+--------------------------------------------------------------------------------*/
+
+/*Header that is on all pages
+--------------------------------------------------------------------------------*/
+.header {height:43px;background-color:#FFFFFF; margin:3px 0 0 0; padding:0px 0px 0 10px; background-image:url(../../packages/images/header/top-white-grad-bg.png); background-position: bottom left; background-repeat:repeat-x; display:none}
+.header p{padding: 12px 10px 0 0}
+.header img{float:left;}
+
+.list-nav li {float:left; color:#FFFFFF; font-weight: bold; padding:7px 20px 0 10px;}
+.search {color:#FFFFFF; font-weight: bold; padding:5px 10px 0 0;}
+.sectionHeader{float:left; text-align:left; padding:10px 0px 10px 0px; width:100%}
+
+/* Main Menu Using existing structure
+--------------------------------------------------------------------------------*/
+div.menuBar /* this is the navigation background */
+{font-size:14px; height:33px; background-image:url(../../packages/images/header/mainmenu-grad-bg.png); background-position: bottom left; background-repeat:repeat-x; width:990px;  font-weight: bold;display:none}
+
+a.menuButton {color: #ffffff; padding:0px 15px 0px 15px; position: relative; text-decoration: none; top: 9px;z-index: 100; background-color: transparent;}
+
+a.menuButton:hover/*Main Buttons on rollover */
+ {background-color: #C2D4E8; color: #333; padding:9px 15px 8px 15px; .padding:9px 15px 7px 15px}
+
+div.menuBar a.menuButtonActive, div.menuBar a.menuButtonActive:hover /*click button and this is the style change */
+{background-color: #dbe6fc; color: #575397; padding:8px 15px 8px 15px ;display:none}
+
+div.menu /* this is the drop down menu BG */
+{background-color: #DEDDDD;border: 1px solid;border-color: #999 #333 #333 #999; clear:both; margin:0px 0 0 0; padding: 2px 2px 1px 2px; position: absolute; visibility: hidden;z-index: 101; display:block;font-weight: bold;display:none}
+
+div.menu .menuIteminactive /* Inactive menu items */
+{color: #ececec; cursor: default; padding: 3px 1em; text-decoration: none; white-space: nowrap;display:none}
+
+div.menuItem{display:block; color:#0C0 ;display:none}
+a.menuItem, a.menuitem /* text in dropdownmenu */
+{color: #333; display: block; padding: 3px 20px 3px 12px; text-decoration: none; font-weight:bold;display:none}
+
+div.menu .menuItemgreen /* No Idea */
+{background-color: #66cc66; color: #ffffff;	cursor: default; display: block; padding: 3px 1em; text-decoration: none; white-space: nowrap;display:none}
+
+div.menu a.menuItemgreen:hover, div.menu a.menuItemHighlight/* no idea */
+{background-color: #d4dced;color: #66cc66;display:none}
+
+div.menu a.menuItemred:hover, div.menu a.menuItemHighlight/*  */
+{background-color: #ffffff;color: #cc0000;display:none}
+
+div.menu .menuItemred /*  */
+{background-color: #cc0000; color: #ffffff;	cursor: default; display: block; padding: 3px 1em; text-decoration: none; white-space: nowrap;}
+
+div.menu a.menuItem:hover, div.menu a.menuItemHighlight,
+div.menu a.menuitem:hover, div.menu a.menuitemHighlight
+{background-color: #808080; color: #fff; display:block}
+
+div.menu a.menuItem span.menuItemArrow /*  */
+{margin-right: -.75em;}
+
+div.menuItemSep /*  */
+{border-top: 1px solid #909090; border-bottom: 1px solid #f0f0f0; margin: 4px 2px;}
+
+/* data table links. id: 31669
+--------------------------------------------------------------------------------*/
+
+@media print {
+   /* remove the url on the print view. */ 
+    .bootstrap a[href]:after,
+	.ux .ux-datatables .table-content-wrapper a[href]:after { content: none; }
+	input.delete, input#generateOrder, #currentMeds input, #discontinuedMeds, input#medCheck, [id^="collapse"] > div > div > div.span5.text-center.body-container { display: none; }
+	[id^="collapse"] > div > div > div.span7.expand-on-print { width: 100%; }
+
+/* Blue boxes and lists for Oasis Form FROM CARLOS!!!!!!!
+--------------------------------------------------------------------------------
+.oasisBox{float:left; margin: 4px 0px 0px 0px; padding: 9px 5px 18px 5px; border:#788FFF solid 1px; width:763px; overflow:auto;}
+
+.oasisBox p {padding:0 113px 5px 0px;}
+
+.oasisBox ul{clear:left; width:100%}
+.oasisBox li {padding:0 0 0 5px; line-height:24px}
+.oasisBox img {padding:0 5px 0 0}
+.oasisBox img {padding:0 5px 0 0}
+
+.oasisInnerBox {width:723px; float:left; margin: 4px 10px 5px 10px; padding: 10px 10px 10px 10px; border:#788FFF solid 1px;}
+
+.oasisInnerBox p {padding:0 5px 5px 5px;}
+
+.oasisBox table#mainTable{ width:743px; float:left; margin: 4px 10px 5px 10px; padding: 0px 0px 0px 0px;border-color:#788FFF; border-style:solid;border-width:0px 0px 1px 1px;}
+
+.oasisBox table#mainTable td{padding:5px 5px 8px 5px; border-color:#788FFF; border-style:solid;border-width:1px 1px 0px 0px;}
+
+.oasisBox table#mainTable th{border-color:#788FFF; border-style:solid;border-width:1px 1px 0px 0px;padding:5px;background-image:url(../../packages/images/task-header-grad-bg.png); background-position: bottom left; background-repeat:repeat-x; background-color:#e0e0c1;}
+
+.oasisBox table#noBorder td{border:none; padding:0px}
+*/
+
+

@@ -1,0 +1,51 @@
+{
+    "W0000-0": {
+      "question": "Are you within normal limits?",
+      "instructions": "if patient is within normal limits , select true otherwise false"
+    },
+    "W0000-1": {
+      "question": "Do you have any issues with your lungs?",
+      "instructions": "if patient has any issues in their lungs and lists sounds, select true otherwise false"
+    },
+    "W0000-2": {
+        "question": "Do you produce any sputum because of any repiratory infection or the sort?",
+        "instructions": "if patient produces sputum, select true otherwise false"
+    },
+    "W0000-3": {
+        "question": "What is the amount of sputum that was produced?",
+        "instructions": "if patient mentions the amount of sputum produced, select true otherwise false"
+    },
+    "W0000-4": {
+        "question": "What color, consistency or odor is the sputum of?",
+        "instructions": "if patient provides information about the sputum, select true otherwise false"
+    },
+    "W0000-5": {
+        "question": "Could you tell me your O2 AT levels",
+        "instructions": "if patient provides a value of their O2 AT levels, select true otherwise false"
+    },
+    "W0000-6": {
+        "question": "Could you tell the value of rate of O2 in LPM?",
+        "instructions": "if patient provides a value for the LPM, select true otherwise false"
+    },
+    "W0000-7": {
+        "question": "Could you tell me your O2 SAT levels?",
+        "instructions": "if patient provides a value of their O2 SAT levels, select true otherwise false"
+    },
+    "W0000-8": {
+        "question": "Are you currently using a Nebulizer for Respiration?",
+        "instructions": "If patient uses a Nebulizer, select true otherwise false"
+    },
+    "W0000-9": {
+        "question": "Do you have any sort of a cough?",
+        "instructions": "if patient mentions that he has cough, select true otherwise false"
+    },
+    "W0000-10": {
+        "question": "Do you want to share any further comments?",
+        "instructions": "If patient has provided addition information then select true otherwise false"
+    },
+    "M1400": {
+        "question": "When do you usually feel dyspenic or noticeably short of breath?",
+        "instructions": "If patient mentions that they are not short of breath then select value 0, if it is when walking more than 20 feet climbing stairs then value 1, if they feel short of breath with moderate exertion then select value 2, if it is because of minimal exertion or with agitation then select value 3, or if it is at rest(during day or night) then select 4"
+    }
+  }
+  

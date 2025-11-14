@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  demo-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: demo-mcp-server
+    restart: unless-stopped
+    ports:
+      - "13500:8000"
+    volumes:
+      - ./data:/app/data
+      - ./tools:/app/tools
+      - ./utils:/app/utils
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "com.demo.service=mcp-server"
+      - "com.demo.description=Demo MCP Server with FastMCP"
+
+volumes:
+  mcp-data:
+    driver: local
+    name: demo-mcp-data

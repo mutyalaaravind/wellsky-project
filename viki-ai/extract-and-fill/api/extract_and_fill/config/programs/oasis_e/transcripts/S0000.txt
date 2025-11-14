@@ -1,0 +1,160 @@
+Is your usual dietary intake within within the normal and healthy limits?
+yes it is 
+Do you have difficulty in chewing or swallowing food?
+no 
+Have you noticed any significant decrease in your appetite recently?
+yes a little
+Have you experienced any noticeable changes in your weight recently, such as unintentional weight loss or gain?
+yes i have lost around 5kg in 2 months 
+Are you ensuring that your meals are prepared and handled appropriately to maintain good hygiene and prevent food-related issues?
+yes i am
+Are you following proper diet?
+no i dont follow proper diet
+Is your diet adequate or inadequate?
+yes its adequate
+Have you ever had a Nasogastric (NG) tube inserted for medical purposes?
+no never
+Have you ever had a Percutaneous Endoscopic Gastrostomy (PEG) tube placed for nutritional support?
+no
+Have you ever been fitted with a Dobhoff tube for nutritional support?
+no
+Have the placement and functionality of the tube, whether it's a PEG tube, Dobhoff tube, or another type, been regularly checked and verified?
+no since its not applicable
+Have the residual volumes in the feeding tube been regularly checked?
+no not required
+Do you have any throat problems?
+yes i do 
+Have you experienced any hoarseness or changes in your voice recently?
+yes sometimes
+Do you have sore throat?
+yes I have sore throat
+Are you having any dental problems?
+no
+Do you currently use dentures?
+yes
+Are you facing any problem in chewing food?
+no
+Do you feel any other issues?
+no other issues
+Do you have any other comments
+no
+Have you lost more than 10 lbs in last 3 months without any reason?
+no
+Do you have any illness or any condition which made you change the type and amount of food eaten?
+yes
+Do you have any open decubitus, ulcer, burn or wound?
+yes a wound on knee
+Do you eat less than 2 meals a day?
+no i eat 3 meals a day
+Do you have any food or mouth problem which makes it hard to eat food?
+yes sore throat makes it difficult to swallow
+Do you have 3 or more drinks of beer liquor or wine almost everyday?
+no
+Do you have insufficient money to buy food everyday?
+no
+Do you eat few of fruits, vegetables or milk products?
+yes milk products i consume less
+Do you eat alone most of the time?
+yes
+Do you take 3 or more prescibed or OTC medications a day?
+yes i do take
+Are you physcially able to make and feed yourself without any assistance from caregiver?
+yes
+Have you been experiencing frequent episodes of diarrhea or constipation lately?
+yes sometimes 
+Is patient's nutritional status good?
+no
+Is patient at moderate nutritional risk?
+yes
+Is patient at high nutritional risk?
+no
+Is patient non-compliant with prescribed diet?
+no
+Is patient over or underweight by 10%?
+no
+What is your height in inches checked recently
+62 inches
+What is your weight in pounds as measured recently
+100 pounds
+Do you require parental or IV feeding?
+no
+Do you use any feeding tubes?
+no i dont use
+Do you need change in texture of foods or liquid before consumption?
+yes
+Do you follow therapeutic diet like low salt, diabetic or low cholestrol?
+yes i am diabetic
+Are none of the above four points applicable?
+no
+Were you not assessed?
+yes i m being assessed
+Are you able to feed yourself independently and safely?
+0
+Are you on low or high sodium diet?
+yes i m on low sodium diet
+Are you on no salt diet?
+no
+Are you on regular diet?
+yes
+Are you on high protein diet?
+no
+Are you on low protein diet?
+no
+Are you on low or high carbohydrate diet?
+no
+Are you on mechanical soft diet?
+no
+Are you on high fiber diet?
+no
+Are you on any supplements?
+yes
+Are you on renal diet?
+no
+Are you on coumadin diet?
+no
+Are you on fluid restriction?
+no
+Are you on any other diet?
+yes i have gluten free diet
+Are you on no concentrated sweets diet?
+no
+Is your heart healthy?
+yes
+Are you on low cholestrol diet?
+no
+Are you on low fat diet?
+no
+Do you need pump to feed you?
+no
+Do you need gravity?
+yes
+Do you use PEG tube to feed you?
+no
+Do you use NG tube to feed you?
+no
+Do you use Dobhoff to feed you?
+no
+Do you require Bolus feeding?
+no
+Do you required TPN?
+no
+Do you need SN/Caregiver to instruct patient on the gluten diet?
+yes i need help with it
+Do you SN to assess you for diet complaince?
+yes
+Do you need SN to instruct Patient/Caregiver to keep a diet log?
+yes
+Do you need SN to instruct Patient/Caregiver on methods to promote oral intake?
+no
+Do you need SN to instruct Patient/Caregiver on parentaral nutrition and use of equipment?
+no
+Do you need SN to instruct Patient/Caregiver on enteral nutrition and use of equipment?
+no
+Do you need SN to instruct Patient/Caregiver on proper use of tube?
+no
+Do you need SN to change tube on any frequency?
+no
+Do you need SN to irrigate tube?
+no
+DO you need SN to instruct Patient/Caregiver on having some amount of water atleast?
+no i have atleast 7l of water everyday

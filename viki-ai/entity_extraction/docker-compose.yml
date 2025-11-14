@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  entity-extraction-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "18000:18000"
+    volumes:
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /home/.config/gcloud
+      - type: bind
+        source: ./src/
+        target: /app/entity_extraction
+    environment:
+      PYTHONUNBUFFERED: 1
+      SERVICE: entity_extraction      
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      CLOUD_PROVIDER: local
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      GCP_LOCATION: us
+      GCP_LOCATION_2: us-east4
+      GCP_LOCATION_3: us-central1
+
+      #GOOGLE_CLOUD_PROJECT: viki-dev-app-wsky  # Emulator off
+      #GCP_PUBSUB_PROJECT_ID: viki-dev-app-wsky  # Emulator off
+      GCP_PUBSUB_PROJECT_ID: google-cloud-firestore-emulator #Emulator on
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080 #Emulator on
+      PUBSUB_EMULATOR_HOST: firebase-tools:8085 #Emulator on
+      
+      GCS_BUCKET_NAME: viki-ai-provisional-dev
+            
+      GCP_MULTI_REGION_FIRESTORE_LOCATON: nam5
+      GCP_FIRESTORE_DB: viki-dev
+            
+      SERVICE_ACCOUNT_EMAIL: viki-ai-dev-sa@viki-dev-app-wsky.iam.gserviceaccount.com
+      SELF_API_URL: http://entity-extraction-api:18000
+      SELF_API_URL_2: http://entity-extraction-api:18000
+      
+      PAPERGLASS_API_URL: http://paperglass-api:15000
+      PAPERGLASS_INTEGRATION_TOPIC: extract_v4_paperglass_medications_topic
+      
+      GOOGLE_APPLICATION_CREDENTIALS: /home/.config/gcloud/application_default_credentials.json
+      
+      DJT_API_URL: http://distributed-job-tracking-api:19000
+
+      # Cloud Task Emulator Configuration
+      CLOUDTASK_EMULATOR_ENABLED: 'true'
+      CLOUDTASK_EMULATOR_URL: http://cloudtask-emulator:30001
+      DEFAULT_TASK_QUEUE: entity-extraction-queue
+
+      MEDICATION_EXTRACTION_V4_STATUS_CHECK_QUEUE_NAME: v4-status-check-queue
+
+      # OpenTelemetry Tracing Configuration
+      ENABLE_GCP_TRACE_EXPORTER: 'false'  # Disable GCP for local development
+      ENABLE_CONSOLE_TRACE_EXPORTER: 'false'
+      ENABLE_JAEGER_TRACE_EXPORTER: 'true'  # Enable Jaeger for local development
+      JAEGER_ENDPOINT: http://jaeger:4318/v1/traces
+
+    command: uv run uvicorn main:app --reload --host 0.0.0.0 --port 18000  # Use uvicorn with hot reload
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:18000/api/health"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 10s
+    restart: unless-stopped

@@ -1,0 +1,16 @@
+{
+  "aws_project_region": "us-west-2",
+  "aws_cognito_identity_pool_id": "us-west-2:ae3ed5e6-0491-486f-ab24-ec0252e4c643",
+  "aws_cognito_region": "us-west-2",
+  "aws_user_pools_id": "us-west-2_oMjaZ7dV4",
+  "aws_user_pools_web_client_id": "41t2ts9cmo8bra04ftmqr9k7lu",
+  "claire_graphql": "https://ikntmbsj4vc2bje7v463wiri4m.appsync-api.us-west-2.amazonaws.com/graphql",
+  "aws_appsync_region": "us-west-2",
+  "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
+  "customForms_graphql": "https://ukoj6zkl4vg6fnrozs2kffdhmy.appsync-api.us-west-2.amazonaws.com/graphql",
+  "customFormsApiKey": "da2-sasdfd6wrrc6bpm3lbt2ebio2m",
+  "mapApiKey": "da2-27uw3a5lgveoxohzxwv2s4icii",
+  "claireApiKey": "da2-vhovir4w3fhzjmhitivcu3clju",
+  "care_plan_servicegraphql": "http://localhost:7000/graphql",
+  "customFormsWidgetsHost": "http://0.0.0.0:3000"
+}

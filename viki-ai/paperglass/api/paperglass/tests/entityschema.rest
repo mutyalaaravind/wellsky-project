@@ -1,0 +1,179 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_local}}
+
+# Test token for 007 app, tenant 54321, patient c211f67a0a594ceab691e566b8b37c32
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+### Get Entity Schema by app_id and schema_code           
+GET {{host}}/api/schemas/007/nananana.json?usecase=publish
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+GET {{host}}/api/schemas/onboard/jsonschema.json?usecase=extract
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Create or Update Entity Schema
+POST {{host}}/api/admin/schemas/onboard/jsonschema.json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Core and Validation specifications meta-schema",
+  "label": "JSON Schema Meta-Schema",
+  "description": "JSON Schema meta-schema for validation",
+  "version": "2020-12",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://json-schema.org/draft/2020-12/schema",
+    "$vocabulary": {
+        "https://json-schema.org/draft/2020-12/vocab/core": true,
+        "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+        "https://json-schema.org/draft/2020-12/vocab/unevaluated": true,
+        "https://json-schema.org/draft/2020-12/vocab/validation": true,
+        "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
+        "https://json-schema.org/draft/2020-12/vocab/format-annotation": true,
+        "https://json-schema.org/draft/2020-12/vocab/content": true
+    },
+    "$dynamicAnchor": "meta",
+    "title": "Core and Validation specifications meta-schema",
+    "allOf": [
+        {"$ref": "meta/core"},
+        {"$ref": "meta/applicator"},
+        {"$ref": "meta/unevaluated"},
+        {"$ref": "meta/validation"},
+        {"$ref": "meta/meta-data"},
+        {"$ref": "meta/format-annotation"},
+        {"$ref": "meta/content"}
+    ],
+    "type": ["object", "boolean"],
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "default": true,
+        "examples": {
+            "type": "array",
+            "items": true
+        },
+        "multipleOf": {
+            "type": "number",
+            "exclusiveMinimum": 0
+        },
+        "maximum": {
+            "type": "number"
+        },
+        "exclusiveMaximum": {
+            "type": "number"
+        },
+        "minimum": {
+            "type": "number"
+        },
+        "exclusiveMinimum": {
+            "type": "number"
+        },
+        "maxLength": {
+            "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "minLength": {
+            "$ref": "#/$defs/nonNegativeIntegerDefault0"
+        },
+        "pattern": {
+            "type": "string",
+            "format": "regex"
+        },
+        "maxItems": {
+            "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "minItems": {
+            "$ref": "#/$defs/nonNegativeIntegerDefault0"
+        },
+        "uniqueItems": {
+            "type": "boolean",
+            "default": false
+        },
+        "maxProperties": {
+            "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "minProperties": {
+            "$ref": "#/$defs/nonNegativeIntegerDefault0"
+        },
+        "required": {
+            "$ref": "#/$defs/stringArray"
+        },
+        "dependentRequired": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#/$defs/stringArray"
+            }
+        },
+        "enum": {
+            "type": "array",
+            "items": true,
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "const": true,
+        "type": {
+            "anyOf": [
+                { "$ref": "#/$defs/simpleTypes" },
+                {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/simpleTypes" },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            ]
+        },
+        "allOf": { "$ref": "#/$defs/schemaArray" },
+        "anyOf": { "$ref": "#/$defs/schemaArray" },
+        "oneOf": { "$ref": "#/$defs/schemaArray" },
+        "not": { "$ref": "#" },
+        "if": { "$ref": "#" },
+        "then": { "$ref": "#" },
+        "else": { "$ref": "#" }
+    },
+    "$defs": {
+        "nonNegativeInteger": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "nonNegativeIntegerDefault0": {
+            "$ref": "#/$defs/nonNegativeInteger",
+            "default": 0
+        },
+        "schemaArray": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#" }
+        },
+        "simpleTypes": {
+            "enum": [
+                "array",
+                "boolean",
+                "integer",
+                "null",
+                "number",
+                "object",
+                "string"
+            ]
+        },
+        "stringArray": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true,
+            "default": []
+        }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+    "M0000-1": {
+        "question": "Have you suffered from or suffering with CHF,cardiomyopathy,arrhythmia,chest pain,MI,CAD,HTN,PVD,Murmur?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-2": {
+        "question": "Any cancer in remission?",
+        "instructions": "if patient has it, select Y as the value otherwise N"
+    },
+    "M0000-3": {
+        "question": "Have you suffered from any osteoarthritis or DJD?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-4": {
+        "question": "Have you suffered from or suffering with rheumatoid arthritis,gait problems,fractures,falls?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-5": {
+        "question": "Have you done with any joint replacement?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-6": {
+        "question": "Have you suffered from or suffering with CVA,TIA,MS,Heimplegia,Seizures,Headaches,Dizziness or Vertigo?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-7": {
+        "question": "Have you suffered from or suffering with IBS,Crohn's disease,diverticulitis or diverticulosis,constipation,diarrhea,facal incontinence?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-8": {
+        "question": "Have you suffered from or suffering with liver or gall bladder problems?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-9": {
+        "question": "Have you suffered from or suffering with depression,anxiety,dementia,alzhelmers?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-10": {
+        "question": "Have you suffered from or suffering from any substance abuse?",
+        "instructions": "if patient suffered any, select true as the value otherwise false"
+    },
+    "M0000-11": {
+        "question": "Have you suffered from or suffering with mental disorder?",
+        "instructions": "if patient suffered any, select true as the value otherwise false"
+    },
+    "M0000-12": {
+        "question": "Have you suffered from or suffering with pressure ulcers,stasis ulcer,diabetic ulcer,trauma wound or any other?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-13": {
+        "question": "Have you suffered from or suffering with chronic kidney disease,renal failure,dialysis?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-14": {
+        "question": "Have you suffered from or suffering with anemia,abnormal coagulation,blood clots?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-15": {
+        "question": "Have you suffered from or suffering with diabetes,thyroid problems?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-16": {
+        "question": "Have you suffered from or suffering with COPD,asthma,chronic obstructive bronchitis,emphysema,chronic obstructive asthma?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-17": {
+        "question": "Have you suffered from or suffering with urinary incontinence,urinary retention,BPH,recent or frequent UTI?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-18": {
+        "question": "Have you suffered from or suffering with tuberculosis,hepatitis?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-19": {
+        "question": "Have you suffered from or suffering from any infectious disease?",
+        "instructions": "if patient is suffering, select true as the value otherwise false"
+    },
+    "M0000-20": {
+        "question": "Have you any tobacco dependence?",
+        "instructions": "if patient has any, select true as the value otherwise false"
+    },
+    "M0000-21": {
+        "question": "What was the type of tobacco dependence?",
+        "instructions": "if patient knows, select true as the value otherwise false"
+    },
+    "M0000-22": {
+        "question": "Any amount for tobacco dependence?",
+        "instructions": "if patient knows, select true as the value otherwise false"
+    },
+    "M0000-23": {
+        "question": "Do you remember length of time you used tobacco?",
+        "instructions": "if patient knows, select true as the value otherwise false"
+    },
+    "M0000-24": {
+        "question": "Any vision problems or hearing loss you noticed?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-25": {
+        "question": "Any other health history you want to share?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-26": {
+        "question": "Any past surgical history to share?",
+        "instructions": "if patient is has any of these, select true as the value otherwise false"
+    },
+    "M0000-27": {
+        "question": "Did u went through recent Pneumonia immuinization as part of up to date immunization?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-28": {
+        "question": "Did u went through recent Flu immuinization as part of up to date immunization?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-29": {
+        "question": "Did u went through recent Tetanus immuinization as part of up to date immunization?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-30": {
+        "question": "Did u went through recent TB immuinization as part of up to date immunization?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-31": {
+        "question": "Did u went through recent TB exposure immuinization as part of up to date immunization?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-32": {
+        "question": "Did u went through recent Hepatitus B immuinization as part of up to date immunization?",
+        "instructions": "if patient has done, select true as the value otherwise false"
+    },
+    "M0000-33": {
+        "question": "Any additional immuinization u had apart from these?",
+        "instructions": "if patient has any, select true as the value otherwise false"
+    },
+    "M0000-34": {
+        "question": "Any additional comments you want to share?",
+        "instructions": "if patient has any, select true as the value otherwise false"
+    },
+    "M0000-35": {
+        "question": "What was the date of your last cholesterol level check?",
+        "instructions": "if patient has provided date, select true as the value otherwise false"
+    },
+    "M0000-36": {
+        "question": "What was the date of your last mammogram?",
+        "instructions": "if patient has provided date, select true as the value otherwise false"
+    },
+    "M0000-37": {
+        "question": "Do you perform any selft breast exams?",
+        "instructions": "if patient does, select true as the value otherwise false"
+    },
+    "M0000-38": {
+        "question": "What was the date of your last pap smear?",
+        "instructions": "if patient has provided date, select true as the value otherwise false"
+    },
+    "M0000-39": {
+        "question": "What was the date of your last PSA?",
+        "instructions": "if patient has provided date, select true as the value otherwise false"
+    },
+    "M0000-40": {
+        "question": "What was the date of your last prostate exam?",
+        "instructions": "if patient has provided date, select true as the value otherwise false"
+    },
+    "M0000-41": {
+        "question": "What was the date of your last colonoscopy?",
+        "instructions": "if patient has provided date, select true as the value otherwise false"
+    },
+    "M0000-42": {
+        "question": "Are you type of homebound?",
+        "instructions": "if patient is, select true as the value otherwise false"
+    },
+    "M0000-43": {
+        "question": "Whether you are having any advance directives?",
+        "instructions": "if patient has, select true as the value otherwise false"
+    },
+    "M0000-44": {
+        "question": "Whether you are having surrogate?",
+        "instructions": "if patient has, select true as the value otherwise false"
+    },
+    "M0000-45": {
+        "question": "Whether you were provided with written and verbal information on advance directives?",
+        "instructions": "if patient was provided with, select true as the value otherwise false"
+    },
+    "M0000-46": {
+        "question": "Any prognosis you want to share?",
+        "instructions": "if patient has provided any, select true as the value otherwise false"
+    },
+    "M0000-47": {
+        "question": "Any functional limitations you seem of having?",
+        "instructions": "if patient has provided any, select true as the value otherwise false"
+    }
+}

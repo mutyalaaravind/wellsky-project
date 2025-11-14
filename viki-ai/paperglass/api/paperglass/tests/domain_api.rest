@@ -1,0 +1,76 @@
+@host_local = http://127.0.0.1:15003
+@host_dev = https://???.a.run.app
+@host_qa = https://???.a.run.app
+@host_stage = https://???.a.run.app
+@host_prod = https://???.a.run.app
+
+@host = {{host_local}}
+
+# Test token for 007 app, tenant 54321, patient c211f67a0a594ceab691e566b8b37c32
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+GET {{host}}/docs
+
+###
+GET {{host}}/api/health
+
+###
+GET {{host}}/api/v1/documents/status?app_id=007&tenant_id=54321&patient_id=53a9f083ae55450ebacae7e8003d2e41&host_attachment_id=test-00000
+
+###
+# Test external document creation
+POST {{host}}/api/v1/documents/external/create
+Content-Type: application/json
+
+{
+  "repositoryType": "API",
+  "appId": "007",
+  "tenantId": "54321",
+  "patientId": "53a9f083ae55450ebacae7e8003d2e41",
+  "hostFileId": "test-external-doc-001",
+  "fileName": "test-document.jpg",
+  "fileType": "image/jpeg",
+  "fileLength": 1024000,
+  "title": "Test Medical Document",
+  "description": "Test document for external API integration",
+  "createdOn": "2025-01-25T15:30:00Z",
+  "updatedOn": "2025-01-25T15:30:00Z",
+  "sha256": "abc123def456789",
+  "metadata": {
+    "source": "external_api",
+    "uploadedBy": "test_user",
+    "documentType": "medical_record"
+  },
+  "active": true,
+  "api": {
+    "method": "GET",
+    "url": "https://www.medicareinteractive.org/wp-content/uploads/2024/12/medicarecard.jpg",
+    "headers": {
+      "Authorization": "Bearer test-token",
+      "Content-Type": "image/jpeg"
+    }
+  }
+}
+
+###
+# Test entities search endpoint
+POST {{host}}/api/v1/entities/search
+Content-Type: application/json
+
+{
+  "appId": "007",
+  "tenantId": "54321",
+  "patientId": "53a9f083ae55450ebacae7e8003d2e41",  
+  "hostAttachmentId": "test-00001"
+}
+
+###
+# Test entities search endpoint with minimal required fields
+POST {{host}}/api/v1/entities/search
+Content-Type: application/json
+
+{
+  "appId": "007",
+  "tenantId": "54321",
+  "patientId": "53a9f083ae55450ebacae7e8003d2e41"
+}

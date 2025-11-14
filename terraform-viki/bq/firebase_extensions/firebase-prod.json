@@ -1,0 +1,24 @@
+{
+  "extensions": {
+    "fs-bq-medications-extracted-medications": ".",
+    "fs-bq-medications-host-attachments": ".",
+    "fs-bq-medications-imported-medications": ".",
+    "fs-bq-medications-medication-profile": ".",
+    "fs-bq-medications-user-entered-medications": ".",
+    "fs-bq-medispan-meds": ".",
+    "fs-bq-paperglass-app-config": ".",
+    "fs-bq-paperglass-classified-pages": ".",
+    "fs-bq-paperglass-commands-processed": ".",
+    "fs-bq-paperglass-commands": ".",
+    "fs-bq-paperglass-doc-operation-definition": ".",
+    "fs-bq-paperglass-doc-operation-instance-log": ".",
+    "fs-bq-paperglass-doc-operation-instance": ".",
+    "fs-bq-paperglass-doc-operation": ".",
+    "fs-bq-paperglass-documents": ".",
+    "fs-bq-paperglass-events-processed": ".",
+    "fs-bq-paperglass-events": ".",
+    "fs-bq-paperglass-page-operation": ".",
+    "fs-bq-paperglass-pages": ".",
+    "fs-bq-paperglass-doc-medications": "."
+  }
+}

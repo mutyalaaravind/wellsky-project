@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="WellSky Formographer widget" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>WellSky Formographer widget</title>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+    html,
+    body {
+      font-family: Roboto;
+      font-weight: 300;
+    }
+
+    .app {
+      padding: 20px;
+    }
+
+    h1 {
+      font-weight: 300;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="formographer-demo-root"></div>
+
+  <div class="app">
+    <h1>This is a demo page for Formographer.</h1>
+
+    <p>
+      Click icon in bottom-right of this page to show Formographer.
+    </p>
+
+    <p>
+      <strong>Note: Formographer widget is rendered in Shadow DOM.</strong>
+      This means it can safely be used with other versions of Ant Design, React, etc.
+    </p>
+
+    <script>
+      window.addEventListener('load', function () {
+        initFormographer({
+          el: document.getElementById('formographer-demo-root'),
+        });
+      });
+    </script>
+  </div>
+</body>
+
+</html>

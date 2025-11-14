@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="WellSky AutoScribe widget" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>WellSky AutoScribe widget</title>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+    html,
+    body {
+      font-family: Roboto;
+      font-weight: 300;
+    }
+
+    .app {
+      padding: 20px;
+    }
+
+    h1 {
+      font-weight: 300;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <div class="app">
+    <h1>This is a demo page for AutoScribe.</h1>
+
+    <p>
+      Click icon in bottom-right of this page to show AutoScribe.
+    </p>
+
+    <p>
+      Additionally, here is a second instance of AutoScribe rendered in "widget" mode:
+    </p>
+    <div style="display: flex; align-items: stretch; flex-direction: row; gap: 2rem">
+      <div style="flex: 1">
+        <div>
+          <strong>AutoScribeWidget</strong>
+        </div>
+        <div id="autoscribe-widget-demo" style="border: 1px solid #AAAAAA"></div>
+      </div>
+      <div style="flex: 1">
+        <div>
+          <strong>AutoScribeReadonlyWidget</strong>
+        </div>
+        <div id="autoscribe-readonly-widget-demo" style="border: 1px solid #AAAAAA"></div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('load', function () {
+        // Bubble mode
+        initAutoScribeBubble({
+          onOpen: () => console.log('AutoScribe opened'),
+          onConfirm: (text, transactionId, sectionId, version) => console.log('AuboScribe transcription confirmed:', text, transactionId, sectionId, version),
+          onCancel: () => console.log('AutoScribe transcription cancelled'),
+          transactionId: 'autoscribe-demo',
+          sectionId: 'another',
+        });
+
+        // Widget mode
+        initAutoScribeWidget({
+          el: document.querySelector('#autoscribe-widget-demo'),
+          onConfirm: (text, transactionId, sectionId, version) => console.log('AuboScribe transcription confirmed:', text, transactionId, sectionId, version),
+          transactionId: 'autoscribe-demo',
+        });
+
+        // Widget mode (read-only)
+        renderAutoScribeReadonlyWidget({
+          el: document.querySelector('#autoscribe-readonly-widget-demo'),
+          transactionId: 'autoscribe-demo',
+        });
+      });
+    </script>
+  </div>
+</body>
+
+</html>

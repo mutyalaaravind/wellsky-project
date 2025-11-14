@@ -1,0 +1,294 @@
+[
+  {
+    "name": "active_document_operation_definition_id",
+    "type": "STRING"
+  },
+  {
+    "name": "active_document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "cross_transaction_error_strict_mode",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_definition_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_type",
+    "type": "STRING"
+  },
+  {
+    "name": "ehr_token",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "extracted_medications",
+    "type": "STRING"
+  },
+  {
+    "name": "extraction_status",
+    "type": "STRING"
+  },
+  {
+    "name": "extraction_type",
+    "type": "STRING"
+  },
+  {
+    "name": "force_new_instance",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "idempotent_key",
+    "type": "STRING"
+  },
+  {
+    "name": "is_test",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "labelled_content",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "model",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "operation_type",
+    "type": "STRING"
+  },
+  {
+    "name": "page_id",
+    "type": "STRING"
+  },
+  {
+    "name": "page_number",
+    "type": "INTEGER"
+  },
+  {
+    "name": "page_text",
+    "type": "STRING"
+  },
+  {
+    "name": "page_texts",
+    "type": "ARRAY<RECORD>"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "pdf_parsing_strategy",
+    "type": "INTEGER"
+  },
+  {
+    "name": "priority",
+    "type": "STRING"
+  },
+  {
+    "name": "prompt",
+    "type": "STRING"
+  },
+  {
+    "name": "status",
+    "type": "STRING"
+  },
+  {
+    "name": "step_id",
+    "type": "STRING"
+  },
+  {
+    "name": "storage_uri",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.events",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "test_results.execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.results.grader_results.errors",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "test_results.results.grader_results.metadata.individual",
+    "type": "ARRAY<RECORD>"
+  },
+  {
+    "name": "test_results.results.grader_results.metadata.overall_score",
+    "type": "FLOAT"
+  },
+  {
+    "name": "test_results.results.grader_results.passed",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "test_results.results.level1_results.errors",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "test_results.results.level1_results.passed",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "test_results.results.level2_results",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.results.level3_results",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.results.overall_passed",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "test_results.tenant_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.events",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "test_results.test_case.id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.input_data.document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.input_data.token",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.name",
+    "type": "STRING"
+  },
+  {
+    "name": "test_results.test_case.test_conditions.list_of_medispan_ids",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "test_results.test_case.test_conditions.max_duration_of_test_execution",
+    "type": "INTEGER"
+  },
+  {
+    "name": "test_results.test_case.test_conditions.medispan_matched_count",
+    "type": "INTEGER"
+  },
+  {
+    "name": "test_results.test_case.test_conditions.minimum_overall_score",
+    "type": "FLOAT"
+  },
+  {
+    "name": "test_results.test_case.test_conditions.total_count",
+    "type": "INTEGER"
+  },
+  {
+    "name": "test_results.test_case.test_conditions.unlisted_count",
+    "type": "INTEGER"
+  },
+  {
+    "name": "test_results.test_case.test_type",
+    "type": "STRING"
+  },
+  {
+    "name": "token",
+    "type": "STRING"
+  },
+  {
+    "name": "type",
+    "type": "STRING"
+  },
+  {
+    "name": "user_entered_medication",
+    "type": "STRING"
+  }
+]

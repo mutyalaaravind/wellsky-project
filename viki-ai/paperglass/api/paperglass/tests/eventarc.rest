@@ -1,0 +1,22 @@
+
+@host = http://localhost:15002
+
+POST {{host}}/eventarc/medications
+
+{
+    "event_type":"medications",
+    "payload":{
+        "document_id":"0eb0512031c511f0a85d0242ac140008",
+        "run_id":"79e3bbceb4ab484bacefa680a4fb2790",
+        "medications_storage_uri":"gs://viki-ai-provisional-dev/paperglass/documents/007/54321/53a9f083ae55450ebacae7e8003d2e41/0eb0512031c511f0a85d0242ac140008/medispan_matched/79e3bbceb4ab484bacefa680a4fb2790/1.json",
+        "app_id":"007",
+        "tenant_id":"54321",
+        "patient_id":"53a9f083ae55450ebacae7e8003d2e41",
+        "page_number":1,
+        "wait_time_start":"2025-05-15T19:45:16.302165+00:00",
+        "env":"dev"
+    }
+}
+
+
+{"event_type":"medications","payload":{"document_id":"0644692031cc11f0b25c0242ac140007","run_id":"b671349894524738a3d877408d5de49b","medications_storage_uri":"gs://viki-ai-provisional-dev/paperglass/documents/007/54321/53a9f083ae55450ebacae7e8003d2e41/0644692031cc11f0b25c0242ac140007/medispan_matched/b671349894524738a3d877408d5de49b/1.json","app_id":"007","tenant_id":"54321","patient_id":"53a9f083ae55450ebacae7e8003d2e41","page_number":1,"wait_time_start":"2025-05-15T20:35:06.598680+00:00","env":"dev"}}

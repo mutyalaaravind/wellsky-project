@@ -1,0 +1,14 @@
+{
+    "immunizations": [
+        {
+            "name": "Flu",
+            "status": "yes | no | unknown",
+            "date": "01/01/2022"
+        },
+        {
+            "name": "TB",
+            "status": "yes | no | unknown",
+            "date": "01/01/2022"
+        }
+    ]
+}

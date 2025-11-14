@@ -1,0 +1,4 @@
+.form_auto_complete {
+  /* Fix for LHC Form dropdowns appearing under Chakra drawer */
+  z-index: 1000000 !important;
+}

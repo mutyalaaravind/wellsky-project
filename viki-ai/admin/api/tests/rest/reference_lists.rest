@@ -1,0 +1,356 @@
+
+@local = http://localhost:14000
+@dev = https://ai-admin-api-zqftmopgsq-uk.a.run.app
+@qa = https://ai-admin-api-p32qledfyq-uk.a.run.app
+@stage = https://ai-admin-api-zzygbs3ypa-uk.a.run.app
+@prod = https://ai-admin-api-cocynqqo6a-uk.a.run.app
+
+@baseUrl = {{dev}}
+@contentType = application/json
+
+# Test token - Replace with a valid JWT token
+# Get token with: gcloud auth print-identity-token
+@token = eyJraWQiOiJXX1p2QzE0aHhfZnNFTUsxUzVDeGJWQndCUXNKeWxaTUIySXJlNnN1dE5FIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnJTQ0lSM3M1akdXRFg2Vlh5TzdSdUlTLURqdHhzMGQ0UFRYemF1dDJhbm8iLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3NTk0NDA5MTMsImV4cCI6MTc1OTUyNzMxMywiY2lkIjoiYXBpLndlbGxza3kudmlraS5kZXYuYWRtaW4iLCJ1aWQiOiIwMHVldDYyNTQzZWoxZnd2MzFkNyIsInNjcCI6WyJwcm9maWxlIiwiYXBpLndlbGxza3kudmlraS5haS5hZG1pbiIsImVtYWlsIiwib3BlbmlkIl0sImF1dGhfdGltZSI6MTc1OTQzMDE5Niwic3ViIjoiRXJpYy5Db2luZXJAV2VsbFNreS5jb20iLCJncm91cC1yb2xlcyI6InN1cGVydXNlciJ9.JHBn8hHM8u0PJzfNnCGbpkNXWcSyA23C3oPWmGkFwZp5Sfj6fXaEsMql6JkvhBh3iy72L1h9n3ZpM52TbuDcFMQornTfcHn15siOYBEkrqDYtBhRXk9IgeF1ZHLREEfzApE_EMf1uOwvbQQAlk47u5b1inT3CHXPnF4-4XSZrRveDaL0v2naVG9y_us5bNwPeOJxp-TTRLmXSiLmQRPJ1XEFRyc393R0Fu_ilK9j2epq7ghdy3-OtB5YCVtleKnRQZfL6x7CFlErIrahwFrS1-FDYe9hR7B3ZGjo3n-zR6gCmB6fRiPy2RMJNsV8Sz3CSdiXe_VE0u0jCL9Ffvh7mw
+
+###
+# Reference Lists REST API Tests
+# Tests for the Admin API reference lists endpoints (business units and solutions)
+###
+
+### Get All Business Units
+GET {{baseUrl}}/api/v1/reference-lists/business-units
+Content-Type: application/json
+
+###
+
+### Get All Solutions
+GET {{baseUrl}}/api/v1/reference-lists/solutions
+Content-Type: application/json
+
+###
+
+### Get Solutions Filtered by Business Unit (Query Parameter)
+GET {{baseUrl}}/api/v1/reference-lists/solutions?bu_code=BU001
+Content-Type: application/json
+
+###
+
+### Get Solutions for Specific Business Unit (Path Parameter)
+GET {{baseUrl}}/api/v1/reference-lists/solutions/BU001
+Content-Type: application/json
+
+###
+
+### Get Solutions for Another Business Unit
+GET {{baseUrl}}/api/v1/reference-lists/solutions/BU002
+Content-Type: application/json
+
+###
+
+### Get All Reference Data (Business Units and Solutions Combined)
+GET {{baseUrl}}/api/v1/reference-lists/all
+Content-Type: application/json
+
+###
+
+### Test Error Case - Invalid Business Unit Code
+GET {{baseUrl}}/api/v1/reference-lists/solutions/INVALID_CODE
+Content-Type: application/json
+
+###
+
+### Update Business Units
+PUT {{baseUrl}}/api/v1/reference-lists/business-units
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "business_units": [
+    {
+      "bu_code": "corp",
+      "name": "Corporate"
+    },
+    {
+      "bu_code": "wsh",
+      "name": "WS Home"
+    },
+    {
+      "bu_code": "pac",
+      "name": "Post Acute Care"
+    },
+    {
+      "bu_code": "pacf",
+      "name": "Post Acute Care Facilities"
+    },
+    {
+      "bu_code": "hss",
+      "name": "Human and Social Services"
+    },
+    {
+      "bu_code": "bm",
+      "name": "Blood Management"
+    },
+    {
+      "bu_code": "cp",
+      "name": "CarePort"
+    },
+    {
+      "bu_code": "pe",
+      "name": "Healthify"
+    }
+  ]
+}
+
+###
+
+
+### Update Solutions
+PUT {{baseUrl}}/api/v1/reference-lists/solutions
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "solutions": [
+    {
+      "solution_id": "corp-other",
+      "code": "corp_other",
+      "name": "Other",
+      "description": "Other solution",
+      "bu_code": "corp"
+    },
+    {
+      "solution_id": "hp-wsh-001",
+      "code": "hp",
+      "name": "Hospice and Palliative (Consolo)",
+      "description": "Hospice and Palliative Care Management System",
+      "bu_code": "wsh"
+    },
+    {
+      "solution_id": "hh-wsh-001",
+      "code": "hh",
+      "name": "Home Health and Hospice",
+      "description": "Home Health and Hospice Management System",
+      "bu_code": "wsh"
+    },
+    {
+      "solution_id": "pc-wsh-001",
+      "code": "pc",
+      "name": "Personal Care",
+      "description": "Personal Care Management System",
+      "bu_code": "wsh"
+    },
+    {
+      "solution_id": "ct-pac-001",
+      "code": "ct",
+      "name": "CareTend",
+      "description": "Post Acute Care Management System",
+      "bu_code": "pac"
+    },
+    {
+      "solution_id": "cpr-pac-001",
+      "code": "cpr",
+      "name": "CPR Plus",
+      "description": "Enhanced Post Acute Care System",
+      "bu_code": "pac"
+    },
+    {
+      "solution_id": "sc-pacf-001",
+      "code": "sc",
+      "name": "Specialty Care",
+      "description": "Specialty Care Management System",
+      "bu_code": "pacf"
+    },
+    {
+      "solution_id": "ads-pacf-001",
+      "code": "ads",
+      "name": "WellSky Adult Day",
+      "description": "Adult Day Services Management System",
+      "bu_code": "pacf"
+    },
+    {
+      "solution_id": "wsr-pacf-001",
+      "code": "wsr",
+      "name": "WellSky Rehab",
+      "description": "Rehabilitation Services Management System",
+      "bu_code": "pacf"
+    },
+    {
+      "solution_id": "hs-hss-001",
+      "code": "hs",
+      "name": "Human Services",
+      "description": "Human Services Management System",
+      "bu_code": "hss"
+    },
+    {
+      "solution_id": "cs-hss-001",
+      "code": "cs",
+      "name": "Community Services",
+      "description": "Community Services Management System",
+      "bu_code": "hss"
+    },
+    {
+      "solution_id": "ad-hss-001",
+      "code": "ad",
+      "name": "Aging and Disability (SAMS)",
+      "description": "State Agency Management System for Aging and Disability",
+      "bu_code": "hss"
+    },
+    {
+      "solution_id": "bh-hss-001",
+      "code": "bh",
+      "name": "Behavioral Health and IDD Providers",
+      "description": "Behavioral Health and Intellectual/Developmental Disabilities System",
+      "bu_code": "hss"
+    },
+    {
+      "solution_id": "biotl-bm-001",
+      "code": "biotl",
+      "name": "Biotherapies Lab",
+      "description": "Biotherapies Laboratory Management System",
+      "bu_code": "bm"
+    },
+    {
+      "solution_id": "biotc-bm-001",
+      "code": "biotc",
+      "name": "Biotherapies Clinic",
+      "description": "Biotherapies Clinic Management System",
+      "bu_code": "bm"
+    },
+    {
+      "solution_id": "bc-bm-001",
+      "code": "bc",
+      "name": "Blood Center",
+      "description": "Blood Center Management System",
+      "bu_code": "bm"
+    },
+    {
+      "solution_id": "blood-bm-001",
+      "code": "blood",
+      "name": "Blood Transfusion",
+      "description": "Blood Transfusion Management System",
+      "bu_code": "bm"
+    },
+    {
+      "solution_id": "cpci-cp-001",
+      "code": "cpci",
+      "name": "Connect / Insight",
+      "description": "Care Coordination Connect and Insight Platform",
+      "bu_code": "cp"
+    },
+    {
+      "solution_id": "cpcm-cp-001",
+      "code": "cpcm",
+      "name": "Care Management",
+      "description": "Care Management Platform",
+      "bu_code": "cp"
+    },
+    {
+      "solution_id": "scc-pe-001",
+      "code": "scc",
+      "name": "Social Care Coordination",
+      "description": "Social Care Coordination System",
+      "bu_code": "pe"
+    },
+    {
+      "solution_id": "cc-pe-001",
+      "code": "cc",
+      "name": "Care Coordination",
+      "description": "Care Coordination System",
+      "bu_code": "pe"
+    }
+  ]
+}
+
+###
+
+### Test Validation Error - Empty Business Units List
+PUT {{baseUrl}}/api/v1/reference-lists/business-units
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "business_units": []
+}
+
+###
+
+### Test Validation Error - Invalid Business Unit Code Format
+PUT {{baseUrl}}/api/v1/reference-lists/business-units
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "business_units": [
+    {
+      "bu_code": "BU-001@",
+      "name": "Invalid Code Format"
+    }
+  ]
+}
+
+###
+
+### Test Validation Error - Duplicate Business Unit Codes
+PUT {{baseUrl}}/api/v1/reference-lists/business-units
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "business_units": [
+    {
+      "bu_code": "BU001",
+      "name": "First BU"
+    },
+    {
+      "bu_code": "BU001",
+      "name": "Duplicate BU Code"
+    }
+  ]
+}
+
+###
+
+### Test Validation Error - Invalid Business Unit Reference in Solution
+PUT {{baseUrl}}/api/v1/reference-lists/solutions
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "solutions": [
+    {
+      "solution_id": "SOL999",
+      "code": "INVALID_SOL",
+      "name": "Invalid Solution",
+      "description": "Solution with invalid BU code",
+      "bu_code": "INVALID_BU"
+    }
+  ]
+}
+
+###
+
+### Test Validation Error - Duplicate Solution IDs
+PUT {{baseUrl}}/api/v1/reference-lists/solutions
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "solutions": [
+    {
+      "solution_id": "SOL001",
+      "code": "FIRST_SOL",
+      "name": "First Solution",
+      "description": "First solution",
+      "bu_code": "BU001"
+    },
+    {
+      "solution_id": "SOL001",
+      "code": "DUPLICATE_SOL",
+      "name": "Duplicate Solution",
+      "description": "Solution with duplicate ID",
+      "bu_code": "BU001"
+    }
+  ]
+}
+
+###

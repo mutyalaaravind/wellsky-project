@@ -1,0 +1,94 @@
+.bubble-ctn {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+
+    &.speaker-unknown {
+        .bubble-avatar {
+            background: #B13B1D;
+        }
+        // .bubble-content {
+        //     background: #b0daff;
+        //     color: #000;
+        // }
+        .bubble-speaker {
+            color: #B13B1D;
+        }
+        .bubble-button {
+            opacity: 0.75;
+        }
+    }
+
+    &.speaker-1 {
+        .bubble-avatar {
+            background: #0075DE;
+        }
+        // .bubble-content {
+        //     background: #b0daff;
+        //     color: #000;
+        // }
+        .bubble-speaker {
+            color: #0075DE;
+        }
+        .bubble-button {
+            opacity: 0.75;
+        }
+    }
+
+    &.speaker-2 {
+        .bubble-avatar {
+            background: #0C5159;
+        }
+        // .bubble-content {
+        //     background: #BDD9DC;
+        //     color: #000;
+        // }
+        .bubble-speaker {
+            color: #0C5159;
+        }
+        .bubble-button {
+            opacity: 0.75;
+        }
+    }
+
+    .bubble-right {
+        margin-left: 0.5rem;
+        flex: 1;
+
+        .bubble-header {
+            padding: 0 0 0.25rem;
+            font-weight: 400;
+            font-size: 0.75rem;
+
+            .bubble-speaker {
+                font-weight: 700;
+            }
+
+            .bubble-time {
+                margin-left: 1rem;
+            }
+
+            .bubble-button {
+                vertical-align: middle;
+                height: 1rem;
+                display: inline-flex;
+                align-items: center;
+                overflow: hidden;
+                margin-left: 0.5rem;
+            }
+        }
+
+        .bubble-content {
+            .bubble-text {
+                padding: 0.25rem 0;
+            }
+
+            .bubble-active-word {
+                text-decoration: underline;
+                font-weight: 700;
+                background: rgba(255, 255, 255, 0.2);
+                /* color: #00AA77; */
+            }
+        }
+    }
+}

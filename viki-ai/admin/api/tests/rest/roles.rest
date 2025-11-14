@@ -1,0 +1,516 @@
+@local = http://localhost:14000
+@dev = https://ai-admin-api-zqftmopgsq-uk.a.run.app
+@qa = https://ai-admin-api-p32qledfyq-uk.a.run.app
+@stage = https://ai-admin-api-zzygbs3ypa-uk.a.run.app
+@prod = https://ai-admin-api-cocynqqo6a-uk.a.run.app
+
+@baseUrl = {{dev}}
+@contentType = application/json
+
+# Test token - Replace with a valid JWT token
+# Get token with: gcloud auth print-identity-token
+@token = eyJraWQiOiJXX1p2QzE0aHhfZnNFTUsxUzVDeGJWQndCUXNKeWxaTUIySXJlNnN1dE5FIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnJTQ0lSM3M1akdXRFg2Vlh5TzdSdUlTLURqdHhzMGQ0UFRYemF1dDJhbm8iLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3NTk0NDA5MTMsImV4cCI6MTc1OTUyNzMxMywiY2lkIjoiYXBpLndlbGxza3kudmlraS5kZXYuYWRtaW4iLCJ1aWQiOiIwMHVldDYyNTQzZWoxZnd2MzFkNyIsInNjcCI6WyJwcm9maWxlIiwiYXBpLndlbGxza3kudmlraS5haS5hZG1pbiIsImVtYWlsIiwib3BlbmlkIl0sImF1dGhfdGltZSI6MTc1OTQzMDE5Niwic3ViIjoiRXJpYy5Db2luZXJAV2VsbFNreS5jb20iLCJncm91cC1yb2xlcyI6InN1cGVydXNlciJ9.JHBn8hHM8u0PJzfNnCGbpkNXWcSyA23C3oPWmGkFwZp5Sfj6fXaEsMql6JkvhBh3iy72L1h9n3ZpM52TbuDcFMQornTfcHn15siOYBEkrqDYtBhRXk9IgeF1ZHLREEfzApE_EMf1uOwvbQQAlk47u5b1inT3CHXPnF4-4XSZrRveDaL0v2naVG9y_us5bNwPeOJxp-TTRLmXSiLmQRPJ1XEFRyc393R0Fu_ilK9j2epq7ghdy3-OtB5YCVtleKnRQZfL6x7CFlErIrahwFrS1-FDYe9hR7B3ZGjo3n-zR6gCmB6fRiPy2RMJNsV8Sz3CSdiXe_VE0u0jCL9Ffvh7mw
+
+###
+# Roles REST API Tests
+# Tests for the Admin API role management endpoints
+###
+
+### List All Roles
+GET {{baseUrl}}/api/v1/roles/
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### List Roles with Pagination
+GET {{baseUrl}}/api/v1/roles/?limit=10&offset=0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### List All Roles Including Inactive
+GET {{baseUrl}}/api/v1/roles/?active_only=false
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Create Base Role (No Inheritance)
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:basic_user",
+  "name": "Basic User",
+  "description": "Basic user role with read-only permissions",
+  "permissions": [
+    "app:read",
+    "profile:read"
+  ]
+}
+
+###
+
+### Create Admin Role (With Multiple Permissions)
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:content_manager",
+  "name": "Content Manager",
+  "description": "Role for managing content and documents",
+  "permissions": [
+    "app:read",
+    "app:write",
+    "document:read",
+    "document:write",
+    "document:delete",
+    "profile:read"
+  ]
+}
+
+###
+
+### Create Role with Inheritance
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:super_admin",
+  "name": "Super Administrator",
+  "description": "Super admin role inheriting from content manager",
+  "permissions": [
+    "user:create",
+    "user:delete",
+    "system:admin"
+  ],
+  "inherits": [
+    "admin:content_manager"
+  ]
+}
+
+###
+
+### Create Special Superuser Role
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "superuser",
+  "name": "System Superuser",
+  "description": "System-level superuser role",
+  "permissions": [
+    "*"
+  ]
+}
+
+###
+
+### Get Role by ID - Basic User
+GET {{baseUrl}}/api/v1/roles/admin:basic_user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Role by ID - Content Manager
+GET {{baseUrl}}/api/v1/roles/admin:content_manager
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Role by ID - Super Admin (With Inheritance)
+GET {{baseUrl}}/api/v1/roles/admin:super_admin
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Role by ID - Superuser
+GET {{baseUrl}}/api/v1/roles/superuser
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Role Effective Permissions - Basic User
+GET {{baseUrl}}/api/v1/roles/admin:basic_user/permissions
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Role Effective Permissions - Super Admin (Should Include Inherited)
+GET {{baseUrl}}/api/v1/roles/admin:super_admin/permissions
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Role Dependencies - Content Manager (What Roles Inherit From It)
+GET {{baseUrl}}/api/v1/roles/admin:content_manager/dependencies
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Search Roles by Name
+POST {{baseUrl}}/api/v1/roles/search?search_term=admin&active_only=true
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Search Roles by Description
+POST {{baseUrl}}/api/v1/roles/search?search_term=content&active_only=true
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Update Role - Add Permissions
+PUT {{baseUrl}}/api/v1/roles/admin:basic_user
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "name": "Basic User (Updated)",
+  "description": "Updated basic user role with additional permissions",
+  "permissions": [
+    "app:read",
+    "profile:read",
+    "profile:write"
+  ]
+}
+
+###
+
+### Update Role - Modify Inheritance
+PUT {{baseUrl}}/api/v1/roles/extract:admin
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "extract:admin",
+  "name": "Extract Admin",
+  "description": "Admin user for managing Extract configurations",
+  "permissions": [
+    "extract.onboarding",
+    "extract.apps",
+    "extract.apps.action.add",
+    "extract.apps.action.view",
+    "extract.apps.action.edit",
+    "extract.apps.action.delete"    
+  ],
+  "inherits": [
+    "extract:user"
+  ],
+  "active": true
+}
+
+###
+
+### Update Role - Deactivate Role
+PUT {{baseUrl}}/api/v1/roles/admin:basic_user
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "active": false
+}
+
+###
+
+### Update Role - Reactivate Role
+PUT {{baseUrl}}/api/v1/roles/admin:basic_user
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "active": true
+}
+
+###
+
+### Delete Role (Soft Delete)
+DELETE {{baseUrl}}/api/v1/roles/admin:basic_user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Test Error Cases
+
+### Get Non-Existent Role
+GET {{baseUrl}}/api/v1/roles/admin:non_existent_role
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Create Role - Invalid ID Format (Missing Domain)
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "invalid_role_id",
+  "name": "Invalid Role",
+  "description": "Role with invalid ID format"
+}
+
+###
+
+### Create Role - Empty ID
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "",
+  "name": "Empty ID Role",
+  "description": "Role with empty ID"
+}
+
+###
+
+### Create Role - Missing Required Fields
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:incomplete_role"
+}
+
+###
+
+### Create Role - Circular Inheritance (Will Fail After Creation)
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:circular_a",
+  "name": "Circular Role A",
+  "description": "First role in circular dependency test",
+  "permissions": ["test:read"]
+}
+
+###
+
+### Create Role - Second Part of Circular Inheritance
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:circular_b",
+  "name": "Circular Role B",
+  "description": "Second role in circular dependency test",
+  "permissions": ["test:write"],
+  "inherits": ["admin:circular_a"]
+}
+
+###
+
+### Update Role - Create Circular Reference (Should Fail)
+PUT {{baseUrl}}/api/v1/roles/admin:circular_a
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "inherits": ["admin:circular_b"]
+}
+
+###
+
+### Create Role - Inherit from Non-Existent Role
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:invalid_inheritance",
+  "name": "Invalid Inheritance",
+  "description": "Role inheriting from non-existent role",
+  "permissions": ["test:read"],
+  "inherits": ["admin:does_not_exist"]
+}
+
+###
+
+### Update Non-Existent Role
+PUT {{baseUrl}}/api/v1/roles/admin:does_not_exist
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "name": "Updated Non-Existent Role"
+}
+
+###
+
+### Delete Non-Existent Role
+DELETE {{baseUrl}}/api/v1/roles/admin:does_not_exist
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Permissions for Non-Existent Role
+GET {{baseUrl}}/api/v1/roles/admin:does_not_exist/permissions
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Get Dependencies for Non-Existent Role
+GET {{baseUrl}}/api/v1/roles/admin:does_not_exist/dependencies
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Test Unauthorized Access (No Token)
+GET {{baseUrl}}/api/v1/roles/
+Content-Type: application/json
+
+###
+
+### Test Unauthorized Access (Invalid Token)
+GET {{baseUrl}}/api/v1/roles/
+Content-Type: application/json
+Authorization: Bearer invalid_token_here
+
+###
+
+### Clean Up Test Data
+
+### Delete Circular Test Roles
+DELETE {{baseUrl}}/api/v1/roles/admin:circular_a
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{baseUrl}}/api/v1/roles/admin:circular_b
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Delete Other Test Roles
+DELETE {{baseUrl}}/api/v1/roles/admin:content_manager
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{baseUrl}}/api/v1/roles/admin:super_admin
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{baseUrl}}/api/v1/roles/superuser
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+
+### SEEDING ------------------------------
+
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "extract:user",
+  "name": "Extract User",
+  "description": "User for experimenting with pipelines",
+  "permissions": [
+    "extract.onboarding",
+    "extract.apps.experiment"
+  ],
+  "inherits": [],
+  "active": true
+}
+
+###
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "extract:admin",
+  "name": "Extract Admin",
+  "description": "Admin user for managing Extract configurations",
+  "permissions": [
+    "extract.onboarding",
+    "extract.apps",
+    "extract.apps.action.add",
+    "extract.apps.action.view",
+    "extract.apps.action.edit",
+    "extract.apps.action.delete"    
+  ],
+  "inherits": [
+    "extract:user"
+  ],
+  "active": true
+}
+
+###
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "admin:admin",
+  "name": "Admin",
+  "description": "Admin user for managing users",
+  "permissions": [
+    "admin.settings",
+    "admin.settings.usermanagement",
+    "admin.settings.usermanagement.action.add",
+    "admin.settings.usermanagement.action.edit",
+    "admin.settings.usermanagement.action.delete",
+    "admin.settings.llmmodels"
+  ],
+  "inherits": [
+    "extract:admin"
+  ],
+  "active": true
+}
+
+###
+POST {{baseUrl}}/api/v1/roles/
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "id": "superuser",
+  "name": "Superuser",
+  "description": "Superuser with full system access and permissions",
+  "permissions": [
+    "admin.settings.llmmodels.action.add",
+    "admin.settings.llmmodels.action.edit",
+    "admin.settings.llmmodels.action.delete",
+    "admin.settings.system",
+    "admin.settings.security"
+  ],
+  "inherits": [
+    "admin:admin",
+    "extract:admin"
+  ],
+  "active": true
+}
+  

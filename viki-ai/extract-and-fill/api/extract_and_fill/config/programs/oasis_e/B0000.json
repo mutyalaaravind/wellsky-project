@@ -1,0 +1,34 @@
+{
+    "B0000-A": {
+        "question": "Can u share some information related to your eyes?",
+        "instructions": "if patient has provided some, select true as the value otherwise false"
+    },
+    "B0000-B": {
+        "question": "Do you remember date of last eye exam you attended?",
+        "instructions": "if patient has provided some, select true as the value otherwise false"
+    },
+    "B0000-2": {
+        "question": "How are your ears feeling?",
+        "instructions": "if patient has provided some, select true as the value otherwise false"
+    },
+    "B0000-3": {
+        "question": "How about your nose?",
+        "instructions": "if patient has provided some, select true as the value otherwise false"
+    },
+    "B0000-4": {
+        "question": "How about your nose?",
+        "instructions": "if patient has provided some, select true as the value otherwise false"
+    },
+    "B0200": {
+        "question": "Are you able to hear normally with the help of hearing aid or appliances?",
+        "instructions": "if patient is able to hear adequate select 0,if with minimal difficulty select 1,if moderate difficulty select 2,if highly impaired select 3 otherwise no information"
+    },
+    "B1000": {
+        "question": "Are you able to see in adequate light with glasses or other visual appliances?",
+        "instructions": "if patient is able to see adequate select 0,if in impaired way select 1,if in moderately impaired way select 2,if in highly impaired way select 3,if severely impaired way select 4"
+    },
+    "B1300": {
+        "question": "Do you need someone to help you while reading instructions,pamphlets or other written material from doctor or pharmacy?",
+        "instructions": "if patient never needs anyone select 0,if needs rarely select 1,if needs sometimes select 2,if needs often select 3,if needs always select 4,if patient declined to response select 7,if patient is unable to respond select 8"
+    }
+}

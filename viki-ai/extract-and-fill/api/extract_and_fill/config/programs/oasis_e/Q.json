@@ -1,0 +1,111 @@
+{
+    "Q0001": {
+      "question": "What activities are permitted to you to do?",
+      "instructions": "if options are selected, select true otherwise false."
+    },
+    "Q0002": {
+      "question": "Do you have any musculoskeltal issues?",
+      "instructions": "if options are selected, select true otherwise false"
+    },
+    "M1800": {
+        "question": "are you able to take care of your personal hygiene like washing face, skin and dental care?",
+        "instructions": "if able to groom unaided, select 0. if able to groom once utensils are given in reach, select 1. if someone is needed to assist, select 2. if patient is unable to do anything, select 3."
+    },
+    "M1810": {
+        "question": "are you able to dress your upper body safely, like undergarments, buttons and zippers?",
+        "instructions": "if able to take out cloths from closet and put them on unaided, select 0. if able to dress upper body without aid if outfits are given, select 1. if someone is needed to assist, select 2. if patient is unable to do anything, select 3."
+    },
+    "M1820": {
+        "question": "are you able to dress your lower body safely, like undergarments, socks and footwear?",
+        "instructions": "if able to take out cloths or shoes from closet and put them on unaided, select 0. if able to dress lower body without aid if outfits are given, select 1. if someone is needed to assist, select 2. if patient is unable to do anything, select 3."
+    },
+    "M1830": {
+        "question": "are you able to wash your entire body safely?",
+        "instructions": "if able to bath in shower or tub unaided, select 0. if able to bathe in tub or shower with the help of devices, select 1. if able to bath with intermittant assistance of someone, select 2. if able to bath unaided but requires supervision, select 3. if unable to use tub or shower but can bath unaided with or without devices at sink or commode, select 4. if unable to bath, but can bath self in bed, near sink or commode with supervision, select 5. if needs other person totally, select 6."
+    },
+    "M1840": {
+        "question": "are you able to move to or from bed to toilet or bedside commode?",
+        "instructions": "if able to do the things unaided, select 0. if able to do all the things unaided when reminded or supervised, select 1. if unable to move to-from toilet but able to use bedside commode, select 2. if unable to use toilet or bedside commode but can use bedpan/urinal, select 3. if depends entirely on ther person, select 4."
+    },
+    "M1845": {
+        "question": "are you able to maintain toileting hygiene like adjusting pads or cloths before and after using toilet?",
+        "instructions": "if able to maintain toileting hygiene unaided, select 0. if able to maintain toilting hygiene unaided if supplies are given, select 1. if someone is needed to assist to maintain toileting hygiene, select 2. if patient is unable to do anything, select 3."
+    },
+    "M1850": {
+        "question": "are you able to transfer from bed to chair or change positions in bed?",
+        "instructions": "if ableto transfer unaided, select 0. if able to transfer with minimal help or use of device, select 1. if able to bear weight but unable to transfer self, select 2. if unable to bear weight and unable to transfer, select 3. if bedfast and unable to transfer but able to change positions, select 4. if bedfast and unable to tranfer and change positions, select 5."
+    },
+    "M1860": {
+        "question": "are you able to walk safely while standing or wheel safely when sitted in wheelchair on various surfaces?",
+        "instructions": "if able to walk on various surfaces and negotiate stairs, select 0. if able to walk on various surfaces with one handed device and negotiate stairs, select 1. if needs 2 handes device to walk and supervision to negotiate stairs, select 2. if able to walk with supervision, select 3. if chairfast, unable to ambulate but able to wheel freely, select 4. if chairfast, unable to wheel or ambulate, select 5. if bedfast, unable to wheel or ambulate, select 6."
+    },
+    "Q0003-1": {
+        "question": "Is your age more than 65 years?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-2": {
+        "question": "Are you diagnosed with anything?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-3": {
+            "question": "Do have a history of falls within last 3 months?",
+            "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-4": {
+        "question": "Are you able to move to bathroom or commode in timely manner?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-5": {
+        "question": "Do you have any visual impairment?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-6": {
+        "question": "Do you have any functional mobility impairement?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-7": {
+        "question": "Do you have problems with your surrounding environment?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-8": {
+        "question": "Are you currently on more than 4 prescriptions?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-9": {
+        "question": "Does your pain affects your daily functions?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0003-10": {
+        "question": "Do you have cognitive impairement?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0004": {
+        "question": "We are testing your postural stability, steppage, stride length and sway",
+        "instructions": "if score is given, select true, otherwise false."
+    },
+    "Q0005": {
+        "question": "Are there any medical equipments(DME) that you use ?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0006": {
+        "question": "Are there any supplies that you use?",
+        "instructions": "if true, select yes. if false, select no."
+    },
+    "Q0007": {
+        "question": "Who is your DME provider?",
+        "instructions": "if answered, select true, else false."
+    },
+    "Q0008": {
+        "question": "What is your DME provider's address?",
+        "instructions": "if answered, select true, else false."
+    },
+    "Q0009": {
+        "question": "What is your DME provider's phone number?",
+        "instructions": "if answered, select true, else false."
+    },
+    "Q0010": {
+        "question": "What are the supplies provided by DME provider?",
+        "instructions": "if answered, select true, else false."
+    }
+}
+  

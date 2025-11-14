@@ -1,0 +1,193 @@
+###
+# Admin API Complete Endpoint Tests
+# Comprehensive REST tests for all Admin API endpoints
+#
+# Usage:
+# 1. Update @baseUrl to point to your desired environment
+# 2. Update @token with a valid JWT token
+# 3. Replace test IDs with actual values from your environment
+###
+
+### Environment Variables
+@local = http://localhost:14000
+@dev = https://ai-admin-api-zqftmopgsq-uk.a.run.app
+@qa = https://ai-admin-api-p32qledfyq-uk.a.run.app
+@stage = https://ai-admin-api-zzygbs3ypa-uk.a.run.app
+@prod = https://ai-admin-api-cocynqqo6a-uk.a.run.app
+
+@baseUrl = {{local}}
+@contentType = application/json
+
+# Test token - Replace with a valid JWT token
+# Get token with: gcloud auth print-identity-token
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjkyN2I4ZmI2N2JiYWQ3NzQ0NWU1ZmVhNGM3MWFhOTg0NmQ3ZGRkMDEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IldHMUYzQWRyX3lKTmNYME9JV1V5S0EiLCJpYXQiOjE3NTg4Mjg5MjQsImV4cCI6MTc1ODgzMjUyNH0.MD50f3xyiC24PBlEM1sHT_xhNTX9egjqI4ImK7by7pMMqV_LxgfGgUE6cPAAfDxxHcqmznAJ-1kKRYjypUakXWq2x9d6Kp5oKTR9ZYXIqcsQbVad6S-y91zuvnA98t2Ty538ZVZ0WF2AMC2wDAf-zkTv_eblBZQu9bxFCdoBFMwpT_40iWwXgxxmyW7MmP1DGA25wp6WoRfA27GF6ljjD1QboFE_R5IIrHHi0UvHoOk26VTRlILI05DMlD5WibXyjd963AVk1zxMFUv5Hud5MiaVrzwcAUDtd8H1fq5FUb43Td1quKGqNBOYfH2oHLgmlQM4PuxnAaNK5BireqvrIQ
+
+# Test data IDs - Replace with actual values from your environment
+@testAppId = test-app-123
+@testSubjectId = subject-456
+@testDocumentId = doc-789
+@testEntityId = entity-123
+@testPipelineId = pipeline-456
+@testModelId = test-model-id
+@testJobId = test-job-id-123
+@testUserId = john.doe@example.com
+
+###
+
+### ================================================================================================
+### ROOT ENDPOINTS
+### ================================================================================================
+
+### Root endpoint
+GET {{baseUrl}}/
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### Health check
+GET {{baseUrl}}/health
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### ================================================================================================
+### QUICK
+### ================================================================================================
+
+GET http://localhost:14001/api/v1/profiles?active_only=true&limit=25&offset=0
+
+
+### ================================================================================================
+### USER PROFILES
+### ================================================================================================
+
+### Get current user's profile (auto-provision for superusers)
+GET {{baseUrl}}/api/v1/profiles/myprofile
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### Get specific user profile by email
+GET {{baseUrl}}/api/v1/profiles/eric.coiner@wellsky.com
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### List all user profiles
+GET {{baseUrl}}/api/v1/profiles/
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### List user profiles with filters
+GET {{baseUrl}}/api/v1/profiles/?active_only=true&business_unit=Healthcare&role=admin&limit=10&offset=0
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### Create user profile
+POST {{baseUrl}}/api/v1/profiles/
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+    "user": {
+      "name": "Eric Coiner (MOCK)",
+      "email": "eric.coiner@wellsky.com"
+    },
+    "organizations": [
+      {
+        "business_unit": "*",
+        "solution_code": "*"
+      },
+      {
+        "business_unit": "wsh",
+        "solution_code": "*"
+      }
+    ],
+    "authorization": {
+      "roles": [
+        "superuser"
+      ]
+    },
+    "settings": {
+      "extract": {}
+    }    
+  }
+
+###
+
+### Update user profile
+PUT {{baseUrl}}/api/v1/profiles/eric.coiner@wellsky.com
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+    "id": "eric.coiner@wellsky.com",
+    "user": {
+      "name": "Eric Coiner (MOCK)",
+      "email": "eric.coiner@wellsky.com"
+    },
+    "organizations": [
+      {
+        "business_unit": "*",
+        "solution_code": "*"
+      },
+      {
+        "business_unit": "wsh",
+        "solution_code": "*"
+      }
+    ],
+    "authorization": {
+      "roles": [
+        "superuser",
+        "admin"
+      ]
+    },
+    "settings": {
+      "extract": {}
+    },
+    "active": true,
+    "audit": {
+      "created_by": "eric.coiner@wellsky.com",
+      "created_on": "2025-09-30T16:23:15.796270",
+      "modified_by": "eric.coiner@wellsky.com",
+      "modified_on": "2025-09-30T16:23:15.796270"
+    }
+  }
+
+###
+
+### Delete user profile (soft delete)
+DELETE {{baseUrl}}/api/v1/profiles/dev@example.com
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### Get user profile history
+GET {{baseUrl}}/api/v1/profiles/dev@example.com/history
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### Search user profiles by name or email
+POST {{baseUrl}}/api/v1/profiles/search?search_term=john&active_only=true
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###
+
+### Search user profiles by email domain
+POST {{baseUrl}}/api/v1/profiles/search?search_term=@example.com&active_only=true
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+###

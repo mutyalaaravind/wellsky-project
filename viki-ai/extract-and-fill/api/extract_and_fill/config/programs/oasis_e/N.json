@@ -1,0 +1,6 @@
+{
+  "N0001": {
+    "question": "do you have any substance related allergy?",
+    "instructions": "extract answers as list of array for substance and allergy"
+  }
+}

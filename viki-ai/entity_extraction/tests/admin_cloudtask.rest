@@ -1,0 +1,136 @@
+@host_local = http://localhost:18000
+@host_dev = https://ai-entity-extraction-145042810266.us-east4.run.app
+@host_qa = https://ai-entity-extraction-18900418456.us-east4.run.app
+@host_stage = https://ai-entity-extraction-884147005953.us-east4.run.app
+@host_prod = https://ai-entity-extraction-446272789005.us-east4.run.app
+@host = {{host_local}}
+
+### Create a new Cloud Task queue with basic configuration
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "test-dynamic-queue"
+}
+
+### Create a new Cloud Task queue with full configuration
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "aaa-test-advanced-queue3",
+  "location": "us-east4",
+  "max_concurrent_dispatches": 10,
+  "max_dispatches_per_second": 5.0,
+  "max_retry_duration_seconds": 3600,
+  "min_backoff_seconds": 1,
+  "max_backoff_seconds": 300,
+  "max_attempts": 5
+}
+
+### Create a queue for high-throughput processing
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "high-throughput-queue",
+  "max_concurrent_dispatches": 50,
+  "max_dispatches_per_second": 100.0,
+  "max_attempts": 3
+}
+
+### Create a queue for low-priority background tasks
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "background-tasks-queue",
+  "max_concurrent_dispatches": 2,
+  "max_dispatches_per_second": 1.0,
+  "max_retry_duration_seconds": 7200,
+  "min_backoff_seconds": 60,
+  "max_backoff_seconds": 600,
+  "max_attempts": 10
+}
+
+### Try to create a queue with an invalid name (should fail)
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "invalid queue name with spaces"
+}
+
+### Get information about a specific queue
+GET {{host}}/api/admin/cloudtask/aaa-test-advanced-queue
+Content-Type: application/json
+
+### Get information about a queue in a specific location
+GET {{host}}/api/admin/cloudtask/aaa-test-advanced-queue2?location=us-east4
+Content-Type: application/json
+
+### List all Cloud Task queues
+GET {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+### List queues in a specific location with page size
+GET {{host}}/api/admin/cloudtask?location=us-central1&page_size=50
+Content-Type: application/json
+
+### Delete a test queue
+DELETE {{host}}/api/admin/cloudtask/test-dynamic-queue
+Content-Type: application/json
+
+### Delete a queue in a specific location
+DELETE {{host}}/api/admin/cloudtask/test-advanced-queue?location=us-central1
+Content-Type: application/json
+
+### Try to get a non-existent queue (should return 404)
+GET {{host}}/api/admin/cloudtask/non-existent-queue
+Content-Type: application/json
+
+### Try to delete a non-existent queue (should return 404)
+DELETE {{host}}/api/admin/cloudtask/non-existent-queue
+Content-Type: application/json
+
+### Create a queue for entity extraction pipeline
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "entity-extraction-pipeline-queue",
+  "max_concurrent_dispatches": 20,
+  "max_dispatches_per_second": 10.0,
+  "max_retry_duration_seconds": 1800,
+  "min_backoff_seconds": 5,
+  "max_backoff_seconds": 120,
+  "max_attempts": 3
+}
+
+### Create a queue for document processing
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "document-processing-queue",
+  "max_concurrent_dispatches": 15,
+  "max_dispatches_per_second": 8.0,
+  "max_retry_duration_seconds": 2400,
+  "min_backoff_seconds": 10,
+  "max_backoff_seconds": 180,
+  "max_attempts": 4
+}
+
+### Create a queue for urgent tasks
+POST {{host}}/api/admin/cloudtask
+Content-Type: application/json
+
+{
+  "queue_name": "urgent-tasks-queue",
+  "max_concurrent_dispatches": 100,
+  "max_dispatches_per_second": 200.0,
+  "max_retry_duration_seconds": 600,
+  "min_backoff_seconds": 1,
+  "max_backoff_seconds": 30,
+  "max_attempts": 2
+}

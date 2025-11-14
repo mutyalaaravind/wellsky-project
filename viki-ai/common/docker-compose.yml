@@ -1,0 +1,62 @@
+version: '3.0'
+services:
+  firebase-tools:
+    # image: andreysenov/firebase-tools:11.23.1
+    # The above alpine-based image does not support cloud functions & pub/sub. We're building our own based on debian image.
+    image: firebase-tools
+    build:
+      context: ./assets/firebase-tools
+      args:
+        VERSION: 12.9.1
+    ports:
+      - '8080:8080'  # cloud firestore
+      - '8090:8090'  # websocket
+      - '4000:4000'  # ui
+      - '4500:4500'  # logging
+      - '8085:8085'  # pubsub
+      - '9299:9299'  # eventarc
+    volumes:
+      - './assets/firebase-tools:/home/node'
+    command: |
+      sh -c "
+        cd functions && npm i && cd ..
+        # https://github.com/firebase/firebase-tools/issues/2859
+        # Large companies at their finest.
+        exec firebase emulators:start --project google-cloud-firestore-emulator --import /home/node/data --export-on-exit
+      "
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    restart: on-failure
+    ports:
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5788:5788"      
+      - "16686:16686" # Admin console
+      - "4317:4317"
+      - "4318:4318"    
+      - "14250:14250"
+      - "14268:14268"
+      - "14269:14269"
+      - "9411:9411"
+    environment:
+      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+
+  # DOCX and HTML conversion to PDF Service
+  # gotenberg:
+  #   image: gotenberg/gotenberg:8
+  #   ports:
+  #     - "3000:3000"
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: on-failure
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_data:

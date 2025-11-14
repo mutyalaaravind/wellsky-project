@@ -1,0 +1,289 @@
+@host_local = http://localhost:18000
+@host_dev = https://ai-entity-extraction-145042810266.us-east4.run.app
+@host_qa = https://ai-entity-extraction-18900418456.us-east4.run.app
+@host_stage = https://ai-entity-extraction-884147005953.us-east4.run.app
+@host_prod = https://ai-entity-extraction-446272789005.us-east4.run.app
+@host = {{host_dev}}
+
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6ImM4YWI3MTUzMDk3MmJiYTIwYjQ5Zjc4YTA5Yzk4NTJjNDNmZjkxMTgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImZtNGhjZGRveUQwNzVValc4bjNsLVEiLCJpYXQiOjE3NjAyODIwNTMsImV4cCI6MTc2MDI4NTY1M30.PeMCdLWOspHm7Xv3PfPp9DfLW0dRjjblVBdFo9nyLpoOqYNu87sJTEwV-i71Ogba-2IWm3e_KSM5HJwAMmtI_Osus6w83I2J5nXBybTkbRHsrz-mJ2a6B4ae7L4OxKzGSn8Y5qp5b5tyGBAfoNVpEJY7HX-uVk7PVmFA7IWhAek4EKteKqt0LIiBLwYDr0gyxtqlHMb60sNF-_F5fOXxyUyvLSvwse2zI1KpkI2DNlXOm3J4OIXv2cFnEp5zt3bW_bMnLBh1IjpzrCvvAiSFTVUnDE4uzrP9dNkM-WYTypwlHGiFesZd19VwktvttMUjvbxBavs2Jojn4cq9T_Dheg
+
+
+### Test health endpoint
+GET {{host}}/api/health
+Authorization: Bearer {{token}}
+
+### Test get pipeline config =====================================================
+GET {{host}}/api/config/pipelines
+Authorization: Bearer {{token}}
+
+### Test listing pipeline configurations with labels filter
+GET {{host}}/api/config/pipelines?labels=template
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Test listing pipeline configurations with app_id filter
+GET {{host}}/api/config/pipelines?app_id=GLOBAL
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Test listing pipeline configurations with both labels and app_id filters
+GET {{host}}/api/config/pipelines?labels=development&labels=medical&app_id=app_12345
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Test get pipeline config
+GET {{host}}/api/config/pipelines/default/start
+
+### Test get pipeline config
+GET {{host}}/api/config/pipelines/default/medication_extraction
+
+###
+POST {{host}}/api/config/pipelines/template/whole_document
+Authorization: Bearer {{token}}
+
+{
+  "id": "template.whole_document-1.0",
+  "created_at": "2025-07-22T19:10:36.112535+00:00",
+  "modified_at": "2025-07-22T19:10:36.112543+00:00",
+  "active": true,
+  "app_id": "GLOBAL",
+  "key": "whole_document",
+  "version": "1.0",
+  "name": "Whole Document Pipeline",
+  "description": "A pipeline that processes the entire document without splitting into pages.  Suitable for workloads containing files with few pages.  This pipeline is more prone to the "missing middle" problem for large documents.",
+  "scope": "template",
+  "labels": ["template"],
+  "tasks": [
+    {
+      "id": "EXTRACT_ENTITIES",
+      "type": "prompt",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "prompt": {
+        "model": "gemini-2.5-pro",
+        "system_instructions": [],
+        "prompt": "{extraction_prompt}",
+        "max_output_tokens": 8192,
+        "temperature": 0.0,
+        "top_p": 0.95,
+        "context": {},
+        "is_add_document_uri_to_context": true
+      },
+      "params": {},
+      "entity_schema_ref": {
+        "schema_uri": "https://ai-paperglass-api-zqftmopgsq-uk.a.run.app/api/schemas/onboard/jsonschema.json",
+        "var_name": "json_schema"
+      }
+    }
+  ],
+  "auto_publish_entities_enabled": false
+}
+
+### Test template individual pages
+POST {{host}}/api/config/pipelines/template/individual_pages
+Authorization: Bearer {{token}}
+
+{
+  "id": "template.individual_pages-1.0",
+  "created_at": "2025-06-26T19:10:36.112535+00:00",
+  "modified_at": "2025-06-26T19:10:36.112543+00:00",
+  "active": true,
+  "app_id": "GLOBAL",
+  "key": "individual_pages",
+  "version": "1.0",
+  "name": "Extract from each page",
+  "description": "This pipeline is suitable for workloads involving files with a large number of pages and where data extracted is scoped within a page or section",
+  "scope": "template",
+  "labels": ["template"],
+  "tasks": [
+    {
+      "id": "SPLIT_PAGES",
+      "type": "module",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "module": {
+        "type": "split_pages",
+        "context": {}
+      },
+      "params": {},
+      "post_processing": {
+        "for_each": "page"
+      }
+    },
+    {
+      "id": "EXTRACT_ENTITIES",
+      "type": "prompt",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "prompt": {
+        "model": "gemini-2.5-pro",
+        "system_instructions": [],
+        "prompt": "{extraction_prompt}",
+        "max_output_tokens": 8192,
+        "temperature": 0.0,
+        "top_p": 0.95,
+        "context": {},
+        "is_add_document_uri_to_context": true
+      },
+      "params": {},
+      "entity_schema_ref": {
+        "schema_uri": "https://ai-paperglass-api-zqftmopgsq-uk.a.run.app/api/schemas/onboard/jsonschema.json",
+        "var_name": "json_schema"
+      }
+    }
+  ],
+  "auto_publish_entities_enabled": true
+}
+
+
+### Test update pipeline config
+POST {{host}}/api/config/pipelines/default/start
+Authorization: Bearer {{token}}
+
+{
+  "id": "default.start-1.0",
+  "created_at": "2025-06-26T19:10:36.112535+00:00",
+  "modified_at": "2025-06-26T19:10:36.112543+00:00",
+  "active": true,
+  "key": "start",
+  "version": "1.0",
+  "name": "Document Prep Pipeline",
+  "scope": "default",
+  "tasks": [
+    {
+      "id": "SPLIT_PAGES",
+      "type": "module",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "module": {
+        "type": "split_pages",
+        "context": {}
+      },
+      "params": {},
+      "post_processing": {
+        "for_each": "page"
+      }
+    },
+    {
+      "id": "INVOKE_PIPELINES",
+      "type": "pipeline",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "pipelines": [
+        {
+          "scope": "default",
+          "id": "insurance_extraction",
+          "queue": "entry_med_extract_{app_id}_{priority}_queue",
+          "context": {}
+        }
+      ],
+      "params": {}
+    }
+  ],
+  "auto_publish_entities_enabled": true
+}
+
+
+### Test update pipeline config
+POST {{host}}/api/config/pipelines/default/insurance_extraction
+Authorization: Bearer {{token}}
+
+{
+  "id": "default.insurance_extraction-1.0",
+  "created_at": "2025-06-26T16:12:27.340218+00:00",
+  "modified_at": "2025-06-26T16:12:27.340222+00:00",
+  "active": true,
+  "key": "insurance_extraction",
+  "version": "1.0",
+  "name": "Insurance Extract Pipeline",
+  "scope": "default",
+  "tasks": [
+    {
+      "id": "INSURANCE_EXTRACT",
+      "type": "prompt",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "prompt": {
+        "model": "gemini-1.5-flash-002",
+        "system_instructions": [],
+        "prompt": "Extract insurance information from the provided document.",
+        "max_output_tokens": 8192,
+        "temperature": 0.0,
+        "top_p": 0.95,
+        "context": {},
+        "is_add_document_uri_to_context": true
+      },
+      "params": {},
+      "entity_schema_ref": {
+        "schema_uri": "https://ai-paperglass-api-zqftmopgsq-uk.a.run.app/api/schemas/007/insurance_data.json",
+        "var_name": "insurance_data"
+      }
+    },
+    {
+      "id": "PUBLISH_CALLBACK",
+      "type": "publish_callback",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "callback": {
+        "enabled": true,
+        "entity_schema_ref": {
+            "schema_uri": "https://ai-paperglass-api-zqftmopgsq-uk.a.run.app/api/schemas/007/insurance_data.json",
+            "var_name": "insurance_data"
+        },
+        "scope": "default",
+        "pipeline_id": "insurance_extraction",
+        "endpoint": {
+            "method": "POST",
+            "url": "http://demo-api:13000/api/entities/insurance",
+            "headers": {
+              "Content-Type": "application/json"
+            }
+        }
+      }
+    }
+  ],
+  "auto_publish_entities_enabled": true
+}
+
+
+### Test update pipeline config
+POST {{host}}/api/config/pipelines/insurance/insurance_extraction
+
+{
+  "id": "default.medication_extraction",
+  "created_at": "2025-06-26T16:12:27.340218+00:00",
+  "modified_at": "2025-06-26T16:12:27.340222+00:00",
+  "active": true,
+  "key": "insurance_extraction",
+  "version": "1.0",
+  "name": "Insurance Extract Pipeline",
+  "scope": "insurance",
+  "tasks": [    
+    {
+      "id": "INSURANCE_EXTRACT",
+      "type": "prompt",      
+      "prompt": {
+        "model": "gemini-1.5-flash-002",        
+        "prompt": "Extract insurance data from the provided document.  Output in the following JSON format:{\"providerName\": \"**Provider name\",\"employerName\": \"**Employer name\",\"groupNumber\": \"**Group number\",\"memberName\": \"**Name of the insured member\",\"memberId\": \"**ID of the insured member\",\"planName\": \"**Name of the insurance plan\",\"dependents\": [**List of the names of each dependent]}"
+      }
+    },
+    {
+      "id": "INSURANCE_EXTRACTION_NOOP",
+      "type": "module",
+      "invoke": {
+        "queue_name": "entity-extraction-intra-default-default-queue"
+      },
+      "module": {
+        "type": "noop",
+        "context": {}
+      }
+    }
+  ]
+}

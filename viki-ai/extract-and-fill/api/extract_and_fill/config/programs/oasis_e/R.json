@@ -1,0 +1,98 @@
+{
+    "R0004": {
+        "question": "Is the GU with normal limit?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-1": {
+        "question": "Is the GU incontinent?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-2": {
+        "question": "Is the GU with bladder distention?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-3": {
+        "question": "Is the GU with burning?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-4": {
+        "question": "Is the GU with frequency?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-5": {
+        "question": "Is the GU with dysuria?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-6": {
+        "question": "Is the GU with retention?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-7": {
+        "question": "Is the GU with normal urgency?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-8": {
+        "question": "Is the GU with normal urostomy?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-9": {
+        "question": "Is the Urine checked?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-10": {
+        "question": "Is the urine cloudy?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-11": {
+        "question": "Is the urine odorous?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-12": {
+        "question": "Is the urine sediment?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-13": {
+        "question": "Is the urine hematuria?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-14": {
+        "question": "Is the external genitalia checked?",
+        "instructions": "If Yes then true, otherwise false"
+    },
+    "R0004-15": {
+        "question": "Is the external genitalia normal?",
+        "instructions": "If Yes then normal, otherwise abnormal"
+    },
+    "R0004-16": {
+        "question": "Is the external genitalia checked as per clinical assessment?",
+        "instructions": "If yes then clinical assessment, otherwise as per PI/CG Report"
+    },
+    "M1600": {
+        "question": "Have you treated for urinary tract infection in the past 14 days?",
+        "instructions": "if no then value 0, yes then value 1, not applicable then value NA, No idea then UK"
+    },
+    "M1610": {
+        "question": "Is urinary incontinence or urinary cathedral present?",
+        "instructions": "if no then value 0, yes then value 2, no idea then value 1"
+    },
+    "M1620": {
+        "question": "Have you bowel incontinence frequency?",
+        "instructions": "if yes, then value 0 for very rarely or never has bowel incontinence, value 1 for less than once weekly, value 2 for One to three times weekly, value 3 for four to six times weekly, value 4 for on a daily basis, value 5 for more often than once daily, value 6 for NA- Patient has ostomy for bowel elimination, value 7 for UK - unknown"
+    },
+    "M1630": {
+        "question": "Have you does an ostomy for bowel elimination?",
+        "instructions": "if yes, then value 0 for Patient does not have an ostomy for bowel elimination, value 1 for Patient's ostomy was not related to an inpatient stay and did not necessitate change in medical or treatment regimen, value 2 for the ostomy was related to an inpatient stay or did necessitate change in medical or treatment regimen"
+    },
+    "R0001": {
+        "question": "Whether you are having any dialysis?",
+        "instructions": "if patient has, select true as the value otherwise false"
+    },
+    "R0002": {
+        "question": "Do you have  type of intervention",
+        "instructions": "If patient is, select true as the value otherwise false"
+    },
+    "R0003": {
+        "question": "Have you setup any goal?",
+        "instructions": "If patient have, select true as the value otherwise false"
+    }
+}

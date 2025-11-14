@@ -1,0 +1,31 @@
+version: '3.0'
+services:
+  widget:
+    image: formographer-widget
+    build:
+      context: widget
+      dockerfile: Dockerfile.dev
+    ports:
+      - '12001:12001'
+    volumes:
+      - './widget/src:/widget/src'
+      - './widget/public:/widget/public'
+
+  api:
+    image: formographer-api
+    build:
+      context: api
+    ports:
+      - '12000:12000'
+    tty: true  # Colors
+    environment:
+      SERVICE: formographer
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      GCS_BUCKET_NAME: wscc-dev-eai
+      GCP_PROJECT_ID: wscc-dev-app-wsky
+      PYTHONUNBUFFERED: "1"  # Flush `print`s immediately
+    volumes:
+      - './api/formographer:/api/formographer'
+      - '$HOME/.config/gcloud:/root/.config/gcloud'

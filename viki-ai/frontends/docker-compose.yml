@@ -1,0 +1,22 @@
+version: '3.0'
+services:
+  medwidget:
+    image: medwidget
+    build:
+      context: ./medwidget
+      dockerfile: Dockerfile.dev
+      secrets:
+        - npmrc
+    ports:
+      - '16001:16001'
+    volumes:
+      - type: bind
+        source: ./medwidget/src
+        target: /medwidget/src
+      - type: bind
+        source: ./medwidget/public
+        target: /medwidget/public
+
+secrets:
+  npmrc:
+    file: ../.npmrc

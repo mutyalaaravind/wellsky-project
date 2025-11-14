@@ -1,0 +1,172 @@
+# Note: meddb bucket is defined in ai/storage.tf as module "meddb_bucket"
+
+# Service account for the backup automation function
+resource "google_service_account" "backup_automation_sa" {
+  account_id   = "backup-automation-sa"
+  display_name = "Backup Automation Service Account"
+  project      = var.app_project_id
+}
+
+# IAM permissions for the service account
+resource "google_project_iam_member" "backup_automation_cloudsql_admin" {
+  project = var.app_project_id
+  role    = "roles/cloudsql.admin"
+  member  = "serviceAccount:${google_service_account.backup_automation_sa.email}"
+}
+
+resource "google_project_iam_member" "backup_automation_storage_admin" {
+  project = var.app_project_id
+  role    = "roles/storage.admin"
+  member  = "serviceAccount:${google_service_account.backup_automation_sa.email}"
+}
+
+resource "google_project_iam_member" "backup_automation_secret_accessor" {
+  project = var.app_project_id
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:${google_service_account.backup_automation_sa.email}"
+}
+
+resource "google_project_iam_member" "backup_automation_logging" {
+  project = var.app_project_id
+  role    = "roles/logging.logWriter"
+  member  = "serviceAccount:${google_service_account.backup_automation_sa.email}"
+}
+
+resource "google_project_iam_member" "backup_automation_eventarc_viewer" {
+  project = var.app_project_id
+  role    = "roles/eventarc.viewer"
+  member  = "serviceAccount:${google_service_account.backup_automation_sa.email}"
+}
+
+resource "google_project_iam_member" "backup_automation_eventarc_receiver" {
+  project = var.app_project_id
+  role    = "roles/eventarc.eventReceiver"
+  member  = "serviceAccount:${google_service_account.backup_automation_sa.email}"
+}
+
+# Data source to get the project number for Cloud SQL service account
+data "google_project" "app_project" {
+  project_id = var.app_project_id
+}
+
+# Grant Cloud SQL service account access to the backup bucket
+# Cloud SQL uses its own service account to access GCS during import operations
+resource "google_storage_bucket_iam_member" "cloudsql_backup_bucket_access" {
+  bucket = "meddb-${var.env}"
+  role   = "roles/storage.objectViewer"
+  member = "serviceAccount:p${data.google_project.app_project.number}-2fam6i@gcp-sa-cloud-sql.iam.gserviceaccount.com"
+}
+
+# Additional permission for Cloud SQL service account to list bucket contents
+resource "google_storage_bucket_iam_member" "cloudsql_backup_bucket_list" {
+  bucket = "meddb-${var.env}"
+  role   = "roles/storage.legacyBucketReader"
+  member = "serviceAccount:p${data.google_project.app_project.number}-2fam6i@gcp-sa-cloud-sql.iam.gserviceaccount.com"
+}
+
+# Cloud Function source code bucket
+resource "google_storage_bucket" "function_source" {
+  name          = "backup-automation-source-${var.env}-${random_string.bucket_suffix.result}"
+  location      = var.region
+  project       = var.app_project_id
+  force_destroy = true
+
+  labels = merge(var.labels, {
+    purpose = "function-source-code"
+  })
+
+  uniform_bucket_level_access = true
+}
+
+resource "random_string" "bucket_suffix" {
+  length  = 8
+  special = false
+  upper   = false
+}
+
+# Zip file for Cloud Function source code
+data "archive_file" "function_source" {
+  type        = "zip"
+  output_path = "${path.module}/backup_automation_function.zip"
+  source_dir  = "${path.module}/backup_automation_function"
+}
+
+# Upload function source to bucket
+resource "google_storage_bucket_object" "function_source" {
+  name   = "backup_automation_function-${data.archive_file.function_source.output_md5}.zip"
+  bucket = google_storage_bucket.function_source.name
+  source = data.archive_file.function_source.output_path
+}
+
+# Cloud Function for backup automation
+resource "google_cloudfunctions2_function" "backup_automation" {
+  name        = "backup-automation-${var.env}"
+  location    = var.region
+  project     = var.app_project_id
+  description = "Automates backup restoration from GCS to Cloud SQL"
+
+  build_config {
+    runtime     = "python311"
+    entry_point = "process_backup_file"
+    source {
+      storage_source {
+        bucket = google_storage_bucket.function_source.name
+        object = google_storage_bucket_object.function_source.name
+      }
+    }
+  }
+
+  service_config {
+    max_instance_count    = 10
+    min_instance_count    = 0
+    available_memory      = "1Gi"
+    timeout_seconds       = 540
+    service_account_email = google_service_account.backup_automation_sa.email
+
+    environment_variables = {
+      PROJECT_ID           = var.app_project_id
+      CLOUDSQL_INSTANCE_ID = var.enable_cloudsql ? module.cloudsql[0].instance_name : ""
+      REGION               = var.region
+      BUCKET_NAME          = "meddb-${var.env}"
+    }
+  }
+
+  event_trigger {
+    trigger_region = var.region
+    event_type     = "google.cloud.storage.object.v1.finalized"
+    retry_policy   = "RETRY_POLICY_RETRY"
+
+    event_filters {
+      attribute = "bucket"
+      value     = "meddb-${var.env}"
+    }
+
+    service_account_email = google_service_account.backup_automation_sa.email
+  }
+
+  depends_on = [
+    google_storage_bucket_object.function_source,
+    module.cloudsql
+  ]
+
+  labels = merge(var.labels, {
+    purpose = "backup-automation"
+  })
+}
+
+# Enable required APIs
+resource "google_project_service" "required_apis" {
+  for_each = toset([
+    "cloudfunctions.googleapis.com",
+    "eventarc.googleapis.com",
+    "run.googleapis.com",
+    "storage.googleapis.com",
+    "sqladmin.googleapis.com",
+    "secretmanager.googleapis.com"
+  ])
+
+  project = var.app_project_id
+  service = each.value
+
+  disable_on_destroy = false
+}

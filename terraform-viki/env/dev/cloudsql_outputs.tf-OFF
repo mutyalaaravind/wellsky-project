@@ -1,0 +1,30 @@
+# Cloud SQL SQL Server Instance Outputs
+
+output "cloudsql_instance_name" {
+  description = "The name of the Cloud SQL instance"
+  value       = var.enable_cloudsql ? module.cloudsql[0].instance_name : null
+}
+
+output "cloudsql_database_names" {
+  description = "Names of the databases created on the SQL Server instance"
+  value = var.enable_cloudsql ? [
+    google_sql_database.application_db[0].name,
+    google_sql_database.analytics_db[0].name
+  ] : []
+}
+
+output "cloudsql_user_names" {
+  description = "Names of the SQL Server users created"
+  value = var.enable_cloudsql ? [
+    google_sql_user.app_user[0].name,
+    google_sql_user.readonly_user[0].name
+  ] : []
+}
+
+output "cloudsql_secret_ids" {
+  description = "IDs of the secrets storing SQL Server passwords"
+  value = var.enable_cloudsql ? {
+    app_user_password = google_secret_manager_secret.app_user_password[0].secret_id
+    readonly_password = google_secret_manager_secret.readonly_user_password[0].secret_id
+  } : {}
+}

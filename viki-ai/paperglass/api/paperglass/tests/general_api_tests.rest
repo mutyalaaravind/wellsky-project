@@ -1,0 +1,126 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_local}}
+
+@okta_token = eyJraWQiOiJQbUFqRDJrQnBzRkRRZlpGblplYS1sRjZxRjBnVW9JQlRpcVplaWlUREpnIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULl9mczRIUDh6Qlp5Q3ViQVM0Y3JlYW1qcUtJa1cxQzFGLWgtTXNHSk85cGciLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2x5MW53aTBTdDRaVnM2MWQ3IiwiYXVkIjoidmlraS5kZXYud2VsbHNreS5pbyIsImlhdCI6MTc0ODk2ODkzMywiZXhwIjoxNzQ4OTcyNTMzLCJjaWQiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MucWEubHRjIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MucWEubHRjIn0.TUD3w9RUjMd3-e7sPD-jmu4l8ludzkNrcMchL_D8EzfQpB0B1SPSrQDIYfUopNb-pH8RtfwRyzGeZecOzryCVeg5FX70vwZa3aRJoSGvrjn8tRESAHhQK_gIaR7XNnkg0HiMJ2RjY1XyLvddqph9UVPqTvyeKzTEmgYcwYMD0_UK9w1wG4Rsec85L3HACDsOTlix5xtJNzdn54c2BAn81boPD3aVT0Zjt8MDzDD0lDdb5pPpUGw5BDCWrQj5RrlzaTxLJFbrV3zYyoajmpZW54uPWWmmTDl8eizaP05mSJS7st3OizfwHgvr33guGq6rsv0ceTCQJ8gmyvXCBKLhwQ
+
+#@token = eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+@token = eyJraWQiOiJxVml0cVpYbFQtTlN4Rm91eUFta2R4N1U2UkdpTkZwQTloOWVJZ2t3Qm1RIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULjBSdXdpaG5TNzdpRzZDU1pEMnd1Nk9SMC1kWGxKdUVfY1hZMlBkOWg2eE0iLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2x4eHBtOWhyeVQyb1ZMMWQ3IiwiYXVkIjoidmlraS5kZXYud2VsbHNreS5pbyIsImlhdCI6MTc0NzE0NjY2OCwiZXhwIjoxNzQ3MTUwMjY4LCJjaWQiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MuZGV2Lmx0YyIsInNjcCI6WyJhcGkud2VsbHNreS52aWtpLmFpLnBhcGVyZ2xhc3MiXSwic3ViIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzLmRldi5sdGMifQ.GLaIZ_V1ZFhb_YhOBOfg6qH6SCuAsSYG9PIdx2MkXE7P7BwBzw0Hk0xvkVUBBJvEBCHObWH-hugxSyFvsAY9lh9dAKQ6Bg1Nl09KCD_sx3Bhpywy08LHUXm8o2-re3MCW8VpGXbQSGGB-rFczkIfXnfYp5LftjJ0h7epcyeB-OIIRfwh8fN8MftNw1O5mw160wEDAg102EhFXVCGDYK-6v2JennpVE6Lbc0Bjpo0od8n6Zd3oPPVuNJaTPzrpoDRkmm01zR3XM5nHYqhbQ8QjSPGlBgxFVA7bQDux51EpfNBPh8bexlIpToWU7I-Fs7el1CcMsHtFmG6wmuau52jDg
+
+###
+GET https://ai-paperglass-api-p32qledfyq-uk.a.run.app/api/status
+
+###
+GET {{host}}/api/status
+
+###
+GET {{host}}/api/status/token
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/status/oktatoken
+Okta-Token: {{okta_token}}
+
+###
+GET {{host}}/api/status/oktaservicetoken
+Authorization: Bearer {{okta_token}}
+
+### Call get Config
+GET {{host}}/api/config/007
+Authorization: Bearer {{token}}
+
+### JWKS Keys (Testing)
+GET {{host}}/api/v1/keys
+
+###
+GET http://localhost:13000/api/data?filename=fake_ephemerol_ng.png
+
+### API Endpoint ---------------------------------------------------------------------------------
+POST {{host}}/api/document/external/create
+Authorization: Bearer {{okta_token}}
+
+{
+    "appId": "007",
+    "tenantId": "54321",
+    "patientId": "53a9f083ae55450ebacae7e8003d2e41",
+    "hostFileId": "0000000000",
+    "fileName": "fake_ephemerol_ng.png",
+    "fileType": "application/pdf",
+    "createdOn": "2025-05-09T10:15:30Z",
+    "updatedOn": "2025-05-09T10:20:45Z",
+    "sha256": "a1b2c3d4e5f6...",
+    "metadata": {
+        "category": "medicine",
+        "enableExtraction": true,
+        "pageCount": 5,
+        "author": "Dr. Smith",
+        "facility": "General Hospital"
+    },
+    "active": true,
+    "repositoryType": "API",
+    "api": {
+        "method": "GET",
+        "url": "http://demo-api:13000/api/data?filename=lined_up.jpeg",
+        "headers": {
+            "foo": "bar"
+        }
+    }
+}
+
+
+### CLOUD TASK ---------------------------------------------------------------------------------
+POST {{host}}/api/document/external/create/task
+Authorization: Bearer {{token}}
+
+{
+    "type": "import_host_attachment_from_external_api",
+    "app_id": "007",
+    "tenant_id": "54321",
+    "patient_id": "53a9f083ae55450ebacae7e8003d2e41",
+    "host_file_id": "0000000000",
+    "file_name": "fake_ephemerol_ng.png",
+    "file_type": "image/png",
+    "created_on": "2023-10-01T12:00:00Z",    
+    "repository_type": "API",
+    "api": {
+        "method": "GET",
+        "url": "http://demo-api:13000/api/data?filename=lined_up.jpeg",
+        "headers": {
+            "foo": "bar"
+        }
+    },
+    "metadata": {
+        "key1": "value1",
+        "key2": "value2"
+    },
+    "raw_event": {
+        "appId": "app-123",
+        "tenantId": "tenant-456",
+        "patientId": "patient-789",
+        "hostFileId": "file-abc123",
+        "fileName": "patient_records.pdf",
+        "fileType": "application/pdf",
+        "createdOn": "2025-05-09T10:15:30Z",
+        "updatedOn": "2025-05-09T10:20:45Z",
+        "sha256": "a1b2c3d4e5f6...",
+        "metadata": {
+            "pageCount": 5,
+            "author": "Dr. Smith",
+            "facility": "General Hospital"
+        },
+        "active": true,
+        "repositoryType": "API",
+        "api": {
+            "method": "GET",
+            "url": "http://demo-api:13000/api/data?filename=lined_up.jpeg",
+            "headers": {
+                "foo": "bar"
+            }
+        }
+    }
+}
+

@@ -1,0 +1,57 @@
+What activities are permitted to you to do?
+Yes, Standard walking with help.
+Do you have any musculoskeltal issues?
+Yes, Decreased strength, limited range of motions.
+Are you able to take care of your personal hygiene like washing face, skin and dental care? 
+No, I need someones assistance to groom myself.
+Are you able to dress your upper body safely, like undergarments, buttons and zippers?
+No, I depend entirely on assistance to dress upper body.
+Are you able to dress your lower body safely, like undergarments, socks and footwear?
+No, I depend entirely on assistance to dress lower body.
+Are you able to wash your entire body safely?
+No, I'm unable to bathe myself and totally depend on other person.
+Are you able to move to or from bed to toilet or bedside commode?
+No, I'm unable to go and from toilet but can use bedside commode.
+Are you able to maintain toileting hygiene like adjusting pads or cloths before and after using toilet?
+No, I need someone to help me with adjusting cloths or toileting hygiene.
+Are you able to transfer from bed to chair or change positions in bed?
+No, I'm able to bear weight or pivot with help of another person but anble to do it myself.
+Are you able to walk safely while standing or wheel safely when sitted in wheelchair on various surfaces?
+No, I'm chairfast, can't ambulate or wheel myself.
+Is your age more than 65 years?
+Yes.
+Are you diagnosed with anything?
+Yes.
+Do have a history of falls within last 3 months?
+No
+Are you able to move to bathroom or commode in timely manner(Incontinence)?
+Yes
+Do you have any visual impairment?
+Yes
+Do you have any functional mobility impairement?
+Yes
+Do you have problems with your surrounding environment?
+Yes
+Are you currently on more than 4 prescriptions?
+Yes
+Does your pain affects your daily functions?
+Yes
+Do you have cognitive impairement?
+NO
+Based on above information in fall risk management, your fall score is?
+Yes Score is 9
+We are testing your postural stability, steppage, stride length and sway?
+None
+Are there any medical equipments(DME) that you use ?
+Yes, Walker, bedside commode, tub chair, oxygen
+Are there any supplies that you use?
+None
+Who is your DME provider?
+No, I don't know.
+What is your DME provider's address?
+No, I don't know.
+What is your DME provider's phone number?
+No, I don't know.
+What are the supplies provided by DME provider?
+No, I don't know.
+

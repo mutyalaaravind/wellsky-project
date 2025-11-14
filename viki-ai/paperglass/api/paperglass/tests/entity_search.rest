@@ -1,0 +1,45 @@
+@host_local = http://127.0.0.1:15003
+@host_dev = https://???.a.run.app
+@host_qa = https://???.a.run.app
+@host_stage = https://???.a.run.app
+@host_prod = https://???.a.run.app
+
+@host = {{host_local}}
+
+# Test token for 007 app, tenant 54321, patient c211f67a0a594ceab691e566b8b37c32
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+### Test the new entity search endpoint
+POST {{host}}/api/v1/entities/search
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "app_id": "007",
+    "tenant_id": "54321",
+    "patient_id": "c211f67a0a594ceab691e566b8b37c32",
+    "document_id": "doc-123-abc-456"
+}
+
+### Test with different parameters
+POST {{host}}/api/v1/entities/search
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "app_id": "008",
+    "tenant_id": "12345",
+    "patient_id": "patient-789-def",
+    "document_id": "document-xyz-999"
+}
+
+### Test with missing required field (should return 422 validation error)
+POST {{host}}/api/v1/entities/search
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "app_id": "007",
+    "tenant_id": "54321",
+    "patient_id": "c211f67a0a594ceab691e566b8b37c32"
+}

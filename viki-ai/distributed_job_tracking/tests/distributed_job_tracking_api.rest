@@ -1,0 +1,151 @@
+### Distributed Job Tracking API Tests
+@local = http://localhost:19000
+@dev = https://ai-distributed-job-tracking-145042810266.us-east4.run.app
+@qa =
+@stage =
+@prod =
+
+@baseUrl = {{dev}}
+
+
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MDljNTEzODc2OGY3Y2YyZTgyN2UwNGIyN2U3ZTRjYmM3YmI5MTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImFqbmpwODltaEl2ZXF6VmVoQWJBcWciLCJpYXQiOjE3NTM3MzM4MTEsImV4cCI6MTc1MzczNzQxMX0.CDxPbQn-bV2pXYbLfZ0pgF9bhfiXm0jfyPYpx-YJzVa0MXcrRP4i2swGFiff2UaXyDek927Y1U_Wotu0OBIELaE0L1gOE8wCFInM2FvkNH7rdV60DH6wSv_MSyPQjjs24WYfaHQTzU_DyDCG_vRnra7YULJQN13jVoV4IuHQOhvleT8f4M72K3LH7OTcDyY8A9gDAQ77bADg_swgxXiZ9nMzHj6vyXiLoikRPrTT7qpuMDrrJqc2uH_D0aryDn5IL4allDeWvu7RAFxH7cBcAzWqkg4peWPxA5nT4ooxalEhFDTHJR24lRAhEnqhCatb899fdblXjVQ5r-Wcko9rYw
+
+### Health Check
+GET {{baseUrl}}/api/health
+Authorization: Bearer {{token}}
+
+### Root Endpoint
+GET {{baseUrl}}/api/
+
+### Create a Simple Job
+POST {{baseUrl}}/api/jobs/
+Content-Type: application/json
+
+{
+  "name": "Test Document Processing",
+  "job_type": "document_analysis",
+  "priority": "normal",
+  "payload": {
+    "document_id": "doc123",
+    "analysis_type": "full"
+  },
+  "metadata": {
+    "source": "api_test"
+  }
+}
+
+### Create a Job with Sub-jobs
+POST {{baseUrl}}/api/jobs/with-subjobs
+Content-Type: application/json
+
+{
+  "name": "Complex Document Processing",
+  "job_type": "document_analysis",
+  "priority": "high",
+  "payload": {
+    "document_id": "doc456"
+  },
+  "sub_jobs": [
+    {
+      "name": "Extract Entities",
+      "job_type": "entity_extraction",
+      "priority": "normal",
+      "payload": {
+        "document_id": "doc456",
+        "entity_types": ["person", "organization", "location"]
+      }
+    },
+    {
+      "name": "Extract Medications",
+      "job_type": "medication_extraction",
+      "priority": "normal",
+      "payload": {
+        "document_id": "doc456",
+        "extract_dosage": true
+      }
+    }
+  ]
+}
+
+### List All Jobs
+GET {{baseUrl}}/api/jobs/
+
+### List Jobs with Filters
+GET {{baseUrl}}/api/jobs/?status=pending&page=1&page_size=10
+
+### List Jobs by Type
+GET {{baseUrl}}/api/jobs/?job_type=document_analysis
+
+### List Jobs by Priority
+GET {{baseUrl}}/api/jobs/?priority=high
+
+### Get Job by ID (replace with actual job ID)
+@jobId = replace-with-actual-job-id
+GET {{baseUrl}}/api/jobs/{{jobId}}
+
+### Get Job with Sub-jobs
+GET {{baseUrl}}/api/jobs/{{jobId}}/with-subjobs
+
+### Update Job Status
+PUT {{baseUrl}}/api/jobs/{{jobId}}
+Content-Type: application/json
+
+{
+  "status": "running",
+  "progress": 25.0,
+  "metadata": {
+    "worker_id": "worker-001",
+    "started_by": "api_test"
+  }
+}
+
+### Start Job
+POST {{baseUrl}}/api/jobs/{{jobId}}/start
+
+### Cancel Job
+POST {{baseUrl}}/api/jobs/{{jobId}}/cancel
+
+### Retry Job
+POST {{baseUrl}}/api/jobs/{{jobId}}/retry
+
+### Get Job Statistics
+GET {{baseUrl}}/api/tracking/stats
+
+### Get Stats by Status
+GET {{baseUrl}}/api/tracking/stats/by-status
+
+### Get Stats by Type
+GET {{baseUrl}}/api/tracking/stats/by-type
+
+### Get Stats by Priority
+GET {{baseUrl}}/api/tracking/stats/by-priority
+
+### Get Performance Metrics (last 24 hours)
+GET {{baseUrl}}/api/tracking/performance?hours=24
+
+### Get Active Jobs
+GET {{baseUrl}}/api/tracking/active-jobs
+
+### Get Failed Jobs (last 24 hours)
+GET {{baseUrl}}/api/tracking/failed-jobs?hours=24
+
+### Get Queue Depth
+GET {{baseUrl}}/api/tracking/queue-depth
+
+### Get Throughput (last 24 hours)
+GET {{baseUrl}}/api/tracking/throughput?hours=24
+
+### Get Worker Stats
+GET {{baseUrl}}/api/tracking/worker-stats
+
+### Get Job Tree
+GET {{baseUrl}}/api/tracking/job-tree/{{jobId}}
+
+### Get System Health
+GET {{baseUrl}}/api/tracking/health
+
+### Delete Job (without cascade)
+DELETE {{baseUrl}}/api/jobs/{{jobId}}
+
+### Delete Job with Cascade (deletes sub-jobs too)
+DELETE {{baseUrl}}/api/jobs/{{jobId}}?cascade=true

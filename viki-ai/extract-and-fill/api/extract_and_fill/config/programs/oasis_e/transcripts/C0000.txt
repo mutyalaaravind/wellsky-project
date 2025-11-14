@@ -1,0 +1,110 @@
+Are you person oriented?
+No i am not such person oriented person
+Whether u are time oriented too?
+No, I am time disoriented
+What about place oriented?
+Yes, i am place oriented person
+And what about situation orientation? Are you?
+No, you can consider me as situation disoriented person
+Do u remember things?
+No, I dont remember sometimes
+U forget the things?
+Yes, I often
+What about misplacing things?
+Yes, sometimes i misplace them
+Any memory loss like Short term or Long term?
+Yes, maybe a short one
+Are u suffering from any neurological issues or problems?
+Yes, i do suffer
+Whether they are in the form of Seizures, Aphasic, Headaches, Spasms and Tremors?
+Yes, headaches sometimes
+How are you feeling from past 2 weeks?
+No, I am not feeling appropriate
+How about feeling down, depressed, or hopeless?
+No, I haven't been feeling like that either
+Do you feel lonely or isolated from those around you?
+Yes, sometimes
+Any sort of behavior changes are you observing from past few weeks?
+Yes i do
+Whether you feel sort of sometimes inappropriate, indifferent or assaultive?
+Yes taking some inappropriate ones
+Whether you feel sort of sometimes impulsive, compulsive or evasive changes?
+Yes,I feel like taking impulsive decisions nowadays
+Does your behaviour includes poor coping, decision skills or impaired judgement?
+Yes, i tend to make more poor decisions now very often
+Do you have any psychosocial fators related to your reltaionship,living environment?
+Yes some with living environment
+Do you want to share any additional information?
+No such as of now
+Whether you are in need of mental status check?
+Yes, i feel like getting one done
+Please repeat the three words I'm about to say: sock, blue, and bed.
+Yes Sock, blue, and bed
+What year is it right now?
+Yes, It's 2024
+What month are we in right now?
+Yes, We're in January
+What day of the week is today?
+Yes, Today is Wednesday
+Can you recall the three words I asked you to remember earlier?
+Yes, the three words were sock, blue, and bed
+How much is the BIMS summary score on adding scores for questions C0200 to C0400?
+Yes, It should be around 09
+Is there any evidence of acute change in mental status?
+Yes, there is
+Whether you are facing any difficulty on paying attention to things and have difficulty of keeping track of what is being said?
+Yes, but not continuously
+Are u feeling sort of disorganised or incoherent type thinking like having unclear ideas?
+Yes, that too continuously
+Whether you feel altered by any level of consciousness such as vigilant,lethargic,stuporous or comatose?
+Yes, i do feel lethargic sometimes but that is not continuous
+Can you help me with your level of alertness,orientation,comprehension,concentration and immediate memory for simple commands?
+Yes, I do require assistance but in some situations only
+When were you confused within last 14 days?
+Yes, I got confused constanly within past days
+When were you anxious within last 14 days?
+Yes, I was daily but not constantly
+Whether u feel little interest or pleasure in doing things?
+Yes i tend to
+How much is the frequency of you feeling little interest or pleasure in doing things?
+Yes, Maybe 2 to 6 days
+Are you feeling down,depressed or hopeless?
+No as such
+How much is the frequency of you feeling down,depressed or hopeless?
+No, Never felt so
+Are you trouble falling or staying asleep or sleeping too much?
+Yes staying asleep late night
+How much is the frequency of you trouble falling or staying asleep or sleeping too much?
+Yes, Maybe 12 to 14 days
+Are you feeling tired or feel like having little energy?
+No, i dont feel like that
+How much is the frequency of you feeling tired or having little energy?
+No, Never felt so
+Are you having sort poor apetite or overeating?
+Yes, may overeate sometimes
+How much is the frequency of you having poor apetite or overeating?
+Yes, Sort of 2 to 6 days
+Are you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?
+Yes, i do feel like
+How much is the frequency of you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?
+Yes, I felt like that only one day
+Are you having trouble on concentrating over things like reading newspaper or watching television?
+Yes i do while watching television
+How much is the frequency of you having trouble on concentrating over things like reading newspaper or watching television?
+Yes, It varies like 2 to 6 days
+Are you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?
+No, nothing like that
+How much is the frequency of you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?
+No, Never felt like that
+Are you having any thoughts that you would be better off dead or hurting yourself in some other way?
+Yes, i had sometimes back
+How much is the frequency of you having any thoughts that you would be better off dead or hurting yourself in some other way?
+Yes, only one day
+How much is the total severity score on adding all frequency responses?
+Yes, it should be around 05
+Do you feel lonely or isolated from those around you?
+Yes, Sometimes
+Do you demonstrate any cognitive,behavioral or psychiatric symptoms?
+Yes, i feel pysically aggressive sometimes
+Any physical, verbal or other disruptive or dangerous symptoms you observed that are injurious to you or others?
+Yes, i do atleast once in a month

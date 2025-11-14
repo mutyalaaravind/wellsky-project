@@ -1,0 +1,83 @@
+{
+    "Y0000-0": {
+      "question": "Have you taken any of the Safety Measures?",
+      "instructions": "if patient has taken any of the safety measures , select true otherwise false"
+    },
+    "Y0000-1": {
+      "question": "Do you have any others that you would want to specify?",
+      "instructions": "if patient mentions any further comments, select true otherwise false"
+    },
+    "Y0000-2": {
+      "question": "Have you been instructed on the environmental conditions such as medical gas, disaster/emergency plan, etc.?",
+      "instructions": "if patient mentions any of the environmental conditions, select true otherwise false"
+    },
+    "Y0000-3": {
+        "question": "Could you tell me your Triage/Risk Code?",
+        "instructions": "if patient mentions a risk code, select true otherwise false"
+    },
+    "Y0000-4": {
+        "question": "Could you mention the disaster code?",
+        "instructions": "if patient mentions the disaster code,  select true otherwise false"
+    },
+    "Y0000-5": {
+        "question": "Are there any safety or sanitation hazards affecting you?",
+        "instructions": "if patient mentions any safety or sanitation hazards, select true otherwise false"
+    },
+    "Y0000-6": {
+        "question": "Do you have any others you would like to specify?",
+        "instructions": "if patient provides any information about others he would like to specify , select true otherwise false"
+    },
+    "Y0000-7": {
+        "question": "Do you have any further comments?",
+        "instructions": "If patient has provided addition information then select true otherwise false"
+    },
+    "Y0000-8": {
+        "question": "Do you have No smoking signs posted?",
+        "instructions": "if patient has no smoking signs posted ,select true otherwise false"
+    },
+    "Y0000-9": {
+        "question": "Do you or anyone at your home, smoke with oxygen in use?",
+        "instructions": "If patient mentions yes, select true otherwise false"
+    },
+    "Y0000-10": {
+        "question": "Are there any smoking materials in your house?",
+        "instructions": "If patient has any smoking materials in their house, select true otherwise false"
+    },
+    "Y0000-11": {
+        "question": "Are there any areas in the house that have a potential for open flames?",
+        "instructions": "If patient mentions that there are areas in the house with the potential for flames, then select true otherwise false"
+    },
+    "Y0000-12": {
+        "question": "Are the smoke detectors in your house present and working properly?",
+        "instructions": "If patient mentions that the smoke detectors are present and working properly, then select true otherwise false"
+    },
+    "Y0000-13": {
+        "question": "Do you have a proper functioning fire extinguisher?",
+        "instructions": "If patient has a proper functioning fire extinguisher, then select true otherwise false"
+    },
+    "Y0000-14": {
+        "question": "Are the oxygen cylinders stored properly?",
+        "instructions": "If patient mentions that the oxygen cylinders are stored properly , then select true otherwise false"
+    },
+    "Y0000-15": {
+        "question": "Are all the electrical cords near oxygen intact and free from fraying?",
+        "instructions": "If patient mentions that all the electric cords are intact, then select true otherwise false"
+    },
+    "Y0000-16": {
+        "question": "Are all the cleaning fluids and aerosols stored away from oxygen, and not used while oxygen is in use?",
+        "instructions": "If patient mentions that all the equpment is stored away from oxygen and not used while the oxygen is in use, then select true otherwise false"
+    },
+    "Y0000-17": {
+        "question": "Do you refrain from using petroleum products around oxygen?",
+        "instructions": "If patient refrains from using petroleum products around oxygen , then select true otherwise false"
+    },
+    "Y0000-18": {
+        "question": "Do you only use water based body and lip moisturizers?",
+        "instructions": "If patient uses only water based moisturizers, then select true otherwise false"
+    },
+    "Y0000-19": {
+        "question": "Do you have any further comments?",
+        "instructions": "If patient has provided addition information then select true otherwise false"
+    }
+  }
+  

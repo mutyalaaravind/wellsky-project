@@ -1,0 +1,470 @@
+/* CSS Document */
+
+.container {
+	border:1px solid #B0BCD9;
+}
+
+.medProfile .formTaskBox {
+	border:none;
+	padding:0;
+	margin:0;
+}
+
+.medProfile .formTaskBoxAllergy {
+	width:990px;
+}
+
+.medProfile .formSectionHeader {
+	font-size:18px;
+	font-weight:bold;
+	padding:5px 0 5px 10px;
+	background-color:#dce3f1;
+	background-image:none;
+	height:auto;
+	border: 1px solid #B0BCD9;
+	border-right:none;
+	border-left:none;
+	width:98.99%;
+	margin:0;
+}
+
+.medProfile .profileSectionSubHeader {
+	padding:10px 10px 10px 25px;
+	background-color:#dce3f1;
+	height:auto;
+	width:95%;
+	border: 1px solid #B0BCD9;
+}
+
+.medProfile .formSectionSubHeader {
+	padding:5px 10px 10px 10px;
+	background-color:#dce3f1;
+	height:auto;
+	width:96.7%;
+	border: 1px solid #B0BCD9;
+}
+
+.medProfile .modalSectionSubHeader {
+	padding:7px 15px 7px 15px;
+	background-color:#dce3f1;
+	height:auto;
+	width:92%;
+	border:1px solid #ccc;
+}
+
+.medProfile .head {
+	font-size:18px;
+	font-weight:bold;
+	background:transparent;
+	padding-bottom:5px;
+}
+	
+.medProfile .subhead {
+	font-weight:bold;
+	font-size:14px;
+}
+
+.medProfile .calloutText {
+	color:blue;	
+}
+
+.medProfile .lsCol {
+	width:3%;
+} 
+
+.medProfile .startCol,
+.medProfile .dcCol {
+	width:7%;
+	height:100%;
+	float:left;
+}
+
+.medProfile .dcCol {
+	width:23%;
+	text-align:center;
+}
+
+.medProfile .dcText {
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+.medProfile .label {
+	font-weight:bold;
+}
+
+.medProfile .medCol {
+	width:30%;
+	height:100%;
+	float:left;
+}
+
+.medProfile .coveredCol, .orderCol {
+	width:10%;
+	height:100%;
+	text-align:center;
+}
+
+.medProfile .orderCol {
+	width:14%;
+}
+
+.medProfile .orderCol .orderGreen {
+	color: #7ac702;
+    font-size: x-large;
+}
+
+.medProfile .orderCol .orderRed {
+	color: #ec0303;
+    font-size: x-large;
+}
+
+.medProfile .orderCol .orderYellow {
+	color: #fdd304;
+    font-size: x-large;
+}
+
+.medProfile .gridButton {
+	background-color: white;
+	color: black;
+	border-radius: 10px;
+	border-style: solid;
+}
+
+.editSchedule {
+	margin-right: 20px;
+}
+
+.medProfile .deleteCol {
+	width:5%;
+	height:100%;
+	text-align:right;
+	float:left;
+}
+
+.medProfile .cbCol {
+	width:2%;
+	height:100%;
+	text-align:center;
+}
+
+.medProfile .medTitle {
+	text-decoration:underline;
+}
+
+.medProfile .medClass {
+	text-decoration:none;
+	font-style:italic;
+	cursor:text;
+	font-size:.9em;
+}
+
+#discontinuedMeds .medTitle {
+	text-decoration:none;
+}
+
+.medProfile .medCol:hover {
+	cursor:pointer;
+}
+
+.medProfile .pointer:hover {
+	cursor:pointer;
+}
+
+.medProfile .medRow {
+	border-bottom:1px solid #ccc;
+	height:auto;
+	width:97%;
+	float:left;
+}
+
+.medProfile .snapshotCol {
+	width:66.55%;
+	text-align:right;
+}
+
+.ie9 .medProfile .snapshotCol {
+	width:68%;
+}
+
+.chrome .medProfile .snapshotCol {
+	width:65%;
+}
+
+.snapshotColRightAligned {
+	float:right;
+	padding-right: 5px;
+}
+
+.medProfile .medLabelRow {
+	background:#CFCFA6;
+	padding:5px;
+	height:auto;
+	min-height:20px;
+	width:97%;
+}
+
+.medProfile .medLabelRowSnapshot {
+	background:#CFCFA6;
+	padding:5px;
+	margin-top:0px;
+	height:auto;
+	min-height:16px;
+	width:99%;
+}
+
+.medProfile .medLabelRowSnapshotV2 {
+	background:#CFCFA6;
+	padding:5px;
+	margin-top:0px;
+	height:auto;
+	min-height:16px;
+}
+
+.medProfile .medRow, #legend {
+	padding:5px;
+}
+
+#medCheck {
+	width:240px;
+}
+
+#Pharmacy:hover {
+	cursor:pointer;
+}
+
+.hideTextAreaScrollBar {
+	overflow: auto;
+}
+
+.medProfile .addNewButtonRow {
+	float: right;
+}
+
+#addAdditionalButton {
+	width:160px;
+}
+
+#allergySection {
+	width:100%
+}
+
+#addAllergy{
+	width:auto;
+	cursor:pointer;
+}
+
+#addMoreAllergySection {
+	display:none;
+}
+
+.medProfile .addMoreAllergy {
+	cursor:pointer;
+}
+
+.medProfile .addMoreAllergyText {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#allergy, #freeallergy {
+	width:42.5%;
+}
+
+#reactionInput, #freeReactionInput {
+	width:46.8%;
+}
+#allergySection .substanceCol {
+	width:42%;
+	padding-left:10px;
+}
+.medProfile .tdSubstance {
+	width:41.5%;
+	min-height:25px;
+	padding-left:10px;
+	border:1px solid #ccc;	
+}
+
+.medProfile .tdReaction {
+	width:47%;
+	min-height:25px;
+	border:1px solid #ccc;
+}
+
+.medProfile .tdDelete {
+	text-align:right;
+	min-height:25px;
+	border:none;
+}
+
+.medProfile .pharmacyLink {
+	color:black;
+	text-decoration:underline;
+}
+
+#delete {
+	width:65px;
+}
+
+.medProfile .divider {
+	border-top:1px solid #ccc;
+	height:1px;
+	font-size:0px;
+	line-height:0px;
+	width:100%;
+}
+
+/*medication Interactions*/
+.medInteractions .formSectionHeader {
+	font-size:13px;
+}
+.medInteractions .patientHeader {
+	font-size:13px;
+	background:#ddd;
+	min-height:23px;
+	margin:0 0 10px 0;
+	padding:5px 0 5px 10px;
+}
+
+.divSearchByNDC {
+	border: ridge 1.1px grey;
+	padding: 5px;
+}
+
+.divSearchByNDC .ndcLookup {
+    padding: 0px;
+    font-size: 14px;
+}
+
+.divSearchByNDC button {
+	background: #ddd;
+    font-size: 14px;
+    border: solid 1px #a09e9e;
+    border-left: none;
+    cursor: pointer;
+    margin-left: -3px;
+    padding: 1px;
+}
+
+.divSearchByNDC button:hover {
+	background: #ccc;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* IE10+ CSS styles go here */
+		.divSearchByNDC .ndcLookup {
+			padding: 2px;
+			font-size: 14px;
+		}
+		
+		.field-set-multi-dose[disabled] {
+			pointer-events: none;
+		}
+	}
+
+
+.formMedispan .moduleRow{
+	  padding-top: 10px;
+}
+
+.formMedispan select.isCovered{
+	width: 120px;
+}
+
+.formMedispan .moduleCol{
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+/* Tooltip container */
+.formMedispan .datooltip {
+    position: relative;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-repeat: no-repeat;
+    background-image: url('/AM/images/Walkme-Icons/st_normal.png');
+}
+
+/* Tooltip text */
+.formMedispan .datooltip .datooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #fff;
+    color: #0e0e0e;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    border: solid #5cb2ac 1px;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -30px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.formMedispan .datooltip .datooltiptext::after {
+	content: "";
+    position: absolute;
+    top: 100%;
+    left: 9%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.formMedispan .datooltip:hover .datooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.medNote{
+	background-color:#CED7EA;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 8px;
+}
+
+
+/*jquery-ui overrides*/
+.ui-widget-overlay {
+	position: fixed; 
+	overflow:hidden;
+}
+.ui-widget-overlay  {
+	_position: absolute;
+}
+.ui-dialog .ui-dialog-buttonpane {
+	text-align:right;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+	float:none;
+} 
+.ui-dialog-content {
+    overflow-y: auto;
+}
+
+.textDarkBlue {
+	color: #083593;
+}
+
+/* eMAR History Section in Med Profile styling */
+.ux-datatablesEmarHistory .dataTables_wrapper table tbody tr.even td,
+.ux-datatablesEmarHistory .dataTables_wrapper table tbody tr.odd td {
+	vertical-align: middle;
+}
+
+.ux-datatablesEmarHistory .dataTables_wrapper table tbody tr.even td.sorting_1 {
+	background-color: #EDF0F2;
+}
+
+.ux-datatablesEmarHistory .dataTables_wrapper table tbody tr.odd td.sorting_1 {
+	background-color: #FFFFFF;
+}
+
+

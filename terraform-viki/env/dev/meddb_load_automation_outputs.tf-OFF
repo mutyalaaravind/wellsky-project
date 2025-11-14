@@ -1,0 +1,52 @@
+# Outputs for MedDB Load Automation Infrastructure
+
+output "meddb_backup_bucket_name" {
+  description = "Name of the GCS bucket for backup files"
+  value       = "meddb-${var.env}"
+}
+
+output "meddb_backup_bucket_url" {
+  description = "URL of the GCS bucket for backup files"
+  value       = "gs://meddb-${var.env}"
+}
+
+output "backup_automation_function_name" {
+  description = "Name of the Cloud Function for backup automation"
+  value       = google_cloudfunctions2_function.backup_automation.name
+}
+
+output "backup_automation_function_url" {
+  description = "URL of the Cloud Function for backup automation"
+  value       = google_cloudfunctions2_function.backup_automation.service_config[0].uri
+}
+
+output "backup_automation_service_account_email" {
+  description = "Email of the service account used by the backup automation function"
+  value       = google_service_account.backup_automation_sa.email
+}
+
+
+output "function_source_bucket_name" {
+  description = "Name of the GCS bucket containing function source code"
+  value       = google_storage_bucket.function_source.name
+}
+
+# Instructions for using the automation
+output "usage_instructions" {
+  description = "Instructions for using the backup automation system"
+  value       = <<-EOT
+    MedDB Load Automation Setup Complete!
+    
+    To use this system:
+    1. Upload backup files (.bak) to: gs://meddb-${var.env}/merative/landing/
+    2. The system will automatically:
+       - Create a database named 'merative' if it doesn't exist
+       - Restore the backup to the Cloud SQL instance
+       - Move the file to: gs://meddb-${var.env}/merative/landing-archive/
+    
+    Cloud Function: ${google_cloudfunctions2_function.backup_automation.name}
+    Service Account: ${google_service_account.backup_automation_sa.email}
+    
+    Monitor the function logs in Cloud Console for processing status.
+  EOT
+}

@@ -1,0 +1,34 @@
+Which signs or symptoms charectarize you as a risk for hospitalization?
+Yes, Multile hospitalizations in last 6 months.
+When did you feel the pain for the first time?
+No, I don't remember.
+What is the location of pain?
+Yes, its Lower back.
+What is the intensity of pain?
+Yes its 8.
+What is the duration of pain?
+Yes, Few minutes to hours.
+What is the quality of pain?
+Yes its Cramping, aching, stabbing.
+What makes the pain worse?
+No, I don't know.
+What makes the pain better?
+Yes, Movement/Exercise.
+What is the level of pain after medication?
+Yes, its 0
+Which medication do you take for pain?
+No, I don't know.
+What is the effectiveness of medication?
+No, I don't know.
+What are the side effects of the medication?
+No, I don't know.
+What is your pain goal?
+Yes, Pain should be gone completely.
+Over the past 5 days, how many times the pain made it hard for you to sleep at night?
+Yes, Frequently
+Over the past 5 days, how often have you limited your participation in rehabilitation therapy sessions due to pain?
+Yes, Frequently
+Over the past 5 days, how often have you limited your day-to day activities(excluding therapy) because of pain?
+Yes, Frequently
+
+

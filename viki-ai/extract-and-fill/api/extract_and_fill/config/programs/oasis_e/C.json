@@ -1,0 +1,194 @@
+{
+    "mental_status_01.orientation_01.person_01": {
+        "question": "Are you patient oreinted or not?",
+        "instructions": "if patient oriented, select true as the value otherwise false"
+    },
+    "mental_status_01.orientation_01.situation_01": {
+        "question": "What about your situation oreintation?",
+        "instructions": "if situation oriented, select true as the value otherwise false"
+    },
+    "mental_status_01.orientation_01.place_01": {
+        "question": "Are you place oreinted or not?",
+        "instructions": "if place oriented, select true as the value otherwise false"
+    },
+    "mental_status_01.orientation_01.mental_status_additional_info": {
+        "question": "Do you want to share any additional information?",
+        "instructions": "please return whatever additional information shared by the patient"
+    },
+    "mental_status_01.orientation_01.psychosocial_01": {
+        "question": "Do you have any psychosocial factors related to your relationship or living environment?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "mental_status_01.orientation_01.memory_01": {
+        "question": "How is your memory?",
+        "instructions": "please return a list object with one or more values from the provided list: ['No problems','Forgetful','Misplace objects','Short-term loss','Long-term loss']"
+    },
+    "mental_status_01.orientation_01.neurological_01": {
+        "question": "Do you have any problems or abnormal neurological findings?",
+        "instructions": "please return a list object with one or more values from the provided list: ['No problems','Seizures','Aphasic','Headaches','Spasms','Tremors']"
+    },
+    "mental_status_01.orientation_01.time_01": {
+        "question": "Whether you are time oreinted too?",
+        "instructions": "if time oriented, select true as the value otherwise false"
+    },
+    "mental_status_01.orientation_01.mood_01.mood_01": {
+        "question": "How is your mood?",
+        "instructions": "please return a list object with one or more values from the provided list: ['Appropriate (WNL)','Apathetic','Depressed','Agitated','Irritable','Anxious','Elated','Hostile']"
+    },
+    "mental_status_01.orientation_01.mood_01.behavioral__01": {
+        "question": "What sort of behavior are you observing from past few weeks?",
+        "instructions": "please return a list object with one or more values from the provided list: ['Appropriate (WNL)','Inappropriate','Indifferent','Assaultive','Impaired judgement','Impulsive','Poor copying skills','Compulsive','Evasive','Poor decision making']"
+    },
+    "mental_status_01.orientation_01.status_001": {
+        "question": "Whether there is a need for mental status check?",
+        "instructions": "select false if patient doesn't need it, select true if patient needs it otherwise select NA"
+    },
+    "bims_C0200_C0500.CO200.CO200": {
+        "question": "Please repeat the three words I'm about to say: sock, blue, and bed?",
+        "instructions": "if patient is able to repeat none of the words then select 0,if patient is able to repeat one of the words then select 1,if patient is able to repeat two of the words then select 2,if patient is able to repeat all three words then select 3"
+    },
+    "bims_C0200_C0500.C0300_section.C0300_a_radio": {
+        "question": "What year is it right now?",
+        "instructions": "if patient has missed by more than 5 years or no answer then select 0,if patient has missed year by 2 to 5 years gap then select 1,if patient has missed year by only 1 year then select 2,if patient has provided accurate year then select 3 otherwise select NA"
+    },
+    "bims_C0200_C0500.C0300_section.C0300_b_radio": {
+        "question": "What month are we in right now?",
+        "instructions": "if patient has missed month by greater then 1 month or no answer then select value 0,if patient has missed month by 6 days to 1 month gap then select value 1,if patient has provided accurate month or missed by only 5 days then select value 2 otherwise select value NA"
+    },
+    "bims_C0200_C0500.C0300_section.C0300_c_radio": {
+        "question": "What day of the week is today?",
+        "instructions": "If patient has provided incorrect or no answer then select value 0,if patient has provided correct answer then select value 1 otherwise select value NA"
+    },
+    "bims_C0200_C0500.C0400_recall_secton.C0400_a_radio": {
+        "question": "Able to recal sock?",
+        "instructions": "If patient is not able to recall all three words select 0, if patient is able to recall with some cue help then select 1, is patient is able to recall without any cue help select 2 otherwise select NA"
+    },
+    "bims_C0200_C0500.C0400_recall_secton.C0400_b_radio": {
+        "question": "Able to recal blue?",
+        "instructions": "If patient is not able to recall all three words select 0, if patient is able to recall with some cue help then select 1, is patient is able to recall without any cue help select 2 otherwise select NA"
+    },
+    "bims_C0200_C0500.C0400_recall_secton.C0400_c_radio": {
+        "question": "Able to recal bed?",
+        "instructions": "If patient is not able to recall all three words select 0, if patient is able to recall with some cue help then select 1, is patient is able to recall without any cue help select 2 otherwise select NA"
+    },
+    "bims_C0200_C0500.C0500_summary_section.C0500_input": {
+        "question": "How much is the BIMS summary score on adding scores for questions C0200 to C0400?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "ds_section_1708000588.ds_mental_status_radio_1707997269": {
+        "question": "Any evidence of acute change in mental status?",
+        "instructions": "If patient does not have it select false, if patient has it select true otherwise select NA"
+    },
+    "ds_section_1708000588.ds_inattention_radio_1707997679": {
+        "question": "Are you facing any difficulty on paying attention to things like getting easily distracted with something and have difficulty of keeping track of what is being said?",
+        "instructions": "If patient does not have such behaviour changes select 0, if patient is having this behaviour and that too continuously then select 1, if patient if having this behaviour but not continuously then select 2 otherwise select NA"
+    },
+    "ds_section_1708000588.ds_thinking_radio_1707998219": {
+        "question": "Whether you feel disorganised or incoherent thinking like having unclear ideas?",
+        "instructions": "If patient does not have such changes select 0, if patient is having these changes and that too continuously then select 1, if patient if having these changes but not continuously then select 2 otherwise select NA"
+    },
+    "ds_section_1708000588.ds_altered_radio_1707999826": {
+        "question": "Do you feel altered by any level of consciousness such as vigilant,lethargic,stuporous or comatose?",
+        "instructions": "If patient does not have such changes select 0,if patient is having these changes and that too continuously then select 1,if patient if having these changes but not continuously then select 2 otherwise select NA"
+    },
+    "ds_section_1708000588.cognitive_radio_1708001390": {
+        "question": "How is your level of alertness,orientation,comprehension,concentration and immediate memory for simple commands?",
+        "instructions": "If patient is alert oreiented then select 0,if patient requires prompting then select 1, if patient requires assistance and guidance in specific situations only then select 2,if patient requires assistance in routine situations then select 3,if patient is dependent totally then select 4"
+    },
+    "ds_section_1708000588.confused_radio_1708002707": {
+        "question": "When were you confused within last 14 days?",
+        "instructions": "If patient was never select 0,if only in new or complex situations then select 1,if on awakening or night then select 2,if during day and evening that too not constantly then select 3,if constantly select 4 otherwise select NA"
+    },
+    "ds_section_1708000588.anxious_radio_1708002984": {
+        "question": "When were you anxious within last 14 days?",
+        "instructions": "If patient was never then select 0,if less often daily then select 1,if daly but not constantly then select 2,if all the time then select 3 otherwise select NA"
+    },
+    "section_1707994970.question_a.symptom_presence_options": {
+        "question": "Whether u feel little interest or pleasure in doing things?",
+        "instructions": "If patient does not feel any select 0,if feels any select 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options": {
+        "question": "How much is the frequency of you feeling little interest or pleasure in doing things?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.question_b.symptom_presence_option_b": {
+        "question": "Are you feeling down, depressed or hopeless?",
+        "instructions": "If patient does not feel any select 0,if feels any of them select 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_b": {
+        "question": "How much is the frequency of you feeling down, depressed or hopeless?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.question_c.symptom_presence_option_c": {
+        "question": "Are you trouble falling or staying asleep or sleeping too much?",
+        "instructions": "If patient does not feel any select 0,if feels any of them select 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_c": {
+        "question": "How much is the frequency of you trouble falling or staying asleep or sleeping too much?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.symptom_presence_options_d": {
+        "question": "Are you feeling tired or feel like having little energy?",
+        "instructions": "If patient does not feel any select 0,if feels any of them select 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_d": {
+        "question": "How much is the frequency of you feeling tired or having little energy?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.Question E.symptom_presence_option_e": {
+        "question": "Are you having poor apetite or overeating?",
+        "instructions": "If patient does not feel any select 0,if feels any of them 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_e": {
+        "question": "How much is the frequency of you having poor apetite or overeating?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.Question F.symptom_presence_option_f": {
+        "question": "Are you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?",
+        "instructions": "If patient does not feel any select 0,if feels any of them 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_f": {
+        "question": "How much is the frequency of you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.Question G.symptom_presence_options_g": {
+        "question": "Are you having trouble on concentrating over things like reading newspaper or watching television?",
+        "instructions": "If patient does not feel any select 0,if feels any of them 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_g": {
+        "question": "How much is the frequency of you having trouble on concentrating over things like reading newspaper or watching television?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.Question H.symptom_presence_options_h": {
+        "question": "Are you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?",
+        "instructions": "If patient does not feel any select 0,if feels any of them 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_h": {
+        "question": "How much is the frequency of you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.Question I.symptom_presence_options_i": {
+        "question": "Are you having any thoughts that you would be better off dead or hurting yourself in some other way?",
+        "instructions": "If patient does not feel any select 0,if feels any of them 1 otherwise select 9 for no response"
+    },
+    "section_1707994970.symptom_frequency_options_i": {
+        "question": "How much is the frequency of you having any thoughts that you would be better off dead or hurting yourself in some other way?",
+        "instructions": "If patient never felt or felt only 1 day select 0, if felt for 2 to 6 days select 1,if felt for 7 to 11 days select 2,if felt for 12 to 14 days select 3"
+    },
+    "section_1707994970.severity_score": {
+        "question": "How much is the total severity score on adding all frequency responses?",
+        "instructions": "please return whatever answer patients gives to the above question"
+    },
+    "section_1707994970.social_isolation": {
+        "question": "How often do you feel lonely or isolated from those around you?",
+        "instructions": "If patient never felt then select 0,if felt rarely then select 1,if felt sometimes then select 2,if felt often then select 3,if felt always then select 4,if patient declines to provide response then select 7 and if patient is not able to reponse then select 8"
+    },
+    "section_1707994970.cognitive_behavioural_psychiatric": {
+        "question": "Whether any cognitive,behavioural and psychiatric symptoms you observed in past few weeks?",
+        "instructions": "If patient demonstrates memory deficit then select 1,if any impaired decisions then select 2,if any verbal disruption then select 3,if physical aggression then select 4,if any disruptive or infantile then select 5,if any delusional or paranoid then select 6, if no behavior demonstarted then select 7"
+    },
+    "section_1707994970.disruptive_behaviour": {
+        "question": "Whether any physical, verbal or other disruptive/dangerous symptoms u observed that are injurious to you or others?",
+        "instructions": "If patient has never then select 0,if less than once a month then select 1,if once in a month then select 2,if several times each month then select 3,if several times a week then select 4,if atleast daily then select 5"
+    }
+}

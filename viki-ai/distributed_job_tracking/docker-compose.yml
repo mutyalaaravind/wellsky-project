@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  distributed-job-tracking-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "19000:19000"
+    volumes:
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /home/.config/gcloud
+      - type: bind
+        source: ./src/
+        target: /app/src
+    environment:
+      PYTHONUNBUFFERED: 1
+      SERVICE: distributed_job_tracking      
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      CLOUD_PROVIDER: local
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      GCP_LOCATION: us
+      GCP_LOCATION_2: us-east4
+      GCP_LOCATION_3: us-central1
+
+      #GOOGLE_CLOUD_PROJECT: viki-dev-app-wsky  # Emulator off
+      #GCP_PUBSUB_PROJECT_ID: viki-dev-app-wsky  # Emulator off
+      GCP_PUBSUB_PROJECT_ID: google-cloud-firestore-emulator #Emulator on
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080 #Emulator on
+      PUBSUB_EMULATOR_HOST: firebase-tools:8085 #Emulator on
+      
+      # Redis configuration
+      REDIS_URL: redis://redis:6379
+      REDIS_DB: 0
+            
+      SERVICE_ACCOUNT_EMAIL: viki-ai-dev-sa@viki-dev-app-wsky.iam.gserviceaccount.com
+      SELF_API_URL: http://distributed-job-tracking-api:19000
+      SELF_API_URL_2: http://distributed-job-tracking-api:19000
+      PAPERGLASS_API_URL: http://paperglass-api:15000
+      
+      GOOGLE_APPLICATION_CREDENTIALS: /home/.config/gcloud/application_default_credentials.json
+      
+      # Cloud Task Emulator Configuration      
+      CLOUDTASK_EMULATOR_URL: http://cloudtask-emulator:30001
+      DEFAULT_TASK_QUEUE: distributed-job-tracking-queue
+
+    command: uv run uvicorn src.main:app --reload --host 0.0.0.0 --port 19000  # Use uvicorn with hot reload
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:19000/api/health"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 10s
+    restart: unless-stopped
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+
+volumes:
+  redis_data:

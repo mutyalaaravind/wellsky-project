@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  admin-api:
+    env_file:
+      - ../.env # Load environment variables from parent .env file
+    build:
+      context: ..
+      dockerfile: ./admin/api/Dockerfile
+    ports:
+      - "14000:14000"
+    environment:
+      - SERVICE=admin
+      - STAGE=dev
+      - VERSION=dev
+      - DEBUG=true
+
+      - CLOUD_PROVIDER=local
+      - GCP_PROJECT_ID=viki-dev-app-wsky
+      - GCP_PUBSUB_PROJECT_ID=viki-dev-app-wsky
+      - GCP_LOCATION=us
+      - GCP_LOCATION_2=us-east4
+      - GCP_LOCATION_3=us-central1
+      - GCS_BUCKET_NAME=viki-ai-provisional-dev
+
+      #- GOOGLE_CLOUD_PROJECT=viki-dev-app-wsky #Emulator off
+      - FIRESTORE_EMULATOR_HOST=firebase-tools:8080  # Emulator on
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+
+      - GCP_FIRESTORE_DB=viki-dev
+      - GCP_MULTI_REGION_FIRESTORE_LOCATON=nam5
+
+      - SERVICE_ACCOUNT_EMAIL=viki-ai-dev-sa@viki-dev-app-wsky.iam.gserviceaccount.com
+
+      - SELF_API_URL=http://admin-api:14000
+      - DJT_API_URL=http://distributed-job-tracking-api:19000
+      - PAPERGLASS_API_URL=http://paperglass-api:15000
+      - ENTITY_EXTRACTION_API_URL=http://entity-extraction-api:18000
+      - ADMIN_DEMO_BASE_URL=http://admin-api:14000
+      - ADMIN_DEMO_ENTITY_CALLBACK_ENDPOINT=/api/v1/entities/callback
+      - PAPERGLASS_INTERNAL_DOCUMENT_CREATE_ENDPOINT=/api/document/internal/create
+      - OKTA_ISSUER=https://wellsky-ciam.oktapreview.com/oauth2/ausajt8hv1B8S7hkh1d7
+      - OKTA_AUDIENCE=viki.prod.wellsky.io
+      - OKTA_CLIENT_ID=api.wellsky.viki.dev.admin
+      - OKTA_ADMIN_GROUP_ID=00gpinsy4sB79H4Mk1d7
+      - OKTA_REGULAR_USERS_GROUP_ID=${OKTA_REGULAR_USERS_GROUP_ID}
+      - OKTA_DISABLE=true
+      - OKTA_DISABLE_MOCK_USER
+      - OKTA_API_TOKEN
+      - OKTA_APP_ID
+      - OKTA_DOMAIN
+      - OKTA_AUTO_ASSIGN_ENABLED
+    command: uv run uvicorn main:app --reload --host 0.0.0.0 --port 14000 # Use uvicorn with hot reload
+    volumes:
+      - ./api/src:/app/admin
+      - ../shared/src/viki_shared:/app/shared/src/viki_shared:ro
+      - $HOME/.config/gcloud:/root/.config/gcloud
+
+  admin-ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile.dev
+    ports:
+      - "14001:14001"
+    depends_on:
+      - admin-api
+    environment:
+      - VITE_API_URL=http://localhost:14000
+    volumes:
+      - type: bind
+        source: ./ui/src
+        target: /admin-ui/src
+      - type: bind
+        source: ./ui/public
+        target: /admin-ui/public
+      - type: bind
+        source: ./ui/index.html
+        target: /admin-ui/index.html
+      - type: bind
+        source: ./ui/vite.config.ts
+        target: /admin-ui/vite.config.ts
+      - type: bind
+        source: ./ui/.env.json
+        target: /admin-ui/public/config/env.json

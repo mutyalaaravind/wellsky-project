@@ -1,0 +1,18 @@
+Are you having vaping-related disorder in the primary diagnosis?
+Yes, I do
+Are you having COVID-19 acute respirator disease in the primary diagnosis?
+No
+Are you having O/E Exacerbation in the primary diagnosis?
+Yes
+Are you having vaping-related disorder in any other diagnosis?
+No, I don't
+Are you having COVID-19 acute respirator disease in any other diagnosis?
+No, I don't
+Are you having O/E Exacerbation in any other diagnosis?
+No
+Do you have Peripheral Vascular Disease or Peripheral Arterial Disease?
+No, I don't have any
+Do you have Diabetes Mellitus?
+I have no idea
+Do you have Peripheral Vascular Disease or Peripheral Arterial Disease or Diabetes Mellitus?
+No, I don't have any

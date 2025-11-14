@@ -1,0 +1,1948 @@
+Whether you live alone and any specific type for assitance?
+Yes and need assistance in regular daytime
+Whether you live with other persons in your home?
+Yes and need assistance in regular daytime as no one is home
+Whether you live in congregate situation like sort of residential care home?
+No not in such
+Whether you need assistance in supervision and safety due to cognitve impairment?
+Yes i am receiving assistance which is provided by some non agency caregiver
+Whether you need assistance in ADL activities like bathing,dressing,toileting,bowel/bladder,eating/feeding?
+Yes i need some while eating
+Whether you need assistance in IADL activities like meds,meals,housekeeping,laundry,telephone,shopping,finances?
+Yes i need some while shopping
+Whether you need any psychosocial support?
+No not as of now
+Whether you need any assistance with medical appointments,delivery of medications?
+Yes, i do
+Whether you need any assistance on managing your finances?
+Yes i do
+Any additional comments you want to share part of receving assistances?
+No as such
+Can you name organizations providing support assistance?
+No, There are no one to name
+Whether you need community resource infor to manage your care?
+No, Not as of now
+Whether you suffer any altered affect like expressed sadness or anxiety,grief?
+Yes grief sometimes
+Whether you feel any suicidal ideation?
+No such as of now
+Whether any suspected abuse or neglect?
+No such as of now
+Whether MSW referral indicated for?
+Yes it was
+Whether coordinator was notified?
+Yes
+Whether you have ability to manage your finances?
+Yes i have that
+Whether you have more comments to share?
+No, Not as of now
+Whether you have any care references for us?
+No, Not as of now
+
+
+
+Have you taken any of the Safety Measures?
+Yes i have taken safety measures to keep side rails up, proper position during meals and use of assistive devices
+Do you have any others that you would want to specify?
+no nothing else for now 
+Have you been instructed on the environmental conditions such as medical gas, disaster/emergency plan, etc.?
+Yes i have been instructed on safety measures, instructed on mobility safety and also instructed on medical gas
+Could you tell me your Triage/Risk Code?
+Yes my triage code is 5
+Could you mention the disaster code?
+no,i do not remember
+Are there any safety or sanitation hazards affecting you?
+yes there are a couple, like stairs inside home, narrow doorways and inadequate lighting
+Do you have any others you would like to specify?
+yes, there is also a lack of ramps
+Do you have any further comments?
+No i do not
+Do you have No smoking signs posted?
+yes i do have them posted
+Do you or anyone at your home, smoke with oxygen in use?
+No, no one in my house smokes
+Are there any smoking materials in your house?
+no there aren't
+Are there any areas in the house that have a potential for open flames?
+no,i dont think there are any areas like that
+Are the smoke detectors in your house present and working properly?
+yes they work perfectly well
+Do you have a proper functioning fire extinguisher?
+yes i do have one
+Are the oxygen cylinders stored properly?
+No they are not stored properly
+Are all the electrical cords near oxygen intact and free from fraying?
+yes they are intact
+Are all the cleaning fluids and aerosols stored away from oxygen, and not used while oxygen is in use?
+yes they are stored away from the oxygen
+Do you refrain from using petroleum products around oxygen?
+yes i do refrain from using them around oxygen
+Do you only use water based body and lip moisturizers?
+no i use a couple of oil based moisturizers
+Do you have any further comments?
+no, none for nowHave you suffered from or suffering with CHF,cardiomyopathy,arrhythmia,chest pain,MI,CAD,HTN,PVD,Murmur?
+Yes i did had some chest pain
+Any cancer in remission?
+No as such
+Have you suffered from any osteoarthritis or DJD?
+Yes i did
+Have you suffered from or suffering with rheumatoid arthritis,gait problems,fractures,falls?
+No neither of these
+Have you done with any joint replacement?
+yes i did recently
+Have you suffered from or suffering with CVA,TIA,MS,Heimplegia,Seizures,Headaches,Dizziness or Vertigo?
+No neither of these
+Have you suffered from or suffering with IBS,Crohn's disease,diverticulitis or diverticulosis,constipation,diarrhea,facal incontinence?
+Yes was having constipation
+Have you suffered from or suffering with liver or gall bladder problems?
+Yes suffering with liver problems
+Have you suffered from or suffering with depression,anxiety,dementia,alzhelmers?
+Yes with depression sometime back
+Have you suffered from or suffering from any substance abuse?
+No nothing like that
+Have you suffered from or suffering with mental disorder?
+No nothing like that
+Have you suffered from or suffering with pressure ulcers,stasis ulcer,diabetic ulcer,trauma wound or any other?
+Yes with diabetic ulcers
+Have you suffered from or suffering with chronic kidney disease,renal failure,dialysis?
+Yes was with dialysis
+Have you suffered from or suffering with anemia,abnormal coagulation,blood clots?
+Yes with some blood clots
+Have you suffered from or suffering with diabetes,thyroid problems?
+No such as i think of
+Have you suffered from or suffering with COPD,asthma,chronic obstructive bronchitis,emphysema,chronic obstructive asthma?
+Yes with asthma
+Have you suffered from or suffering with urinary incontinence,urinary retention,BPH,recent or frequent UTI?
+No such as i think of
+Have you suffered from or suffering with tuberculosis,hepatitis?
+Yes with hepatitis
+Have you suffered from or suffering from any infectious disease?
+No not such
+Have you any tobacco dependence?
+No such
+What was the type of tobacco dependence?
+No, Never had
+Any amount for tobacco dependence?
+No as never had
+Do you remember length of time you used tobacco?
+No as never had
+Any vision problems or hearing loss you noticed?
+Yes in hearing
+Any other health history you want to share?
+No, not as of now
+Any past surgical history to share?
+No, not as of now
+Did u went through recent Pneumonia immuinization as part of up to date immunization?
+Yes i did had that
+Did u went through recent Flu immuinization as part of up to date immunization?
+No not the flu one
+Did u went through recent Tetanus immuinization as part of up to date immunization?
+No not with Tetanus
+Did u went through recent TB immuinization as part of up to date immunization?
+Yes i did had that
+Did u went through recent TB exposure immuinization as part of up to date immunization?
+No i did not
+Did u went through recent Hepatitus B immuinization as part of up to date immunization?
+No i did not
+Any additional immuinization u had apart from these?
+No, Not as of now
+Any additional comments you want to share?
+No, Not as of now
+What was the date of your last cholesterol level check?
+Yes, It was 20/01/2024
+What was the date of your last mammogram?
+Yes, It was 21/01/2024
+Do you perform any selft breast exams?
+No as such
+What was the date of your last pap smear?
+No, I dont remember
+What was the date of your last PSA?
+No, not able to recall
+What was the date of your last prostate exam?
+No, not able to recall
+What was the date of your last colonoscopy?
+No, Not aware of
+Are you type of homebound?
+Yes nowadays
+Whether you are having any advance directives?
+Yes sort of living will
+Whether you are having surrogate?
+No such
+Whether you were provided with written and verbal information on advance directives?
+Yes, i was provided
+Any prognosis you want to share?
+Not as of now
+Any functional limitations you seem of having?
+Yes of hearing and speech
+
+Are you within normal limits?
+yes i am within normal limits
+Are you Diabetic?
+yes i am diabetic
+Are you dependant on Insulin?
+yes i am 
+Are you able to draw up a correct dose of insulin independently?
+no i am not able to do that
+Can you properly administer your own insulin?
+yes i can do it on my own
+Are you taking an oral hypoglycemic agent?
+no i am not
+Is your caregiver able to draw up and administer insulin?
+yes he is able to do it for me
+Is your caregiver independant with glucometer use?
+yes he is
+Do you or your caregiver routinely perform inspection of your lower extremities?
+Yes i do it on my own
+Do you have any endocrine related problems?
+Yes i am dealing with Polyphagia and polydipsia 
+Could you tell me your blood sugar levels?
+yes they were 126 as far as i remember
+Can you tell me who your blood sugar was checked by?
+no i do not remember
+At which site was your blood sugar checked at?
+no i do not remember where it was checked
+Do you have any further comments?
+yes i do i have a feeling of increased thirstinessWhat activities are permitted to you to do?
+Yes, Standard walking with help.
+Do you have any musculoskeltal issues?
+Yes, Decreased strength, limited range of motions.
+Are you able to take care of your personal hygiene like washing face, skin and dental care? 
+No, I need someones assistance to groom myself.
+Are you able to dress your upper body safely, like undergarments, buttons and zippers?
+No, I depend entirely on assistance to dress upper body.
+Are you able to dress your lower body safely, like undergarments, socks and footwear?
+No, I depend entirely on assistance to dress lower body.
+Are you able to wash your entire body safely?
+No, I'm unable to bathe myself and totally depend on other person.
+Are you able to move to or from bed to toilet or bedside commode?
+No, I'm unable to go and from toilet but can use bedside commode.
+Are you able to maintain toileting hygiene like adjusting pads or cloths before and after using toilet?
+No, I need someone to help me with adjusting cloths or toileting hygiene.
+Are you able to transfer from bed to chair or change positions in bed?
+No, I'm able to bear weight or pivot with help of another person but anble to do it myself.
+Are you able to walk safely while standing or wheel safely when sitted in wheelchair on various surfaces?
+No, I'm chairfast, can't ambulate or wheel myself.
+Is your age more than 65 years?
+Yes.
+Are you diagnosed with anything?
+Yes.
+Do have a history of falls within last 3 months?
+No
+Are you able to move to bathroom or commode in timely manner(Incontinence)?
+Yes
+Do you have any visual impairment?
+Yes
+Do you have any functional mobility impairement?
+Yes
+Do you have problems with your surrounding environment?
+Yes
+Are you currently on more than 4 prescriptions?
+Yes
+Does your pain affects your daily functions?
+Yes
+Do you have cognitive impairement?
+NO
+Based on above information in fall risk management, your fall score is?
+Yes Score is 9
+We are testing your postural stability, steppage, stride length and sway?
+None
+Are there any medical equipments(DME) that you use ?
+Yes, Walker, bedside commode, tub chair, oxygen
+Are there any supplies that you use?
+None
+Who is your DME provider?
+No, I don't know.
+What is your DME provider's address?
+No, I don't know.
+What is your DME provider's phone number?
+No, I don't know.
+What are the supplies provided by DME provider?
+No, I don't know.
+
+Are you within normal limits?
+Yes i am
+Do you feel any Dizziness?
+Yes, I feel a little dizzy
+Are you feeling any Chest pain?
+No i do not feel any chest pain
+Do you have an edema?
+No i do not have an edema
+Do you have a dependant edema?
+Yes i do have a Pitting dependant edema
+Is there any Neck Vein Distention?
+Yes i do feel distention in the neck vein sometimes 
+Do you feel any peripheral pulses?
+No i do not
+Do you require any cap refills?
+Yes, i require cap refills of 6 seconds
+Do you hear any heart sounds?
+Yes i do hear a Gallop kind of heart sound
+Could you tell me when you had your Pacemaker inserted?
+yes,i had it inserted on thursday 10/12/23
+Could you tell me when you had you AICD inserted?
+No,I didnt have an AICD inserted 
+Do you want to share any further comments?
+No as of now
+Which signs or symptoms charectarize you as a risk for hospitalization?
+Yes, Multile hospitalizations in last 6 months.
+When did you feel the pain for the first time?
+No, I don't remember.
+What is the location of pain?
+Yes, its Lower back.
+What is the intensity of pain?
+Yes its 8.
+What is the duration of pain?
+Yes, Few minutes to hours.
+What is the quality of pain?
+Yes its Cramping, aching, stabbing.
+What makes the pain worse?
+No, I don't know.
+What makes the pain better?
+Yes, Movement/Exercise.
+What is the level of pain after medication?
+Yes, its 0
+Which medication do you take for pain?
+No, I don't know.
+What is the effectiveness of medication?
+No, I don't know.
+What are the side effects of the medication?
+No, I don't know.
+What is your pain goal?
+Yes, Pain should be gone completely.
+Over the past 5 days, how many times the pain made it hard for you to sleep at night?
+Yes, Frequently
+Over the past 5 days, how often have you limited your participation in rehabilitation therapy sessions due to pain?
+Yes, Frequently
+Over the past 5 days, how often have you limited your day-to day activities(excluding therapy) because of pain?
+Yes, Frequently
+
+
+Are you at risk of developing a pressure ulcer or injury?
+no i am not
+How is the skin turgor?
+fair
+What is your skin color?
+pale
+Is your skin dry?
+yes a little
+Is your skin diaphoretic?
+no
+Is your skin warm?
+yes
+Is your skin cool?
+no
+Do you have any wound?
+yes 
+Do you have any ulcer?
+no
+Do you have any incision on your skin?
+no
+Do you have rash anywhere on your skin?
+no
+Did you ever had an ostomy?
+no
+Do you have any other skin condition?
+yes
+Have you been instructed on measures to control infection?
+yes
+How are your nails?
+yes have some problems
+Is patient using pressure relieving devices of any types?
+no
+Do you have atleast one unhealed pressure ulcer/injury at Stage 2 or higher or unstageable ulcer/injury?
+yes
+How many Stage 2 pressure ulcers do you have?
+yes i have 9-10
+How many Stage 3 pressure ulcers do you have?
+0
+How many Stage 4 pressure ulcers  do you have?
+0
+How many unstageable pressure ulcers/injuries do you have due to non removable dressing/device?
+0
+How many unstageable pressure ulcers do you have due to coverage of wound bed by slough or eschar?
+0
+How many unstageable pressure ulcers/injuries do you have presenting as deep tissue injiuries?
+0
+Can you tell current number of stage 1 pressure injuries?
+0
+What is the stage of most problematic unhealed pressur ulcer/injury that is stageable?
+2
+Do you have a statis ulcer?
+no
+Can you tell current number of observable stasis ulcers?
+0
+What is the stage of most problematic observable statis ulcer?
+N/A
+Do you have a surgical wound?
+0
+What is the status of most problematic observable surgical wound?
+0
+What is the location of wound?
+Back
+What is the status of wound?
+open
+When was the onset of wound?
+early of march 2023
+How are the wound edges?
+Attached
+Do you have any wound present on admission?
+yes
+Can you tell the type of wound you have?
+skin lesion and tear
+What type of drainage you observe from the wound?
+serous
+How much draignage do you observe?
+large
+What kind of odour comes from the wounds?
+foul smell comes from the wounds
+What is the thickness of wound?
+full
+What is the size of wound and if so give details?
+yes its of size 3cm x 4cm x 5cm
+How is the surrounding tissue of the wound?
+its very fragile
+What is the color of wound bed?
+purpulish
+Do you see pinkness/redness in wounds and if so how much percentage?
+50%
+Do you see granulization in wounds and if so how much percentage?
+20%
+Do you see slough in wounds and if so how much percentage?
+0%
+Do you see eschar in wounds and if so how much percentage?
+0%
+Do you see nectroic in wounds and if so how much percentage?
+5%
+Is undermining direction present and if so what it is?
+yes towards downside
+Is tunneling direction present and if so what it is?
+no
+What is the severity of wound pain?
+very high
+Do you need SN to instruct Patient/Caregiver on turning/repositioning every 2 hours?
+yes
+Do you need SN to instruct Patient/Caregiver to float heels?
+yes
+Do you need SN to instruct Patient/Caregiver on methods to reduce friction and shear?
+yes
+Do you need SN to instruct Patient/Caregiver to pad on all bony prominences?
+no
+Do you need SN to assess skin for breakdown every visit?
+no
+Do you need SN to assess wounds at each dressing change and PRN for signs and symptoms of infection?
+yes
+Do you need SN to instruct Patient/Caregiver on signs/symptoms of wound infection to be reported to physician?
+yes
+Can wound care be discontinued after healing of it?
+yes very much likelyHave you done any discipline of Person like RN, PT, ST, or OT Completing Assessment?
+Yes, I have RN
+Have you done any assessment currently being Completed?
+Yes, I have done resumption of care
+Have you started follow up?
+Yes, I have started recertification (follow-up) reassessment
+Have you transferred to an inpatient facility?
+Yes
+Have you discharge from Agency?
+Yes, I have discharged from agency
+Whether resumption of care date known to you?
+No
+Have you discharged due to inpatient Facilities within the past 14 days?
+Yes, I have  Long-term care hospital (LTCH)
+Have you discharged?
+No
+Is your usual dietary intake within within the normal and healthy limits?
+yes it is 
+Do you have difficulty in chewing or swallowing food?
+no 
+Have you noticed any significant decrease in your appetite recently?
+yes a little
+Have you experienced any noticeable changes in your weight recently, such as unintentional weight loss or gain?
+yes i have lost around 5kg in 2 months 
+Are you ensuring that your meals are prepared and handled appropriately to maintain good hygiene and prevent food-related issues?
+yes i am
+Are you following proper diet?
+no i dont follow proper diet
+Is your diet adequate or inadequate?
+yes its adequate
+Have you ever had a Nasogastric (NG) tube inserted for medical purposes?
+no never
+Have you ever had a Percutaneous Endoscopic Gastrostomy (PEG) tube placed for nutritional support?
+no
+Have you ever been fitted with a Dobhoff tube for nutritional support?
+no
+Have the placement and functionality of the tube, whether it's a PEG tube, Dobhoff tube, or another type, been regularly checked and verified?
+no since its not applicable
+Have the residual volumes in the feeding tube been regularly checked?
+no not required
+Do you have any throat problems?
+yes i do 
+Have you experienced any hoarseness or changes in your voice recently?
+yes sometimes
+Do you have sore throat?
+yes I have sore throat
+Are you having any dental problems?
+no
+Do you currently use dentures?
+yes
+Are you facing any problem in chewing food?
+no
+Do you feel any other issues?
+no other issues
+Do you have any other comments
+no
+Have you lost more than 10 lbs in last 3 months without any reason?
+no
+Do you have any illness or any condition which made you change the type and amount of food eaten?
+yes
+Do you have any open decubitus, ulcer, burn or wound?
+yes a wound on knee
+Do you eat less than 2 meals a day?
+no i eat 3 meals a day
+Do you have any food or mouth problem which makes it hard to eat food?
+yes sore throat makes it difficult to swallow
+Do you have 3 or more drinks of beer liquor or wine almost everyday?
+no
+Do you have insufficient money to buy food everyday?
+no
+Do you eat few of fruits, vegetables or milk products?
+yes milk products i consume less
+Do you eat alone most of the time?
+yes
+Do you take 3 or more prescibed or OTC medications a day?
+yes i do take
+Are you physcially able to make and feed yourself without any assistance from caregiver?
+yes
+Have you been experiencing frequent episodes of diarrhea or constipation lately?
+yes sometimes 
+Is patient's nutritional status good?
+no
+Is patient at moderate nutritional risk?
+yes
+Is patient at high nutritional risk?
+no
+Is patient non-compliant with prescribed diet?
+no
+Is patient over or underweight by 10%?
+no
+What is your height in inches checked recently
+62 inches
+What is your weight in pounds as measured recently
+100 pounds
+Do you require parental or IV feeding?
+no
+Do you use any feeding tubes?
+no i dont use
+Do you need change in texture of foods or liquid before consumption?
+yes
+Do you follow therapeutic diet like low salt, diabetic or low cholestrol?
+yes i am diabetic
+Are none of the above four points applicable?
+no
+Were you not assessed?
+yes i m being assessed
+Are you able to feed yourself independently and safely?
+0
+Are you on low or high sodium diet?
+yes i m on low sodium diet
+Are you on no salt diet?
+no
+Are you on regular diet?
+yes
+Are you on high protein diet?
+no
+Are you on low protein diet?
+no
+Are you on low or high carbohydrate diet?
+no
+Are you on mechanical soft diet?
+no
+Are you on high fiber diet?
+no
+Are you on any supplements?
+yes
+Are you on renal diet?
+no
+Are you on coumadin diet?
+no
+Are you on fluid restriction?
+no
+Are you on any other diet?
+yes i have gluten free diet
+Are you on no concentrated sweets diet?
+no
+Is your heart healthy?
+yes
+Are you on low cholestrol diet?
+no
+Are you on low fat diet?
+no
+Do you need pump to feed you?
+no
+Do you need gravity?
+yes
+Do you use PEG tube to feed you?
+no
+Do you use NG tube to feed you?
+no
+Do you use Dobhoff to feed you?
+no
+Do you require Bolus feeding?
+no
+Do you required TPN?
+no
+Do you need SN/Caregiver to instruct patient on the gluten diet?
+yes i need help with it
+Do you SN to assess you for diet complaince?
+yes
+Do you need SN to instruct Patient/Caregiver to keep a diet log?
+yes
+Do you need SN to instruct Patient/Caregiver on methods to promote oral intake?
+no
+Do you need SN to instruct Patient/Caregiver on parentaral nutrition and use of equipment?
+no
+Do you need SN to instruct Patient/Caregiver on enteral nutrition and use of equipment?
+no
+Do you need SN to instruct Patient/Caregiver on proper use of tube?
+no
+Do you need SN to change tube on any frequency?
+no
+Do you need SN to irrigate tube?
+no
+DO you need SN to instruct Patient/Caregiver on having some amount of water atleast?
+no i have atleast 7l of water everyday
+Were you able to take care of yourself prior to this illness or injury while bathing, dressing or using toilet?
+Yes, I needed no help.
+Were you able to move properly in the house prior to this illness or injury like walking from room to room?
+Yes, I was moving properly.
+Were you able to use stairs prior to this illness or injury?
+No, I needed some help with stairs.
+Were you able to plan or schedule things prior to this illness or injury?
+Yes, I did all the things by myself.
+Were you using any device or aid prior to this illness or injury?
+Yes, I was using walker.
+Are you able to eat properly once the meal is placed before you?
+Yes, I'm able to eat but I need setup and clean-up assistance.
+What is your discharge goal for eating conditions?
+Yes, I want to complete the activity by myself.
+Are you able to take care of your oral health?
+Yes, I'm able to clean but I need setup and clean-up assistance.
+What is your discharge goal for oral health conditions?
+Yes, I want to complete the activity by myself.
+Are you able to take care of your toileting hygine?
+No, I need setup and clean-up assistance.
+what is your discharge goal for toileting conditions?
+Yes, I want to complete the activity by myself.
+Are you able to bath or take showers by yourself?
+No, Partial help of helper is needed to lift trunk or hands.
+What is your discharge goal for bathing conditions?
+Yes, I want to complete the activity by myself.
+Are you able to dress and undress yourself from waist above?
+No, Partial help of helper is needed to lift trunk or hands.
+what is your discharge goal for dressing conditions from waist above?
+Yes, I want to complete the activity by myself.
+Are you able to dress and undress yourself from waist below?
+No, Partial help of helper is needed to lift trunk or limbs.
+what is your discharge goal for dressing conditions from waist below?
+Yes, I want to complete the activity by myself.
+Are you able to wear or remove footwear?
+No, I need maximum assistance with that.
+What is your discharge goal for footwear conditions?
+Yes, I want to complete the activity by myself.
+Are you able to roll left and right while lying on back?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for rolling condition while lying?
+Yes, I want to complete the activity by myself.
+Are you able to move from sitting on the side of the bed to lying flat on the bed?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for moving from sitting on side of the bed to lying flat on the bed?
+Yes, I want to complete the activity by myself.
+Are you able to move from lying flat on the bed to sitting on the side of the bed?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for moving from lying flat on the bed to sitting on side of the bed?
+Yes, I want to complete the activity by myself.
+Are you able to stand from the sitting position?
+No, I need moderate assistance as helper holds me or lifts me up.
+What is your discharge goal for standing from sitting position?
+Yes, I want to complete the activity by myself.
+Are you able to transfer to and from chair to bed?
+No, I need moderate assistance as helper holds me or lifts me up.
+What is your discharge goal for transferring from or to chair?
+Yes, I want to complete the activity by myself.
+Are you able to get on and off a toilet or commode?
+No, I need touching assistance to balance myself.
+What is your discharge goal for getting on and off a toilet or commode?
+Yes, I want to complete the activity by myself.
+Are you able to get in and out of a car on passanger side?
+No, I need touching assistance to balance myself and verbal cues.
+What is your discharge goal for getting in and out of the car?
+Yes, I want to complete the activity by myself.
+Are you able to walk 10 feet while you are standing?
+No, I need moderate assistance as helper lifts or holds me in position.
+What is your discharge goal for walking 10 feet while standing?
+Yes, I want to complete the activity by myself.
+Are you able to walk 50 feet with two turns?
+No, I need moderate assistance as helper lifts or holds me in position.
+What is your discharge goal for walking 50 feet with two turns?
+Yes, I want to complete the activity by myself.
+Are you able to walk 150 feet?
+No, Activity was not attempted due to medical or safety conditions.
+What is your discharge goal for walking 150 feet?
+Yes, I want to complete the activity by myself.
+Are you able to walk 10 feet on an uneven surface?
+No, Activity was not attempted due to medical or safety conditions.
+What is your discharge goal for walking 10 feet on an uneven surface?
+Yes, I would like to have setup or clean-up assistance.
+Are you able to go up and down on a curb or step?
+No, Activity was not attempted due to environmental limitations.
+What is your discharge goal for getting up and down a curb or step?
+Yes, I want to complete the activity by myself.
+Are you able to go up and down 4 steps with or without a rail?
+No, I'm unable to do that.
+What is your discharge goal for getting up and down 4 steps with or without a rail?
+No, Activity was not attempted due to medical or safety conditions.
+Are you able to go up and down 12 steps with or without a rail?
+No, I'm unable to do that.
+What is your discharge goal for getting up and down 12 steps with or without rail?
+No, Activity was not attempted due to medical or safety conditions.
+Are you able to pick up small objects while standing?
+No, I need maximum assistance with that.
+What is your discharge goal for picking up small objects while standing?
+Yes, I want to complete the activity by myself.
+Do you use wheelchair or scooter?
+No, I do not.Have you treated for urinary tract infection in the past 14 days?
+Yes, I have
+Is urinary incontinence or urinary cathedral present?
+No
+Have you bowel incontinence frequency?
+No, I don't have
+Whether you are having any dialysis?
+Yes, I have
+Do you have  type of intervention?
+Yes, I have
+Have you done any goal?
+No
+Is the GU with normal limit?
+Yes
+Is the GU incontinent?
+No, it is not
+Is the GU with bladder distention?
+No
+Is the GU with burning?
+Yes, Sometimes
+Is the GU with frequency?
+No
+Is the GU with dysuria?
+No
+Is the GU with retention?
+No
+Is the GU with normal urgency?
+Yes
+Is the GU with normal urostomy?
+No
+Is the Urine checked?
+Yes
+Is the urine cloudy?
+No
+Is the urine odorous?
+Yes
+Is the urine sediment?
+No
+Is the urine hematuria?
+Yes
+Is the external genitalia checked?
+Yes, they checked
+Is the external genitalia normal?
+Normal
+Is the external genitalia checked as per clinical assessment?
+Yes
+Are you within normal limits?
+Yes i am
+Do you feel any Dizziness?
+Yes, I feel a little dizzy
+Are you feeling any Chest pain?
+No i do not feel any chest pain
+Do you have an edema?
+No i do not have an edema
+Do you have a dependant edema?
+Yes i do have a Pitting dependant edema
+Is there any Neck Vein Distention?
+Yes i do feel distention in the neck vein sometimes 
+Do you feel any peripheral pulses?
+No i do not
+Do you require any cap refills?
+Yes, i require cap refills of 6 seconds
+Do you hear any heart sounds?
+Yes i do hear a Gallop kind of heart sound
+Could you tell me when you had your Pacemaker inserted?
+yes,i had it inserted on thursday 10/12/23
+Could you tell me when you had you AICD inserted?
+No,I didnt have an AICD inserted 
+Do you want to share any further comments?
+No as of now
+Have you suffered from or suffering with CHF,cardiomyopathy,arrhythmia,chest pain,MI,CAD,HTN,PVD,Murmur?
+Yes i did had some chest pain
+Any cancer in remission?
+No as such
+Have you suffered from any osteoarthritis or DJD?
+Yes i did
+Have you suffered from or suffering with rheumatoid arthritis,gait problems,fractures,falls?
+No neither of these
+Have you done with any joint replacement?
+yes i did recently
+Have you suffered from or suffering with CVA,TIA,MS,Heimplegia,Seizures,Headaches,Dizziness or Vertigo?
+No neither of these
+Have you suffered from or suffering with IBS,Crohn's disease,diverticulitis or diverticulosis,constipation,diarrhea,facal incontinence?
+Yes was having constipation
+Have you suffered from or suffering with liver or gall bladder problems?
+Yes suffering with liver problems
+Have you suffered from or suffering with depression,anxiety,dementia,alzhelmers?
+Yes with depression sometime back
+Have you suffered from or suffering from any substance abuse?
+No nothing like that
+Have you suffered from or suffering with mental disorder?
+No nothing like that
+Have you suffered from or suffering with pressure ulcers,stasis ulcer,diabetic ulcer,trauma wound or any other?
+Yes with diabetic ulcers
+Have you suffered from or suffering with chronic kidney disease,renal failure,dialysis?
+Yes was with dialysis
+Have you suffered from or suffering with anemia,abnormal coagulation,blood clots?
+Yes with some blood clots
+Have you suffered from or suffering with diabetes,thyroid problems?
+No such as i think of
+Have you suffered from or suffering with COPD,asthma,chronic obstructive bronchitis,emphysema,chronic obstructive asthma?
+Yes with asthma
+Have you suffered from or suffering with urinary incontinence,urinary retention,BPH,recent or frequent UTI?
+No such as i think of
+Have you suffered from or suffering with tuberculosis,hepatitis?
+Yes with hepatitis
+Have you suffered from or suffering from any infectious disease?
+No not such
+Have you any tobacco dependence?
+No such
+What was the type of tobacco dependence?
+No, Never had
+Any amount for tobacco dependence?
+No as never had
+Do you remember length of time you used tobacco?
+No as never had
+Any vision problems or hearing loss you noticed?
+Yes in hearing
+Any other health history you want to share?
+No, not as of now
+Any past surgical history to share?
+No, not as of now
+Did u went through recent Pneumonia immuinization as part of up to date immunization?
+Yes i did had that
+Did u went through recent Flu immuinization as part of up to date immunization?
+No not the flu one
+Did u went through recent Tetanus immuinization as part of up to date immunization?
+No not with Tetanus
+Did u went through recent TB immuinization as part of up to date immunization?
+Yes i did had that
+Did u went through recent TB exposure immuinization as part of up to date immunization?
+No i did not
+Did u went through recent Hepatitus B immuinization as part of up to date immunization?
+No i did not
+Any additional immuinization u had apart from these?
+No, Not as of now
+Any additional comments you want to share?
+No, Not as of now
+What was the date of your last cholesterol level check?
+Yes, It was 20/01/2024
+What was the date of your last mammogram?
+Yes, It was 21/01/2024
+Do you perform any selft breast exams?
+No as such
+What was the date of your last pap smear?
+No, I dont remember
+What was the date of your last PSA?
+No, not able to recall
+What was the date of your last prostate exam?
+No, not able to recall
+What was the date of your last colonoscopy?
+No, Not aware of
+Are you type of homebound?
+Yes nowadays
+Whether you are having any advance directives?
+Yes sort of living will
+Whether you are having surrogate?
+No such
+Whether you were provided with written and verbal information on advance directives?
+Yes, i was provided
+Any prognosis you want to share?
+Not as of now
+Any functional limitations you seem of having?
+Yes of hearing and speech
+
+Are you at risk of developing a pressure ulcer or injury?
+no i am not
+How is the skin turgor?
+fair
+What is your skin color?
+pale
+Is your skin dry?
+yes a little
+Is your skin diaphoretic?
+no
+Is your skin warm?
+yes
+Is your skin cool?
+no
+Do you have any wound?
+yes 
+Do you have any ulcer?
+no
+Do you have any incision on your skin?
+no
+Do you have rash anywhere on your skin?
+no
+Did you ever had an ostomy?
+no
+Do you have any other skin condition?
+yes
+Have you been instructed on measures to control infection?
+yes
+How are your nails?
+yes have some problems
+Is patient using pressure relieving devices of any types?
+no
+Do you have atleast one unhealed pressure ulcer/injury at Stage 2 or higher or unstageable ulcer/injury?
+yes
+How many Stage 2 pressure ulcers do you have?
+yes i have 9-10
+How many Stage 3 pressure ulcers do you have?
+0
+How many Stage 4 pressure ulcers  do you have?
+0
+How many unstageable pressure ulcers/injuries do you have due to non removable dressing/device?
+0
+How many unstageable pressure ulcers do you have due to coverage of wound bed by slough or eschar?
+0
+How many unstageable pressure ulcers/injuries do you have presenting as deep tissue injiuries?
+0
+Can you tell current number of stage 1 pressure injuries?
+0
+What is the stage of most problematic unhealed pressur ulcer/injury that is stageable?
+2
+Do you have a statis ulcer?
+no
+Can you tell current number of observable stasis ulcers?
+0
+What is the stage of most problematic observable statis ulcer?
+N/A
+Do you have a surgical wound?
+0
+What is the status of most problematic observable surgical wound?
+0
+What is the location of wound?
+Back
+What is the status of wound?
+open
+When was the onset of wound?
+early of march 2023
+How are the wound edges?
+Attached
+Do you have any wound present on admission?
+yes
+Can you tell the type of wound you have?
+skin lesion and tear
+What type of drainage you observe from the wound?
+serous
+How much draignage do you observe?
+large
+What kind of odour comes from the wounds?
+foul smell comes from the wounds
+What is the thickness of wound?
+full
+What is the size of wound and if so give details?
+yes its of size 3cm x 4cm x 5cm
+How is the surrounding tissue of the wound?
+its very fragile
+What is the color of wound bed?
+purpulish
+Do you see pinkness/redness in wounds and if so how much percentage?
+50%
+Do you see granulization in wounds and if so how much percentage?
+20%
+Do you see slough in wounds and if so how much percentage?
+0%
+Do you see eschar in wounds and if so how much percentage?
+0%
+Do you see nectroic in wounds and if so how much percentage?
+5%
+Is undermining direction present and if so what it is?
+yes towards downside
+Is tunneling direction present and if so what it is?
+no
+What is the severity of wound pain?
+very high
+Do you need SN to instruct Patient/Caregiver on turning/repositioning every 2 hours?
+yes
+Do you need SN to instruct Patient/Caregiver to float heels?
+yes
+Do you need SN to instruct Patient/Caregiver on methods to reduce friction and shear?
+yes
+Do you need SN to instruct Patient/Caregiver to pad on all bony prominences?
+no
+Do you need SN to assess skin for breakdown every visit?
+no
+Do you need SN to assess wounds at each dressing change and PRN for signs and symptoms of infection?
+yes
+Do you need SN to instruct Patient/Caregiver on signs/symptoms of wound infection to be reported to physician?
+yes
+Can wound care be discontinued after healing of it?
+yes very much likelyAre you within normal limits?
+yes i am within normal limits
+Are you Diabetic?
+yes i am diabetic
+Are you dependant on Insulin?
+yes i am 
+Are you able to draw up a correct dose of insulin independently?
+no i am not able to do that
+Can you properly administer your own insulin?
+yes i can do it on my own
+Are you taking an oral hypoglycemic agent?
+no i am not
+Is your caregiver able to draw up and administer insulin?
+yes he is able to do it for me
+Is your caregiver independant with glucometer use?
+yes he is
+Do you or your caregiver routinely perform inspection of your lower extremities?
+Yes i do it on my own
+Do you have any endocrine related problems?
+Yes i am dealing with Polyphagia and polydipsia 
+Could you tell me your blood sugar levels?
+yes they were 126 as far as i remember
+Can you tell me who your blood sugar was checked by?
+no i do not remember
+At which site was your blood sugar checked at?
+no i do not remember where it was checked
+Do you have any further comments?
+yes i do i have a feeling of increased thirstinessHave you taken any of the Safety Measures?
+Yes i have taken safety measures to keep side rails up, proper position during meals and use of assistive devices
+Do you have any others that you would want to specify?
+no nothing else for now 
+Have you been instructed on the environmental conditions such as medical gas, disaster/emergency plan, etc.?
+Yes i have been instructed on safety measures, instructed on mobility safety and also instructed on medical gas
+Could you tell me your Triage/Risk Code?
+Yes my triage code is 5
+Could you mention the disaster code?
+no,i do not remember
+Are there any safety or sanitation hazards affecting you?
+yes there are a couple, like stairs inside home, narrow doorways and inadequate lighting
+Do you have any others you would like to specify?
+yes, there is also a lack of ramps
+Do you have any further comments?
+No i do not
+Do you have No smoking signs posted?
+yes i do have them posted
+Do you or anyone at your home, smoke with oxygen in use?
+No, no one in my house smokes
+Are there any smoking materials in your house?
+no there aren't
+Are there any areas in the house that have a potential for open flames?
+no,i dont think there are any areas like that
+Are the smoke detectors in your house present and working properly?
+yes they work perfectly well
+Do you have a proper functioning fire extinguisher?
+yes i do have one
+Are the oxygen cylinders stored properly?
+No they are not stored properly
+Are all the electrical cords near oxygen intact and free from fraying?
+yes they are intact
+Are all the cleaning fluids and aerosols stored away from oxygen, and not used while oxygen is in use?
+yes they are stored away from the oxygen
+Do you refrain from using petroleum products around oxygen?
+yes i do refrain from using them around oxygen
+Do you only use water based body and lip moisturizers?
+no i use a couple of oil based moisturizers
+Do you have any further comments?
+no, none for nowdo you have any allergies to medications?
+Yes, i have allergy to penicillin
+what kind of reaction did you have?
+i had a rash on my skin
+any other allergy?
+oh yes, i have allergy to sulfa drugs
+what kind of reaction did you have?
+i had a rash on my forearmsAre you person oriented?
+No i am not such person oriented person
+Whether u are time oriented too?
+No, I am time disoriented
+What about place oriented?
+Yes, i am place oriented person
+And what about situation orientation? Are you?
+No, you can consider me as situation disoriented person
+Do u remember things?
+No, I dont remember sometimes
+U forget the things?
+Yes, I often
+What about misplacing things?
+Yes, sometimes i misplace them
+Any memory loss like Short term or Long term?
+Yes, maybe a short one
+Are u suffering from any neurological issues or problems?
+Yes, i do suffer
+Whether they are in the form of Seizures, Aphasic, Headaches, Spasms and Tremors?
+Yes, headaches sometimes
+How are you feeling from past 2 weeks?
+No, I am not feeling appropriate
+How about feeling down, depressed, or hopeless?
+No, I haven't been feeling like that either
+Do you feel lonely or isolated from those around you?
+Yes, sometimes
+Any sort of behavior changes are you observing from past few weeks?
+Yes i do
+Whether you feel sort of sometimes inappropriate, indifferent or assaultive?
+Yes taking some inappropriate ones
+Whether you feel sort of sometimes impulsive, compulsive or evasive changes?
+Yes,I feel like taking impulsive decisions nowadays
+Does your behaviour includes poor coping, decision skills or impaired judgement?
+Yes, i tend to make more poor decisions now very often
+Do you have any psychosocial fators related to your reltaionship,living environment?
+Yes some with living environment
+Do you want to share any additional information?
+No such as of now
+Whether you are in need of mental status check?
+Yes, i feel like getting one done
+Please repeat the three words I'm about to say: sock, blue, and bed.
+Yes Sock, blue, and bed
+What year is it right now?
+Yes, It's 2024
+What month are we in right now?
+Yes, We're in January
+What day of the week is today?
+Yes, Today is Wednesday
+Can you recall the three words I asked you to remember earlier?
+Yes, the three words were sock, blue, and bed
+How much is the BIMS summary score on adding scores for questions C0200 to C0400?
+Yes, It should be around 09
+Is there any evidence of acute change in mental status?
+Yes, there is
+Whether you are facing any difficulty on paying attention to things and have difficulty of keeping track of what is being said?
+Yes, but not continuously
+Are u feeling sort of disorganised or incoherent type thinking like having unclear ideas?
+Yes, that too continuously
+Whether you feel altered by any level of consciousness such as vigilant,lethargic,stuporous or comatose?
+Yes, i do feel lethargic sometimes but that is not continuous
+Can you help me with your level of alertness,orientation,comprehension,concentration and immediate memory for simple commands?
+Yes, I do require assistance but in some situations only
+When were you confused within last 14 days?
+Yes, I got confused constanly within past days
+When were you anxious within last 14 days?
+Yes, I was daily but not constantly
+Whether u feel little interest or pleasure in doing things?
+Yes i tend to
+How much is the frequency of you feeling little interest or pleasure in doing things?
+Yes, Maybe 2 to 6 days
+Are you feeling down,depressed or hopeless?
+No as such
+How much is the frequency of you feeling down,depressed or hopeless?
+No, Never felt so
+Are you trouble falling or staying asleep or sleeping too much?
+Yes staying asleep late night
+How much is the frequency of you trouble falling or staying asleep or sleeping too much?
+Yes, Maybe 12 to 14 days
+Are you feeling tired or feel like having little energy?
+No, i dont feel like that
+How much is the frequency of you feeling tired or having little energy?
+No, Never felt so
+Are you having sort poor apetite or overeating?
+Yes, may overeate sometimes
+How much is the frequency of you having poor apetite or overeating?
+Yes, Sort of 2 to 6 days
+Are you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?
+Yes, i do feel like
+How much is the frequency of you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?
+Yes, I felt like that only one day
+Are you having trouble on concentrating over things like reading newspaper or watching television?
+Yes i do while watching television
+How much is the frequency of you having trouble on concentrating over things like reading newspaper or watching television?
+Yes, It varies like 2 to 6 days
+Are you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?
+No, nothing like that
+How much is the frequency of you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?
+No, Never felt like that
+Are you having any thoughts that you would be better off dead or hurting yourself in some other way?
+Yes, i had sometimes back
+How much is the frequency of you having any thoughts that you would be better off dead or hurting yourself in some other way?
+Yes, only one day
+How much is the total severity score on adding all frequency responses?
+Yes, it should be around 05
+Do you feel lonely or isolated from those around you?
+Yes, Sometimes
+Do you demonstrate any cognitive,behavioral or psychiatric symptoms?
+Yes, i feel pysically aggressive sometimes
+Any physical, verbal or other disruptive or dangerous symptoms you observed that are injurious to you or others?
+Yes, i do atleast once in a monthI need to ask you a few questions about your eyes, ears, mouth, throat, nose, and sinuses. Is that okay? 
+
+Yes, that's fine. 
+
+Do you wear glasses or contacts? 
+
+Yes, I wear glasses. 
+
+Are you able to see adequately with your glasses? 
+
+Yes, I can see well with my glasses. 
+
+Do you have any hearing difficulty? 
+
+Yes, I have difficulty hearing. 
+
+Is it bilateral hearing difficulty? 
+
+Yes, it is bilateral. 
+
+Do you wear any dentures or partials? 
+
+Yes, I wear upper dentures/partials. 
+
+Do they fit properly? 
+
+Yes, they fit properly. 
+
+Are there any problems with your nose or sinuses? 
+
+No, there are no problems. Are you within normal limits?
+yes i am
+Do you have any issues with your lungs?
+yes i do hear a couple of Wheezes and cracles sometimes
+Do you produce any sputum because of any repiratory infection or the sort?
+yes i do when i occasionaly cough
+What is the amount of sputum that was produced?
+around 70ml in a day i guess
+What color, consistency or odor is the sputum of?
+its usually a runny yellow color and generally odourless
+Could you tell me your O2 AT levels?
+yes, they are around 85%
+Could you tell the value of rate of O2 in LPM?
+yes, it was 2 LPM
+Could you tell me your O2 SAT levels?
+no i do not remember
+Are you currently using a Nebulizer for Respiration?
+No im not using any nebulizer right now
+Do you have any sort of a cough?
+yes i do have a nonproductive kind of cough
+Do you want to share any further comments?
+yes the mode of administration was Nasal Cannula, the type of oxygen was Concentrator and usually feel shortness of breath
+When do you usually feel dyspenic or noticeably short of breath?
+it happens with minimial exertion or with agitation you could say Can u share some information related to your eyes?"
+Yes, I feel redness in my eyes
+Do you remember date of last eye exam you attended?
+Yes, it was in October somewhere
+How are your ears feeling?
+Yes, I feel pain in them sometimes
+How about your nose?
+Yes, I feel loss of smell sometimes
+Are you able to hear normally with the help of hearing aid or appliances?
+Yes but with moderate difficulty
+Are you able to see in adequate light with glasses or other visual appliances?
+Yes but in moderately impaired way
+Do you need someone to help you while reading instructions,pamphlets or other written material from doctor or pharmacy?
+Yes, very often
+
+
+Do you possess any vitals signs like for Pulse Apical?
+yes i do 
+Do you possess any vitals signs like for Pulse Radial?
+No as such
+Are you aware of vital temp value?
+No i am not
+Are you aware of vital resp value?
+Yes i am
+Aware of your height?
+Yes i am and its 6 feet 9 inches
+Aware of your weight?
+yes its around 75kgs
+Aware of your vital sign for BP that too left lying?
+No i am not
+Aware of your vital sign for BP that too left sitting?
+yes i am
+Aware of your vital sign for BP that too left standing?
+No i am not
+Aware of your vital sign for BP that too right lying?
+No i am not
+Aware of your vital sign for BP that too right sitting?
+Yes 
+Aware of your vital sign for BP that too right standing?
+Yes
+Whether there is a need to notify physician of your temperature greater then or less than?
+yes greater then 24
+Whether there is a need to notify physician of your pulse greater then or less than?
+No there is not
+Whether there is a need to notify physician of your respirations greater then or less than?
+No there is not 
+Whether there is a need to notify physician of your systolic BP greater then or less than?
+No there is not
+Whether there is a need to notify physician of your diastolic greater then or less than?
+Yes when greater then
+Whether there is a need to notify physician of your O2 sat less than?
+No there is not
+Whether there is a need to notify physician of your fasting blood sugar greater then or less than?
+No there is not
+Whether there is a need to notify physician of your random blood sugar greater then or less than?
+Yes there is such need
+Whether there is a need to notify physician of your weight greater then or less than?
+Yes whenever it is greater then 75 kgsAre you having vaping-related disorder in the primary diagnosis?
+Yes, I do
+Are you having COVID-19 acute respirator disease in the primary diagnosis?
+No
+Are you having O/E Exacerbation in the primary diagnosis?
+Yes
+Are you having vaping-related disorder in any other diagnosis?
+No, I don't
+Are you having COVID-19 acute respirator disease in any other diagnosis?
+No, I don't
+Are you having O/E Exacerbation in any other diagnosis?
+No
+Do you have Peripheral Vascular Disease or Peripheral Arterial Disease?
+No, I don't have any
+Do you have Diabetes Mellitus?
+I have no idea
+Do you have Peripheral Vascular Disease or Peripheral Arterial Disease or Diabetes Mellitus?
+No, I don't have anyAre you within normal limits?
+yes i am
+Do you have any issues with your lungs?
+yes i do hear a couple of Wheezes and cracles sometimes
+Do you produce any sputum because of any repiratory infection or the sort?
+yes i do when i occasionaly cough
+What is the amount of sputum that was produced?
+around 70ml in a day i guess
+What color, consistency or odor is the sputum of?
+its usually a runny yellow color and generally odourless
+Could you tell me your O2 AT levels?
+yes, they are around 85%
+Could you tell the value of rate of O2 in LPM?
+yes, it was 2 LPM
+Could you tell me your O2 SAT levels?
+no i do not remember
+Are you currently using a Nebulizer for Respiration?
+No im not using any nebulizer right now
+Do you have any sort of a cough?
+yes i do have a nonproductive kind of cough
+Do you want to share any further comments?
+yes the mode of administration was Nasal Cannula, the type of oxygen was Concentrator and usually feel shortness of breath
+When do you usually feel dyspenic or noticeably short of breath?
+it happens with minimial exertion or with agitation you could say Have you treated for urinary tract infection in the past 14 days?
+Yes, I have
+Is urinary incontinence or urinary cathedral present?
+No
+Have you bowel incontinence frequency?
+No, I don't have
+Whether you are having any dialysis?
+Yes, I have
+Do you have  type of intervention?
+Yes, I have
+Have you done any goal?
+No
+Is the GU with normal limit?
+Yes
+Is the GU incontinent?
+No, it is not
+Is the GU with bladder distention?
+No
+Is the GU with burning?
+Yes, Sometimes
+Is the GU with frequency?
+No
+Is the GU with dysuria?
+No
+Is the GU with retention?
+No
+Is the GU with normal urgency?
+Yes
+Is the GU with normal urostomy?
+No
+Is the Urine checked?
+Yes
+Is the urine cloudy?
+No
+Is the urine odorous?
+Yes
+Is the urine sediment?
+No
+Is the urine hematuria?
+Yes
+Is the external genitalia checked?
+Yes, they checked
+Is the external genitalia normal?
+Normal
+Is the external genitalia checked as per clinical assessment?
+Yes
+Is your usual dietary intake within within the normal and healthy limits?
+yes it is 
+Do you have difficulty in chewing or swallowing food?
+no 
+Have you noticed any significant decrease in your appetite recently?
+yes a little
+Have you experienced any noticeable changes in your weight recently, such as unintentional weight loss or gain?
+yes i have lost around 5kg in 2 months 
+Are you ensuring that your meals are prepared and handled appropriately to maintain good hygiene and prevent food-related issues?
+yes i am
+Are you following proper diet?
+no i dont follow proper diet
+Is your diet adequate or inadequate?
+yes its adequate
+Have you ever had a Nasogastric (NG) tube inserted for medical purposes?
+no never
+Have you ever had a Percutaneous Endoscopic Gastrostomy (PEG) tube placed for nutritional support?
+no
+Have you ever been fitted with a Dobhoff tube for nutritional support?
+no
+Have the placement and functionality of the tube, whether it's a PEG tube, Dobhoff tube, or another type, been regularly checked and verified?
+no since its not applicable
+Have the residual volumes in the feeding tube been regularly checked?
+no not required
+Do you have any throat problems?
+yes i do 
+Have you experienced any hoarseness or changes in your voice recently?
+yes sometimes
+Do you have sore throat?
+yes I have sore throat
+Are you having any dental problems?
+no
+Do you currently use dentures?
+yes
+Are you facing any problem in chewing food?
+no
+Do you feel any other issues?
+no other issues
+Do you have any other comments
+no
+Have you lost more than 10 lbs in last 3 months without any reason?
+no
+Do you have any illness or any condition which made you change the type and amount of food eaten?
+yes
+Do you have any open decubitus, ulcer, burn or wound?
+yes a wound on knee
+Do you eat less than 2 meals a day?
+no i eat 3 meals a day
+Do you have any food or mouth problem which makes it hard to eat food?
+yes sore throat makes it difficult to swallow
+Do you have 3 or more drinks of beer liquor or wine almost everyday?
+no
+Do you have insufficient money to buy food everyday?
+no
+Do you eat few of fruits, vegetables or milk products?
+yes milk products i consume less
+Do you eat alone most of the time?
+yes
+Do you take 3 or more prescibed or OTC medications a day?
+yes i do take
+Are you physcially able to make and feed yourself without any assistance from caregiver?
+yes
+Have you been experiencing frequent episodes of diarrhea or constipation lately?
+yes sometimes 
+Is patient's nutritional status good?
+no
+Is patient at moderate nutritional risk?
+yes
+Is patient at high nutritional risk?
+no
+Is patient non-compliant with prescribed diet?
+no
+Is patient over or underweight by 10%?
+no
+What is your height in inches checked recently
+62 inches
+What is your weight in pounds as measured recently
+100 pounds
+Do you require parental or IV feeding?
+no
+Do you use any feeding tubes?
+no i dont use
+Do you need change in texture of foods or liquid before consumption?
+yes
+Do you follow therapeutic diet like low salt, diabetic or low cholestrol?
+yes i am diabetic
+Are none of the above four points applicable?
+no
+Were you not assessed?
+yes i m being assessed
+Are you able to feed yourself independently and safely?
+0
+Are you on low or high sodium diet?
+yes i m on low sodium diet
+Are you on no salt diet?
+no
+Are you on regular diet?
+yes
+Are you on high protein diet?
+no
+Are you on low protein diet?
+no
+Are you on low or high carbohydrate diet?
+no
+Are you on mechanical soft diet?
+no
+Are you on high fiber diet?
+no
+Are you on any supplements?
+yes
+Are you on renal diet?
+no
+Are you on coumadin diet?
+no
+Are you on fluid restriction?
+no
+Are you on any other diet?
+yes i have gluten free diet
+Are you on no concentrated sweets diet?
+no
+Is your heart healthy?
+yes
+Are you on low cholestrol diet?
+no
+Are you on low fat diet?
+no
+Do you need pump to feed you?
+no
+Do you need gravity?
+yes
+Do you use PEG tube to feed you?
+no
+Do you use NG tube to feed you?
+no
+Do you use Dobhoff to feed you?
+no
+Do you require Bolus feeding?
+no
+Do you required TPN?
+no
+Do you need SN/Caregiver to instruct patient on the gluten diet?
+yes i need help with it
+Do you SN to assess you for diet complaince?
+yes
+Do you need SN to instruct Patient/Caregiver to keep a diet log?
+yes
+Do you need SN to instruct Patient/Caregiver on methods to promote oral intake?
+no
+Do you need SN to instruct Patient/Caregiver on parentaral nutrition and use of equipment?
+no
+Do you need SN to instruct Patient/Caregiver on enteral nutrition and use of equipment?
+no
+Do you need SN to instruct Patient/Caregiver on proper use of tube?
+no
+Do you need SN to change tube on any frequency?
+no
+Do you need SN to irrigate tube?
+no
+DO you need SN to instruct Patient/Caregiver on having some amount of water atleast?
+no i have atleast 7l of water everyday
+Are you person oriented?
+No i am not such person oriented person
+Whether u are time oriented too?
+No, I am time disoriented
+What about place oriented?
+Yes, i am place oriented person
+And what about situation orientation? Are you?
+No, you can consider me as situation disoriented person
+Do u remember things?
+No, I dont remember sometimes
+U forget the things?
+Yes, I often
+What about misplacing things?
+Yes, sometimes i misplace them
+Any memory loss like Short term or Long term?
+Yes, maybe a short one
+Are u suffering from any neurological issues or problems?
+Yes, i do suffer
+Whether they are in the form of Seizures, Aphasic, Headaches, Spasms and Tremors?
+Yes, headaches sometimes
+How are you feeling from past 2 weeks?
+No, I am not feeling appropriate
+How about feeling down, depressed, or hopeless?
+No, I haven't been feeling like that either
+Do you feel lonely or isolated from those around you?
+Yes, sometimes
+Any sort of behavior changes are you observing from past few weeks?
+Yes i do
+Whether you feel sort of sometimes inappropriate, indifferent or assaultive?
+Yes taking some inappropriate ones
+Whether you feel sort of sometimes impulsive, compulsive or evasive changes?
+Yes,I feel like taking impulsive decisions nowadays
+Does your behaviour includes poor coping, decision skills or impaired judgement?
+Yes, i tend to make more poor decisions now very often
+Do you have any psychosocial fators related to your reltaionship,living environment?
+Yes some with living environment
+Do you want to share any additional information?
+No such as of now
+Whether you are in need of mental status check?
+Yes, i feel like getting one done
+Please repeat the three words I'm about to say: sock, blue, and bed.
+Yes Sock, blue, and bed
+What year is it right now?
+Yes, It's 2024
+What month are we in right now?
+Yes, We're in January
+What day of the week is today?
+Yes, Today is Wednesday
+Can you recall the three words I asked you to remember earlier?
+Yes, the three words were sock, blue, and bed
+How much is the BIMS summary score on adding scores for questions C0200 to C0400?
+Yes, It should be around 09
+Is there any evidence of acute change in mental status?
+Yes, there is
+Whether you are facing any difficulty on paying attention to things and have difficulty of keeping track of what is being said?
+Yes, but not continuously
+Are u feeling sort of disorganised or incoherent type thinking like having unclear ideas?
+Yes, that too continuously
+Whether you feel altered by any level of consciousness such as vigilant,lethargic,stuporous or comatose?
+Yes, i do feel lethargic sometimes but that is not continuous
+Can you help me with your level of alertness,orientation,comprehension,concentration and immediate memory for simple commands?
+Yes, I do require assistance but in some situations only
+When were you confused within last 14 days?
+Yes, I got confused constanly within past days
+When were you anxious within last 14 days?
+Yes, I was daily but not constantly
+Whether u feel little interest or pleasure in doing things?
+Yes i tend to
+How much is the frequency of you feeling little interest or pleasure in doing things?
+Yes, Maybe 2 to 6 days
+Are you feeling down,depressed or hopeless?
+No as such
+How much is the frequency of you feeling down,depressed or hopeless?
+No, Never felt so
+Are you trouble falling or staying asleep or sleeping too much?
+Yes staying asleep late night
+How much is the frequency of you trouble falling or staying asleep or sleeping too much?
+Yes, Maybe 12 to 14 days
+Are you feeling tired or feel like having little energy?
+No, i dont feel like that
+How much is the frequency of you feeling tired or having little energy?
+No, Never felt so
+Are you having sort poor apetite or overeating?
+Yes, may overeate sometimes
+How much is the frequency of you having poor apetite or overeating?
+Yes, Sort of 2 to 6 days
+Are you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?
+Yes, i do feel like
+How much is the frequency of you feeling bad about yourself or think that you are a failure or you have let yourself or your family down?
+Yes, I felt like that only one day
+Are you having trouble on concentrating over things like reading newspaper or watching television?
+Yes i do while watching television
+How much is the frequency of you having trouble on concentrating over things like reading newspaper or watching television?
+Yes, It varies like 2 to 6 days
+Are you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?
+No, nothing like that
+How much is the frequency of you moving or speaking too slowly that other people could notice or opposite like feeling fidgety or restless that you have been moving around a lot more than usual?
+No, Never felt like that
+Are you having any thoughts that you would be better off dead or hurting yourself in some other way?
+Yes, i had sometimes back
+How much is the frequency of you having any thoughts that you would be better off dead or hurting yourself in some other way?
+Yes, only one day
+How much is the total severity score on adding all frequency responses?
+Yes, it should be around 05
+Do you feel lonely or isolated from those around you?
+Yes, Sometimes
+Do you demonstrate any cognitive,behavioral or psychiatric symptoms?
+Yes, i feel pysically aggressive sometimes
+Any physical, verbal or other disruptive or dangerous symptoms you observed that are injurious to you or others?
+Yes, i do atleast once in a monthDo you possess any vitals signs like for Pulse Apical?
+yes i do 
+Do you possess any vitals signs like for Pulse Radial?
+No as such
+Are you aware of vital temp value?
+No i am not
+Are you aware of vital resp value?
+Yes i am
+Aware of your height?
+Yes i am and its 6 feet 9 inches
+Aware of your weight?
+yes its around 75kgs
+Aware of your vital sign for BP that too left lying?
+No i am not
+Aware of your vital sign for BP that too left sitting?
+yes i am
+Aware of your vital sign for BP that too left standing?
+No i am not
+Aware of your vital sign for BP that too right lying?
+No i am not
+Aware of your vital sign for BP that too right sitting?
+Yes 
+Aware of your vital sign for BP that too right standing?
+Yes
+Whether there is a need to notify physician of your temperature greater then or less than?
+yes greater then 24
+Whether there is a need to notify physician of your pulse greater then or less than?
+No there is not
+Whether there is a need to notify physician of your respirations greater then or less than?
+No there is not 
+Whether there is a need to notify physician of your systolic BP greater then or less than?
+No there is not
+Whether there is a need to notify physician of your diastolic greater then or less than?
+Yes when greater then
+Whether there is a need to notify physician of your O2 sat less than?
+No there is not
+Whether there is a need to notify physician of your fasting blood sugar greater then or less than?
+No there is not
+Whether there is a need to notify physician of your random blood sugar greater then or less than?
+Yes there is such need
+Whether there is a need to notify physician of your weight greater then or less than?
+Yes whenever it is greater then 75 kgsWhat activities are permitted to you to do?
+Yes, Standard walking with help.
+Do you have any musculoskeltal issues?
+Yes, Decreased strength, limited range of motions.
+Are you able to take care of your personal hygiene like washing face, skin and dental care? 
+No, I need someones assistance to groom myself.
+Are you able to dress your upper body safely, like undergarments, buttons and zippers?
+No, I depend entirely on assistance to dress upper body.
+Are you able to dress your lower body safely, like undergarments, socks and footwear?
+No, I depend entirely on assistance to dress lower body.
+Are you able to wash your entire body safely?
+No, I'm unable to bathe myself and totally depend on other person.
+Are you able to move to or from bed to toilet or bedside commode?
+No, I'm unable to go and from toilet but can use bedside commode.
+Are you able to maintain toileting hygiene like adjusting pads or cloths before and after using toilet?
+No, I need someone to help me with adjusting cloths or toileting hygiene.
+Are you able to transfer from bed to chair or change positions in bed?
+No, I'm able to bear weight or pivot with help of another person but anble to do it myself.
+Are you able to walk safely while standing or wheel safely when sitted in wheelchair on various surfaces?
+No, I'm chairfast, can't ambulate or wheel myself.
+Is your age more than 65 years?
+Yes.
+Are you diagnosed with anything?
+Yes.
+Do have a history of falls within last 3 months?
+No
+Are you able to move to bathroom or commode in timely manner(Incontinence)?
+Yes
+Do you have any visual impairment?
+Yes
+Do you have any functional mobility impairement?
+Yes
+Do you have problems with your surrounding environment?
+Yes
+Are you currently on more than 4 prescriptions?
+Yes
+Does your pain affects your daily functions?
+Yes
+Do you have cognitive impairement?
+NO
+Based on above information in fall risk management, your fall score is?
+Yes Score is 9
+We are testing your postural stability, steppage, stride length and sway?
+None
+Are there any medical equipments(DME) that you use ?
+Yes, Walker, bedside commode, tub chair, oxygen
+Are there any supplies that you use?
+None
+Who is your DME provider?
+No, I don't know.
+What is your DME provider's address?
+No, I don't know.
+What is your DME provider's phone number?
+No, I don't know.
+What are the supplies provided by DME provider?
+No, I don't know.
+
+Have you done any discipline of Person like RN, PT, ST, or OT Completing Assessment?
+Yes, I have RN
+Have you done any assessment currently being Completed?
+Yes, I have done resumption of care
+Have you started follow up?
+Yes, I have started recertification (follow-up) reassessment
+Have you transferred to an inpatient facility?
+Yes
+Have you discharge from Agency?
+Yes, I have discharged from agency
+Whether resumption of care date known to you?
+No
+Have you discharged due to inpatient Facilities within the past 14 days?
+Yes, I have  Long-term care hospital (LTCH)
+Have you discharged?
+No
+Were you able to take care of yourself prior to this illness or injury while bathing, dressing or using toilet?
+Yes, I needed no help.
+Were you able to move properly in the house prior to this illness or injury like walking from room to room?
+Yes, I was moving properly.
+Were you able to use stairs prior to this illness or injury?
+No, I needed some help with stairs.
+Were you able to plan or schedule things prior to this illness or injury?
+Yes, I did all the things by myself.
+Were you using any device or aid prior to this illness or injury?
+Yes, I was using walker.
+Are you able to eat properly once the meal is placed before you?
+Yes, I'm able to eat but I need setup and clean-up assistance.
+What is your discharge goal for eating conditions?
+Yes, I want to complete the activity by myself.
+Are you able to take care of your oral health?
+Yes, I'm able to clean but I need setup and clean-up assistance.
+What is your discharge goal for oral health conditions?
+Yes, I want to complete the activity by myself.
+Are you able to take care of your toileting hygine?
+No, I need setup and clean-up assistance.
+what is your discharge goal for toileting conditions?
+Yes, I want to complete the activity by myself.
+Are you able to bath or take showers by yourself?
+No, Partial help of helper is needed to lift trunk or hands.
+What is your discharge goal for bathing conditions?
+Yes, I want to complete the activity by myself.
+Are you able to dress and undress yourself from waist above?
+No, Partial help of helper is needed to lift trunk or hands.
+what is your discharge goal for dressing conditions from waist above?
+Yes, I want to complete the activity by myself.
+Are you able to dress and undress yourself from waist below?
+No, Partial help of helper is needed to lift trunk or limbs.
+what is your discharge goal for dressing conditions from waist below?
+Yes, I want to complete the activity by myself.
+Are you able to wear or remove footwear?
+No, I need maximum assistance with that.
+What is your discharge goal for footwear conditions?
+Yes, I want to complete the activity by myself.
+Are you able to roll left and right while lying on back?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for rolling condition while lying?
+Yes, I want to complete the activity by myself.
+Are you able to move from sitting on the side of the bed to lying flat on the bed?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for moving from sitting on side of the bed to lying flat on the bed?
+Yes, I want to complete the activity by myself.
+Are you able to move from lying flat on the bed to sitting on the side of the bed?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for moving from lying flat on the bed to sitting on side of the bed?
+Yes, I want to complete the activity by myself.
+Are you able to stand from the sitting position?
+No, I need moderate assistance as helper holds me or lifts me up.
+What is your discharge goal for standing from sitting position?
+Yes, I want to complete the activity by myself.
+Are you able to transfer to and from chair to bed?
+No, I need moderate assistance as helper holds me or lifts me up.
+What is your discharge goal for transferring from or to chair?
+Yes, I want to complete the activity by myself.
+Are you able to get on and off a toilet or commode?
+No, I need touching assistance to balance myself.
+What is your discharge goal for getting on and off a toilet or commode?
+Yes, I want to complete the activity by myself.
+Are you able to get in and out of a car on passanger side?
+No, I need touching assistance to balance myself and verbal cues.
+What is your discharge goal for getting in and out of the car?
+Yes, I want to complete the activity by myself.
+Are you able to walk 10 feet while you are standing?
+No, I need moderate assistance as helper lifts or holds me in position.
+What is your discharge goal for walking 10 feet while standing?
+Yes, I want to complete the activity by myself.
+Are you able to walk 50 feet with two turns?
+No, I need moderate assistance as helper lifts or holds me in position.
+What is your discharge goal for walking 50 feet with two turns?
+Yes, I want to complete the activity by myself.
+Are you able to walk 150 feet?
+No, Activity was not attempted due to medical or safety conditions.
+What is your discharge goal for walking 150 feet?
+Yes, I want to complete the activity by myself.
+Are you able to walk 10 feet on an uneven surface?
+No, Activity was not attempted due to medical or safety conditions.
+What is your discharge goal for walking 10 feet on an uneven surface?
+Yes, I would like to have setup or clean-up assistance.
+Are you able to go up and down on a curb or step?
+No, Activity was not attempted due to environmental limitations.
+What is your discharge goal for getting up and down a curb or step?
+Yes, I want to complete the activity by myself.
+Are you able to go up and down 4 steps with or without a rail?
+No, I'm unable to do that.
+What is your discharge goal for getting up and down 4 steps with or without a rail?
+No, Activity was not attempted due to medical or safety conditions.
+Are you able to go up and down 12 steps with or without a rail?
+No, I'm unable to do that.
+What is your discharge goal for getting up and down 12 steps with or without rail?
+No, Activity was not attempted due to medical or safety conditions.
+Are you able to pick up small objects while standing?
+No, I need maximum assistance with that.
+What is your discharge goal for picking up small objects while standing?
+Yes, I want to complete the activity by myself.
+Do you use wheelchair or scooter?
+No, I do not.Whether you live alone and any specific type for assitance?
+Yes and need assistance in regular daytime
+Whether you live with other persons in your home?
+Yes and need assistance in regular daytime as no one is home
+Whether you live in congregate situation like sort of residential care home?
+No not in such
+Whether you need assistance in supervision and safety due to cognitve impairment?
+Yes i am receiving assistance which is provided by some non agency caregiver
+Whether you need assistance in ADL activities like bathing,dressing,toileting,bowel/bladder,eating/feeding?
+Yes i need some while eating
+Whether you need assistance in IADL activities like meds,meals,housekeeping,laundry,telephone,shopping,finances?
+Yes i need some while shopping
+Whether you need any psychosocial support?
+No not as of now
+Whether you need any assistance with medical appointments,delivery of medications?
+Yes, i do
+Whether you need any assistance on managing your finances?
+Yes i do
+Any additional comments you want to share part of receving assistances?
+No as such
+Can you name organizations providing support assistance?
+No, There are no one to name
+Whether you need community resource infor to manage your care?
+No, Not as of now
+Whether you suffer any altered affect like expressed sadness or anxiety,grief?
+Yes grief sometimes
+Whether you feel any suicidal ideation?
+No such as of now
+Whether any suspected abuse or neglect?
+No such as of now
+Whether MSW referral indicated for?
+Yes it was
+Whether coordinator was notified?
+Yes
+Whether you have ability to manage your finances?
+Yes i have that
+Whether you have more comments to share?
+No, Not as of now
+Whether you have any care references for us?
+No, Not as of now
+
+
+
+Which signs or symptoms charectarize you as a risk for hospitalization?
+Yes, Multile hospitalizations in last 6 months.
+When did you feel the pain for the first time?
+No, I don't remember.
+What is the location of pain?
+Yes, its Lower back.
+What is the intensity of pain?
+Yes its 8.
+What is the duration of pain?
+Yes, Few minutes to hours.
+What is the quality of pain?
+Yes its Cramping, aching, stabbing.
+What makes the pain worse?
+No, I don't know.
+What makes the pain better?
+Yes, Movement/Exercise.
+What is the level of pain after medication?
+Yes, its 0
+Which medication do you take for pain?
+No, I don't know.
+What is the effectiveness of medication?
+No, I don't know.
+What are the side effects of the medication?
+No, I don't know.
+What is your pain goal?
+Yes, Pain should be gone completely.
+Over the past 5 days, how many times the pain made it hard for you to sleep at night?
+Yes, Frequently
+Over the past 5 days, how often have you limited your participation in rehabilitation therapy sessions due to pain?
+Yes, Frequently
+Over the past 5 days, how often have you limited your day-to day activities(excluding therapy) because of pain?
+Yes, Frequently
+
+
+Are you having vaping-related disorder in the primary diagnosis?
+Yes, I do
+Are you having COVID-19 acute respirator disease in the primary diagnosis?
+No
+Are you having O/E Exacerbation in the primary diagnosis?
+Yes
+Are you having vaping-related disorder in any other diagnosis?
+No, I don't
+Are you having COVID-19 acute respirator disease in any other diagnosis?
+No, I don't
+Are you having O/E Exacerbation in any other diagnosis?
+No
+Do you have Peripheral Vascular Disease or Peripheral Arterial Disease?
+No, I don't have any
+Do you have Diabetes Mellitus?
+I have no idea
+Do you have Peripheral Vascular Disease or Peripheral Arterial Disease or Diabetes Mellitus?
+No, I don't have any

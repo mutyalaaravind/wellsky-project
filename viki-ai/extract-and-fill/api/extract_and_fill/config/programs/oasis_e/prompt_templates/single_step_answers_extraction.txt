@@ -1,0 +1,59 @@
+You are a trusted transcriber whose job is to extract answers from provided transcript based on below guidance
+For each question in the QUESTIONS, extract the answer from given transcript. 
+For any question that includes an "INSTRUCTION", answer using that guidance. 
+Please use these EXAMPLES to understan how to find answers to the QUESTIONS
+Use below 2 step reasoning approach to find answers and generate final result:
+1. find verbatim_source for the question from the transcript. multiple verbatim_souce be sperataed with new line character
+2. based on verbatim_source and provided instructions and examples, extract the answers. 
+3. all dates should be in mm/dd/yyyy format
+4. please do not return NA unless specified in instructions, return json null instead
+
+Please return a valid final json. Please do not include 'final result:' or 'interim result:' in the final result
+The final result should not include question and instruction. 
+It should include value and verbatim_source only as mentioned in the examples.
+
+EXAMPLE 1: 
+transcript: "
+can you see with glasses?
+i cannot see without glasses.
+do you use contacts?
+yes
+i some times use contacts for left eye
+from what date you had issues with eyes?
+maybe 1st march, 2024
+"
+
+questions: {
+  "B0200-1": {
+    "question": "is your visibility within normal limits?",
+    "instructions": "if visibility is within normal limits, select true as the value otherwise false",
+  },
+  "B0200-2": {
+    "question": "Do you have to use glasses?",
+    "instructions": "if require glasses, select true as the value else false"
+  },
+  "B0200-3": {
+    "question": "do you use contacts for left eye?",
+    "instructions": "if require contacts for left eye, select true as the value else false"
+  },
+  "B0200-4": {
+    "question": "from when you had the issues with eyes?",
+    "instructions": "select the date mentioned in mm/dd/yyyy format"
+  }
+}
+
+{
+  "result":{
+    "B0200-1":{"value":"true","verbatim_source":"can you see with glasses?\nyes i can see with glasses"}
+    "B0200-2":{"value":"false","verbatim_source":"can you see with glasses?\nyes i can see with glasses"},
+    "B0200-3":{"value":"false","verbatim_source":"do you use contacts?\nyes\ni some times use contacts for left eye"},
+    "B0200-4":{"value":"03/01/2024","verbatim_source":"from what date you had issues with eyes?\nmaybe 1st march, 2024"},
+  }
+}
+end of EXAMPLE 1
+
+transcript: <transcript></transcript>
+
+<example></example>
+
+questions: <questions></questions>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>React App</title>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <h1>Medications widget demo</h1>
+      <p>This is a demo of the medications widget.</p>
+      Open widget by clicking the button on the right side of the screen.
+      <span id="medwidget"></span>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <!-- <script>
+    window.addEventListener('load', function () {
+      initMedWidgetButton({
+        el: document.getElementById('medwidget'),
+        // patientId: '9bcd5bd338ca41f3b46db9610747990c', // Minnie Mouse
+        // token: btoa(JSON.stringify({ "patientId": "9bcd5bd338ca41f3b46db9610747990c", "tenantId": "54321", "appId": "007", "role": "patient" })),
+      });
+    });
+
+    window.initMedWidgetButton({
+				el: document.getElementById('medwidget'),
+				ehrToken: "5C41FB51-0FA8-02B4-139A6C26D2D6BC58",// 1.widget should use this token to validate user permissions 2. Medwidget will use to call HHH api (get medications/send medications)
+				oktaToken: "eyJraWQiOiJMMWtJd2F5QnBvcl9ZUTZ3b2JxNHEtUk10YU93VW9obS1UU2I3eWo3a1pBIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULm1XY0plV2ctclVQQ1RpOTJHMHk4d2M1N1RoRG4tazBhMWlMWFZuRGx4ZFEiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3MjE5ODA5NDIsImV4cCI6MTcyMTk4NDU0MiwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.hNCE2iBQtnN-wa1jCtZbmr0nX3tE9cC4OuylkD4aqnELINEIrHvQljEVwuco5iYzmAK4Unh5jUJZ0tCcp0Gr667DmqIFw1lk-VhxaiPHncV3iuo3-uWWbbnEtca2Mxep8nEabKzFt6OblgOjVVWqShipM4Y4kRHj4Ib8EO1bk5Vq30-teMcrz9aZ-CPreIuq06WB8I2NxQeu_CSciHgGDlrz81dFEu8XxLTO1L1iLPRRSM0pQIJl4xtruqv1-laH-7UdRjCvjEpl7dBxIrsy0lpbdjKRa11bYY54MxOZVjawSOmrgjjCgLNJGL1Ye9GPvnssciUtcMFzTGHnOf2qxQ",// widget authentication
+				token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJNZWRwcm9maWxlR2VuQUlVc2VyIiwic3ViIjoidGl0YW4uYW0uYm0yIiwiYXBwSWQiOiJoaGgiLCJ0ZW5hbnRJZCI6OTM4MSwiaXNzIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwiYW11c2Vya2V5Ijo3MjMxNTcsImV4cCI6MTcyMjAxMDc5NSwicGF0aWVudElkIjo4MDE4Njg2fQ.trP4nfv9P-ipP--5ObsVL7Qnsaoo3kOSz1-HeJvsloM", //Widget Authorization Bearer Token
+			});
+  </script> -->
+    <script>
+      window.addEventListener("load", function () {
+        const instance = window.initMedWidgetButton({
+          el: document.getElementById("medwidget"),
+          ehrToken: "33F64030-0EBF-340C-D683B075A6B17F91", // 1.widget should use this token to validate user permissions 2. Medwidget will use to call HHH api (get medications/send medications)
+          oktaToken:
+            "eyJraWQiOiJZY05kWllvX0NBaWpZcFNlYUVCZXgxNnlSdG50QTVockxCd1BPT1VTY3dRIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULklobnNxZ0Vka2NTQ2F1cUo1a0Yxdmh4SUFhQ0JGMHRIWlZ3VWt1d0kxWmciLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3Mjg2NjQ3OTYsImV4cCI6MTcyODY2ODM5NiwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.Ho-6PDmzZlzHdAHzkGmW6IaHvVlyDFEummB3b53J5RPml249Jv6G6JFlmueRarFK9BDof2XlvITg1q05p_RoNGbfs-oQKRe5XhtM-bSckqwFWw6InBfwCGf1v7dsZxF2FGbDO9-ZxmPQ_BWdaKJV87kTQyupFWASegNtcGazIO_auFwiSDZTXVrEtTURFZaMJ0fVFjBGnPh6fF9-qlyJTVmji8CLP8n9H75N8bDpe9xdgONx0HyMcR6fgDwLBNdBa8906IZ_qA1xD-vvqLRTl4BDJmoq-fPEhX0MTIfJY2AXYFTzy0eNWFqLWUd7GdLGzT5bDdg6QBY9EOQ8Cy-sDw", // widget authentication
+          token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyNDJiN2JmZmY4ZmI0ZjUwYjc3Y2YxZjdmNjFlOTFkMyIsImFtdXNlcmtleSI6IjEyMzQ1In0.X9dL-AKcEvot0IsnVY0PeaezyKEr_yBsy7QcLZMz9tU", //Widget Authorization Bearer Token
+        });
+
+        console.log("instance", instance);
+      });
+    </script>
+  </body>
+</html>

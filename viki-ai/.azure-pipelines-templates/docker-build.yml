@@ -1,0 +1,48 @@
+parameters:
+  - name: dockerFilePath
+    type: string
+
+  - name: dockerImageName
+    type: string
+
+  - name: buildContext
+    type: string
+  
+  - name: version
+    type: string
+
+steps:
+  # Create .npmrc file from secret variable
+  - script: |
+      cat > ${{ parameters.buildContext }}/.npmrc << 'EOF'
+      //npm.pkg.github.com/:_authToken=$(GITHUB_NPM_TOKEN)
+      @mediwareinc:registry=https://npm.pkg.github.com
+      legacy-peer-deps=true
+      auto-install-peers=true
+      EOF
+      echo ".npmrc file created in build context"
+    displayName: 'Create .npmrc file'
+
+  # Check if .npmrc was created in the build context
+  - script: |
+      echo "Checking .npmrc in build context:"
+      ls -la ${{ parameters.buildContext }}/.npmrc
+      echo "Content of .npmrc:"
+      cat ${{ parameters.buildContext }}/.npmrc
+    displayName: 'Verify .npmrc file'
+  
+  # Build the Docker image
+  - task: Docker@2
+    displayName: Build Docker Image
+    inputs:
+      buildContext: ${{ parameters.buildContext }}
+      command: build
+      Dockerfile: ${{ parameters.dockerFilePath }}
+      repository: ${{ parameters.dockerImageName }}
+      arguments: |
+        --no-cache
+        --build-arg BUILDKIT_INLINE_CACHE=1
+        --secret id=npmrc,src=${{ parameters.buildContext }}/.npmrc
+      tags: |
+        latest
+        ${{ parameters.version }}

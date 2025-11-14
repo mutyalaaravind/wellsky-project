@@ -1,0 +1,278 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_dev}}
+
+# Test token for 007 app, tenant 54321, patient c211f67a0a594ceab691e566b8b37c32
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+### App Config Tests ===================================================================
+
+### Get App Config for App ID 007
+GET {{host}}/api/config/007
+Authorization: Bearer {{token}}
+
+
+
+
+### Save App Config Tests ===================================================================
+
+### Create App Configuration (App-level)
+POST {{host}}/api/admin/config
+Content-Type: application/json
+
+{
+  "app_id": "onboard",
+  "active": true,
+  "config": {
+    "integration": {
+        "base_url": "http://demo-api:13000",
+        "endpoints": {
+        "list_medications": "/api/clients/{tenantId}/patients/{patientId}/medications",
+        "list_attachments": "/api/clients/{tenantId}/patients/{patientId}/attachments",
+        "create_medication": "/api/clients/{tenantId}/patients/{patientId}/medications"
+        }
+    },
+    "accounting": {
+        "business_unit": "viki",
+        "solution_id": "viki"
+    },
+    "extract_immunizations": true,
+    "extract_allergies": false,
+    "extract_conditions": false,
+    "extraction_persisted_to_medication_profile": false,
+    "use_pagination": true,
+    "token_validation": {
+        "enabled": false,
+        "jwks_url": "http://localhost:15000/api/v1/keys"
+    },
+    "ui_control_upload_enable": false,
+    "ui_nonstandard_dose_enable": true,
+    "ui_classification_enable": false,
+    "on_demand_external_files_config": {
+        "enabled": false,
+        "uploaded_date_cut_off_window_in_days": 0
+    },
+    "ui_hide_medication_tab": false,
+    "ui_document_action_extract_enable": true,
+    "ui_document_action_extract_statuses": [
+        "NOT_STARTED",
+        "QUEUED",
+        "IN_PROGRESS",
+        "FAILED"
+    ],
+    "ui_document_action_upsert_goldendataset_test_enable": true,
+    "ui_host_linked_delete_enable": false,
+    "ui_longstanding_enable": true,
+    "use_async_document_status": true,
+    "use_client_side_filtering": false,
+    "orchestration_engine_version": "v4",
+    "ocr_trigger_config": null,
+    "validation_rules": {
+        "skipImportedValidation": true,
+        "validateMedispanId": true,
+        "validateClassification": false,
+        "validateStatusReason": true,
+        "validateDosage": true,
+        "validateName": true,
+        "validateDates": true,
+        "errorMessages": {
+        "classification": [
+            "Classification is missing."
+        ],
+        "dosage": [
+            "Amount/Dose is missing."
+        ],
+        "medispanId": [
+            "Please either select unlisted or search and select medication."
+        ],
+        "statusReason": [
+            "Please fill/update the reason for none of the above status. If already filled, please ignore"
+        ],
+        "startDateWithEndDate": [
+            "Start Date is required if End Date is provided"
+        ],
+        "startDate": [
+            "Start Date is missing."
+        ],
+        "name": [
+            "Medication name is missing."
+        ]
+        }
+    },
+    "use_v3_orchestration_engine": true,
+    "tenant_allow_list": null,
+    "tenant_allow_list_check_enabled": true,
+    "quarantine_enabled": false,
+    "use_ordered_events": false,
+    "retry_config": null,
+    "use_extract_and_classify_strategy": true,
+    "enable_ocr": true,
+    "orchestration_confirm_evidence_linking_enabled": false,
+    "medispan_matching_version": "2",
+    "evidence_weak_matching_enabled": false,
+    "evidence_weak_matching_firsttoken_enabled": false,
+    "evidence_weak_matching_cleansing_regex": [
+        "^\\d+\\.\\s*"
+    ],
+    "enable_v4_orchestration_engine_parallel_processing": false,
+    "medispan_match_config": {
+        "v2_enabled_tenants": [
+        "54321"
+        ],
+        "v2_enabled_globally": false,
+        "v2_settings": null,
+        "v2_repo": "alloydb",
+        "catalog": "merative"
+    },
+    "meddb_catalog": "medispan",
+    "licenses": [
+        "pipeline.medication",
+        "pipeline.entity",
+        "pipeline.entity.default.medication_extraction"
+    ],
+    "medication_extraction_config": {
+        "enabled": false,
+        "version": "v4"
+    },
+    "entity_extraction_config": {
+        "enabled": true,
+        "version": "1",
+        "pipeline_default": "onboard.wizard"
+    },
+    "rulesets": {
+        "file_ingress": {
+        "key": "file_ingress",
+        "rules": [
+            {
+            "name": "basic_rule",
+            "conditions": {
+                "all": [
+                {
+                    "value": "12",
+                    "path": "$.raw_event.metadata.tenant",
+                    "operator": "starts_with"
+                },
+                {
+                    "value": "^xmed.*$",
+                    "path": "$.raw_event.metadata.category",
+                    "operator": "regex_match"
+                }
+                ]
+            },
+            "extra": {
+                "actions": [
+                {
+                    "id": "extract",
+                    "params": {
+                    "queue": "high"
+                    },
+                    "priority": 100
+                }
+                ]
+            }
+            }
+        ],
+        "default_actions": [
+            {
+            "id": "extract",
+            "params": {
+                "queue": "default"
+            },
+            "priority": 1
+            }
+        ]
+        }
+    },
+    "extraction": {
+        "retry": {
+        "offhours_retry_enabled": false
+        }
+    }
+    }
+}
+
+### Create App Configuration with Entity Schema (Onboarding Generation Save)
+POST {{host}}/api/admin/config
+Content-Type: application/json
+
+{
+  "app_id": "test-onboard-app",
+  "entity_name": "Medical Record",
+  "entity_description": "Schema for medical record entities extracted from documents",
+  "config": {
+    "integration": {
+      "base_url": "http://test-api:13000",
+      "endpoints": {
+        "list_medications": "/api/clients/{tenantId}/patients/{patientId}/medications"
+      }
+    },
+    "accounting": {
+      "business_unit": "test",
+      "solution_id": "test-solution"
+    },
+    "extract_medications": true,
+    "entity_extraction_config": {
+      "enabled": true,
+      "version": "1",
+      "pipeline_default": "test.extraction"
+    }
+  },
+  "entity_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://viki.ai/schemas/test-onboard-app/medical_record.json",
+    "title": "Medical Record Schema",
+    "description": "Schema for medical record entities extracted from documents",
+    "type": "object",
+    "properties": {
+      "patient_name": {
+        "type": "string",
+        "description": "Name of the patient"
+      },
+      "medical_record_number": {
+        "type": "string",
+        "description": "Unique medical record number"
+      },
+      "diagnosis": {
+        "type": "string",
+        "description": "Primary diagnosis"
+      },
+      "medications": {
+        "type": "array",
+        "description": "List of medications",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dosage": {
+              "type": "string"
+            }
+          },
+          "required": ["name"]
+        }
+      },
+      "extraction_metadata": {
+        "type": "object",
+        "description": "Metadata about the extraction process",
+        "properties": {
+          "confidence_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "extracted_by": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["patient_name", "medical_record_number"],
+    "additionalProperties": false
+  }
+}

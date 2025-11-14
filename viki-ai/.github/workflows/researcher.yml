@@ -1,0 +1,84 @@
+# JIRA Research Automation Workflow
+name: JIRA Research Automation
+
+on:
+  repository_dispatch:
+    types: [jira-ticket-created]
+
+permissions:
+  contents: read   # This is required for actions/checkout
+  id-token: write  # This is required for requesting the JWT
+
+env:
+  # GCP Workload Identity Federation configuration
+  DEV_WIP: projects/766679521273/locations/global/workloadIdentityPools/ci-cd-dev/providers/wellsky-github
+  DEV_SA: github-builder@viki-dev-mgmt-wsky.iam.gserviceaccount.com
+  GCP_PROJECT: viki-dev-mgmt-wsky
+
+jobs:
+  research:
+    name: Generate JIRA Ticket Research
+    runs-on: ubuntu-latest
+
+    # Only run if the ticket has the 'genai' label
+    if: contains(github.event.client_payload.ticket.labels, 'genai')
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ env.DEV_WIP }}
+          service_account: ${{ env.DEV_SA }}
+
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 450.0.0'
+          project_id: ${{ env.GCP_PROJECT }}
+
+      - name: Get secrets from Secret Manager
+        id: secrets
+        uses: 'google-github-actions/get-secretmanager-secrets@v2'
+        with:
+          secrets: |-
+            jira-api-token:projects/viki-dev-mgmt-wsky/secrets/jira-api-token/versions/latest
+            jira-base-url:projects/viki-dev-mgmt-wsky/secrets/jira-base-url/versions/latest
+
+      - name: Install Claude Code CLI
+        run: |
+          curl -fsSL https://claude.ai/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Configure Claude Code for Vertex AI
+        env:
+          GOOGLE_CLOUD_PROJECT: ${{ env.GCP_PROJECT }}
+        run: |
+          claude config set model sonnet-4
+          claude config set provider vertex-ai
+          claude config set vertex-ai-project ${{ env.GCP_PROJECT }}
+          claude config set vertex-ai-location us-central1
+
+      - name: Run research automation
+        env:
+          JIRA_TOKEN: ${{ steps.secrets.outputs.jira-api-token }}
+          JIRA_BASE_URL: ${{ steps.secrets.outputs.jira-base-url }}
+          TICKET_KEY: ${{ github.event.client_payload.ticket.key }}
+          TICKET_TITLE: ${{ github.event.client_payload.ticket.title }}
+          TICKET_DESCRIPTION: ${{ github.event.client_payload.ticket.description }}
+          TICKET_ACCEPTANCE_CRITERIA: ${{ github.event.client_payload.ticket.acceptance_criteria }}
+        run: |
+          chmod +x ./.github/scripts/research-automation.sh
+          ./.github/scripts/research-automation.sh
+
+      - name: Upload research artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jira-research-${{ github.event.client_payload.ticket.key }}
+          path: research-output.md
+          retention-days: 30

@@ -1,0 +1,118 @@
+Are you at risk of developing a pressure ulcer or injury?
+no i am not
+How is the skin turgor?
+fair
+What is your skin color?
+pale
+Is your skin dry?
+yes a little
+Is your skin diaphoretic?
+no
+Is your skin warm?
+yes
+Is your skin cool?
+no
+Do you have any wound?
+yes 
+Do you have any ulcer?
+no
+Do you have any incision on your skin?
+no
+Do you have rash anywhere on your skin?
+no
+Did you ever had an ostomy?
+no
+Do you have any other skin condition?
+yes
+Have you been instructed on measures to control infection?
+yes
+How are your nails?
+yes have some problems
+Is patient using pressure relieving devices of any types?
+no
+Do you have atleast one unhealed pressure ulcer/injury at Stage 2 or higher or unstageable ulcer/injury?
+yes
+How many Stage 2 pressure ulcers do you have?
+yes i have 9-10
+How many Stage 3 pressure ulcers do you have?
+0
+How many Stage 4 pressure ulcers  do you have?
+0
+How many unstageable pressure ulcers/injuries do you have due to non removable dressing/device?
+0
+How many unstageable pressure ulcers do you have due to coverage of wound bed by slough or eschar?
+0
+How many unstageable pressure ulcers/injuries do you have presenting as deep tissue injiuries?
+0
+Can you tell current number of stage 1 pressure injuries?
+0
+What is the stage of most problematic unhealed pressur ulcer/injury that is stageable?
+2
+Do you have a statis ulcer?
+no
+Can you tell current number of observable stasis ulcers?
+0
+What is the stage of most problematic observable statis ulcer?
+N/A
+Do you have a surgical wound?
+0
+What is the status of most problematic observable surgical wound?
+0
+What is the location of wound?
+Back
+What is the status of wound?
+open
+When was the onset of wound?
+early of march 2023
+How are the wound edges?
+Attached
+Do you have any wound present on admission?
+yes
+Can you tell the type of wound you have?
+skin lesion and tear
+What type of drainage you observe from the wound?
+serous
+How much draignage do you observe?
+large
+What kind of odour comes from the wounds?
+foul smell comes from the wounds
+What is the thickness of wound?
+full
+What is the size of wound and if so give details?
+yes its of size 3cm x 4cm x 5cm
+How is the surrounding tissue of the wound?
+its very fragile
+What is the color of wound bed?
+purpulish
+Do you see pinkness/redness in wounds and if so how much percentage?
+50%
+Do you see granulization in wounds and if so how much percentage?
+20%
+Do you see slough in wounds and if so how much percentage?
+0%
+Do you see eschar in wounds and if so how much percentage?
+0%
+Do you see nectroic in wounds and if so how much percentage?
+5%
+Is undermining direction present and if so what it is?
+yes towards downside
+Is tunneling direction present and if so what it is?
+no
+What is the severity of wound pain?
+very high
+Do you need SN to instruct Patient/Caregiver on turning/repositioning every 2 hours?
+yes
+Do you need SN to instruct Patient/Caregiver to float heels?
+yes
+Do you need SN to instruct Patient/Caregiver on methods to reduce friction and shear?
+yes
+Do you need SN to instruct Patient/Caregiver to pad on all bony prominences?
+no
+Do you need SN to assess skin for breakdown every visit?
+no
+Do you need SN to assess wounds at each dressing change and PRN for signs and symptoms of infection?
+yes
+Do you need SN to instruct Patient/Caregiver on signs/symptoms of wound infection to be reported to physician?
+yes
+Can wound care be discontinued after healing of it?
+yes very much likely

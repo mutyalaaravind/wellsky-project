@@ -1,0 +1,28 @@
+/* This stylesheet will be loaded inside of Shadow DOM */
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  /* TODO: Not sure why the hell Roboto is not used in divs/spans if specifiec in body rule */
+  font-family: "Roboto", sans-serif;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  width: 5px;
+}
+*::-webkit-scrollbar-track:horizontal {
+  height: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background: gray;
+}

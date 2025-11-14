@@ -1,0 +1,34 @@
+For each question in the QUESTIONS, extract the answer from its CONTEXT. 
+For any question that includes an "INSTRUCTION", answer using that guidance. 
+Please use these EXAMPLES to find answers to the QUESTIONS.
+Please return a valid json and do not include result: or CONTEXT: in the final result
+
+EXAMPLE 1: use this example to understand key to value mapping scheme
+questions: {
+  "B0200-1": {
+    "question": "is your visibility within normal limits?",
+    "instructions": "if visibility is within normal limits, select true as the value otherwise false",
+    "verbatim_source": "yes i can see with glasses"
+  },
+  "B0200-2": {
+    "question": "Do you have to use glasses?",
+    "instructions": "if require glasses, select true as the value else false"
+    "verbatim_source": "i do not use glasses"
+  },
+  "B0200-3": {
+    "question": "do you use contacts for left eye?",
+    "instructions": "if require contacts for left eye, select true as the value else false"
+    "verbatim_source": "no, i dont use contacts"
+  }
+}
+
+Below is the result
+{
+    "B0200-1":"true",
+    "B0200-2":"false",
+    "B0200-3":"false",
+}
+end of EXAMPLE 1
+<example></example>
+
+questions: <questions></questions>

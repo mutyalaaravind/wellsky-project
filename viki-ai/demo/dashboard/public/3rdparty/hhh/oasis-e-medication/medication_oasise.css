@@ -1,0 +1,35 @@
+.container {
+    border: none;
+}
+
+.medProfile .medLabelRow {
+    background:#F7F7F7;
+}
+
+.medProfile .medLabelRowSnapshot {
+    background:#F7F7F7;
+}
+
+.medProfile .medLabelRowSnapshotV2 {
+    background:#F7F7F7;
+}
+
+.medProfile .formSectionHeader {
+    background-color:#F7F7F7;
+    border: 1px solid #BBC3CB;
+}
+
+.medProfile .profileSectionSubHeader {
+    background-color:#F7F7F7;
+    border: 1px solid #BBC3CB;
+}
+
+.medProfile .formSectionSubHeader {
+    background-color:#F7F7F7;
+    border: 1px solid #BBC3CB;
+}
+
+.medProfile .modalSectionSubHeader {
+    background-color:#F7F7F7;
+    border:1px solid #BBC3CB;
+}

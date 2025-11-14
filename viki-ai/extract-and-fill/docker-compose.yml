@@ -1,0 +1,95 @@
+version: '3.0'
+services:
+  widget:
+    image: extract_and_fill-widget
+    build:
+      context: widget
+      dockerfile: Dockerfile.dev
+      secrets:
+        - npmrc
+    ports:
+      - '12001:12001'
+    volumes:
+      - type: bind
+        source: ./widget/src
+        target: /widget/src
+      - type: bind
+        source: ./widget/public
+        target: /widget/public
+
+  api:
+    image: extract_and_fill-api
+    build:
+      context: api
+    ports:
+      - '12000:12000'
+    tty: true  # Colors
+    environment:
+      SERVICE: extract_and_fill
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      GCS_BUCKET_NAME: viki-dev-eai
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      GCP_PROJECT_LOCATION: us-east4
+      GCP_PROJECT_LOCATION_2: us-central1
+      PINECONE_API_KEY: 64cadacf-4c6a-4ac3-b767-6398f874acb5
+      PINECONE_ENV: gcp-starter
+      PINECONE_VECTOR_SEARCH_INDEX_NAME: extractor-vector-index
+      GCP_VECTOR_SEARCH_INDEX_GCS_URI: gs://viki-ai-provisional-dev/icd10-search-balki/
+      GCP_VECTOR_SEARCH_INDEX_NAME: projects/145042810266/locations/us-east4/indexes/7823403463626194944
+      GCP_VECTOR_SEARCH_INDEX_ENDPOINT: projects/145042810266/locations/us-east4/indexEndpoints/957208434862718976
+      GCP_VECTOR_SEARCH_DEPLOYED_INDEX_ID: extraction_index_deployed__1699595619091
+      FIRESTORE_DB: (default)
+      PYTHONUNBUFFERED: "1"  # Flush `print`s immediately
+      GOOGLE_SPEECH_API_VERSION: 'v1'
+      PUBSUB_EMULATOR_HOST: firebase-tools:8085
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080
+    volumes:
+      - type: bind
+        source: ./api/extract_and_fill
+        target: /api/extract_and_fill
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /root/.config/gcloud
+
+  events:
+    image: extract_and_fill-events
+    build:
+      context: api
+    ports:
+      - '12002:12002'
+    tty: true  # Colors
+    command: uvicorn extract_and_fill.entrypoints.events:app --host 0.0.0.0 --port 12002 --reload
+    environment:
+      SERVICE: extract_and_fill
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      GCS_BUCKET_NAME: viki-dev-eai
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      GCP_PROJECT_LOCATION: us-east4
+      GCP_PROJECT_LOCATION_2: us-central1
+      PINECONE_API_KEY: 64cadacf-4c6a-4ac3-b767-6398f874acb5
+      PINECONE_ENV: gcp-starter
+      PINECONE_VECTOR_SEARCH_INDEX_NAME: extractor-vector-index
+      GCP_VECTOR_SEARCH_INDEX_GCS_URI: gs://viki-ai-provisional-dev/icd10-search-balki/
+      GCP_VECTOR_SEARCH_INDEX_NAME: projects/145042810266/locations/us-east4/indexes/7823403463626194944
+      GCP_VECTOR_SEARCH_INDEX_ENDPOINT: projects/145042810266/locations/us-east4/indexEndpoints/957208434862718976
+      GCP_VECTOR_SEARCH_DEPLOYED_INDEX_ID: extraction_index_deployed__1699595619091
+      FIRESTORE_DB: (default)
+      PYTHONUNBUFFERED: "1"  # Flush `print`s immediately
+      GOOGLE_SPEECH_API_VERSION: 'v1'
+      PUBSUB_EMULATOR_HOST: firebase-tools:8085
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080
+    volumes:
+      - type: bind
+        source: ./api/extract_and_fill
+        target: /api/extract_and_fill
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /root/.config/gcloud
+
+secrets:
+  npmrc:
+    file: ../.npmrc

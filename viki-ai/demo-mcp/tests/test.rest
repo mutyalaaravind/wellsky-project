@@ -1,0 +1,118 @@
+### INSTRUCTIONS FOR TESTING MCP SERVER
+# 1. First, run the SSE endpoint below to get a session ID
+# 2. Look for a line like: data: /messages/?session_id=abc123def456
+# 3. Copy the session ID (the part after session_id=)
+# 4. Replace "YOUR_SESSION_ID_HERE" in all the tests below with your actual session ID
+# 5. Then run the individual tests
+
+### Step 1: Get Session ID from SSE Endpoint
+GET http://localhost:13500/sse
+Accept: text/event-stream
+
+### Step 2: Test MCP Server Health Check (will return 404 - this endpoint doesn't exist in FastMCP)
+GET http://localhost:13500/health
+
+### Step 3: Test MCP Server Info (will return 404 - this endpoint doesn't exist in FastMCP)
+GET http://localhost:13500/
+
+### Step 4: Test MCP Server with MCP Protocol (Initialize)
+POST http://localhost:13500/messages/?session_id=YOUR_SESSION_ID_HERE
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "roots": {
+        "listChanged": true
+      },
+      "sampling": {}
+    },
+    "clientInfo": {
+      "name": "test-client",
+      "version": "1.0.0"
+    }
+  }
+}
+
+###
+
+### Step 5: Test MCP Tools List
+POST http://localhost:13500/messages/?session_id=YOUR_SESSION_ID_HERE
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/list",
+  "params": {}
+}
+
+###
+
+### Step 6: Test MCP Resources List
+POST http://localhost:13500/messages/?session_id=YOUR_SESSION_ID_HERE
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "method": "resources/list",
+  "params": {}
+}
+
+###
+
+### Step 7: Test get_system_info tool
+POST http://localhost:13500/messages/?session_id=YOUR_SESSION_ID_HERE
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 4,
+  "method": "tools/call",
+  "params": {
+    "name": "get_system_info",
+    "arguments": {}
+  }
+}
+
+###
+
+### Step 8: Test get_files tool
+POST http://localhost:13500/messages/?session_id=YOUR_SESSION_ID_HERE
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 5,
+  "method": "tools/call",
+  "params": {
+    "name": "get_files",
+    "arguments": {}
+  }
+}
+
+###
+
+### Step 9: Test add_allergy tool
+POST http://localhost:13500/messages/?session_id=YOUR_SESSION_ID_HERE
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 6,
+  "method": "tools/call",
+  "params": {
+    "name": "add_allergy",
+    "arguments": {
+      "name": "Peanuts",
+      "notes": "Severe reaction, carry EpiPen at all times"
+    }
+  }
+}
+
+###

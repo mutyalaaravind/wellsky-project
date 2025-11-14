@@ -1,0 +1,30 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_prod}}
+eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+
+#@token = eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJNZWRwcm9maWxlR2VuQUlVc2VyIiwic3ViIjoiZXJpYy51aXV4IiwiYXBwSWQiOiJoaGgiLCJ0ZW5hbnRJZCI6NTc3OSwiaXNzIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzLnByb2QiLCJhbXVzZXJrZXkiOjE4NzI4NTksImV4cCI6MTc0NDgyNTQ2MywicGF0aWVudElkIjoxNjU4MjEwOX0.opUMYumcr9gznsR2NDK6P4keUkBQQUcMBX4a5kuj2RY
+@okta = eyJraWQiOiJ1RVJoRGtXbGpOVkpVclphdGRIc2ZSYS13aTdLZFRHZHR3SnREM1l2Q0E4IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULmNhTTl6YjdhU0ZXdGo1UlRaT0RzR3VHYzFaR2NkTWRTamhNMERkVzFPSHMiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhLmNvbS9vYXV0aDIvYXVzZjc5bzRqZG5Da0psT3k1ZDciLCJhdWQiOiJ2aWtpLmRldi53ZWxsc2t5LmlvIiwiaWF0IjoxNzQ0ODIxODYzLCJleHAiOjE3NDQ4MjU0NjMsImNpZCI6ImFwaS53ZWxsc2t5LnZpa2kucGFwZXJnbGFzcy5wcm9kIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MucHJvZCJ9.lMF1K5ktJ1i8KRzT3Gk91zbl9ZWXqIsxAHhJIgl5mLUkWLkJ-U85EuRreoycUhYklJFYNZVR5v_0vDGfTWMxlXlbRvPAPxfGH_fpwdKVfxbXj5Bo__GflSsd0JfsrkVGwNOxYb1FGXzvB7PWqYtr8lGYkILvsbwybTtfDcpxDzDV5u4wP75oX5t_wAg_NOUoCOWVlo9koCpNdqVewnEQ6-dW1iq3CAW4vu8N2lp65dtcbbGXfx-v5jME8LKo8XG2gbBrtqzvu6PHHcFP6s0WA6RXuhdAVQ1b4n50hSYWSODhPOeKOdMgqRXLpQlMk5nAGBOyabR9x4b_wnhhwEfEbw
+
+@documentid = 53f8e28aff5511efad9742004e494300
+
+###
+GET {{host}}/api/documents/{{documentid}}/pages/1
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/v4/documents/7d5c9e821ada11f0b07f42004e494300/toc/pageprofiles/medication
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/v2/medications_by_documents?documentIds=
+Authorization: Bearer {{token}}
+Okta-Token: {{okta}}
+
+
+

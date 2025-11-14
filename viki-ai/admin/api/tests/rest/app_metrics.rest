@@ -1,0 +1,77 @@
+### VIKI Admin API - Metrics Endpoints
+### Base URL: http://localhost:14000
+
+### Get pipeline_start_metric with default parameters (24 hours, 60 min aggregation)
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric
+
+###
+
+### Get pipeline_start_metric with custom time range (48 hours)
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric?hours_back=48
+
+###
+
+### Get pipeline_start_metric with custom aggregation period (30 minutes)
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric?aggregation_period_minutes=30
+
+###
+
+### Get pipeline_start_metric with both custom parameters
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric?hours_back=12&aggregation_period_minutes=15
+
+###
+
+### Get metric definition for pipeline_start_metric
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric/definition
+
+###
+
+### List all available metrics
+GET http://localhost:14000/api/v1/metrics/
+
+###
+
+### Test with a non-existent metric (should return 404)
+GET http://localhost:14000/api/v1/metrics/non_existent_metric
+
+###
+
+### Test with invalid parameters (should return 422)
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric?hours_back=200
+
+###
+
+### Test with invalid aggregation period (should return 422)
+GET http://localhost:14000/api/v1/metrics/pipeline_start_metric?aggregation_period_minutes=2000
+
+###
+
+### Get pipeline_success_metric (mock data)
+GET http://localhost:14000/api/v1/metrics/pipeline_success_metric
+
+###
+
+### Get pipeline_failed_metric (mock data)
+GET http://localhost:14000/api/v1/metrics/pipeline_failed_metric
+
+###
+
+### Get pipeline_complete_metric (mock data)
+GET http://localhost:14000/api/v1/metrics/pipeline_complete_metric
+
+###
+
+### Get error_metric (mock data)
+GET http://localhost:14000/api/v1/metrics/error_metric
+
+###
+
+### Get pipeline_success_metric with custom parameters
+GET http://localhost:14000/api/v1/metrics/pipeline_success_metric?hours_back=48&aggregation_period_minutes=30
+
+###
+
+### Get pipeline_failed_metric with custom parameters
+GET http://localhost:14000/api/v1/metrics/pipeline_failed_metric?hours_back=12&aggregation_period_minutes=15
+
+###

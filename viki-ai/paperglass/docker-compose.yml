@@ -1,0 +1,187 @@
+version: '3.0'
+services:
+  widget:
+    image: paperglass-widget
+    build:
+      context: widget
+      dockerfile: Dockerfile.dev
+      secrets:
+        - npmrc
+    ports:
+      - '15001:15001'
+    volumes:
+      - type: bind
+        source: ./widget/src
+        target: /widget/src
+      - type: bind
+        source: ./widget/public
+        target: /widget/public
+
+  api:
+    image: paperglass-api
+    build: &build
+      context: api
+      args:
+        LOCAL: true
+    ports:
+      - '15000:15000'
+    stdin_open: true
+    tty: true # Colors
+    env_file:
+      - ../.env
+    environment: &env
+      SERVICE: paperglass
+      STAGE: dev  # dev  qa
+      VERSION: local
+      DEBUG: 'true'
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      
+      #GOOGLE_CLOUD_PROJECT: viki-dev-app-wsky #Emulator off
+      #GCP_PUBSUB_PROJECT_ID: viki-dev-app-wsky #Emulator off
+      GCP_PUBSUB_PROJECT_ID: google-cloud-firestore-emulator #Emulator on
+      FIRESTORE_EMULATOR_HOST: firebase-tools:8080 #Emulator on
+      PUBSUB_EMULATOR_HOST: firebase-tools:8085 #Emulator on
+
+      EXTRACTION_PUBSUB_TOPIC_NAME: extraction_ordered_events_topic
+      GCS_BUCKET_NAME: viki-ai-provisional-dev
+      GCP_LOCATION: us
+      GCP_LOCATION_2: us-east4
+      GCP_LOCATION_3: us-central1
+      GCP_MULTI_REGION_FIRESTORE_LOCATON: nam5
+      GCP_FIRESTORE_DB: viki-dev
+      GCP_DOCAI_HCC_PROCESSOR_ID: 7359477870825dbb
+      GCP_DOCAI_HCC_PROCESSOR_VERSION: pretrained
+      GCP_DOCAI_SUMMARIZER_PROCESSOR_ID: fcaac0296ec91273
+      GCP_DOCAI_SUMMARIZER_PROCESSOR_VERSION: pretrained-foundation-model-v1.0-2023-08-22
+      GCP_DOCAI_DOC_PROCESSOR_ID: 621fe166d8f57278
+      GCP_DOCAI_DOC_PROCESSOR_VERSION: pretrained
+      PYTHONUNBUFFERED: "1" # Flush `print`s immediately      
+      CLOUD_PROVIDER: local # Must be "google" when deployed
+      GCP_SEARCH_AND_CONVERSATION_DATA_SOURCE_ID: patient-charts-4_1709757625813
+      GCP_SEARCH_AND_CONVERSATION_FHIR_DATA_SOURCE_ID: fhir-store-search
+      GCP_VECTOR_SEARCH_INDEX_GCS_URI: gs://viki-ai-provisional-dev/icd10-search-balki/
+      GCP_VECTOR_SEARCH_INDEX_NAME: projects/145042810266/locations/us-east4/indexes/7823403463626194944
+      GCP_VECTOR_SEARCH_INDEX_ENDPOINT: projects/145042810266/locations/us-east4/indexEndpoints/957208434862718976
+      GCP_VECTOR_SEARCH_DEPLOYED_INDEX_ID: extraction_index_deployed__1699595619091
+      GCP_VECTOR_SEARCH_INDEX_NAME_2: projects/145042810266/locations/us-east4/indexes/2213712730899087360
+      GCP_VECTOR_SEARCH_INDEX_ENDPOINT_2: projects/145042810266/locations/us-east4/indexEndpoints/8337579081239363584
+      GCP_VECTOR_SEARCH_DEPLOYED_INDEX_ID_2: deploy_endpoint_1714065441017
+      FHIR_SERVER_URL: https://healthcare.googleapis.com/v1/projects/viki-dev-app-wsky/locations/us-central1/datasets/viki-dataset/fhirStores
+      FHIR_DATA_STORE: viki-fhir-store
+      FHIR_DATA_SET: viki-dataset
+      FHIR_SEARCH_STORE_ID: fhir-store-search
+      MEDISPAN_API_URL: https://ct.dev.wellsky.io/api/v1/drug/information/search
+      MEDISPAN_CLIENT_ID: ${S__MEDISPAN_CLIENT_ID}
+      MEDISPAN_CLIENT_SECRET: ${S__MEDISPAN_CLIENT_SECRET}
+      MEDISPAN_CACHE_ENABLE: true
+      MEDISPAN_PAGE_SIZE: 100
+      MEDISPAN_FILTER_ENABLED: "true"
+      MEDISPAN_LLM_SCORING_ENABLED: "true"
+
+      MEDISPAN_VECTOR_SEARCH_PROJECT_ID: viki-qa-app-wsky
+      MEDISPAN_VECTOR_SEARCH_REGION: us-central1
+      MEDISPAN_VECTOR_SEARCH_DEPLOYMENT_ID: medsearch_1723187204068
+      MEDISPAN_VECTOR_SEARCH_ENDPOINT_ID: "7990947045466701824"
+
+      MEDISPAN_STRATEGY: firestore #vector-search
+
+      HHH_MEDICATION_PROFILE_BASE_URL: https://qa.kinnser.net/
+      HHH_ATTACHMENTS_API: https://api.qa-wsh.hhh-dev-app.prj.gcp.wellsky.io
+      HHH_ATTACHMENTS_AUTH_SERVER: https://auth.stable.wellsky.io/connect/token
+      HHH_ATTACHMENTS_CLIENT_ID: client.hhh.patient.demographics.qa
+      HHH_ATTACHMENTS_CLIENT_SECRET: ${S__HHH_ATTACHMENTS_CLIENT_SECRET}
+
+      OKTA_CLIENT_ID: ${S__OKTA_CLIENT_ID}
+      OKTA_CLIENT_SECRET: ${S__OKTA_CLIENT_SECRET}
+      OKTA_SCOPE: ${S__OKTA_SCOPE}
+      OKTA_AUDIENCE: "viki.prod.wellsky.io" # dev: "viki.prod.wellsky.io", qa: "viki.prod.wellsky.io", stage: "viki.prod.wellsky.io", prod: "viki.dev.wellsky.io"
+      OKTA_VERIFY: "true"
+      OKTA_TOKEN_ISSUER_URL: "https://wellsky-ciam.oktapreview.com/oauth2/ausajt8hv1B8S7hkh1d7/v1/token" #dev/qa
+      # OKTA_TOKEN_ISSUER_URL: "https://wellsky-ciam.okta.com/oauth2/aushirk9h5LbqrTwi5d7/v1/token" #stage
+      # OKTA_TOKEN_ISSUER_URL: "https://wellsky-ciam.okta.com/oauth2/ausf79o4jdnCkJlOy5d7/v1/token" #prod
+      OKTA_SERVICE_ISSUER_URL: "https://wellsky-ciam.oktapreview.com/oauth2/auslxxpm9hryT2oVL1d7"  # Auth issuer for host systems to call viki API endpoints
+      OKTA_SERVICE_AUDIENCE: "viki.dev.wellsky.io"
+
+      INTEGRATION_PROJECT_NAME: MedicationExtractionPipeline
+      SELF_API:  http://viki-ai-paperglass-api-1/api
+      #SELF_API: https://ai-paperglass-api-zqftmopgsq-uk.a.run.app/api
+      CLOUDTASK_EMULATOR_ENABLED: "true"
+      CLOUDTASK_EMULATOR_URL: "http://cloudtask-emulator:30001"
+      CLOUD_TASK_QUEUE_NAME: paperglass-extraction-queue
+      CLOUD_TASK_QUEUE_NAME_2: paperglass-classification-queue
+      CLOUD_TASK_QUEUE_NAME_PRIORITY: paperglass-classification-priority-queue
+      CLOUD_TASK_QUEUE_NAME_PRIORITY_2: paperglass-classification-priority-queue
+      CLOUD_TASK_COMMAND_QUEUE_NAME: paperglass-command-queue
+      CLOUD_TASK_COMMAND_SCHEDULE_QUEUE_NAME: paperglass-command-schedule-queue
+      CLOUD_TASK_COMMAND_EXTERNAL_CREATE_DOCUMENT_TASK_QUEUE_NAME: paperglass-command-external-create-document-queue
+      CLOUD_TASK_PUBLISH_CALLBACK_QUEUE_NAME: paperglass-host-publish-callback-queue
+      SERVICE_ACCOUNT_EMAIL: viki-ai-dev-sa@viki-dev-app-wsky.iam.gserviceaccount.com
+      APPLICATION_INTEGRATION_TRIGGER_ID: api_trigger/MedicationExtractionPipeline_API_2
+      #OpenTelemetry settings
+      OTEL_SDK_DISABLED: 'true'
+      OTEL_SERVICE_NAME: viki.paperglass.api
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
+      OTEL_INSTRUMENTATION_HTTP_CAPTURE_HEADERS_SERVER_REQUEST: .*
+      SHAREPOINT_CLIENT_ID: ${S__SHAREPOINT_CLIENT_ID}
+      SHAREPOINT_CLIENT_SECRET: ${S__SHAREPOINT_CLIENT_SECRET}
+
+      NEW_RELIC_LICENSE_KEY: ""
+      NEW_RELIC_TRACE_ENABLED: "false"
+      GCP_TRACE_ENABLED: "false"
+
+      ENTITY_EXTRACTION_API_URL: "http://entity-extraction-api:18000"
+      ENTITY_EXTRACTION_LAUNCH_QUEUE_NAME: "entity-extraction-launch-queue"
+
+      MEDICATION_EXTRACTION_V4_TOPIC: extract_v4_topic
+      MEDICATION_EXTRACTION_V4_CLOUD_TASK_QUEUE_NAME: v4-extraction-entrypoint-queue
+      MEDICATION_EXTRACTION_V4_CLOUD_TASK_QUEUE_NAME_PRIORITY: v4-extraction-entrypoint-priority-queue
+      MEDICATION_EXTRACTION_V4_CLOUD_TASK_QUEUE_NAME_QUARANTINE: v4-extraction-entrypoint-quarantine-queue
+      MEDICATION_EXTRACTION_V4_API_URL: http://medication-extraction-api:17000
+      MEDICATION_EXTRACTION_V4_API_DEFAULT_URL : http://medication-extraction-api:17000
+      MEDICATION_EXTRACTION_V4_API_HIGH_URL : http://medication-extraction-api:17000
+      MEDICATION_EXTRACTION_V4_API_QUARANTINE_URL : http://medication-extraction-api:17000
+
+      CLOUD_TASK_QUEUE_NAME_QUARANTINE: paperglass-quarantine-queue
+      CLOUD_TASK_QUEUE_NAME_QUARANTINE_2: paperglass-quarantine-queue-2
+
+      PAGE_OCR_TOPIC: page_ocr_topic
+
+      E2E_TEST_ENABLE: true
+      
+      MEDISPAN_API_BASE_URL: https://ai-medispan-api-145042810266.us-east4.run.app/api/
+
+    volumes: &volumes
+      - type: bind
+        source: ./api/paperglass
+        target: /api/paperglass
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /home/.config/gcloud
+      - type: bind
+        source: $HOME/.aws
+        target: /home/.aws
+
+  events:
+    image: paperglass-api
+    build: *build
+    ports:
+      - '15002:15002'
+    tty: true # Colors
+    environment: *env
+    volumes: *volumes
+    command: uvicorn paperglass.entrypoints.events:app --host 0.0.0.0 --port 15002 --reload
+
+  external-api:
+    image: paperglass-api
+    build: *build
+    ports:
+      - '15003:15003'
+    tty: true # Colors
+    environment: *env
+    volumes: *volumes
+    command: uvicorn paperglass.entrypoints.http_api:app --host 0.0.0.0 --port 15003 --reload
+
+secrets:
+  npmrc:
+    file: ../.npmrc

@@ -1,0 +1,14 @@
+FROM node:20.11.0-bookworm-slim
+
+WORKDIR /widget
+
+ADD package.json package-lock.json tsconfig.json .eslintrc ./
+
+RUN --mount=type=secret,id=npmrc,target=/widget/.npmrc npm i
+
+COPY src src
+COPY public public
+ADD config-overrides.js .eslintrc .
+
+ENV PORT=11001
+CMD ["npm", "start"]

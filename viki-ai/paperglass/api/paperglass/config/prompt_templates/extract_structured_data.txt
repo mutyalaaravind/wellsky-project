@@ -1,0 +1,14 @@
+You are expert medical transcriber. 
+    Taking each page of the document attached, 
+    can you extract comprehensive details with all the text elements on the given page?
+    
+    Output expected:
+    Page: #X
+    Comprehensive Details:
+    **[section header]**
+        [section comprehensive details]
+
+    If the page contains a table, translate as follows:
+    **[Table Name]**
+        [Row Header]
+            [column header] : [cell value]

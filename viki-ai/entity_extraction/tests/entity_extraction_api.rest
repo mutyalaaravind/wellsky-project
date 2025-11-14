@@ -1,0 +1,42 @@
+@host_local = http://localhost:18000
+@host_dev = https://ai-entity-extraction-145042810266.us-east4.run.app
+@host_qa = https://ai-entity-extraction-18900418456.us-east4.run.app
+@host_stage = https://ai-entity-extraction-884147005953.us-east4.run.app
+@host_prod = https://ai-entity-extraction-446272789005.us-east4.run.app
+@host = {{host_local}}
+
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MDljNTEzODc2OGY3Y2YyZTgyN2UwNGIyN2U3ZTRjYmM3YmI5MTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImN3dmF2TmdoUkI5UDEyMUF3ZTdHR0EiLCJpYXQiOjE3NTMyMTY2MzcsImV4cCI6MTc1MzIyMDIzN30.ElNagtCbTCfHVTna3q4eTse69Qv0waf4BKJbYqmLNdbHkyx1Kvo8kOQdFO8bImnH9gdFdhUsuH9sMds-UrChBJYKuQptryssU95tbVlX84MJs6XhxjUXxTwq24vT20Oa04VdIz-HZhHy67QahXiLB-JFdThwtyzv4CSw5ZhFV3HJJpgOQZ23Bh05ZZTQvwvWqZhbpPFJWg3ibTals388pJ3uT3_ZNWTE7c1EpuWtUG2N00UuHD9j4tonh8IZCn1GwwEBuAltqmP9Ch8ABzUxPH7aByCkDB226VoMInXVDvf-iO9qBvIEzxHJp3OzSbS9mc1SE85CSbTtj6od_9TALg
+
+### Test root endpoint
+GET {{host}}/api/
+
+### Test health endpoint
+GET {{host}}/api/health
+Authorization: Bearer {{token}}
+
+### Test start pipeline
+POST {{host}}/api/pipeline/default/start/start
+
+{
+    "app_id": "007",
+    "tenant_id": "54321",
+    "patient_id": "53a9f083ae55450ebacae7e8003d2e41",
+    "document_id": "016cbbb831cd11f0a89a0242ac140007"
+}
+
+### Test Insurance Extraction Pipeline
+POST {{host}}/api/pipeline/insurance/start/start
+
+{
+    "app_id": "007",
+    "tenant_id": "54321",
+    "patient_id": "f34a2aa407a04bfe84e8f72971156fd1",
+    "document_id": "487ebdf452a111f0bab942004e494300",
+    "context": {
+        "foo": "bar"
+    }
+}
+
+### Test run pipeline task
+POST {{host}}/api/pipeline/test-scope/test-pipeline/extract-entities/run
+

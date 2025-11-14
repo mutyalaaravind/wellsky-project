@@ -1,0 +1,32 @@
+{
+    "id": "b3722a0282f7402e8b00d9957b4f2454",
+    "created_at": "2024-08-26T03:20:56.564567+00:00",
+    "modified_at": "2024-08-26T03:20:56.564574+00:00",
+    "created_by": "eric.coiner@wellsky.com",
+    "modified_by": "eric.coiner@wellsky.com",
+    "events": [],
+    "name": "Test case 2:  Cars18_MEDICATION LIST.pdf",
+    "test_type": "orchestration",
+    "input_data": {
+        "document_id": "26056978615511efb3de42004e494300",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiI3N2FiMTA3YWFjZmQ0ZTJjOTMzNTNjNzQ0NDQ2MzA5OCIsImFtdXNlcmtleSI6IkVyaWMuQ29pbmVyQFdlbGxTa3kuY29tIn0.CfgCwgWKeT3KN4hFViXrabTxJkDbAUJU4vFeaL4I7zA"
+    },
+    "test_conditions": {
+        "max_duration_of_test_execution": 1200,
+        "total_count": 11,
+        "medispan_matched_count": 10,
+        "unlisted_count": 1,
+        "list_of_medispan_ids": [
+            "149089",
+            "149908",
+            "50591",
+            "30521",
+            "176434",
+            "54720",
+            "22567",
+            "201625",
+            "137947",
+            "175234"
+        ]
+    }
+}

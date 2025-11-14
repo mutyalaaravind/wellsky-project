@@ -1,0 +1,12 @@
+# Additional requirements for local testing
+# Install with: pip install -r test_requirements.txt
+
+google-cloud-storage==2.10.0
+google-cloud-sqlalchemy==1.4.4
+google-cloud-secret-manager==2.16.4
+functions-framework==3.4.0
+cloudevents==1.9.0
+
+# Testing dependencies
+pytest==7.4.3
+pytest-mock==3.12.0

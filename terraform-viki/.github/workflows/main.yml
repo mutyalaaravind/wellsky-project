@@ -1,0 +1,16 @@
+# This action will enforce TF syntax, check dependencies are valid, check TF code is valid (as best as it can without running a plan)
+
+name: "Terraform Checks"
+on:
+  pull_request:
+    paths:
+      - "env/**.tf" #only operate on the env folder; this directory is also needed in the recursive path
+      - "env/**.tfvars"
+jobs:
+  tfchecks:
+    uses: mediwareinc/github-actions/.github/workflows/terraform-checks.yml@main
+    # all of these are optional and are the defaults - they are only here to show what is available
+    with:
+      terraformVersion: "1.3.8"
+      workingDirs: "env/dev,env/qa,env/stage,env/prod"
+    secrets: inherit

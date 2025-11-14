@@ -1,0 +1,243 @@
+### Cloud Task API Tests
+### Test the Cloud Task metrics endpoints in the Admin API
+
+@baseUrl = http://localhost:14000/api/v1
+
+
+### Health Check for Cloud Tasks Service
+GET http://localhost:14000/docs
+
+
+
+
+### Health Check for Cloud Tasks Service
+GET {{baseUrl}}/cloud-tasks/health
+Content-Type: application/json
+
+###
+
+### List All Cloud Task Queues
+GET {{baseUrl}}/cloud-tasks/queues
+Content-Type: application/json
+
+###
+
+### List Queues in Specific Location
+GET {{baseUrl}}/cloud-tasks/queues?location=us-east4
+Content-Type: application/json
+
+###
+
+### Get Queue Depth for Default Queue
+GET {{baseUrl}}/cloud-tasks/queues/default/depth
+Content-Type: application/json
+
+###
+
+### Get Queue Depth for Paperglass Extraction Queue
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-command-queue/depth?location=us-east4
+Content-Type: application/json
+
+###
+
+### Get Queue Depth with Custom Location
+GET {{baseUrl}}/cloud-tasks/queues/default/depth?location=us-central1
+Content-Type: application/json
+
+###
+
+### Get Full Metrics for Default Queue (24 hours)
+GET {{baseUrl}}/cloud-tasks/queues/default/metrics
+Content-Type: application/json
+
+###
+
+### Get Full Metrics for Paperglass Queue (24 hours)
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics
+Content-Type: application/json
+
+###
+
+### Get Metrics for Paperglass Queue (1 hour)
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?hours_back=1
+Content-Type: application/json
+
+###
+
+### Get Metrics for Paperglass Queue (12 hours)
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?hours_back=12
+Content-Type: application/json
+
+###
+
+### Get Metrics for Paperglass Queue with Custom Location
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?location=us-central1&hours_back=6
+Content-Type: application/json
+
+###
+
+### Get Metrics Summary for Default Queue
+GET {{baseUrl}}/cloud-tasks/queues/default/metrics/summary
+Content-Type: application/json
+
+###
+
+### Get Metrics Summary for Paperglass Queue (1 hour)
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics/summary?hours_back=1
+Content-Type: application/json
+
+###
+
+### Get Metrics Summary for Paperglass Queue (24 hours)
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics/summary?hours_back=24
+Content-Type: application/json
+
+###
+
+### Test with Different Queue Names
+
+### Get Metrics for Entity Extraction Queue
+GET {{baseUrl}}/cloud-tasks/queues/entity-extraction-queue/metrics?hours_back=6
+Content-Type: application/json
+
+###
+
+### Get Depth for Entity Extraction Queue
+GET {{baseUrl}}/cloud-tasks/queues/entity-extraction-queue/depth
+Content-Type: application/json
+
+###
+
+### Get Metrics for Medication Extraction Queue
+GET {{baseUrl}}/cloud-tasks/queues/medication-extraction-queue/metrics?hours_back=6
+Content-Type: application/json
+
+###
+
+### Get Depth for Medication Extraction Queue
+GET {{baseUrl}}/cloud-tasks/queues/medication-extraction-queue/depth
+Content-Type: application/json
+
+###
+
+### Test Error Cases
+
+### Get Metrics for Non-existent Queue
+GET {{baseUrl}}/cloud-tasks/queues/non-existent-queue/metrics
+Content-Type: application/json
+
+###
+
+### Get Depth for Non-existent Queue
+GET {{baseUrl}}/cloud-tasks/queues/non-existent-queue/depth
+Content-Type: application/json
+
+###
+
+### Test Invalid Parameters
+
+### Get Metrics with Invalid Hours (too high)
+GET {{baseUrl}}/cloud-tasks/queues/default/metrics?hours_back=200
+Content-Type: application/json
+
+###
+
+### Get Metrics with Invalid Hours (too low)
+GET {{baseUrl}}/cloud-tasks/queues/default/metrics?hours_back=0
+Content-Type: application/json
+
+###
+
+### Test with Different Locations
+
+### Get Metrics in us-east4
+GET {{baseUrl}}/cloud-tasks/queues/default/metrics?location=us-east4&hours_back=1
+Content-Type: application/json
+
+###
+
+### Get Metrics in us-west1
+GET {{baseUrl}}/cloud-tasks/queues/default/metrics?location=us-west1&hours_back=1
+Content-Type: application/json
+
+###
+
+### Extended Time Range Tests
+
+### Get Metrics for 1 week
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?hours_back=168
+Content-Type: application/json
+
+###
+
+### Get Metrics for 3 days
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?hours_back=72
+Content-Type: application/json
+
+###
+
+### Performance Tests (Large Time Ranges)
+
+### Get Summary for 1 week (should be faster than full metrics)
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics/summary?hours_back=168
+Content-Type: application/json
+
+###
+
+### Real-world Queue Names (Based on settings)
+
+### Get Metrics for DJT Default Queue
+GET {{baseUrl}}/cloud-tasks/queues/default-task-queue/metrics?hours_back=12
+Content-Type: application/json
+
+###
+
+### Get Metrics for Paperglass Launch Queue
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-launch-queue/metrics?hours_back=12
+Content-Type: application/json
+
+###
+
+### Monitoring and Debugging Tests
+
+### Health Check (Should always work)
+GET {{baseUrl}}/cloud-tasks/health
+Content-Type: application/json
+
+###
+
+### List All Queues (For discovery)
+GET {{baseUrl}}/cloud-tasks/queues
+Content-Type: application/json
+
+###
+
+### Comprehensive Test for Main Production Queue
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?hours_back=1
+Content-Type: application/json
+
+### Quick Depth Check
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/depth
+Content-Type: application/json
+
+### Summary for Dashboard
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics/summary?hours_back=6
+Content-Type: application/json
+
+###
+
+### Test Various Time Ranges for Performance Analysis
+
+### Last hour detailed
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics?hours_back=1
+Content-Type: application/json
+
+### Last 6 hours summary
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics/summary?hours_back=6
+Content-Type: application/json
+
+### Last 24 hours summary  
+GET {{baseUrl}}/cloud-tasks/queues/paperglass-extraction-queue/metrics/summary?hours_back=24
+Content-Type: application/json
+
+###

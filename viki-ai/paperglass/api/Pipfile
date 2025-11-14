@@ -1,0 +1,70 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiohttp = "==3.8.5"
+ariadne = "==0.20.1"  # GraphQL executor
+starlette = ">=0.40.0,<0.48.0"  # AsyncIO HTTP microframework
+fastapi = "==0.104.1"  # FastAPI web framework
+uvicorn = "==0.18.3"  # ASGI web server
+kink = "==0.6.5"  # Dependency injection
+google-cloud-firestore = "==2.17.2"
+google-cloud-storage = "==2.7.0"
+google-cloud-logging = "==3.6.0"
+google-cloud-discoveryengine = "==0.11.8"
+google-events = "==0.7.0"  # Protobuf definitions for Eventarc events
+watchdog = "==3.0.0"  # `watchmedo` command for auto-reloading
+pydantic = "==1.10.8"  # Typed models
+gcloud-aio-storage = "==9.2.0"  # AsyncIO version of google-cloud-storage
+google_cloud_aiplatform = "==1.48.0"
+vertexai = "==1.48.0"
+async-timeout = "==4.0.3"  # Required by aiohttp
+coloredlogs = "==15.0.1"  # Because colors
+websockets = "==11.0.3"
+okta-jwt-verifier = "==0.2.4"
+google-auth = "==2.23.3"
+aiocache = "==0.12.2"
+python-multipart = "==0.0.9"  # Allows Starlette to parse multipart form data (uploaded files)
+pypdf = "==4.0.1"  # Pure Python PDF toolkit
+google-cloud-documentai = "==2.24.2"
+jinja2 = "==3.1.3"
+pyyaml = "==6.0.1"
+langchain = "==0.1.16"
+nltk = "==3.8.1"
+google-cloud-tasks = "==2.16.3"
+pillow = "==10.3.0"
+opentelemetry-distro = "==0.45b0"
+opentelemetry-instrumentation-starlette = "==0.45b0"
+opentelemetry-exporter-otlp-proto-grpc = "==1.24.0"
+opentelemetry-exporter-gcp-trace = "==1.7.0"
+"opentelemetry.instrumentation.urllib3" = "==0.45b0"
+pydantic-computed = "==0.2.2"
+"fhir.resources" = "==7.0.2"
+google-cloud-pubsub = "==2.25.0"
+google-cloud-eventarc = "==1.11.5"
+pandas = "2.2.3"
+openpyxl = "*"
+spacy = "*"
+jsonpath-ng = "*"
+"Office365-REST-Python-Client" = "==2.3.13"
+newrelic = "==10.4.0"
+google-cloud-monitoring = "*"
+python-rule-engine = "*"
+pillow-heif = "*"
+xlsxwriter = "*"
+httpx = ">=0.24.0"
+
+[dev-packages]
+black = "==23.7.0"
+pylint = "==2.16.1"
+pytest = "==8.1.1"
+pytest-asyncio = "==0.23.6"
+pytest-cov = "==4.0.0"
+radon = "==6.0.1"
+mypy = "==0.991"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.5"

@@ -1,0 +1,70 @@
+<verbatim>
+Another example
+questions: {
+"A":{
+    "question": "do you have any substance related allergy?",
+    "instructions": "extract answers as list of array for substance and allergy"
+  }
+}
+
+transcript:"
+do you have any allergies to medications?
+Yes, i have allergy to aspirin
+what kind of reaction did you have?
+i had a redness on my skin
+any other allergy?
+i have allergy to mortin
+what kind of reaction did you have?
+i had a rash on my back
+
+result: {
+    "A":{
+            "verbatim_source":[{
+                "substance":{"verbatim_source":"do you have any allergies to medications?\nYes, i have allergy to aspirin"},
+                "allergy":{,"verbatim_source":"what kind of reaction did you have?\ni had a redness on my skin"}
+            },
+            {
+                "substance":{"verbatim_source":"any other allergy?\ni have allergy to mortin"},
+                "allergy":{"verbatim_source":"what kind of reaction did you have?\ni had a rash on my back"}
+            }
+            ],
+            "question": "do you have any substance related allergy?",
+            "instructions": "extract answers as list of array for substance and allergy"
+        }
+}
+
+end of another example
+</verbatim>
+
+<answers>
+another example:
+questions: {
+    "A":{
+            "verbatim_source":[{
+                "substance":{"verbatim_source":"do you have any allergies to medications?\nYes, i have allergy to aspirin"},
+                "allergy":{,"verbatim_source":"what kind of reaction did you have?\ni had a redness on my skin"}
+            },
+            {
+                "substance":{"verbatim_source":"any other allergy?\ni have allergy to mortin"},
+                "allergy":{"verbatim_source":"what kind of reaction did you have?\ni had a rash on my back"}
+            }
+            ],
+            "question": "do you have any substance related allergy?",
+            "instructions": "extract answers as list of array for substance and allergy"
+        }
+}
+
+result: {
+    "A":[{
+            "substance":{"value":"aspirin","verbatim_source":"do you have any allergies to medications?\nYes, i have allergy to aspirin"},
+            "allergy":{"value":"redness on my skin","verbatim_source":"what kind of reaction did you have?\ni had a redness on my skin"}
+        },
+        {
+            "substance":{"value":"mortin","verbatim_source":"any other allergy?\ni have allergy to mortin"},
+            "allergy":{"value":"rash","verbatim_source":"what kind of reaction did you have?\ni had a rash on my back"}
+        }
+        ]
+}
+
+end of another example
+</answers>

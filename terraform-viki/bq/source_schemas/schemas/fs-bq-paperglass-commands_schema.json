@@ -1,0 +1,54 @@
+[
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "cross_transaction_error_strict_mode",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "force_new_instance",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "idempotent_key",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  },
+  {
+    "name": "token",
+    "type": "STRING"
+  },
+  {
+    "name": "type",
+    "type": "STRING"
+  }
+]

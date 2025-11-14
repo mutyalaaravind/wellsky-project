@@ -1,0 +1,57 @@
+parameters:
+  - name: adoServiceConnection
+    type: string
+
+  - name: dockerImageName
+    type: string
+
+  - name: projectId
+    type: string
+
+  - name: repository
+    type: string
+    default: images
+
+  - name: version
+    type: string
+
+steps:
+  - task: Bash@3 # note that we are not using the Docker task to tag the image because it is geared towards using a container registry service connection
+    displayName: Tag Docker Images
+    inputs:
+      targetType: inline
+      script: |
+        docker tag ${{ parameters.dockerImageName }} us-east4-docker.pkg.dev/${{ parameters.projectId }}/${{ parameters.repository }}/${{ parameters.dockerImageName }}
+        docker tag ${{ parameters.dockerImageName }} us-east4-docker.pkg.dev/${{ parameters.projectId }}/${{ parameters.repository }}/${{ parameters.dockerImageName }}:${{ parameters.version }}
+
+  - task: GcpWifAuth@0
+    displayName: Authenticate Workload Identity Federation
+    inputs:
+      connectedServiceId: ${{parameters.adoServiceConnection}}
+
+  - task: Bash@3
+    displayName: Authenticate Google Artifact Registry
+    inputs:
+      targetType: inline
+      script: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us-east4-docker.pkg.dev
+
+  - task: Docker@2
+    displayName: Push Docker Images
+    inputs:
+      command: push
+      repository: us-east4-docker.pkg.dev/${{ parameters.projectId }}/${{ parameters.repository }}/${{ parameters.dockerImageName }}
+      tags: |
+        ${{ parameters.version }}
+        latest
+
+  - task: Bash@3
+    displayName: Logout Google Artifact Registry
+    inputs:
+      targetType: inline
+      script: docker logout https://us-east4-docker.pkg.dev
+
+  - task: Bash@3
+    displayName: List Docker Images In Google Artifact Registry
+    inputs:
+      targetType: inline
+      script: gcloud artifacts docker images list us-east4-docker.pkg.dev/${{ parameters.projectId }}/${{ parameters.repository }} --include-tags

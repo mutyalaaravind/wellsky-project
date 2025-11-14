@@ -1,0 +1,114 @@
+Any NKA(Food/ Drug/ Latex/ Environmental) you possess?
+Yes i do
+Do you have details about the substances that causes the reaction?
+yes, generally when i have gluten it happens
+What type of reaction do you have due to substance?
+i have some rash on legs
+Do you have details about any other substances that causes reaction to you?
+Yes, I think pollen 
+What type of reaction do you have due to substance?
+Itchiness on face
+What type of medications do you take?
+yes i do take same Medication
+What is the order date of the medication?
+It is 03/15/2024
+What type of any other medications do you take?
+Change one's
+What is the start date of the medication?
+It is 03/16/2024
+Any drug/route/form/strength of the medication?
+No as such
+What is the price of the medication?
+USD 2
+What is the frequency or instructions of the medication?
+Twice a day
+What is the discontinuation date for the medication?
+It is 03/17/2024
+Do you have IV access?
+Yes i do
+What is the type of IV?
+I am not aware 
+What is the date of IV insertion?
+Yes it was 03/18/2024
+What is the date when last dressing was changed?
+Yes it was 03/19/2024
+Do you take any antipsychotic drugs?
+Yes, I am taking.
+Do you take any anticoagulant drugs?
+Yes, I am taking.
+Do you take any antibiotic drugs?
+Yes, I am taking.
+Do you take any opioid drugs?
+Yes, I am taking.
+Do you take any antiplatelet drugs?
+Yes, I am taking.
+Do you take any hypoglycemic drugs?
+No, not aware of this
+Are you currently taking none of the above drugs?
+No, i am taking
+During the complete drug regimen review, was there any potential clinically significant medical issue?
+Yes, the issue was found.
+Did the agency contact a physician by midnight of next day to complete prescribed actions in response to potential clinically significant medical issue?
+Yes they contacted
+Do you/caregiver recieve instructions on special precautions for all hig risk medicines and how and when to report the problem?
+Yes, all the instructions were given. 
+Are you able to prepare and take all the oral medications reliably and safely, including administration of previous entries and doses correctly at proper time?
+Unable to take medication unless administered by other person.
+Are you able to prepare and take all the injectable medications reliably and safely, including administration of previous entries and doses correctly at proper time?
+Unable to take medication unless administered by other person.
+Any specific time in for Medication administration record you have?
+Yes, around 12 noon
+Any specific time out Medication administration record you have?
+Yes, around 12:45 noon
+What is the date Medication administration record?
+Its 14th March,24.
+What is the time for Medication administration record?
+Around 09 in morning
+Do you have the details of the medication along with dose, frequency etc?
+Yes i took some antibiotic
+What is the dosage of this medication?
+Thrice a week
+What is the route of this medication?
+Weekly
+What is the frequency of this medication?
+Thrice a week
+What is the PRN reason of this medication?
+Legs pain
+What is the location of this medication?
+North atlantic
+What was your response for this medication?
+Feeling better
+Any more comments you want to add for this medication?
+No, no such comments as of now
+Do you have details of any other medication along with dose, frequency etc?
+Yes i took some antiseptic too
+What is the dosage of this medication?
+Twice a week
+What is the route of this medication?
+Daily
+What is the frequency of this medication?
+Twice a week
+What is the PRN reason of this medication?
+Back pain
+What is the location of this medication?
+North asia
+What was your response for this medication?
+Feeling good
+Any more comments you want to add for this medication?
+No, no such comments as of now
+Do you have details of any other medication along with dose, frequency etc?
+Yes i took some anticogulant too
+What is the dosage of this medication?
+Once a week
+What is the route of this medication?
+Two times a day
+What is the frequency of this medication?
+Once a week
+What is the PRN reason of this medication?
+Hand pain
+What is the location of this medication?
+South asia
+What was your response for this medication?
+Feeling good and better
+Any more comments you want to add for this medication?
+No, no such comments as of now

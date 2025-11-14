@@ -1,0 +1,31 @@
+###
+# App Config REST API Tests
+# Tests for the Admin API app configuration endpoints
+###
+
+### List All App Configs
+GET http://localhost:14000/api/v1/config/apps
+Content-Type: application/json
+
+###
+
+### List App Configs with Pagination
+GET http://localhost:14000/api/v1/config/apps?limit=1&offset=0
+Content-Type: application/json
+
+
+### Get App Config - Success Case
+GET http://localhost:14000/api/v1/config/app/007
+Content-Type: application/json
+
+###
+
+### Get App Config - Not Found Case with generate_if_missing
+GET http://localhost:14000/api/v1/config/app/nonexistent-app?generate_if_missing=true
+Content-Type: application/json
+
+###
+
+
+
+

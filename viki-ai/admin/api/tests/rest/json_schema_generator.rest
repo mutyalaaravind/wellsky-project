@@ -1,0 +1,303 @@
+###
+# JSON Schema Generator Tests
+# Tests for the entity_extraction LLM endpoint that generates JSON schemas from documents
+###
+
+@local = http://localhost:18000
+@dev = https://
+@qa = https://
+@stage = https://
+@prod = https://
+
+@baseUrl = {{local}}
+@entityExtractionUrl = {{baseUrl}}/api/v1/llm/execute
+
+# Common headers for all requests
+@contentType = application/json
+@accept = application/json
+
+###
+# Test 1: Basic JSON Schema Generation for Insurance Document
+POST {{entityExtractionUrl}}
+Content-Type: {{contentType}}
+Accept: {{accept}}
+
+{
+  "gs_uri": "gs://viki-admin-dev/onboarding/sc-56934c/test_file/test_file.pdf",
+  "system_instructions": "You are an expert at analyzing documents and generating JSON schemas. You must return a valid, complete JSON schema that can be used directly for data extraction. The schema should be comprehensive and include appropriate data types, descriptions, and validation rules.",
+  "prompt": "For the objective 'extract insurance information including policy holder details, policy and group numbers, coverage information, and dependent information' review the document and generate a concise, complete JSON Schema. Return only valid JSON schema format. Focus on essential fields only - avoid overly detailed descriptions.",
+  "metadata": {
+    "business_unit": "viki",
+    "solution_id": "viki-admin",
+    "app_id": "viki-admin-api"
+  },
+  "model_parameters": {
+    "model_name": "gemini-2.5-pro",
+    "max_output_tokens": 4096,
+    "temperature": 0.0
+  }
+}
+
+###
+# Test 2: Extract Health Insurance Data Using Comprehensive Schema
+POST {{entityExtractionUrl}}
+Content-Type: {{contentType}}
+Accept: {{accept}}
+
+{
+  "gs_uri": "gs://viki-admin-dev/onboarding/sc-56934c/test_file/test_file.pdf",
+  "system_instructions": "You are an expert at extracting structured data from health insurance documents. Analyze the document carefully and extract all available information according to the provided schema. If a field is not clearly visible or available in the document, omit it from the response rather than guessing.",
+  "prompt": "Extract all available health insurance information from this document according to the provided schema. Focus on accuracy and only include information that is clearly visible in the document.",
+  "json_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Health Insurance Card",
+    "description": "Schema for extracting information from a health insurance card.",
+    "type": "object",
+    "properties": {
+      "issuer": {
+        "type": "string",
+        "description": "The name of the insurance administrator."
+      },
+      "payer": {
+        "type": "string",
+        "description": "The name of the insurance payer or network provider."
+      },
+      "memberInfo": {
+        "type": "object",
+        "description": "Details about the primary policy holder and dependents.",
+        "properties": {
+          "memberName": {
+            "type": "string",
+            "description": "Full name of the primary member."
+          },
+          "memberId": {
+            "type": "string",
+            "description": "The unique identifier for the member."
+          },
+          "groupNumber": {
+            "type": "string",
+            "description": "The group number associated with the policy."
+          },
+          "employer": {
+            "type": "string",
+            "description": "The name of the member's employer or group."
+          },
+          "division": {
+            "type": "string",
+            "description": "Division or subgroup identifier."
+          },
+          "dependents": {
+            "type": "array",
+            "description": "A list of dependents covered under the policy.",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "memberName",
+          "memberId",
+          "groupNumber"
+        ]
+      },
+      "medicalPlan": {
+        "type": "object",
+        "description": "Details of the medical coverage.",
+        "properties": {
+          "planName": {
+            "type": "string",
+            "description": "The name of the medical plan."
+          },
+          "coverageType": {
+            "type": "string",
+            "description": "The type of coverage (e.g., Family, Single)."
+          },
+          "network": {
+            "type": "string",
+            "description": "The network provider for the medical plan."
+          },
+          "deductibles": {
+            "type": "array",
+            "description": "Deductible information for in-network and out-of-network.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "INN",
+                    "OON"
+                  ]
+                },
+                "individual": {
+                  "type": "string",
+                  "description": "Deductible amount for a single person."
+                },
+                "family": {
+                  "type": "string",
+                  "description": "Deductible amount for a family."
+                }
+              },
+              "required": [
+                "type",
+                "individual",
+                "family"
+              ]
+            }
+          },
+          "outOfPocketMax": {
+            "type": "array",
+            "description": "Out-of-pocket maximums for in-network and out-of-network.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "INN",
+                    "OON"
+                  ]
+                },
+                "individual": {
+                  "type": "string",
+                  "description": "OOP max for a single person."
+                },
+                "family": {
+                  "type": "string",
+                  "description": "OOP max for a family."
+                }
+              },
+              "required": [
+                "type",
+                "individual",
+                "family"
+              ]
+            }
+          }
+        },
+        "required": [
+          "planName",
+          "coverageType"
+        ]
+      },
+      "pharmacyPlan": {
+        "type": "object",
+        "description": "Details of the pharmacy benefits.",
+        "properties": {
+          "pbm": {
+            "type": "string",
+            "description": "The Pharmacy Benefit Manager (PBM)."
+          },
+          "rxBin": {
+            "type": "string",
+            "description": "The pharmacy benefit routing number."
+          },
+          "rxPcn": {
+            "type": "string",
+            "description": "The processor control number."
+          },
+          "rxGroup": {
+            "type": "string",
+            "description": "The group number for pharmacy benefits."
+          },
+          "copays": {
+            "type": "array",
+            "description": "Copay amounts for different drug tiers.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tier": {
+                  "type": "string",
+                  "description": "The drug tier (e.g., Generic, Preferred)."
+                },
+                "amount": {
+                  "type": "string",
+                  "description": "The copay amount or percentage."
+                }
+              },
+              "required": [
+                "tier",
+                "amount"
+              ]
+            }
+          }
+        },
+        "required": [
+          "pbm",
+          "rxBin",
+          "rxPcn",
+          "rxGroup"
+        ]
+      },
+      "contactInfo": {
+        "type": "object",
+        "description": "Contact information for various services.",
+        "properties": {
+          "customerService": {
+            "type": "object",
+            "properties": {
+              "phone": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              }
+            }
+          },
+          "claimsSubmission": {
+            "type": "object",
+            "properties": {
+              "mailingAddress": {
+                "type": "string"
+              },
+              "edi": {
+                "type": "string"
+              }
+            }
+          },
+          "precertification": {
+            "type": "object",
+            "properties": {
+              "phone": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "cardInfo": {
+        "type": "object",
+        "description": "Metadata about the physical card.",
+        "properties": {
+          "printDate": {
+            "type": "string",
+            "description": "Date the card was printed in YYYYMMDD format.",
+            "pattern": "^\\d{8}$"
+          },
+          "indexNumber": {
+            "type": "string",
+            "description": "Index or version number of the card."
+          }
+        }
+      }
+    },
+    "required": [
+      "issuer",
+      "payer",
+      "memberInfo",
+      "medicalPlan",
+      "pharmacyPlan"
+    ]
+  },
+  "metadata": {
+    "test_case": "health_insurance_data_extraction",
+    "business_unit": "viki",
+    "solution_id": "viki-admin",
+    "app_id": "viki-admin-api"
+  },
+  "model_parameters": {
+    "model_name": "gemini-2.5-pro",
+    "max_output_tokens": 4096,
+    "temperature": 0.0
+  }
+}

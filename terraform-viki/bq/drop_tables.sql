@@ -1,0 +1,20 @@
+-- Drop statements for all deduped tables
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_documents_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_medications_extracted_medications_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_medications_host_attachments_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_medications_imported_medications_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_medications_medication_profile_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_medications_user_entered_medications_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_medispan_meds_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_app_config_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_classified_pages_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_commands_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_commands_processed_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_document_operation_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_document_operation_definition_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_document_operation_instance_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_document_operation_instance_log_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_events_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_events_processed_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_page_operation_deduped`;
+DROP TABLE IF EXISTS `viki-env-app-wsky`.`firestore_sync`.`pg_paperglass_pages_deduped`;

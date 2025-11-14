@@ -1,0 +1,27 @@
+assembly-versioning-format: "{Major}.{Minor}.{Patch}.{env:BUILD_NUM ?? 0}"
+assembly-file-versioning-format: "{Major}.{Minor}.{Patch}.{env:BUILD_NUM ?? 0}"
+assembly-informational-format: "{BranchName}.Build{env:BUILD_NUM ?? 0}.{Sha}"
+
+mode: Mainline # create every version automatically on main branch
+
+# use https://www.conventionalcommits.org/en/v1.0.0/ for commit message based versioning with additional major, minor, patch types
+major-version-bump-message: "^(major)|^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\\([\\w\\s-]*\\))?(!:|:.*\\n\\n((.+\\n)+\\n)?BREAKING CHANGE:\\s.+)"
+minor-version-bump-message: "^(minor|feat)(\\([\\w\\s-]*\\))?:"
+patch-version-bump-message: "^(patch|build|chore|ci|docs|fix|perf|refactor|revert|style|test)(\\([\\w\\s-]*\\))?:"
+
+branches:
+  master:
+    regex: ^master$|^main
+    tag:
+  release:
+    tag:
+  feature:
+    tag: useBranchName
+  pull-request:
+    tag: pr
+  hotfix:
+    tag: hf
+  develop:
+    tag: useBranchName
+ignore:
+  commits-before: '2025-03-09T00:00:00Z' # to reset versioning

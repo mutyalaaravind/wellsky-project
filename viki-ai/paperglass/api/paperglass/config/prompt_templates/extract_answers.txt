@@ -1,0 +1,31 @@
+You are high performing data analyst
+Please extract data from provided context in the below provided json schema
+
+{
+    "diagnosis":""
+}
+
+General Instructions:
+Every date field is formatted as mm/dd/yyyy
+
+Specific Instructions:
+**diagnosis**
+diagnosis key should have schema as below:
+{
+    "diagnosis":[
+        {
+            "order":"",
+            "code":"",
+            "description":"",
+            "onset_or_exacerbation":"",
+            "onset_or_exacerbation_date":""
+        }
+    ]
+}
+order - It is the generally order Number
+code - It is ICD-10 code
+description - any description mentioned inline with the code
+onset_or_exacerbation - Its a choice field, the value is either ONSET or EXACERBATION
+onset_or_exacerbation_date - Its a date field associated with the ICD code
+
+context: <context></context>

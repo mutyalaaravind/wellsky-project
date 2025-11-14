@@ -1,0 +1,414 @@
+# Pipeline trigger configuration
+trigger:
+  branches:
+    include:
+      - '*'
+  tags:
+    include:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+pr:
+  branches:
+    include:
+      - main
+
+# Global variables used throughout the pipeline
+variables:
+  - group: npm-secrets
+  - name: DEV_GAR_URL
+    value: "us-east4-docker.pkg.dev/viki-dev-mgmt-wsky/images"
+  - name: DEV_GCS_BUCKET
+    value: "viki-static-dev"
+  - name: GOOGLE_CLOUD_PROJECT
+    value: "viki-dev-mgmt-wsky"
+
+# Pipeline stages definition
+stages:
+  # Stage for running medication extraction tests
+  - stage: Tests
+    displayName: Run Tests
+    jobs:
+      - job: MedicationExtractionTests
+        displayName: Run Evaluations
+        pool:
+          vmImage: "ubuntu-latest"
+        steps:
+          # Checkout the code with full history
+          - checkout: self
+            fetchDepth: 0
+            clean: true
+
+          # Set up Python environment
+          - task: UsePythonVersion@0
+            displayName: Set up Python 3.11
+            inputs:
+              versionSpec: '3.11'
+              addToPath: true
+
+          # Install dependencies and run tests
+          - script: |
+              cd medication_extraction
+              pip install uv
+              uv venv
+              source .venv/bin/activate
+              uv pip install .
+              uv pip install ".[test]"
+            displayName: Install Python dependencies
+
+          # Run unit tests with coverage
+          - script: |
+              cd medication_extraction
+              set -a && . ./.env.local && set +a && uv run pytest tests/unit/ -v --cov-report=term-missing --cov-report=html
+            displayName: Run unit tests
+      - job: EntityExtractionTests
+        displayName: Run Evaluations
+        pool:
+          vmImage: "ubuntu-latest"
+        steps:
+          # Checkout the code with full history
+          - checkout: self
+            fetchDepth: 0
+            clean: true
+
+          # Set up Python environment
+          - task: UsePythonVersion@0
+            displayName: Set up Python 3.11
+            inputs:
+              versionSpec: '3.11'
+              addToPath: true
+
+          # Install dependencies and run tests
+          - script: |
+              cd entity_extraction
+              pip install uv
+              uv venv
+              source .venv/bin/activate
+              uv pip install .
+              uv pip install ".[test]"
+            displayName: Install Python dependencies
+
+          # Run unit tests with coverage
+          - script: |
+              cd entity_extraction
+              uv run pytest tests/unit/ -v --cov=src/settings --cov=src/main --cov=src/util/date_utils --cov=src/usecases/task_orchestrator --cov=src/adapters/storage --cov=src/util/custom_logger --cov=src/util/json_utils --cov=src/util/uuid_utils --cov=src/adapters/firestore --cov-report=term-missing
+            displayName: Run unit tests
+            continueOnError: true
+
+  # Stage for building and pushing Docker images
+  - stage: BuildAndPushImages
+    displayName: Build and Push Docker Images
+    dependsOn: Tests
+    condition: succeeded()
+    jobs:
+      # Matrix job for building multiple services
+      - job: BuildPushImages
+        displayName: Build & Push Images
+        pool:
+          vmImage: "ubuntu-latest"
+        strategy:
+          matrix:
+            autoscribe_api:
+              SERVICE_NAME: "autoscribe"
+              SERVICE_TYPE: "api"
+              DOCKERFILE_PATH: "autoscribe/api/Dockerfile"
+              BUILD_CONTEXT: "autoscribe/api"
+              IMAGE_NAME: "ai-autoscribe-api"
+            autoscribe_widget:
+              SERVICE_NAME: "autoscribe"
+              SERVICE_TYPE: "widget"
+              DOCKERFILE_PATH: "autoscribe/widget/Dockerfile"
+              BUILD_CONTEXT: "autoscribe/widget"
+              IMAGE_NAME: "ai-autoscribe-widget"
+            extract_and_fill_api:
+              SERVICE_NAME: "extract-and-fill"
+              SERVICE_TYPE: "api"
+              DOCKERFILE_PATH: "extract-and-fill/api/Dockerfile"
+              BUILD_CONTEXT: "extract-and-fill/api"
+              IMAGE_NAME: "ai-extract-and-fill-api"
+            extract_and_fill_widget:
+              SERVICE_NAME: "extract-and-fill"
+              SERVICE_TYPE: "widget"
+              DOCKERFILE_PATH: "extract-and-fill/widget/Dockerfile"
+              BUILD_CONTEXT: "extract-and-fill/widget"
+              IMAGE_NAME: "ai-extract-and-fill-widget"
+            demo_api:
+              SERVICE_NAME: "demo"
+              SERVICE_TYPE: "api"
+              DOCKERFILE_PATH: "demo/api/Dockerfile"
+              BUILD_CONTEXT: "demo/api"
+              IMAGE_NAME: "ai-demo-api"
+            demo_dashboard:
+              SERVICE_NAME: "demo"
+              SERVICE_TYPE: "dashboard"
+              DOCKERFILE_PATH: "demo/dashboard/Dockerfile"
+              BUILD_CONTEXT: "demo/dashboard"
+              IMAGE_NAME: "ai-demo-dashboard"
+            nlparse_api:
+              SERVICE_NAME: "nlparse"
+              SERVICE_TYPE: "api"
+              DOCKERFILE_PATH: "nlparse/api/Dockerfile"
+              BUILD_CONTEXT: "nlparse/api"
+              IMAGE_NAME: "ai-nlparse-api"
+            nlparse_widget:
+              SERVICE_NAME: "nlparse"
+              SERVICE_TYPE: "widget"
+              DOCKERFILE_PATH: "nlparse/widget/Dockerfile"
+              BUILD_CONTEXT: "nlparse/widget"
+              IMAGE_NAME: "ai-nlparse-widget"
+            paperglass_api:
+              SERVICE_NAME: "paperglass"
+              SERVICE_TYPE: "api"
+              DOCKERFILE_PATH: "paperglass/api/Dockerfile"
+              BUILD_CONTEXT: "paperglass/api"
+              IMAGE_NAME: "ai-paperglass-api"
+            paperglass_widget:
+              SERVICE_NAME: "paperglass"
+              SERVICE_TYPE: "widget"
+              DOCKERFILE_PATH: "paperglass/widget/Dockerfile"
+              BUILD_CONTEXT: "paperglass/widget"
+              IMAGE_NAME: "ai-paperglass-widget"
+            medication_extraction:
+              SERVICE_NAME: "medication_extraction"
+              SERVICE_TYPE: ""
+              DOCKERFILE_PATH: "medication_extraction/Dockerfile"
+              BUILD_CONTEXT: "medication_extraction"
+              IMAGE_NAME: "ai-medication_extraction"
+            entity_extraction:
+              SERVICE_NAME: "entity_extraction"
+              SERVICE_TYPE: ""
+              DOCKERFILE_PATH: "entity_extraction/Dockerfile"
+              BUILD_CONTEXT: "entity_extraction"
+              IMAGE_NAME: "ai-entity_extraction"
+            distributed_job_tracking:
+              SERVICE_NAME: "distributed_job_tracking"
+              SERVICE_TYPE: ""
+              DOCKERFILE_PATH: "distributed_job_tracking/Dockerfile"
+              BUILD_CONTEXT: "distributed_job_tracking"
+              IMAGE_NAME: "ai-distributed_job_tracking"
+            admin_api:
+              SERVICE_NAME: "admin"
+              SERVICE_TYPE: "api"
+              DOCKERFILE_PATH: "admin/api/Dockerfile"
+              BUILD_CONTEXT: "."
+              IMAGE_NAME: "ai-admin-api"
+            admin_ui:
+              SERVICE_NAME: "admin"
+              SERVICE_TYPE: "ui"
+              DOCKERFILE_PATH: "admin/ui/Dockerfile"
+              BUILD_CONTEXT: "admin/ui"
+              IMAGE_NAME: "ai-admin-ui"
+        steps:
+          # Checkout the code with full history
+          - checkout: self
+            fetchDepth: 0
+            clean: true
+          
+          # Set initial CACHE_KEY to latest to prevent blank tags
+          - script: echo "##vso[task.setvariable variable=CACHE_KEY]latest"
+            displayName: "Initialize CACHE_KEY to latest"
+
+          # Generate Docker image tags
+          - script: |
+              IMAGE_TAG=$(git describe --tags --always)
+              HEAD_REF=$(git rev-parse HEAD)
+              echo "##vso[task.setvariable variable=IMAGE_TAG]$IMAGE_TAG"
+              echo "##vso[task.setvariable variable=HEAD_REF]$HEAD_REF"
+              echo "Image tag: $IMAGE_TAG"
+              echo "Head ref: $HEAD_REF"
+            displayName: Generate Docker image tags
+
+          # Check for Dockerfile changes to optimize caching
+          - script: |
+              if git diff --quiet HEAD^ HEAD -- "$(DOCKERFILE_PATH)"; then
+                echo "##vso[task.setvariable variable=DOCKERFILE_CHANGED]false"
+                echo "Dockerfile not changed"
+              else
+                echo "##vso[task.setvariable variable=DOCKERFILE_CHANGED]true"
+                echo "##vso[task.setvariable variable=CACHE_KEY]$(date +%s)"
+                echo "Dockerfile changed - cache will be invalidated"
+              fi
+            displayName: Check Dockerfile changes
+          
+          # Create .npmrc file from secret variable
+          - script: |
+              cat > $(BUILD_CONTEXT)/.npmrc << 'EOF'
+              //npm.pkg.github.com/:_authToken=$(GITHUB_NPM_TOKEN)
+              @mediwareinc:registry=https://npm.pkg.github.com
+              legacy-peer-deps=true
+              auto-install-peers=true
+              EOF
+              echo ".npmrc file created in build context"
+            displayName: 'Create .npmrc file'
+
+          # Check if .npmrc was created in the build context
+          - script: |
+              echo "Checking .npmrc in build context:"
+              ls -la $(BUILD_CONTEXT)/.npmrc
+              echo "Content of .npmrc:"
+              cat $(BUILD_CONTEXT)/.npmrc
+            displayName: 'Verify .npmrc file'
+          
+          # Authenticate with Google Cloud using Workload Identity Federation
+          - task: GcpWifAuth@0
+            displayName: Authenticate Workload Identity Federation
+            inputs:
+              connectedServiceId: viki-dev-mgmt-wsky
+              serviceAccount: dev-viki-new-ado-mediwareis@viki-dev-mgmt-wsky.iam.gserviceaccount.com
+              
+          # Authenticate Docker with Google Artifact Registry
+          - task: Bash@3
+            displayName: Authenticate Google Artifact Registry
+            inputs:
+              targetType: inline
+              script: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us-east4-docker.pkg.dev
+
+          # Build Docker image with caching and multiple tags
+          - task: Docker@2
+            displayName: "Build image: $(IMAGE_NAME)"
+            condition: ne(variables['DOCKERFILE_CHANGED'], 'true')
+            inputs:
+              command: build
+              repository: $(DEV_GAR_URL)/$(IMAGE_NAME)
+              dockerfile: $(DOCKERFILE_PATH)
+              buildContext: $(BUILD_CONTEXT)
+              tags: |
+                latest
+                $(IMAGE_TAG)
+                $(HEAD_REF)
+              arguments: |
+                --cache-from $(DEV_GAR_URL)/$(IMAGE_NAME)-cache:$(CACHE_KEY)
+                --build-arg BUILDKIT_INLINE_CACHE=1
+                --secret id=npmrc,src=$(BUILD_CONTEXT)/.npmrc
+              addPipelineData: false
+
+          # Build Docker image without cache when Dockerfile changed
+          - task: Docker@2
+            displayName: "Build image (no cache): $(IMAGE_NAME)"
+            condition: eq(variables['DOCKERFILE_CHANGED'], 'true')
+            inputs:
+              command: build
+              repository: $(DEV_GAR_URL)/$(IMAGE_NAME)
+              dockerfile: $(DOCKERFILE_PATH)
+              buildContext: $(BUILD_CONTEXT)
+              tags: |
+                latest
+                $(IMAGE_TAG)
+                $(HEAD_REF)
+              arguments: |
+                --no-cache
+                --build-arg BUILDKIT_INLINE_CACHE=1
+                --secret id=npmrc,src=$(BUILD_CONTEXT)/.npmrc
+              addPipelineData: false
+
+          # Push the built image to Google Artifact Registry (only on main branch push)
+          - task: Docker@2
+            displayName: "Push image to GAR: $(IMAGE_NAME)"
+            condition: and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'PullRequest'))
+            inputs:
+              command: push
+              repository: $(DEV_GAR_URL)/$(IMAGE_NAME)
+              tags: |
+                latest
+                $(IMAGE_TAG)
+                $(HEAD_REF)
+          
+          - script: |
+              docker tag $(DEV_GAR_URL)/$(IMAGE_NAME):latest $(DEV_GAR_URL)/$(IMAGE_NAME)-cache:$(CACHE_KEY)
+              docker tag $(DEV_GAR_URL)/$(IMAGE_NAME):latest $(DEV_GAR_URL)/$(IMAGE_NAME)-cache:latest
+            displayName: "Tag image as cache"
+            condition: and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'PullRequest'))
+
+          # Push cache image for future builds (only on main branch push)
+          - task: Docker@2
+            displayName: "Push cache image: $(IMAGE_NAME)-cache"
+            condition: and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'PullRequest'), always())
+            inputs:
+              command: push
+              repository: $(DEV_GAR_URL)/$(IMAGE_NAME)-cache
+              tags: |
+                $(CACHE_KEY)
+                latest
+
+  # Stage for building and pushing frontend static files
+  - stage: BuildAndPushFrontends
+    displayName: Build & Push Frontends
+    jobs:
+      - job: BuildPushStatic
+        displayName: Build & Push Static Frontends
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          matrix:
+            sample:
+              FRONTEND: 'sample'
+            medwidget:
+              FRONTEND: 'medwidget'
+        steps:
+          - checkout: self
+            fetchDepth: 0
+            clean: true
+
+          - script: |
+              echo "##vso[task.setvariable variable=FE_DIR]frontends/$(FRONTEND)"
+            displayName: Set Working Directory
+
+          - task: NodeTool@0
+            displayName: Use Node.js 20.x
+            inputs:
+              versionSpec: '20.x'
+
+          - script: |
+              VERSION=$(git describe --tags --always)
+              HEAD_REF=$(git rev-parse HEAD)
+              echo "##vso[task.setvariable variable=VERSION]$VERSION"
+              echo "##vso[task.setvariable variable=HEAD_REF]$HEAD_REF"
+              echo "Version: $VERSION"
+              echo "Head ref: $HEAD_REF"
+            workingDirectory: $(FE_DIR)
+            displayName: Generate Version
+          
+          - script: |
+              cat > $(FE_DIR)/.npmrc << 'EOF'
+              //npm.pkg.github.com/:_authToken=$(GITHUB_NPM_TOKEN)
+              @mediwareinc:registry=https://npm.pkg.github.com
+              legacy-peer-deps=true
+              auto-install-peers=true
+              EOF
+              echo ".npmrc file created in $(FE_DIR)"
+            displayName: 'Create .npmrc file'
+          
+          - script: | 
+              echo "Checking .npmrc in build context:"
+              ls -la $(FE_DIR)/.npmrc
+              echo "Content of .npmrc:"
+              cat $(FE_DIR)/.npmrc
+            displayName: 'Verify .npmrc file'
+
+          - script: |
+              pwd
+              ls -l
+              gcloud info
+              npm config get
+            workingDirectory: $(FE_DIR)
+            displayName: Print Info
+
+          - script: |
+              npm ci
+              npm run build
+            workingDirectory: $(FE_DIR)
+            displayName: Build Static
+          
+          # Authenticate with Google Cloud using Workload Identity Federation
+          - task: GcpWifAuth@0
+            displayName: Authenticate Workload Identity Federation
+            inputs:
+              connectedServiceId: viki-dev-mgmt-wsky
+              serviceAccount: dev-viki-new-ado-mediwareis@viki-dev-mgmt-wsky.iam.gserviceaccount.com
+          
+          - script: |
+              gcloud storage cp --recursive ./build/* gs://$(DEV_GCS_BUCKET)/frontends/$(FRONTEND)/$(VERSION)/
+              gcloud storage cp --recursive ./build/* gs://$(DEV_GCS_BUCKET)/frontends/$(FRONTEND)/$(HEAD_REF)/
+
+            workingDirectory: $(FE_DIR)
+            displayName: Copy Static to GCS
+            condition: and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'PullRequest'))

@@ -1,0 +1,39 @@
+You are awesome at identifying relevant evidence in a given text. 
+From the NARRATIVE, for each question, extract verbatim source based on question. Do not use instructions field. 
+Make sure all possible verbatim source is included since multiple lines from transcript
+could make up for the verbatim source
+verbatim source could include question as well answer from the transcript
+Use EXAMPLES to find answers to QUESTIONS.
+The extracted verbatim_source has to be a valid json with double quotes
+
+Example 1:
+questions: {
+"93157-6-A":{"question":"is your visibility within normal limits?","instructions":"if visibility is within normal limits, select true as the value otherwise false"},
+"93157-6-B":{"question":"Do you have to use glasses?","instructions":"if require glasses, select true as the value"},
+"93157-6-C":{"question":"do you use contacts for left eye?","instructions":"if require contacts for left eye, select true as the value"},
+}
+
+transcript: "
+i cannot see without glasses.
+do you use contacts?
+yes
+i some times use contacts for left eye
+"
+
+below is the extracted result of the above Example which will be returned as ouput
+{
+"93157-6-A":{"verbatim_source":"i cannot see without glasses."},
+"93157-6-B":{"verbatim_source","i cannot see without glasses."},
+"93157-6-C":{"verbatim_source":"do you use contacts?/nyes"},
+}
+End of Example 1
+
+<example></example>
+
+Please extract verbatim source result for below questions and narrative:
+
+questions: <questions></questions>
+
+transcript: <transcript></transcript>
+
+

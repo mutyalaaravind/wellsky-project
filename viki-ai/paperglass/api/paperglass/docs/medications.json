@@ -1,0 +1,70 @@
+{
+    "extracted_medication": {
+        "app_id": "",
+        "tenant_id": "",
+        "patient_id": "",
+        "document_id": "1234",
+        "document_operation_instance_id": "1234",
+        "medsipan_medication": {
+            "medication": {
+                "dose": "",
+                "name": "",
+                "route": "",
+                "frequency": "",
+                "instructions": ""
+            }
+        },
+        "medication": {
+            "dose": "",
+            "name": "",
+            "route": "",
+            "frequency": "",
+            "instructions": ""
+        },
+        "medispan_status": "matched | unmatched | partial | none",
+        "medispan_id": "some id or null"
+    },
+    "medication_profile": {
+        "patient_id": "1234",
+        "medications": [
+            {
+                "id": "1234",
+                "latest_start_date": "2024-06-10",
+                "latest_end_date": "2024-07-14",
+                "document_references": [
+                    "a1",
+                    "b1"
+                ],
+                "medispan_status": "matched | unmatched | partial | none",
+                "medispan_id": "1234",
+                "medication": {
+                    "dose": "",
+                    "name": "",
+                    "route": "",
+                    "frequency": "",
+                    "instructions": ""
+                },
+                "edited": {
+                    "medication": {
+                        "dose": "",
+                        "name": "",
+                        "route": "",
+                        "frequency": "",
+                        "instructions": ""
+                    },
+                    "edit_type": "added | updated | deleted | imported",
+                    "modified_by": "1234",
+                    "modified_date": "2024-06-10",
+                    "change_sets": []
+                },
+                "extracted": [
+                    {
+                        "document_id": "1234",
+                        "extracted_medication_id": "1234",
+                        "document_operation_instance_id": "1234"
+                    }
+                ]
+            }
+        ]
+    }
+}

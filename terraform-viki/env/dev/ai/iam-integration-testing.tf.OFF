@@ -1,0 +1,156 @@
+locals {
+  // Required when creating a secret because it tries to for_each over accessors
+  ai_integrationtest_sa_id    = "viki-ai-integrationtest-${var.env}-sa"
+  ai_integrationtest_sa_email = "${local.ai_integrationtest_sa_id}@${var.app_project_id}.iam.gserviceaccount.com"
+}
+
+data "google_project" "project" {
+  project_id = var.app_project_id
+}
+
+module "ai_integrationtest_sa" {
+  source       = "git@github.com:mediwareinc/terraform-gcp-service-account.git?ref=v0.4.11"
+  account_id   = local.ai_integrationtest_sa_id
+  display_name = "VIKI AI Integration Test service account ${var.env}"
+  project_id   = var.app_project_id
+  labels       = var.labels
+}
+
+resource "google_iam_workload_identity_pool" "github_inttest_actions_pool" {
+  workload_identity_pool_id = "github-actions-pool"
+  display_name              = "GitHub Actions Pool"
+  description               = "Workload Identity Pool for GitHub Actions"  
+}
+
+resource "google_iam_workload_identity_pool_provider" "github_integrationtest_actions_provider" {
+  workload_identity_pool_id = google_iam_workload_identity_pool.github_inttest_actions_pool.workload_identity_pool_id
+  workload_identity_pool_provider_id = "github-inttest-actions-provider"
+  display_name                       = "GitHub IntTest Actions Provider"
+  description                        = "Workload Identity Provider for GitHub Actions Integration Test"  
+  oidc {
+    issuer_uri = "https://token.actions.githubusercontent.com"
+  }
+  attribute_mapping = {
+    "google.subject"    = "assertion.sub"
+    "attribute.actor"   = "assertion.actor"
+    "attribute.repository" = "assertion.repository"
+  }
+}
+
+resource "google_service_account_iam_binding" "github_integrationtest_actions_sa_workload_identity_user" {
+  service_account_id = "projects/${data.google_project.app_project.number}/serviceAccounts/${local.ai_integrationtest_sa_email}"
+  role               = "roles/iam.workloadIdentityUser"
+  members = [
+    "principalSet://iam.googleapis.com/projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${google_iam_workload_identity_pool.github_inttest_actions_pool.workload_identity_pool_id}/attribute.repository/mediwareinc/viki-ai"
+  ]
+} 
+
+resource "google_cloud_run_service_iam_member" "ai_integrationtest_service_invocation" {
+  for_each = local.api_services
+  project  = var.app_project_id
+  service  = each.value.name
+  location = each.value.location
+  role     = "roles/run.invoker"
+  member   = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "ai_integrationtest_aiplatform_admin" {
+  project = var.app_project_id
+  role    = "roles/aiplatform.admin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "ai_integrationtest_speech_admin" {
+  project = var.app_project_id
+  role    = "roles/speech.admin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "ai_integrationtest_documentai_admin" {
+  project = var.app_project_id
+  role    = "roles/documentai.admin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+# Allows viki to export spans to Cloud Trace
+resource "google_project_iam_member" "integrationtest_opentelemetry_agent" {
+  project = var.app_project_id
+  role    = "roles/cloudtrace.agent"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "ai_integrationtest_firestore_access" {
+  project = var.app_project_id
+  role    = "roles/datastore.user"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "ai_integrationtest_eventarc_events" {
+  project = var.app_project_id
+  role    = "roles/eventarc.eventReceiver"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "ai_integrationtest_healthcare" {
+  project = var.app_project_id
+  role    = "roles/healthcare.nlpServiceViewer"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+// Allow backend to sign GCS URLs
+resource "google_project_iam_member" "ai_integrationtest_storage_signer" {
+  project = var.app_project_id
+  role    = "roles/iam.serviceAccountTokenCreator"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "sa_integrationtest_act_as" {
+  project = var.app_project_id
+  role    = "roles/iam.serviceAccountUser"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "integrationtest_notebook_admin" {
+  project = var.app_project_id
+  role    = "roles/notebooks.admin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+# this is needed for the notebook to be able to access the storage bucket
+resource "google_project_iam_member" "integrationtest_sstorage_admin" {
+  project = var.app_project_id
+  role    = "roles/storage.admin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+# discovery engine admin
+resource "google_project_iam_member" "integrationtest_discovery_engine_admin" {
+  project = var.app_project_id
+  role    = "roles/discoveryengine.admin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "integrationtest_healthcare_fhir_store_admin" {
+  project = var.app_project_id
+  role    = "roles/healthcare.fhirStoreAdmin"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "integrationtest_healthcare_fhir_store_resource_editor" {
+  project = var.app_project_id
+  role    = "roles/healthcare.fhirResourceEditor"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "integrationtest_cloud_tasks_writer" {
+  project = var.app_project_id
+  role    = "roles/cloudtasks.enqueuer"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+
+resource "google_project_iam_member" "integrationtest_app_integration_editor" {
+  project = var.app_project_id
+  role    = "roles/integrations.integrationEditor"
+  member  = module.ai_integrationtest_sa.iam_email
+}
+

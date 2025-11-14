@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="WellSky AutoScribe widget" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+  <title>Paperglass CF widget</title>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+    html,
+    body {
+      font-family: Roboto;
+      font-weight: 300;
+    }
+
+    .app {
+      padding: 20px;
+    }
+
+    h1 {
+      font-weight: 300;
+    }
+  </style>
+
+  <!-- Required since React does not include bundle for any files except index.html -->
+  <script src="/static/js/bundle.js"></script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <div class="app">
+    <h1>This is a demo page for Annotated Form (V4).</h1>
+
+    <div id="custom-form-v4-demo-root"></div>
+
+    <script>
+      window.addEventListener('load', function () {
+        initCustomForm({
+           el: document.getElementById('custom-form-v4-demo-root'),
+           newData: {
+            "referral_information_section.first_name": "1",
+          },
+           formTemplateId:"REFERRAL_INTAKE",
+           fomrInstanceId:"cltn626cz00lu02s6o1fomahw",
+           showSnippets: false,
+          //  formInstanceId:"1234"
+         });
+      });
+    </script>
+  </div>
+</body>
+
+</html>

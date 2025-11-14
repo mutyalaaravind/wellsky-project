@@ -1,0 +1,1 @@
+resolve.fallback: { "crypto": false }

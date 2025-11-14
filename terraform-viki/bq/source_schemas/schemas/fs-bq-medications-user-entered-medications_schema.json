@@ -1,0 +1,142 @@
+[
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "change_sets",
+    "type": "STRING"
+  },
+  {
+    "name": "change_sets.changes",
+    "type": "STRING"
+  },
+  {
+    "name": "change_sets.created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "deleted",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "extracted_medication_references",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.classification",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.discontinued_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.dosage",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.end_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.form",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.frequency",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.instructions",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.is_long_standing",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "medication.is_nonstandard_dose",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.medispan_id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.name",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.name_original",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.route",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.start_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.strength",
+    "type": "STRING"
+  },
+  {
+    "name": "medication_profile_reconcilled_medication_id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication_status.status",
+    "type": "STRING"
+  },
+  {
+    "name": "medication_status.status_reason",
+    "type": "STRING"
+  },
+  {
+    "name": "medication_status.status_reason_explaination",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  }
+]

@@ -1,0 +1,67 @@
+{
+    "M1033": {
+      "question": "Which signs or symptoms charectarize you as a risk for hospitalization?",
+      "instructions": "if history of falls, select 1. if unintentional weight loss of 10 pounds or more in last 12 months, select 2. if multiple hospitalizations in past 6 months, select 3. if multiple emergency visits in past 6 months, select 4. if decline in mental, behavioral or emotional status in past 3 months, select 5. if reported or observed history of difficulty complying with medical instructions in past 3 months, select 6. if currently taking 5 or more medications, select 7. if currently reports exhaustion, select 8. if other risks not listed above, select 9. if none of the above, select 10."
+    },
+    "J0001": {
+      "question": "When did you feel the pain for the first time?",
+      "instructions": "If date is provided, select true else false."
+    },
+    "J0002": {
+      "question": "What is the location of pain?",
+      "instructions": "if answer is provided, select true else false"
+    },
+    "J0003": {
+        "question": "What is the intensity of pain?",
+        "instructions": "On a scale of 0 to 10, 0 being no pain and 10 being hurting worst."
+    },
+    "J0004": {
+        "question": "What is the duration of pain?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0005": {
+        "question": "What is the quality of pain?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0006": {
+        "question": "What makes the pain worse?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0007": {
+        "question": "What makes the pain better?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0008": {
+        "question": "What is the level of pain after medication?",
+        "instructions": "On a scale of 0 to 10, 0 being no pain and 10 being hurting worst."
+    },
+    "J0009": {
+        "question": "Which medication do you take for pain?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0010": {
+        "question": "What is the effectiveness of medication?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0011": {
+        "question": "What are the side effects of the medication?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0012": {
+        "question": "What is your pain goal?",
+        "instructions": "if answer is provided, select true else false"
+    },
+    "J0510": {
+        "question": "Over the past 5 days, how many times the pain made it hard for you to sleep at night?",
+        "instructions": "if no pain, select 0. if rarely, select 1. if occasionaly, select 2. if frequently, select 3. if constant, select 4. if not able to answer, select 5."
+    },
+    "J0520": {
+        "question": "Over the past 5 days, how often have you limited your participation in rehabilitation therapy sessions due to pain?",
+        "instructions": "if no pain, select 0. if rarely, select 1. if occasionaly, select 2. if frequently, select 3. if constant, select 4. if not able to answer, select 5."
+    },
+    "J0530": {
+        "question": "Over the past 5 days, how often have you limited your day-to day activities(excluding therapy) because of pain?",
+        "instructions": "if no pain, select 0. if rarely, select 1. if occasionaly, select 2. if frequently, select 3. if constant, select 4. if not able to answer, select 5."
+    }
+    
+}

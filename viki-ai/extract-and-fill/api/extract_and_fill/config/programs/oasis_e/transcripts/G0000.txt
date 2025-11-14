@@ -1,0 +1,100 @@
+Were you able to take care of yourself prior to this illness or injury while bathing, dressing or using toilet?
+Yes, I needed no help.
+Were you able to move properly in the house prior to this illness or injury like walking from room to room?
+Yes, I was moving properly.
+Were you able to use stairs prior to this illness or injury?
+No, I needed some help with stairs.
+Were you able to plan or schedule things prior to this illness or injury?
+Yes, I did all the things by myself.
+Were you using any device or aid prior to this illness or injury?
+Yes, I was using walker.
+Are you able to eat properly once the meal is placed before you?
+Yes, I'm able to eat but I need setup and clean-up assistance.
+What is your discharge goal for eating conditions?
+Yes, I want to complete the activity by myself.
+Are you able to take care of your oral health?
+Yes, I'm able to clean but I need setup and clean-up assistance.
+What is your discharge goal for oral health conditions?
+Yes, I want to complete the activity by myself.
+Are you able to take care of your toileting hygine?
+No, I need setup and clean-up assistance.
+what is your discharge goal for toileting conditions?
+Yes, I want to complete the activity by myself.
+Are you able to bath or take showers by yourself?
+No, Partial help of helper is needed to lift trunk or hands.
+What is your discharge goal for bathing conditions?
+Yes, I want to complete the activity by myself.
+Are you able to dress and undress yourself from waist above?
+No, Partial help of helper is needed to lift trunk or hands.
+what is your discharge goal for dressing conditions from waist above?
+Yes, I want to complete the activity by myself.
+Are you able to dress and undress yourself from waist below?
+No, Partial help of helper is needed to lift trunk or limbs.
+what is your discharge goal for dressing conditions from waist below?
+Yes, I want to complete the activity by myself.
+Are you able to wear or remove footwear?
+No, I need maximum assistance with that.
+What is your discharge goal for footwear conditions?
+Yes, I want to complete the activity by myself.
+Are you able to roll left and right while lying on back?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for rolling condition while lying?
+Yes, I want to complete the activity by myself.
+Are you able to move from sitting on the side of the bed to lying flat on the bed?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for moving from sitting on side of the bed to lying flat on the bed?
+Yes, I want to complete the activity by myself.
+Are you able to move from lying flat on the bed to sitting on the side of the bed?
+Yes, I can complete the activity on my own, just need supervision or touch assistance.
+What is your discharge goal for moving from lying flat on the bed to sitting on side of the bed?
+Yes, I want to complete the activity by myself.
+Are you able to stand from the sitting position?
+No, I need moderate assistance as helper holds me or lifts me up.
+What is your discharge goal for standing from sitting position?
+Yes, I want to complete the activity by myself.
+Are you able to transfer to and from chair to bed?
+No, I need moderate assistance as helper holds me or lifts me up.
+What is your discharge goal for transferring from or to chair?
+Yes, I want to complete the activity by myself.
+Are you able to get on and off a toilet or commode?
+No, I need touching assistance to balance myself.
+What is your discharge goal for getting on and off a toilet or commode?
+Yes, I want to complete the activity by myself.
+Are you able to get in and out of a car on passanger side?
+No, I need touching assistance to balance myself and verbal cues.
+What is your discharge goal for getting in and out of the car?
+Yes, I want to complete the activity by myself.
+Are you able to walk 10 feet while you are standing?
+No, I need moderate assistance as helper lifts or holds me in position.
+What is your discharge goal for walking 10 feet while standing?
+Yes, I want to complete the activity by myself.
+Are you able to walk 50 feet with two turns?
+No, I need moderate assistance as helper lifts or holds me in position.
+What is your discharge goal for walking 50 feet with two turns?
+Yes, I want to complete the activity by myself.
+Are you able to walk 150 feet?
+No, Activity was not attempted due to medical or safety conditions.
+What is your discharge goal for walking 150 feet?
+Yes, I want to complete the activity by myself.
+Are you able to walk 10 feet on an uneven surface?
+No, Activity was not attempted due to medical or safety conditions.
+What is your discharge goal for walking 10 feet on an uneven surface?
+Yes, I would like to have setup or clean-up assistance.
+Are you able to go up and down on a curb or step?
+No, Activity was not attempted due to environmental limitations.
+What is your discharge goal for getting up and down a curb or step?
+Yes, I want to complete the activity by myself.
+Are you able to go up and down 4 steps with or without a rail?
+No, I'm unable to do that.
+What is your discharge goal for getting up and down 4 steps with or without a rail?
+No, Activity was not attempted due to medical or safety conditions.
+Are you able to go up and down 12 steps with or without a rail?
+No, I'm unable to do that.
+What is your discharge goal for getting up and down 12 steps with or without rail?
+No, Activity was not attempted due to medical or safety conditions.
+Are you able to pick up small objects while standing?
+No, I need maximum assistance with that.
+What is your discharge goal for picking up small objects while standing?
+Yes, I want to complete the activity by myself.
+Do you use wheelchair or scooter?
+No, I do not.

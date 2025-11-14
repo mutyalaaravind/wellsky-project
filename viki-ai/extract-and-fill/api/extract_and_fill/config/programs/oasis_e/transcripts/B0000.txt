@@ -1,0 +1,16 @@
+Can u share some information related to your eyes?"
+Yes, I feel redness in my eyes
+Do you remember date of last eye exam you attended?
+Yes, it was in October somewhere
+How are your ears feeling?
+Yes, I feel pain in them sometimes
+How about your nose?
+Yes, I feel loss of smell sometimes
+Are you able to hear normally with the help of hearing aid or appliances?
+Yes but with moderate difficulty
+Are you able to see in adequate light with glasses or other visual appliances?
+Yes but in moderately impaired way
+Do you need someone to help you while reading instructions,pamphlets or other written material from doctor or pharmacy?
+Yes, very often
+
+

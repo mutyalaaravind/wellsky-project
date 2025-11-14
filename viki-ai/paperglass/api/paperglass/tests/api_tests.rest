@@ -1,0 +1,411 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_local}}
+eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+
+#007 54321 4638e642b2d44b8c9db6f2ced19eb898
+#@token = eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==  
+
+#007 54321 c211f67a0a594ceab691e566b8b37c32
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1In0.6ag- 
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+#hhh 54321 4638e642b2d44b8c9db6f2ced19eb898
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImhoaCIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1In0.1dNlLaZfBg6dF6cesva7XAH33klQvKFiHurV-L7xbP8
+
+#hhh 13140 16868278
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ICJoaGgiLCAidGVuYW50SWQiOiAiMTMxNDAiLCAicGF0aWVudElkIjogIjE2ODY4Mjc4In0=
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImhoaCIsInRlbmFudElkIjoiMTMxNDAiLCJwYXRpZW50SWQiOiIxNjg2ODI3OCIsImFtdXNlcmtleSI6IjEyMzQ1In0.emGN-haIdFN_0Nij5tB_a00E1eaxdGN4x07ii4lM9ag
+
+### Call Status Endpoint -------------------------------------------------------------------
+GET {{host_qa}}/api/status?delay=1
+
+### Call get Config
+GET {{host}}/api/config/007
+Authorization: Bearer {{token}}
+
+### JWKS Keys (Testing)
+GET {{host}}/api/v1/keys
+
+### Call MedDB Search Endpoint ----------------------------------------------------------
+GET {{host_local}}/api/medispan/search?term=Gab
+Authorization: Bearer {{token}}
+
+
+
+### Test run command endpoint
+POST {{host}}/api/command
+Authorization: Bearer {{token}}
+
+{
+  "type": "get_status", 
+  "command": {
+    "id": "0608f410fabf11efa925a7d2ccdafb2a-1", 
+    "type": "get_status", 
+    "execution_id": null, 
+    "created_by": null, 
+    "modified_by":null, 
+    "idempotent_key": null, 
+    "cross_transaction_error_strict_mode": true
+  }
+}
+
+### Test Generic Prompt Step
+POST {{host}}/api/orchestrate/toc/TOC_SECTION_EXTRACTION?document_uri=gs://viki-ai-provisional-dev/paperglass/documents/0127d144e58711eea57cc3a190d5388c/chunks/0.pdf
+Authorization: Bearer {{token}}
+traceparent: 00-8652a752089f33e2659dff28d683a18c-0000000000000000-01
+
+###
+https:///rest/V1/MedicationProfile/Patient/8260496
+token: 600C2B93-FD2E-9509-1450621AC61BD94A
+
+### HBILL 164
+POST https://qa.kinnser.net/rest/V1/MedicationProfile/Freeform/Patient/8035515
+ehr-token: 786C8FAA-EC1D-F2BE-0578DE254774A7FE
+Content-Type: application/x-www-form-urlencoded
+
+amuserkey=301838&medication=Aspirin&classificationId=61&newStartDate=2024-08-05
+
+
+### Settings
+GET {{host}}/api/settings/VERSION
+Authorization: Bearer {{token}}
+
+### LOAD TEST Annotation
+GET {{host}}/api/platform/annotation?name=Load+Test&description=Load+Test+40d/m
+Authorization: Bearer {{token}}
+
+### Import Attachments test
+POST {{host}}/api/v2/attachments/import
+Authorization: Bearer {{token}}
+ehr-token: 6EA28765-C350-5032-76DE07CBBFC9DB6D
+
+### Get Classifications Test
+GET {{host}}/api/v2/reference/external/classification
+Authorization: Bearer {{token}}
+ehr-token: 6EA28765-C350-5032-76DE07CBBFC9DB6D
+
+### HBILL 164
+POST https://qa.kinnser.net/Freeform/Patient/8035515
+ehr-token: 708A621F-068D-DAC4-53AEB1AE3BA231BC
+Content-Type: application/json
+
+### HBILL 164
+POST https://qa.kinnser.net/rest/V1/MedicationProfile/Freeform/Patient/8035515     
+ehr-token: 934A9901-F713-DA26-37D1A756855CFC4C
+Content-Type: application/json
+
+{
+  "amuserkey": 301838,
+  "medication": "Aspirin",
+  "classificationId": 61,
+  "newStartDate": "2024-08-05",
+  "newDiscontinueDate": null
+}
+
+### Get Document Status
+GET {{host}}/api/documents/26605314d8d411ef92040242ac140005/status
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiI1M2E5ZjA4M2FlNTU0NTBlYmFjYWU3ZTgwMDNkMmU0MSIsImFtdXNlcmtleSI6IjEyMzQ1In0.oys6pxsYfYgRr-UbN7x09CfFmrEqpISIOzjjQCKY2XY
+Okta-Token: eyJraWQiOiJXSkZwZUJYcWxHd3RoTjd0MlR1ZnRxQUR3UjZRSzFFM2w5bFh5S0ZFUml3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlhUb2hSWU1SYmMzb09VeEc0VDcxY2pBczE5RkwzUm9nZlFtNUQ2dEl3NGsiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3Mzc1NTkwODUsImV4cCI6MTczNzU2MjY4NSwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.fEn5ijVsqeT3Hr-SnagopHH1vYlvZP8kMc1hwwNHxZ_H-9av2a20uWWO-QtEwfJICkQ12qmEgpXE6E4yB_rvFkQSbNx3blpILYIcDdGH0Z7mUMhsCqecSRwfdRQyS_hA1RGNB-mCeFJZuquUamW5xU9PNtkTDER_xCcY51eTJT3IYFv2FR34CVgBuJboGG2cDsc5mDU8A53atLOKWHGg3Ark3vuLI0cPvG14u0fob97tDpN5oBP0TwAV0eVx9oDI4_LoNBmlmwDenL7pNGd0dDQk-aZX_KhNqhApSUgVZ4VbMIeaXZTslfxWKlFPPpUlastE4nQCZf548M9pI03t9A
+
+### Get Document Medications -------------------------------------------------------------------------------------------------------------------------------------------
+GET https://ai-paperglass-api-secondary-cocynqqo6a-uk.a.run.app/api/v4/medications_by_documents?documentVersions={%22600982b2cf6911ef841542004e494300%22:%22v3%22}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIzMWE1NzUwMDY2MTQ0Y2YyODhhODVkOTJhNWRmZjk3MSIsImFtdXNlcmtleSI6IkVyaWMuQ29pbmVyQFdlbGxTa3kuY29tIn0.BcG5wn4sYEKknNWUfG2Ryp28OAAddX48iEz83lW2-vQ
+Okta-Token: eyJraWQiOiJ1RVJoRGtXbGpOVkpVclphdGRIc2ZSYS13aTdLZFRHZHR3SnREM1l2Q0E4IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlNKckVsclQ0dnEwY09GSnVDaS1FeWRpclcySUVxS1F5SXJJTVZuZXdLRkEiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhLmNvbS9vYXV0aDIvYXVzZjc5bzRqZG5Da0psT3k1ZDciLCJhdWQiOiJ2aWtpLmRldi53ZWxsc2t5LmlvIiwiaWF0IjoxNzQ0NjQ5NDk0LCJleHAiOjE3NDQ2NTMwOTQsImNpZCI6ImFwaS53ZWxsc2t5LnZpa2kucGFwZXJnbGFzcy5wcm9kIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MucHJvZCJ9.P-BoNqpzqIniOgtr_-T73eu9L2ZDsoAODnalmhybDVUHuMI4YHKu8YDWvWwg9ZHfF9b2XbxdaDJSG0_ejsvfvYSz7v7H8Gj4rGveAInQ-J1HUq2qz6XMNEl-O7OMiKwwoBvfvY9nTOqfdxBTNe-KGujx3NpDxCBOTaApL39WebqgaAN5I6WRtXaRjvNy_BoE3kuGYLpzgJNsPxgiv8-ZlU7aflblUcuFAmv2kp6IePRQtV7ABxNyzB-hVaDW4jQFvElFhtX2YqxG8oHmh1pfKZYl4RCdBB9qVX7LNC1jpmF02h_eQLqFvTtQyd_ezkBr2KhT3aVxWHOmXu7-yBqi7A
+
+###
+GET {{host}}/api/documents_with_pagination?patientId=53a9f083ae55450ebacae7e8003d2e41&startAt=2025-01-22T17:18:22.271Z&endAt=null&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiI1M2E5ZjA4M2FlNTU0NTBlYmFjYWU3ZTgwMDNkMmU0MSIsImFtdXNlcmtleSI6IjEyMzQ1In0.oys6pxsYfYgRr-UbN7x09CfFmrEqpISIOzjjQCKY2XY
+Okta-Token: eyJraWQiOiJXSkZwZUJYcWxHd3RoTjd0MlR1ZnRxQUR3UjZRSzFFM2w5bFh5S0ZFUml3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlhUb2hSWU1SYmMzb09VeEc0VDcxY2pBczE5RkwzUm9nZlFtNUQ2dEl3NGsiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3Mzc1NTkwODUsImV4cCI6MTczNzU2MjY4NSwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.fEn5ijVsqeT3Hr-SnagopHH1vYlvZP8kMc1hwwNHxZ_H-9av2a20uWWO-QtEwfJICkQ12qmEgpXE6E4yB_rvFkQSbNx3blpILYIcDdGH0Z7mUMhsCqecSRwfdRQyS_hA1RGNB-mCeFJZuquUamW5xU9PNtkTDER_xCcY51eTJT3IYFv2FR34CVgBuJboGG2cDsc5mDU8A53atLOKWHGg3Ark3vuLI0cPvG14u0fob97tDpN5oBP0TwAV0eVx9oDI4_LoNBmlmwDenL7pNGd0dDQk-aZX_KhNqhApSUgVZ4VbMIeaXZTslfxWKlFPPpUlastE4nQCZf548M9pI03t9A
+
+### Get Document Logs ------------------------------------------------------------------------
+GET {{host}}/api/documents/1480d1eeb41e11ef905342004e494300/logs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+
+### Get Document Logs FILTERED------------------------------------------------------------------------
+POST {{host}}/api/documents/1480d1eeb41e11ef905342004e494300/logs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Content-Type: application/json
+
+{
+  "filterCriterion": [
+    {
+      "entity_name": "step_id",
+      "values": ["TEXT_EXTRACTION_AND_CLASSIFICATION"]
+    },
+    {
+      "entity_name": "status",
+      "values": ["FAILED", "COMPLETED"]
+    }
+  ]
+}
+
+###
+GET {{host}}/api/documents/assessment?accepted_window_minutes=30
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Okta-token: eyJraWQiOiJZY05kWllvX0NBaWpZcFNlYUVCZXgxNnlSdG50QTVockxCd1BPT1VTY3dRIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULm9kZUt2Y3ZtamFnXzV0VnphMDJ0SVBuX3BDVmVVbDUtZ2tDQjF1SkNLdGMiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3MzQ5NjQ2NzQsImV4cCI6MTczNDk2ODI3NCwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.fgCtEaVcdcqwQt2tXPsHzfrv8zoS3wEMbT8mKkzs7wNs519MivMYxWlEEp1MW9CK7R_lM2C86Bb25fEp22gVIkqKEEqYEfMRtMz23c_lUwqoB3EB4s9VNFRHhDKZPXgPfNcuKvVU2Jkj3h6omBCTohSSXCjT9EG_S79OIFCldSIUephpeeTK6lbaHvna3Kk3ol6ugoEYewofme1GUsa1Q5pliGk2HwKZNnlGQJaYgl3i2PeYSbm1tmacbHERpiXdVMRD__TT6xe2-4wtmQMIv5fr45_KFfwyL4EGVHqiHjUSGcZO3MLwuFyJOtAIKoN74OJm-I197ju_o7GeW7Kkew
+# Why is Okta-token required here as the rest endpoint is annotated with @decode_token not @verify_okta?
+
+### Get Document Page Logs ------------------------------------------------------------------------
+GET {{host}}/api/documents/69e10422b31c11ef834942004e494300/page-logs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+
+### Get Document Operation Definition --------------------------------------------------------------
+GET {{host}}/api/v2/configuration/document-operation-definition/medication_extraction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+
+### Configuration
+GET {{host}}/api/v2/configuration
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+
+### Run Medication Extraction for document --------------------------------------------------
+POST {{host}}/api/orchestrate/medication_extraction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Content-Type: application/json
+
+{
+  "document_id": "d49063c4673c11f09a3d0242ac140005",
+  "priority": "high"
+}
+
+### E2E Create Test Case -------------------------------------------------------------------------------------------------------
+#POST {{host}}/api/documents/8b2b835eefbd11efa07a42004e494300/create-testcase
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{}
+
+### Queue E2E Test ---------------------------------------------------------------------------
+POST {{host_qa}}/api/orchestrate/medication_extraction/test?runnow=true&mode=sample&sample_size=20
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Content-Type: application/json
+
+{}
+
+###  Reassess E2E Test run ----------------------------------------------------------------------
+POST {{host_local}}/api/orchestrate/medication_extraction/test/reassess/81548c5a6b324875be81c1768c231fa0
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{}
+
+# ### Queue E2E Test ---------------------------------------------------------------------------
+# POST {{host}}/api/orchestrate/medication_extraction/test?runnow=true&filename=test+data+28.pdf
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+# Content-Type: application/json
+
+# {}
+
+### Get E2E Test TLDR
+GET {{host_qa}}/api/orchestrate/medication_extraction/test/report/sample/tldr/latest?f1_threshold=0.85&age_window=2880
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+
+
+### Get E2E Test Summary
+GET {{host}}/api/orchestrate/medication_extraction/test/report/full/summary/latest
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+
+
+### Confirm E2E Test: Check the test results assertions without invoking the pipeline for the test ---------------------------------------------------------------------------
+POST {{host}}/api/orchestrate/medication_extraction/test/confirm?document_id=c56938b2d8fd11efb1d60242ac140005
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Content-Type: application/json
+
+{}
+
+
+
+### Load Test Poke ---------------------------------------------------------------------------
+POST {{host}}/api/orchestrate/medication_extraction/loadtest/poke?loadtest_type=vertex-ai&document_id=1480d1eeb41e11ef905342004e494300
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Content-Type: application/json
+
+{
+  "iteration_key": "1",
+  "labels": ["loadtest"],
+  "campaign_id": "test_campaign_001"
+}
+
+
+
+
+
+### Run Orchestration ------------------------------------------------------------------------
+POST {{host}}/api/orchestrate
+Authorization: Bearer {{token}}
+
+{"document_id": "d49063c4673c11f09a3d0242ac140005"}
+
+
+
+### Run Medication Grader --------------------------------------------------------------------
+POST {{host}}/api/orchestrate/medication_grader
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "document_id": "b514a5c2628911efadd342004e494300"
+}
+
+
+### Get Extracted Medication Grades ----------------------------------------------------------
+
+GET {{host}}/api/documents/b514a5c2628911efadd342004e494300/medication-profile/grades
+Authorization: Bearer {{token}}
+
+### Medications by documents ----------------------------------------------------------------
+GET {{host}}/api/v2/medications_by_documents?documentIds=c97cd58cdcb611efa9f70242ac120006
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiIyOTQzN2RkMjRmZmU0NjVlYjYxMWE2MWIwYjYyZjYwOCIsImFtdXNlcmtleSI6IjEyMzQ1In0.nNHPgG08X_YqaBN1spIKq2j0xTRT3vQmXhv-rOZ8JAU
+Okta-Token: eyJraWQiOiJXSkZwZUJYcWxHd3RoTjd0MlR1ZnRxQUR3UjZRSzFFM2w5bFh5S0ZFUml3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnFta20wc0MxYlJ1R2hlcWpWbFExRk1VS0FVRVpmcUtFRzlmQ0hIdjY2SjQiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3Mzc5ODcxNTYsImV4cCI6MTczNzk5MDc1NiwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.CQrg3nLfNbROHb88WIk0lxYxUW5YrdUU65rweHnRhsJXXAS_p1LpAld7_FLjh6pWQSd5I2A3bzkxtUmDRpFDJWR8pUAC8ZYlm-h_OS3-SquUwvOArWAkhCNyq-5I0SactxWi9n-d5lPoydwh8Yyv9VydBEZtBFtONimNAidDzfpQ_IQ9puBt19nrmacY5tU15rqrtVV6AxN1yAXAEJdxM-IPN_ndwn68L69-B8XwMWOO_ytPtt9alUC8FZhwhhNenj4wla1FcTa9oVcRGvG6ayIxEeZMzZx_IztAW3BTeNl25e9wcZsOUYm-MGZRcx67Hco1lhSlFcQcnb28--xfmQ
+
+### 
+
+Content-Type: application/x-www-form-urlencoded
+amuserkey=301838&medication=Aspirin&classificationId=61&newStartDate=2024-08-05
+
+Content-Type: application/json
+
+{
+  "amuserkey": 301838,
+  "medication": "Aspirin",
+  "classificationId": 61,
+  "newStartDate": "2024-08-05",
+  "newDiscontinueDate": null
+}
+
+###
+
+http://127.0.0.1:15000/api/documents?patientId=4638e642b2d44b8c9db6f2ced19eb898
+Authorization: Bearer {{token}}
+
+### List Document Medication Profile ------------------------------------------------------
+@document_id = 526cb17c276411efa3650242ac140005
+http://127.0.0.1:15000/api/documents/{{document_id}}/medication-profile
+Authorization: Bearer {{token}}
+
+### Map Document Medication Profile ------------------------------------------------------
+@document_id = 526cb17c276411efa3650242ac140005
+http://127.0.0.1:15000/api/documents/{{document_id}}/medication-profile/map
+Authorization: Bearer {{token}}
+
+### Get Document TOC
+@document_id = 12be1ae4255b11ef94c73e3297f4bd06               
+GET {{host}}/api/documents/{{document_id}}/toc
+
+###
+@document_id = eb181e02254d11efab073e3297f4bd06            
+GET {{host}}/api/documents/{{document_id}}/toc/pageprofiles/medication
+
+###
+@medispan_search_term = Omeprazole 10 MG Oral
+GET {{host}}/api/medispan/search?term={{medispan_search_term}}&enable_llm=true&max_results=1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Test the Medispan (vector) search with optional LLM filter
+@medispan_search_term = hydrocodone 5 mg acetaminophen 300mg tablet oral
+GET {{host}}/api/medispan/search_vector_with_llm_filter?term={{medispan_search_term}}&enable_llm=false
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Call extract on a document -------------------------------------------------------------
+@document_id = 5f66423c600611efab6542004e494300
+POST {{host}}/api/documents/{{document_id}}/extract
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### 
+http://127.0.0.1:15000/api/documents/eb181e02254d11efab073e3297f4bd06/toc
+
+# documentId:  eb181e02254d11efab073e3297f4bd06
+# instanceId:  2f7644dc3d4c11efa7c775387138bddc
+
+###
+http://127.0.0.1:15000/api/documents/eb181e02254d11efab073e3297f4bd06/toc/pageprofiles/medication
+
+###
+http://127.0.0.1:15000/api/documents/b4ad3bda254911ef9f853e3297f4bd06/toc/pageprofiles/medication
+
+###
+
+POST http://127.0.0.1:15000/api/documents/filter/state?app_id=007&tenant_id=1555&patient_id=106
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "b4ad3bda254911ef9f853e3297f4bd06": {
+        "profileFilter": {
+            "medication": {
+                "0": {
+                    "pageIndex": 0,
+                    "isSelected": true
+                },
+                "1": {
+                    "pageIndex": 1,
+                    "isSelected": false
+                }
+            }
+        }
+    }
+}
+    
+@host_eventarc_qa     = "https://ai-paperglass-external-events-18900418456.us-east4.run.app"
+@host_eventarc_stage  = "https://ai-paperglass-external-events-884147005953.us-east4.run.app"
+
+@host_eventarc = {{host_eventarc_stage}}
+
+### Emulate GCS Storage Object event dropping to our Event service
+POST {{host}}/eventarc/pubsub/external_files
+Content-Type: application/json
+
+{
+  "message":{
+    "attributes":{
+      "bucketId":"wsh-monolith_attachment-dev",
+      "eventTime":"2025-01-27T11:38:48.885647Z",
+      "eventType":"OBJECT_FINALIZE",
+      "notificationConfig":"projects/_/buckets/wsh-monolith_attachment-dev/notificationConfigs/40",
+      "objectGeneration":"1737977928840458",
+      "objectId":"AMDocuments2/8665/20250127053848Activating corporation-step 1-qa.png",
+      "payloadFormat":"JSON_API_V1"
+    },
+    "data":"ewogICJraW5kIjogInN0b3JhZ2Ujb2JqZWN0IiwKICAiaWQiOiAid3NoLW1vbm9saXRoX2F0dGFjaG1lbnQtZGV2L0FNRG9jdW1lbnRzMi84NjY1LzIwMjUwMTI3MDUzODQ4QWN0aXZhdGluZyBjb3Jwb3JhdGlvbi1zdGVwIDEtcWEucG5nLzE3Mzc5Nzc5Mjg4NDA0NTgiLAogICJzZWxmTGluayI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9zdG9yYWdlL3YxL2Ivd3NoLW1vbm9saXRoX2F0dGFjaG1lbnQtZGV2L28vQU1Eb2N1bWVudHMyJTJGODY2NSUyRjIwMjUwMTI3MDUzODQ4QWN0aXZhdGluZyUyMGNvcnBvcmF0aW9uLXN0ZXAlMjAxLXFhLnBuZyIsCiAgIm5hbWUiOiAiQU1Eb2N1bWVudHMyLzg2NjUvMjAyNTAxMjcwNTM4NDhBY3RpdmF0aW5nIGNvcnBvcmF0aW9uLXN0ZXAgMS1xYS5wbmciLAogICJidWNrZXQiOiAid3NoLW1vbm9saXRoX2F0dGFjaG1lbnQtZGV2IiwKICAiZ2VuZXJhdGlvbiI6ICIxNzM3OTc3OTI4ODQwNDU4IiwKICAibWV0YWdlbmVyYXRpb24iOiAiMSIsCiAgImNvbnRlbnRUeXBlIjogIiovKiIsCiAgInRpbWVDcmVhdGVkIjogIjIwMjUtMDEtMjdUMTE6Mzg6NDguODg1WiIsCiAgInVwZGF0ZWQiOiAiMjAyNS0wMS0yN1QxMTozODo0OC44ODVaIiwKICAic3RvcmFnZUNsYXNzIjogIk1VTFRJX1JFR0lPTkFMIiwKICAidGltZVN0b3JhZ2VDbGFzc1VwZGF0ZWQiOiAiMjAyNS0wMS0yN1QxMTozODo0OC44ODVaIiwKICAic2l6ZSI6ICI5MzYzOSIsCiAgIm1kNUhhc2giOiAibkgzQkNqRVY4RVVGL2xvYm5Hem5vQT09IiwKICAibWVkaWFMaW5rIjogImh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9kb3dubG9hZC9zdG9yYWdlL3YxL2Ivd3NoLW1vbm9saXRoX2F0dGFjaG1lbnQtZGV2L28vQU1Eb2N1bWVudHMyJTJGODY2NSUyRjIwMjUwMTI3MDUzODQ4QWN0aXZhdGluZyUyMGNvcnBvcmF0aW9uLXN0ZXAlMjAxLXFhLnBuZz9nZW5lcmF0aW9uPTE3Mzc5Nzc5Mjg4NDA0NTgmYWx0PW1lZGlhIiwKICAiY3JjMzJjIjogImFDbGNrUT09IiwKICAiZXRhZyI6ICJDSXJxemFqb2xZc0RFQUU9Igp9Cg==",
+    "messageId":"13687553188774217",
+    "message_id":"13687553188774217",
+    "publishTime":"2025-01-27T11:38:48.965Z",
+    "publish_time":"2025-01-27T11:38:48.965Z"
+  },
+  "subscription":"projects/viki-qa-app-wsky/subscriptions/eventarc-us-east4-qa-external-files-sub-772"
+}
+
+### LTC Document create event
+POST {{host}}/api/document/external/create
+Authorization: Bearer eyJraWQiOiJxVml0cVpYbFQtTlN4Rm91eUFta2R4N1U2UkdpTkZwQTloOWVJZ2t3Qm1RIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnRCdlhNa2NFNnF5Z2xielBuTVYxS3g0WlJIZHlJQi1LVVZ5b1RaeUNOb0kiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2x4eHBtOWhyeVQyb1ZMMWQ3IiwiYXVkIjoidmlraS5kZXYud2VsbHNreS5pbyIsImlhdCI6MTc0NTk1Mzk0MiwiZXhwIjoxNzQ1OTU3NTQyLCJjaWQiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MuZGV2Lmx0YyIsInNjcCI6WyJhcGkud2VsbHNreS52aWtpLmFpLnBhcGVyZ2xhc3MiXSwic3ViIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzLmRldi5sdGMifQ.QLWqQOiTD9cS5FNnSKg9Ch3SY_sqtg9aOPofUJeaEFkvLoF3xH5LHU4QE1rZlBLLS4GrP8r56TsBxPhijG-_o2q1ftnisxI0xldyG4BbKGrsW7RWni1YBng8rZ3AA2mWO1NGFi2AlXcziKv7fWDWIZCeaqk-xEmrnIGTAOUjKblczPW6cNxzgfCmkgSSZK9wmM7NB8m3-T34Kwa7dOsj8wNoUbrR0CMOuw2GFuEbV9DLpjOW181ulp5ZZCnzvoshYLmAMItzYmFmYX1lQIf_ZJPUZ9WQOBGxtybKn8q3RYzFeUSO8cvgB5L-TwBuD4R59KuYSYO99mD6-YqsrqarAw
+
+{
+  "appId": "007",
+  "tenantId": "54321",
+  "patientId": "53a9f083ae55450ebacae7e8003d2e41",
+  "hostFileId": "1111",
+  "fileName": "test.pdf",
+  "fileType": "application/pdf",
+  "createdOn": "2025-01-22T17:18:22.271+00:00",
+  "repositoryType": "API",
+  "api": {
+    "method": "GET",
+    "url": "http://127.0.0.1:13000/api/data?filename=fake_ephemerol_ng.png",
+    "headers": {}
+  },
+  "metadata": {
+    "extract_enabled": true
+  }
+}
+
+
+###
+GET http://127.0.0.1:13000/api/data?filename=fake_ephemerol_ng.png
+

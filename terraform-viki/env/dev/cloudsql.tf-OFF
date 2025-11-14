@@ -1,0 +1,238 @@
+# Generating Random String for cloudsql instance name
+resource "random_string" "random" {
+  count   = var.enable_cloudsql ? 1 : 0
+  length  = 3
+  special = false
+  upper   = false
+}
+
+# SQL Server Cloud SQL Database Instance
+module "cloudsql" {
+  count   = var.enable_cloudsql ? 1 : 0
+  source  = "terraform.wellsky.net/wellsky/cloudsql/gcp//modules/mssql"
+  version = "5.2.6"
+
+  availability_type = "ZONAL"
+
+  backup_configuration = {
+    binary_log_enabled             = false
+    enabled                        = true
+    point_in_time_recovery_enabled = false
+    start_time                     = "02:00" # 2 AM backup time
+    backup_retention_settings = {
+      retained_backups = 7
+      retention_unit   = "COUNT"
+    }
+  }
+
+  # SQL Server specific database flags
+  database_flags = [
+    {
+      name  = "user connections"
+      value = "100"
+    }
+  ]
+
+  deletion_protection = false
+
+  database_version = "SQLSERVER_2022_STANDARD"
+  db_collation     = "SQL_Latin1_General_CP1_CI_AS" # SQL Server default collation
+  db_charset       = "UTF8"
+  disk_type        = "PD_SSD"
+  disk_size        = 100 # Increased for SQL Server
+
+  ip_configuration = {
+    authorized_networks = []
+    ipv4_enabled        = false
+    private_network     = "projects/${var.network_project_id}/global/networks/${var.network}"
+    require_ssl         = false # encryption not required on a private network
+  }
+
+  insights_config = {
+    enabled                 = true
+    query_plans_per_minute  = 5
+    query_string_length     = 1024
+    record_application_tags = false
+    record_client_address   = false
+  }
+
+  labels = merge(var.labels, {
+    database-type = "sqlserver"
+    purpose       = "application-database"
+  })
+
+  maintenance_window = {
+    day          = 7        # Sunday
+    hour         = 3        # 3:00 AM
+    update_track = "stable" # Receive updates later (stable)
+  }
+
+  name                   = "viki-sqlserver-meddb-${var.env}"
+  project_id             = var.app_project_id
+  random_password_length = 16
+  region                 = var.region
+  tier                   = "db-custom-2-13312" # 2 vCPUs, 13GB RAM for SQL Server
+  zone                   = var.zone
+
+  create_timeout = "60m"
+}
+
+# Save the passwords into secret manager for later access
+module "cloudsql_root_password" {
+  count   = var.enable_cloudsql ? 1 : 0
+  source  = "terraform.wellsky.net/wellsky/secret/gcp"
+  version = "0.4.2"
+
+  labels              = var.labels
+  name                = "sqlserver-root-password"
+  accessors           = var.managers
+  managers            = var.managers
+  project_id          = var.app_project_id
+  secret_data         = module.cloudsql[0].root_password
+  replication_regions = [var.region]
+}
+
+module "cloudsql_user_password" {
+  count   = var.enable_cloudsql ? 1 : 0
+  source  = "terraform.wellsky.net/wellsky/secret/gcp"
+  version = "0.4.2"
+
+  labels              = var.labels
+  accessors           = var.managers
+  managers            = var.managers
+  name                = "sqlserver-user-password"
+  project_id          = var.app_project_id
+  secret_data         = module.cloudsql[0].user_password
+  replication_regions = [var.region]
+}
+
+# Create additional databases on the SQL Server instance
+resource "google_sql_database" "application_db" {
+  count    = var.enable_cloudsql ? 1 : 0
+  name     = "viki_application"
+  instance = module.cloudsql[0].instance_name
+  project  = var.app_project_id
+
+  depends_on = [module.cloudsql]
+}
+
+resource "google_sql_database" "analytics_db" {
+  count    = var.enable_cloudsql ? 1 : 0
+  name     = "viki_analytics"
+  instance = module.cloudsql[0].instance_name
+  project  = var.app_project_id
+
+  depends_on = [module.cloudsql]
+}
+
+# Create additional SQL Server users
+resource "google_sql_user" "app_user" {
+  count    = var.enable_cloudsql ? 1 : 0
+  name     = "viki_app_user"
+  instance = module.cloudsql[0].instance_name
+  project  = var.app_project_id
+  password = random_password.app_user_password[0].result
+
+  depends_on = [module.cloudsql]
+}
+
+resource "google_sql_user" "readonly_user" {
+  count    = var.enable_cloudsql ? 1 : 0
+  name     = "viki_readonly_user"
+  instance = module.cloudsql[0].instance_name
+  project  = var.app_project_id
+  password = random_password.readonly_user_password[0].result
+
+  depends_on = [module.cloudsql]
+}
+
+# Generate passwords for additional users
+resource "random_password" "app_user_password" {
+  count   = var.enable_cloudsql ? 1 : 0
+  length  = 16
+  special = true
+}
+
+resource "random_password" "readonly_user_password" {
+  count   = var.enable_cloudsql ? 1 : 0
+  length  = 16
+  special = true
+}
+
+# Store additional user passwords in Secret Manager using native Google Cloud resources
+resource "google_secret_manager_secret" "app_user_password" {
+  count     = var.enable_cloudsql ? 1 : 0
+  secret_id = "sqlserver-app-user-password"
+  project   = var.app_project_id
+
+  labels = var.labels
+
+  replication {
+    user_managed {
+      replicas {
+        location = var.region
+      }
+    }
+  }
+}
+
+resource "google_secret_manager_secret_version" "app_user_password" {
+  count       = var.enable_cloudsql ? 1 : 0
+  secret      = google_secret_manager_secret.app_user_password[0].id
+  secret_data = random_password.app_user_password[0].result
+}
+
+resource "google_secret_manager_secret" "readonly_user_password" {
+  count     = var.enable_cloudsql ? 1 : 0
+  secret_id = "sqlserver-readonly-user-password"
+  project   = var.app_project_id
+
+  labels = var.labels
+
+  replication {
+    user_managed {
+      replicas {
+        location = var.region
+      }
+    }
+  }
+}
+
+resource "google_secret_manager_secret_version" "readonly_user_password" {
+  count       = var.enable_cloudsql ? 1 : 0
+  secret      = google_secret_manager_secret.readonly_user_password[0].id
+  secret_data = random_password.readonly_user_password[0].result
+}
+
+# IAM bindings for secret access
+resource "google_secret_manager_secret_iam_binding" "app_user_password_accessors" {
+  count     = var.enable_cloudsql ? 1 : 0
+  project   = var.app_project_id
+  secret_id = google_secret_manager_secret.app_user_password[0].secret_id
+  role      = "roles/secretmanager.secretAccessor"
+  members   = var.managers
+}
+
+resource "google_secret_manager_secret_iam_binding" "app_user_password_managers" {
+  count     = var.enable_cloudsql ? 1 : 0
+  project   = var.app_project_id
+  secret_id = google_secret_manager_secret.app_user_password[0].secret_id
+  role      = "roles/secretmanager.admin"
+  members   = var.managers
+}
+
+resource "google_secret_manager_secret_iam_binding" "readonly_user_password_accessors" {
+  count     = var.enable_cloudsql ? 1 : 0
+  project   = var.app_project_id
+  secret_id = google_secret_manager_secret.readonly_user_password[0].secret_id
+  role      = "roles/secretmanager.secretAccessor"
+  members   = var.managers
+}
+
+resource "google_secret_manager_secret_iam_binding" "readonly_user_password_managers" {
+  count     = var.enable_cloudsql ? 1 : 0
+  project   = var.app_project_id
+  secret_id = google_secret_manager_secret.readonly_user_password[0].secret_id
+  role      = "roles/secretmanager.admin"
+  members   = var.managers
+}

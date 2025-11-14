@@ -1,0 +1,27 @@
+parameters:
+  - name: githubConnection
+    type: string
+
+  - name: version
+    type: string
+
+steps:
+  # create a release when on main branch
+  - script: |
+      echo $(Build.Repository.Name)
+    displayName: First variable pass
+
+  - task: GitHubRelease@1
+    displayName: Create Release
+    condition: succeeded()
+    inputs:
+      action: create
+      addChangeLog: false
+      changeLogCompareToRelease: lastFullRelease
+      changeLogType: commitBased
+      gitHubConnection: ${{ parameters.githubConnection }}
+      repositoryName: $(Build.Repository.Name)
+      tag: v${{ parameters.version }}
+      tagSource: userSpecifiedTag
+      title: v${{ parameters.version }}
+      target: main

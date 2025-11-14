@@ -1,0 +1,42 @@
+Do you possess any vitals signs like for Pulse Apical?
+yes i do 
+Do you possess any vitals signs like for Pulse Radial?
+No as such
+Are you aware of vital temp value?
+No i am not
+Are you aware of vital resp value?
+Yes i am
+Aware of your height?
+Yes i am and its 6 feet 9 inches
+Aware of your weight?
+yes its around 75kgs
+Aware of your vital sign for BP that too left lying?
+No i am not
+Aware of your vital sign for BP that too left sitting?
+yes i am
+Aware of your vital sign for BP that too left standing?
+No i am not
+Aware of your vital sign for BP that too right lying?
+No i am not
+Aware of your vital sign for BP that too right sitting?
+Yes 
+Aware of your vital sign for BP that too right standing?
+Yes
+Whether there is a need to notify physician of your temperature greater then or less than?
+yes greater then 24
+Whether there is a need to notify physician of your pulse greater then or less than?
+No there is not
+Whether there is a need to notify physician of your respirations greater then or less than?
+No there is not 
+Whether there is a need to notify physician of your systolic BP greater then or less than?
+No there is not
+Whether there is a need to notify physician of your diastolic greater then or less than?
+Yes when greater then
+Whether there is a need to notify physician of your O2 sat less than?
+No there is not
+Whether there is a need to notify physician of your fasting blood sugar greater then or less than?
+No there is not
+Whether there is a need to notify physician of your random blood sugar greater then or less than?
+Yes there is such need
+Whether there is a need to notify physician of your weight greater then or less than?
+Yes whenever it is greater then 75 kgs

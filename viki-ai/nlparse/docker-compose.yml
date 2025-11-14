@@ -1,0 +1,53 @@
+version: '3.0'
+services:
+  widget:
+    image: nlparse-widget
+    build:
+      context: widget
+      dockerfile: Dockerfile.dev
+      secrets:
+        - npmrc
+    ports:
+      - '14001:14001'
+    volumes:
+      - type: bind
+        source: ./widget/src
+        target: /widget/src
+      - type: bind
+        source: ./widget/public
+        target: /widget/public
+
+  api:
+    image: nlparse-api
+    build:
+      context: api
+    ports:
+      - '14000:14000'
+    tty: true  # Colors
+    environment:
+      SERVICE: nlparse
+      STAGE: dev
+      VERSION: dev
+      DEBUG: 'true'
+      GCP_PROJECT_ID: viki-dev-app-wsky
+      GCP_REGION: us-central1
+      AWS_DEFAULT_REGION: us-east-1
+      PYTHONUNBUFFERED: "1"  # Flush `print`s immediately
+      # OKTA_DISABLE: 'true'
+      # OKTA_ISSUER: 'https://wellsky-ciam.oktapreview.com/oauth2/ausajt8hv1B8S7hkh1d7'  # Dev env issuer
+      # OKTA_AUDIENCE: viki.dev.wellsky.io  # Dev audience
+      # OKTA_SCOPE: api.wellsky.viki.ai.transcription
+    volumes:
+      - type: bind
+        source: ./api/nlparse
+        target: /api/nlparse
+      - type: bind
+        source: $HOME/.config/gcloud
+        target: /root/.config/gcloud
+      - type: bind
+        source: $HOME/.aws
+        target: /root/.aws
+
+secrets:
+  npmrc:
+    file: ../.npmrc

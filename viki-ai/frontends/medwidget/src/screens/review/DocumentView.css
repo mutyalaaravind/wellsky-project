@@ -1,0 +1,36 @@
+.full-height-chakra-tabs {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+
+  /* Prevent overflowing the parent and instead fill the parent */
+  min-height: 0;
+}
+
+.full-height-chakra-tabs .chakra-tabs__tablist {
+  /* border: 1px solid red; */
+  overflow: auto hidden;
+}
+
+.full-height-chakra-tabs .chakra-tabs__tab-panels {
+  height: 100%;
+  /* flex: 1; */
+  flex: 1 1 0%;
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+
+  /* Prevent overflowing the parent and instead fill the parent */
+  min-height: 0;
+}
+
+.full-height-chakra-tabs .chakra-tabs__tab-panels .chakra-tabs__tab-panel {
+  flex: 1;
+  height: 100%;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+
+  /* Prevent overflowing the parent and instead fill the parent */
+  min-height: 0;
+}

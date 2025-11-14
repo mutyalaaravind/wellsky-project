@@ -1,0 +1,290 @@
+# Build & push images to dev GAR
+name: Build & push for Dev
+
+on:
+  # Run on pull requests
+  pull_request: {}
+  push:
+    # Run on pushes to main
+    branches:
+      - "main"
+    # Run on tag pushes
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: read # This is required for actions/checkout
+  id-token: write # This is required for requesting the JWT
+
+env:
+  # Do not modify following parameters
+  DEV_WIP: projects/766679521273/locations/global/workloadIdentityPools/ci-cd-dev/providers/wellsky-github
+  DEV_SA: github-builder@viki-dev-mgmt-wsky.iam.gserviceaccount.com
+  DEV_GAR_URL: us-east4-docker.pkg.dev/viki-dev-mgmt-wsky/images
+  DEV_GCS_BUCKET: viki-static-dev
+
+jobs:
+  medication-extraction-tests:
+    name: Run Evaluations on Medication Extraction
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        working-directory: ./medication_extraction
+        run: |
+          pip install uv
+          uv venv
+          source .venv/bin/activate
+          uv pip install .
+          uv pip install ".[test]"
+
+      - name: Run unit tests
+        working-directory: ./medication_extraction
+        run: set -a && . ./.env.local && set +a && uv run pytest tests/unit/ -v --cov-report=term-missing --cov-report=html
+
+  entity-extraction-tests:
+    name: Run Evaluations on Entity Extraction
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        working-directory: ./entity_extraction
+        run: |
+          pip install uv
+          uv venv
+          source .venv/bin/activate
+          uv pip install .
+          uv pip install ".[test]"
+
+      - name: Run unit tests
+        working-directory: ./entity_extraction
+        run: uv run pytest tests/unit/ -v --cov-report=term-missing --cov-fail-under=80
+
+  build-push-images:
+    needs: [medication-extraction-tests, entity-extraction-tests]
+    strategy:
+      matrix:
+        service:
+          - [autoscribe, api]
+          - [autoscribe, widget]
+          - [extract-and-fill, api]
+          - [extract-and-fill, widget]
+          - [demo, api]
+          - [demo, dashboard]
+          - [admin, api]
+          - [admin, ui]
+          - [nlparse, api]
+          - [nlparse, widget]
+          - [paperglass, api]
+          - [paperglass, widget]
+          - [medication_extraction, ""]
+          - [entity_extraction, ""]
+          - [distributed_job_tracking, ""]
+    name: Build & push image - ${{ matrix.service[0] }}${{ matrix.service[1] && format('/{0}', matrix.service[1]) || '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all tags
+          # https://github.com/actions/checkout/issues/426#issuecomment-764193404
+          # https://github.com/actions/checkout#Checkout-pull-request-HEAD-commit-instead-of-merge-commit
+          # Always use SHA1 of the latest real commit, not the merge commit
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Generate image tag
+        id: generate_image_tag
+        run: |
+          IMAGE_TAG=`git describe --tags --always`  # e.g. v1.34.0-3-g6772a6a3
+          HEAD_REF=`git rev-parse HEAD`  # e.g. 6772a6a378ed9e1a382237497ac5bd9aeae73c13
+          echo "Image tag: $IMAGE_TAG"
+          echo "HEAD ref: $HEAD_REF"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
+          echo "HEAD_REF=$HEAD_REF" >> "$GITHUB_ENV"
+
+      # Check for Dockerfile changes
+      - name: Check Dockerfile changes
+        id: dockerfile_check
+        run: |
+          if [ -z "${{matrix.service[1]}}" ]; then
+            DOCKERFILE_PATH="${{matrix.service[0]}}/Dockerfile"
+          else
+            DOCKERFILE_PATH="${{matrix.service[0]}}/${{matrix.service[1]}}/Dockerfile"
+          fi
+          if git diff --quiet HEAD^ HEAD -- "$DOCKERFILE_PATH"; then
+            echo "dockerfile_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "dockerfile_changed=true" >> "$GITHUB_OUTPUT"
+            # Invalidate cache by setting a unique cache key
+            echo "cache_key=$(date +%s)" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Build & push to dev
+      - name: Authenticate to Google Cloud
+        id: auth_dev
+        # if: ${{ github.event_name != 'pull_request' }}
+        uses: "google-github-actions/auth@v1"
+        with:
+          workload_identity_provider: ${{ env.DEV_WIP }}
+          service_account: ${{ env.DEV_SA }}
+          token_format: access_token
+
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v2
+        with:
+          registry: us-east4-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth_dev.outputs.access_token }}
+
+      - name: Copy shared directory for BFF services
+        if: ${{ matrix.service[1] != '' }}
+        run: |
+          cp -r shared ${{matrix.service[0]}}/${{matrix.service[1]}}/
+
+      - name: Build & push image for BFF
+        uses: docker/build-push-action@v4
+        if: ${{ matrix.service[1] != '' }}
+        with:
+          context: ${{ matrix.service[0] == 'admin' && matrix.service[1] == 'api' && '.' || format('{0}/{1}', matrix.service[0], matrix.service[1]) }}
+          file: ${{ matrix.service[0] == 'admin' && matrix.service[1] == 'api' && 'admin/api/Dockerfile' || format('{0}/{1}/Dockerfile', matrix.service[0], matrix.service[1]) }}
+          secrets: |
+            "npmrc=${{ secrets.NPMRC }}"
+          tags: |
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}:latest
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}:${{env.IMAGE_TAG}}
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}:${{env.HEAD_REF}}
+          cache-from: |
+            type=registry,ref=${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}-cache:${{ steps.dockerfile_check.outputs.cache_key || 'latest' }}
+          cache-to: |
+            type=registry,ref=${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}-cache:${{ steps.dockerfile_check.outputs.cache_key || 'latest' }},mode=max
+          push: true # ${{ github.event_name != 'pull_request' }}
+          no-cache: ${{ steps.dockerfile_check.outputs.dockerfile_changed == 'true' || matrix.service[0] == 'admin' }}
+      - name: Copy shared directory for non-BFF services
+        if: ${{ matrix.service[1] == '' }}
+        run: |
+          cp -r shared ${{matrix.service[0]}}/
+
+      - name: Build & push image for non-BFF
+        uses: docker/build-push-action@v4
+        if: ${{ matrix.service[1] == '' }}
+        with:
+          context: ${{matrix.service[0]}}
+          secrets: |
+            "npmrc=${{ secrets.NPMRC }}"
+          tags: |
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}:latest
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}:${{env.IMAGE_TAG}}
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}:${{env.HEAD_REF}}
+          cache-from: |
+            type=registry,ref=${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-cache:${{ steps.dockerfile_check.outputs.cache_key || 'latest' }}
+          cache-to: |
+            type=registry,ref=${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-cache:${{ steps.dockerfile_check.outputs.cache_key || 'latest' }},mode=max
+          push: true # ${{ github.event_name != 'pull_request' }}
+          no-cache: ${{ steps.dockerfile_check.outputs.dockerfile_changed == 'true' }}
+
+  build-push-frontends:
+    name: ${{ github.event_name == 'pull_request' && format('Build only static - {0}', matrix.frontend) || format('Build & push static - {0}', matrix.frontend) }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        frontend:
+          - sample
+          - medwidget
+
+    defaults:
+      run:
+        working-directory: ./frontends/${{matrix.frontend}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all tags
+          # https://github.com/actions/checkout/issues/426#issuecomment-764193404
+          # https://github.com/actions/checkout#Checkout-pull-request-HEAD-commit-instead-of-merge-commit
+          # Always use SHA1 of the latest real commit, not the merge commit
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: ./frontends/${{matrix.frontend}}/package-lock.json
+
+      - name: Generate version
+        id: generate_version
+        run: |
+          VERSION=`git describe --tags --always`  # e.g. v1.34.0-3-g6772a6a3
+          HEAD_REF=`git rev-parse HEAD`  # e.g. 6772a6a378ed9e1a382237497ac5bd9aeae73c13
+          echo "Version: $VERSION"
+          echo "HEAD ref: $HEAD_REF"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "HEAD_REF=$HEAD_REF" >> "$GITHUB_ENV"
+
+      - name: Authenticate to Google Cloud
+        id: auth_dev
+        uses: "google-github-actions/auth@v2"
+        with:
+          workload_identity_provider: ${{ env.DEV_WIP }}
+          service_account: ${{ env.DEV_SA }}
+          # create_credentials_file: true
+          # export_environment_variables: true
+          # token_format: access_token
+
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v2"
+        with:
+          version: ">= 450.0.0"
+          project_id: viki-dev-mgmt-wsky
+
+      - name: "Configure .npmrc"
+        env:
+          NPMRC: ${{ secrets.NPMRC }}
+        run: |
+          printf "$NPMRC" > ./.npmrc
+
+      - name: "Print info"
+        run: |
+          pwd
+          ls -l
+          gcloud info
+          npm config get
+
+      - name: "Build static"
+        run: |
+          pwd
+          ls -l
+          npm ci
+          npm run build
+
+      - name: "Copy static to GCS"
+        if: ${{ github.event_name != 'pull_request' }}
+        run: |
+          gsutil -m cp -r ./build/* gs://${{ env.DEV_GCS_BUCKET }}/frontends/${{ matrix.frontend }}/${{env.VERSION}}/
+          gsutil -m cp -r ./build/* gs://${{ env.DEV_GCS_BUCKET }}/frontends/${{ matrix.frontend }}/${{env.HEAD_REF}}/

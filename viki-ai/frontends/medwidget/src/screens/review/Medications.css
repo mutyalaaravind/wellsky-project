@@ -1,0 +1,90 @@
+th[data-cy="table-head-actions"] {
+  position: sticky;
+  right: 0px;
+  padding-left: 14px;
+}
+
+th[data-cy="table-head-actions"]::before {
+  box-shadow: -5px 0px 7px 0px rgb(0 0 0 / 15%);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -1px;
+  width: 8px;
+  transform: translateX(100%);
+}
+
+.medication-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+/* Medication footer sticky positioning */
+.medication-footer {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid #E2E8F0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  z-index: 10;
+  margin: 0 -1rem -1rem -1rem; /* Extend to container edges */
+}
+
+/* Responsive styles for different orientations */
+@media screen and (orientation: landscape) {
+  .medication-footer {
+    padding: 0.75rem 1rem;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .medication-footer button {
+    min-height: 40px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* iPad specific optimizations */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .medication-footer {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to top, white 0%, white 90%, rgba(255,255,255,0.9) 100%);
+  }
+  
+  .medication-footer button {
+    font-size: 14px;
+    min-height: 38px;
+  }
+}
+
+/* Tablet portrait adjustments */
+@media screen and (max-width: 834px) and (orientation: portrait) {
+  .medication-footer {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .medication-footer button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* Smaller mobile devices */
+@media screen and (max-width: 480px) {
+  .medication-footer {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .medication-footer button {
+    font-size: 14px;
+    padding: 0.5rem 0.75rem;
+  }
+}

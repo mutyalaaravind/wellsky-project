@@ -1,0 +1,238 @@
+{
+    "M1300-1": {
+        "question": "Are you at risk of developing a pressure ulcer or injury?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-2": {
+        "question": "How is the skin turgor",
+        "instructions": "select Good if its good, Fair if its okay otherwise Poor"
+    },
+    "M1300-3": {
+        "question": "What is your skin color?",
+        "instructions": "select Pink/WNL if normal, Pale if skin is pale, Jaundice if skin is yellowish, Cyanotic if skin is bluish or purpulish"
+    },
+    "M1300-4": {
+        "question": "Is your skin dry?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-5": {
+        "question": "Is your skin diaphoretic?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-6": {
+        "question": "Is your skin warm?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-7": {
+        "question": "Is your skin cool?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-8": {
+        "question": "Do you have any wound?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-9": {
+        "question": "Do you have any ulcer?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-10": {
+        "question": "Do you have any incision on your skin?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-11": {
+        "question": "Do you have rash anywhere on your skin?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-12": {
+        "question": "Did you ever had an ostomy?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-13": {
+        "question": "Do you have any other skin condition?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-14": {
+        "question": "Have you been instructed on measures to control infection?",
+        "instructions": "select Yes if yes otherwise No"
+    },
+    "M1300-15": {
+        "question": "How are your nails?",
+        "instructions": "select Good if all well otherwise Problems"
+    },
+    "M1300-16": {
+        "question": "Is patient using pressure relieving devices of any types",
+        "instructions": "select Yes if yes otherwise No"
+    },
+    "M1306": {
+        "question": "Do you have atleast one unhealed pressure ulcer/injury at Stage 2 or higher or unstageable ulcer/injury?",
+        "instructions": "select 0 if no otherwise 1 if yes"
+    },
+    "M1311-A1": {
+        "question": "How many Stage 2 pressure ulcers do you have?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1311-B1": {
+        "question": "How many Stage 3 pressure ulcers do you have?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1311-C1": {
+        "question": "How many Stage 4 pressure ulcers  do you have?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1311-D1": {
+        "question": "How many unstageable pressure ulcers/injuries do you have due to non removable dressing/device?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1311-E1": {
+        "question": "How many unstageable pressure ulcers do you have due to coverage of wound bed by slough or eschar?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1311-F1": {
+        "question": "How many unstageable pressure ulcers/injuries do you have presenting as deep tissue injiuries?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1322": {
+        "question": "Can you tell current number of stage 1 pressure injuries?",
+        "instructions": "select 0 if 0, 1 if 1, 2 if 2, 3 if 3 otheriwse 4 or more for more than 3 injuries"
+    },
+    "M1324": {
+        "question": "What is the stage of most problematic unhealed pressur ulcer/injury that is stageable?",
+        "instructions": "select 1 if ulcer/injury at stage 1, 2 if ulcer/injury at stage 2, 3 if ulcer/injury at stage 3, 4 if ulcer/injury at stage 4 otherwise N/A if no ulcer/injury"
+    },
+    "M1330": {
+        "question": "Do you have a statis ulcer?",
+        "instructions": "select 0 if no ulcer, 1 if you have both observable & unobservable ulcer statis ulcer, 2 if you have observable statis ulcers only, 3 if you have unobservable stasis ulcers only"
+    },
+    "M1332": {
+        "question": "Can you tell current number of observable stasis ulcers?",
+        "instructions": "select 0 if 0, 1 if 1, 2 if 2, 3 if 3 otheriwse 4 or more for more than 3 ulcers"
+    },
+    "M1334": {
+        "question": "What is the stage of most problematic observable statis ulcer?",
+        "instructions": "select 1 if fully granulating, 2 if early/partial granulating otherwise 3 if not healing"
+    },
+    "M1340": {
+        "question": "Do you have a surgical wound?",
+        "instructions": "select 0 if no wound, 1 if atleast one surgical wound present, 2 if surgical wound present but not visible due to non removable dressing"
+    },
+    "M1342": {
+        "question": "What is the status of most problematic observable surgical wound?",
+        "instructions": "select 0 if newly epithelialized, 1 if fully granulating, 2 if early/partial granulated otheriwse 3 if wounds are not healing"
+    },
+    "M1300-17": {
+        "question": "What is the location of wound?",
+        "instructions": "tell the locaton of the wound"
+    },
+    "M1300-18": {
+        "question": "What is the status of wound?",
+        "instructions": "select Open if wound is open otherwise Close if wound is closed"
+    },
+    "M1300-19": {
+        "question": "When was the onset of wound?",
+        "instructions": "yes if date is given otherwise false"
+    },
+    "M1300-20": {
+        "question": "How are the wound edges?",
+        "instructions": "select from options i.e. Attached, Non-Attached, Epithelialized, Rolled or other"
+    },
+    "M1300-21": {
+        "question": "Do you have any wound present on admission?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-22": {
+        "question": "Can you tell the type of wound you have?",
+        "instructions": "select from options pressure injury, arterial ulcer, venous ulcer, bite, burn, diabetic, infection, skin lesion, skin tear, surgical wound, traumatic or other"
+    },
+    "M1300-23": {
+        "question": "What type of drainage you observe from the wound?",
+        "instructions": "select from options none, bloody, serous, serosanguineous, purulent or other"
+    },
+    "M1300-24": {
+        "question": "How much draignage do you observe?",
+        "instructions": "select from options none, scant, small, moderate or large"
+    },
+    "M1300-25": {
+        "question": "What kind of odour comes from the wounds?",
+        "instructions": "select from options none, fecal, foul, musty, pungent, strong, sweeet or other"
+    },
+    "M1300-26": {
+        "question": "What is the thickness of wound?",
+        "instructions": "select Partial if less thickness otherwise Full"
+    },
+    "M1300-27": {
+        "question": "What is the size of wound and if so give details?",
+        "instructions": "select N/A if wound size not available otherwise give details"
+    },
+    "M1300-28": {
+        "question": "How is the surrounding tissue of the wound?",
+        "instructions": "select from option intact, calloused, indurated, macerated, erythema, excoriated, fragile or other"
+    },
+    "M1300-29": {
+        "question": "What is the color of wound bed?",
+        "instructions": "select from options pink, red, blueish or purpulish"
+    },
+    "M1300-30": {
+        "question": "Do you see pinkness/redness in wounds and if so how much percentage?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-31": {
+        "question": "Do you see granulization in wounds and if so how much percentage?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-32": {
+        "question": "Do you see slough in wounds and if so how much percentage??",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-33": {
+        "question": "Do you see eschar in wounds and if so how much percentage?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-35": {
+        "question": "Do you see nectroic in wounds and if so how much percentage?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-36": {
+        "question": "Is undermining direction present and if so what it is?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-37": {
+        "question": "Is tunneling direction present and if so what it is?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-38": {
+        "question": "What is the severity of wound pain?",
+        "instructions": "select from options no pain, low, medium or high pain"
+    },
+    "M1300-39": {
+        "question": "Do you need SN to instruct Patient/Caregiver on turning/repositioning every 2 hours?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-40": {
+        "question": "Do you need SN to instruct Patient/Caregiver to float heels?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-41": {
+        "question": "Do you need SN to instruct Patient/Caregiver on methods to reduce friction and shear?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-42": {
+        "question": "Do you need SN to instruct Patient/Caregiver to pad on all bony prominences?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-43": {
+        "question": "Do you need SN to assess skin for breakdown every visit?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-44": {
+        "question": "Do you need SN to assess wounds at each dressing change and PRN for signs and symptoms of infection?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-45": {
+        "question": "Do you need SN to instruct Patient/Caregiver on signs/symptoms of wound infection to be reported to physician?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1300-46": {
+        "question": "Can wound care be discontinued after healing of it?",
+        "instructions": "if yes, select true otherwise false"
+    }
+}

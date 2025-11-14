@@ -1,0 +1,17 @@
+.page-badge {
+    position: absolute;
+    top: 1rem;
+    margin: 4px auto;
+    padding: 0;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.tooltip {
+    position: absolute;
+    top: 1rem;
+    margin: 4px auto;
+    padding: 0;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}

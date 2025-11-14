@@ -1,0 +1,12 @@
+{
+    "allergies": [
+        {
+            "substance": "advil",
+            "reaction": "nose itch"
+        },
+        {
+            "substance": "tylnol",
+            "reaction": "rash on head"
+        }
+    ]
+}

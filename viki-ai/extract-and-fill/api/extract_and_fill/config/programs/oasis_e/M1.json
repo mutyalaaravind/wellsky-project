@@ -1,0 +1,295 @@
+{
+    "M1000-1": {
+      "question": "Is your usual dietary intake within within the normal and healthy limits?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-2": {
+      "question": "Do you have difficulty in chewing or swallowing food?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-3": {
+      "question": "Have you noticed any significant decrease in your appetite recently?",
+      "instructions": "if yes, select true else false"
+    },
+    "M1000-4": {
+        "question": "Have you experienced any noticeable changes in your weight recently, such as unintentional weight loss or gain? ",
+        "instructions": "select Loss if loss of weigth, Gain if gain of wieght otherwise None"
+    },
+    "M1000-5": {
+        "question": "Are you ensuring that your meals are prepared and handled appropriately to maintain good hygiene and prevent food-related issues?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-6": {
+        "question": "Are you following proper diet?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-7": {
+        "question": "Is your diet adequate or inadequate?",
+        "instructions": "Adequate if diet is adequate, inadequate if diet is inadiquate otherwise None"
+    },
+    "M1000-8": {
+        "question": "Have you ever had a Nasogastric (NG) tube inserted for medical purposes?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-9": {
+    "question": "Have you ever had a Percutaneous Endoscopic Gastrostomy (PEG) tube placed for nutritional support?",
+    "instructions": "if yes, select true else false"
+    },
+    "M1000-10": {
+        "question": "Have you ever been fitted with a Dobhoff tube for nutritional support?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-11": {
+        "question": "Have the placement and functionality of the tube, whether it's a PEG tube, Dobhoff tube, or another type, been regularly checked and verified?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-12": {
+        "question": "Have the residual volumes in the feeding tube been regularly checked?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-13": {
+        "question": "Do you have any throat problems?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-14": {
+        "question": "Have you experienced any hoarseness or changes in your voice recently?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-15": {
+        "question": "Do you have sore throat?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-16": {
+        "question": "Are you having any dental problems?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-17": {
+        "question": "Do you currently use dentures?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-18": {
+        "question": "Are you facing any problem in chewing food?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-19": {
+        "question": "Do you feel any other issues?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-20": {
+        "question": "Have you lost more than 10 lbs in last 3 months without any reason?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-21": {
+        "question": "Do you have any illness or any condition which made you change the type and amount of food eaten?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-22": {
+        "question": "Do you have any open decubitus, ulcer, burn or wound?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-23": {
+        "question": "Do you eat less than 2 meals a day?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-24": {
+        "question": "Do you have any food or mouth problem which makes it hard to eat food?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-25": {
+        "question": "Do you have 3 or more drinks of beer liquor or wine almost everyday?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-26": {
+        "question": "Do you have insufficient money to buy food everyday?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-27": {
+        "question": "Do you eat few of fruits, vegetables or milk products?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-28": {
+        "question": "Do you eat alone most of the time?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-29": {
+        "question": "Do you take 3 or more prescibed or OTC medications a day?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-30": {
+        "question": "Are you physcially able to make and feed yourself without any assistance from caregiver?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-31": {
+        "question": "Have you been experiencing frequent episodes of diarrhea or constipation lately?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-32": {
+        "question": "Is patient's nutritional status good?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-33": {
+        "question": "Is patient at moderate nutritional risk?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-34": {
+        "question": "Is patient at high nutritional risk?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-35": {
+        "question": "Is patient non-compliant with prescribed diet?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-36": {
+        "question": "Is patient over or underweight by 10%?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-37": {
+        "question": "Do you require parental or IV feeding?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-38": {
+        "question": "Do you use any feeding tubes?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-39": {
+        "question": "Do you need change in texture of foods or liquid before consumption?",
+        "instructions": "if yes, select true else false"
+    },
+    "M1000-40": {
+      "question": "Do you follow therapeutic diet like low salt, diabetic or low cholestrol?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-41": {
+      "question": "Are none of the above four points applicable?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-42": {
+      "question": "Were you not assessed?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1870": {
+      "question": "Are you able to feed yourself independently and safely?",
+      "instructions": "select 0 if you are able to feed yourself independently, 1 if you are able to feeb independently but require intermittent assistance or meal setup or liquid/pureed/ground meet diet, 2 if you are unable to feed yourself and must be assisted or supervised throughout meal, 3 if you are able to take in nutrients orally and receive supplimental nutrients through tube or gastrostomy, 4 if you are unable to take in nutrients orally and receive supplimental nutrients through tube or gastrostomy, 5 if you are unable to take in nutrients orally or by tube feeding"
+    },
+    "M1000-43": {
+        "question": "Are you on low or high sodium diet?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-44": {
+      "question": "Are you on no salt diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-45": {
+      "question": "Are you on regular diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-46": {
+      "question": "Are you on high protein diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-47": {
+      "question": "Are you on low protein diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-48": {
+      "question": "Are you on low or high carbohydrate diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-49": {
+      "question": "Are you on mechanical soft diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-50": {
+      "question": "Are you on high fiber diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-51": {
+      "question": "Are you on any supplements?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-52": {
+      "question": "Are you on renal diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-53": {
+      "question": "Are you on coumadin diet?",
+      "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-54": {
+        "question": "Are you on fluid restriction?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-55": {
+        "question": "Are you on any other diet?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-56": {
+        "question": "Are you on no concentrated sweets diet?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-57": {
+        "question": "Is your heart healthy?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-58": {
+        "question": "Are you on low cholestrol diet?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-59": {
+        "question": "Are you on low fat diet?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-60": {
+        "question": "Do you need pump to feed you?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-61": {
+        "question": "Do you need gravity?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-62": {
+        "question": "Do you use PEG tube to feed you?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-63": {
+        "question": "Do you use NG tube to feed you?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-64": {
+        "question": "Do you use Dobhoff to feed you?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-65": {
+        "question": "Do you require Bolus feeding?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-66": {
+        "question": "Do you required TPN?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-67": {
+        "question": "Do you SN to assess you for diet complaince?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-68": {
+        "question": "Do you need SN to instruct Patient/Caregiver to keep a diet log?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-69": {
+        "question": "Do you need SN to instruct Patient/Caregiver on methods to promote oral intake?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-70": {
+        "question": "Do you need SN to instruct Patient/Caregiver on parentaral nutrition and use of equipment?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-71": {
+        "question": "Do you need SN to instruct Patient/Caregiver on enteral nutrition and use of equipment?",
+        "instructions": "if yes, select true otherwise false"
+    },
+    "M1000-72": {
+        "question": "Do you need SN to instruct Patient/Caregiver on proper use of tube?",
+        "instructions": "if yes, select true otherwise false"
+    }
+}
+  

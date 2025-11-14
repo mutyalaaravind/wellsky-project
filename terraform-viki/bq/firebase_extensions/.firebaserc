@@ -1,0 +1,102 @@
+{
+  "projects": {},
+  "targets": {},
+  "etags": {
+    "viki-dev-app-wsky": {
+      "extensionInstances": {
+        "fs-bq-medications-extracted-medications": "e4eb543baaa5e8f07727a2721d932df7656775a19fef787e0006e9cf94522bf1",
+        "fs-bq-medications-host-attachments": "26c7919ba448793f542f474835f21157bd2308320b3a819c186ff60082e06ed4",
+        "fs-bq-medications-imported-medications": "7147c10c48a6f62a41383c1e5c2e61b30f6198172578c14bede62f8126d59b89",
+        "fs-bq-medications-medication-profile": "743f5c3ccbccb50f34419a2bbdddfaff24996263a560ea11421708a1a298df8c",
+        "fs-bq-medications-user-entered-medications": "a7a85e2d3b6e2f7f2429d16ca0667396ab226fb345eb60d149a50e06a3e5ed18",
+        "fs-bq-medispan-meds": "241a438249c6e4ed5d2ab08f503904b0d8219b214fa51e87cf92253ee7eab394",
+        "fs-bq-paperglass-app-config": "e89ce6fb0123b97b42a3d57a287c2ae274d32fbf1bd48a9812ac4bd8c7a20703",
+        "fs-bq-paperglass-classified-pages": "990d10ef0fe84c702aafdbc65f8ab2f16251268289f5f85e18b463672a18bbdc",
+        "fs-bq-paperglass-commands": "17fd2b2d058dcc57cf1c80963de011573c761baaec08d0b2bea44ed1e21cc25a",
+        "fs-bq-paperglass-commands-processed": "a543586386d14ea5a51602a46aa6ba9b5cf6aed804ab4f46a87d854f5a9ba2ef",
+        "fs-bq-paperglass-doc-medications": "ca216a5d443db5662117555fe8e98b5257ad824940567879156a95ba793cab95",
+        "fs-bq-paperglass-doc-operation": "336ce907356c2ed133973bba26ccae53a3f694988781af4e00401f269239a96f",
+        "fs-bq-paperglass-doc-operation-definition": "1fd999914ba488a36dc93cfa9c909b26cd20e97d5cbfda185a8c5699fa1ccb06",
+        "fs-bq-paperglass-doc-operation-instance": "dbe9c18f9b10503fa38dff1b0888531c4bb9c6f5bd63b6a659fe5457493ecda3",
+        "fs-bq-paperglass-doc-operation-instance-log": "2fe6fce6b16cbce126ef5a215496f2f91300723e0a00b95514209c83b86caa72",
+        "fs-bq-paperglass-documents": "bd9d7622a1eca36d7b9dfd470a4855a04a4cd4633e09fcbdd845937ed9d90233",
+        "fs-bq-paperglass-events": "f731122c2c4e8d6dedf13d079aec7e745a92ae45667cc735866dbf3bde60293f",
+        "fs-bq-paperglass-events-processed": "74b266ffc062e49528b2072f6293e2c46a6c53e327c9e7df32d53ef644a1ff66",
+        "fs-bq-paperglass-page-operation": "0d722a8c15665c5bbb55bbd6d8fa50c84d3f47fb0c5bae4151e1fcd500191dba",
+        "fs-bq-paperglass-pages": "11786fdbaddb8582c2cce7e9c6f13512c370c701bad681e229462b9a7ff195b2"
+      }
+    },
+    "viki-qa-app-wsky": {
+      "extensionInstances": {
+        "fs-bq-medications-extracted-medications": "24bd79f5d0824f4c7c66836dcd3526d44df7784bec11b6b1ab72ee97d26a702f",
+        "fs-bq-medications-host-attachments": "effb62c9cc610e053fc28733804a0a6da341578759d7b2520fa0dac0378e198a",
+        "fs-bq-medications-imported-medications": "698768c9d28015208e8b1b794efdec0c84551e740b3723cc2479f97095298848",
+        "fs-bq-medications-medication-profile": "309537f7b338a68e99af641f5646c1d176b16888c4506089a675b31e91fdf213",
+        "fs-bq-medications-user-entered-medications": "bc85c45b66d7d1288a28e600d65c2eda789e3e7c9ccfd346d356bd85cf2e987c",
+        "fs-bq-medispan-meds": "95441a74e1e9a1b86549f4978a06224fd16a1ed8b24dcf55b637b06b0bf56e9b",
+        "fs-bq-paperglass-app-config": "a24aa806b5c7a435aeb25f63f4d946537b24fc32dd604b9ed7139d8a3c316ab7",
+        "fs-bq-paperglass-classified-pages": "43b4716e615d1d36fdd92f832529f0d8aec6cb0ff37964dbf51b7f0f6e6c0e72",
+        "fs-bq-paperglass-commands": "662bcfee88843bd120556c57a3ad407cca01c28535d0bd2a91c4a9a505bae7ef",
+        "fs-bq-paperglass-commands-processed": "91e8641e88640eeb54635f67ff551873b97e4bb6c6c702e11dee985046b61067",
+        "fs-bq-paperglass-doc-medications": "3992d29d90814582384cc26b642b05bd8ba91810e283312c3bbefad3c9467f80",
+        "fs-bq-paperglass-doc-operation": "80fc0312ed5c9093273941ed79f663864e83f6fee4bbf385bf2e900e33532c56",
+        "fs-bq-paperglass-doc-operation-definition": "8ebcb9164ea9dfe6865a993ef2badffb960244fc8f29554a453019f72d77f3c3",
+        "fs-bq-paperglass-doc-operation-instance": "f3e523f4c15dff620dceead0b19a5eb42e9dc01165328831258d3c7756bf2049",
+        "fs-bq-paperglass-doc-operation-instance-log": "99493173e6088ad25cb70f42644be40d0610e570c30f864a70545e19c02691a0",
+        "fs-bq-paperglass-documents": "465822008eef8be3ff9efc99776e00673e0c66952e3b26e137f2dbe2bb9cd8c9",
+        "fs-bq-paperglass-events": "ce6f0c8277c79f0e0e51ca6ae0944560b9d224ff9a6c0f2a88ee304997524ed7",
+        "fs-bq-paperglass-events-processed": "6f168f394879329d62f67ba54501c4f4eccc8b4437185ffa85fecac3078573f7",
+        "fs-bq-paperglass-page-operation": "9259da1cf669e08b7954ef282e751d09f0059b64152a4fef47614626ccbccf37",
+        "fs-bq-paperglass-pages": "6f49bde7bae1a593675ad3c81f3f379d2cd08afb2fac5b95fe69049781f3d9f9"
+      }
+    },
+    "viki-stage-app-wsky": {
+      "extensionInstances": {
+        "fs-bq-medications-extracted-medications": "e0ac1d945a44c5d708c2d49002dbad3cb64a918cae22770dd74fc02c42ac8d52",
+        "fs-bq-medications-host-attachments": "7ab3721010b65d06b22a5e2c9c98c4fc23309ec99785cd57a87c1632e78d1cc6",
+        "fs-bq-medications-imported-medications": "6ee1ec94b69bd44bf40b60bfae293cf08084120ae1c71cf066d951a782a0a5a3",
+        "fs-bq-medications-medication-profile": "5908961b2e5420c27ffc9be59e08b9522fc45cd251660ffe39da0fe41c8c82c0",
+        "fs-bq-medications-user-entered-medications": "b74d89d1a5d9832986eeed281d52b39358abd426c55a49e3baea586baccb5050",
+        "fs-bq-medispan-meds": "22ca9ba476dff31d1a751a1d4b428b074c26523f455ae84f39145276fd2f413b",
+        "fs-bq-paperglass-app-config": "13402ec42d0ceff0fe1d87744394a1e1c3750032a4745d9b4da78ada8ee62297",
+        "fs-bq-paperglass-classified-pages": "092f26f2b18d6410f7150ba1b0d10573d4699a9f467c2f7c8f11ad11519350b7",
+        "fs-bq-paperglass-commands": "155b6939858e10f0e5749991d4ac57886f841c4c9ad7c125d8d9d0842d4ebb30",
+        "fs-bq-paperglass-commands-processed": "f1e49d9b3d532ab04221d9532542c3c2960442a46d91f3708ea38151e2050adf",
+        "fs-bq-paperglass-doc-medications": "cd8f778210c43b7f98588ce22e442e083bc34f0e30375ce3307989f8c94884b8",
+        "fs-bq-paperglass-doc-operation": "bdce2e26f568cb0a9a441533d964f7c74b9ef5864de3c070bf130f54cff184df",
+        "fs-bq-paperglass-doc-operation-definition": "8ac962409e29b2a7e3782881b4975fde613a2be2f6e5b4ba73199098c7565b7a",
+        "fs-bq-paperglass-doc-operation-instance": "f8c7d14af652337a7857b73539d712a8e8723ff97370db7afaa33ead93abf9a9",
+        "fs-bq-paperglass-doc-operation-instance-log": "b2e41911ceeaea025dd14b6b9529e06d6e272bf52bef965caac32bc3f2eea857",
+        "fs-bq-paperglass-documents": "bf43f312b352510a3d2bad74fc3f345e8965a90cfa54268d2186f3eca3482349",
+        "fs-bq-paperglass-events": "e600b80aa5163cf2134d5286d07eb06677541fc820997716f979c218c7174d20",
+        "fs-bq-paperglass-events-processed": "af29b094cc20209e2ed93d703438db4783e9b070514df071cf656886dbe8592f",
+        "fs-bq-paperglass-page-operation": "2fe4bdfd9adc7bd56716b1e82edddec66866869359bc88ff2522c931c433f3e9",
+        "fs-bq-paperglass-pages": "f69d8a3d87643f8ee29d9acf5ff2d27c988271fa1d0b2cd3ffb7068efc870f2b"
+      }
+    },
+    "viki-prod-app-wsky": {
+      "extensionInstances": {
+        "fs-bq-medications-extracted-medications": "9169ca718e7f4e557a19a636d7cd7c1577de7ed57563c1e5284cfd7101639693",
+        "fs-bq-medications-host-attachments": "33013f3f1ab17bf7c772d5448a8dbb9f4b4fca546a3010a8a4bbc0dbfb2a0675",
+        "fs-bq-medications-imported-medications": "14466de0c2899f836624f1f21227c794a80d9889845882d63cf172e97ef829f1",
+        "fs-bq-medications-medication-profile": "b7f3769584219bf987b9183204851d16099d0da620d9dbbb8c0f27cb6a214f49",
+        "fs-bq-medications-user-entered-medications": "c6d2b1c57e1bccc4150086a0afa082f3c922fcfced85aae359b6fa856c965d22",
+        "fs-bq-medispan-meds": "9f9cbd09eafb193e1ff4015fc0acbce13c2b94ca414a978c701f4c89b2eec0b1",
+        "fs-bq-paperglass-app-config": "4a74dadcbb949a2c52caabb3890e405c53f6bf096f855d6d2345327dc2afdd3a",
+        "fs-bq-paperglass-classified-pages": "eb82f949946d171d74c4188f6ed3676cb089aab4a7f767f4bd87b23914537601",
+        "fs-bq-paperglass-commands": "6fef5e5ab00cfb7cf0f25a25cec2c14fd0211b93d55c7a922c4ee8c10e13afe2",
+        "fs-bq-paperglass-commands-processed": "77b1ca18e0da31e65d9496b59a51ed9d5483a78138a8b76af2567f46c74d8b74",
+        "fs-bq-paperglass-doc-medications": "0eda977bcc238c355f5160082ce5a3ff3b88e15145ef19e7c1587788fb14a532",
+        "fs-bq-paperglass-doc-operation": "9daed86f89e7d62ecc93d33c4c4496cf56a664f7efe3efcec5d0b06557731e28",
+        "fs-bq-paperglass-doc-operation-definition": "14ce99bb041aa789e7bbc04cf7782b5821bb79b63488eda438d78947b7164ac2",
+        "fs-bq-paperglass-doc-operation-instance": "5d3c1f6e2f510a7c3afd149e5d865100972ea1a3677ac8ab77b17a01b75ca240",
+        "fs-bq-paperglass-doc-operation-instance-log": "ae44766d19a0de92d250e247386a213e97342212a18d3e43ae68a97f4012dcc4",
+        "fs-bq-paperglass-documents": "32ca15acce0b30b2bff146b82ffc9b3f53359cc0956229dbb61500a37475434b",
+        "fs-bq-paperglass-events": "327fb87123c5e94ce4ad93956a9c988df9f1f64e79be91983075e4d985784c82",
+        "fs-bq-paperglass-events-processed": "93e9d526aace3636f423ccd6417c51bd903792b7748177521d29077d6df96cdb",
+        "fs-bq-paperglass-page-operation": "6a9b04d3a974e7dca5dd0b406803313ec1a5e36deff0fc88b612ad547e527064",
+        "fs-bq-paperglass-pages": "942a886e840feaa62a5369b7151f7e151a078ccaea74bc08abec153f515af349"
+      }
+    }
+  }
+}

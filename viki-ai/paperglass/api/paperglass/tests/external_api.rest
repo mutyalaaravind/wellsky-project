@@ -1,0 +1,91 @@
+### Test the new HTTP API endpoints
+@host_local = http://127.0.0.1:15003
+@host_dev = https://???.a.run.app
+@host_qa = https://???.a.run.app
+@host_stage = https://???.a.run.app
+@host_prod = https://???.a.run.app
+
+@base_url = {{host_local}}
+
+# For service account authentication, you need a token with an email claim.
+# Current token is missing email claim. Try these commands:
+#
+# 1. Get service account identity token (preferred):
+#    make print-sa-token
+#    or
+#    gcloud auth print-identity-token --impersonate-service-account=SERVICE_ACCOUNT_EMAIL
+#
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6ImJhNjNiNDM2ODM2YTkzOWI3OTViNDEyMmQzZjRkMGQyMjVkMWM3MDAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkM5UU16Zm5kbVdsVEJOTU5fVF9aLWciLCJpYXQiOjE3NTQ5MjE3OTgsImV4cCI6MTc1NDkyNTM5OH0.nM5S27fqTb0jy5Vn140n8smkZ6kG7VUMXcDybbG9KMzYtq51PE6Agy2ONByYw_FJ0bMPw9_V0uvRKMWIRVkna_hcLqXnoqCa70-MNGteouw5G9EWN9VEsnlzagOYHQkhiVxAepjkUpGV8_hfAUCD6Vy4WJEFaA6Jkh6sg-8FZ-kje6eriR3logXsHXR6beWcqF43klrl4nYDsPSKYXNLyaY7Ik4ctU-k5BEk8_xmj4RVl8toqNF1c0wlVbXlhwMIiL4sed-2_Lzb-a4CTVpx9WdBINTj3Ct95qz7S2rMB3zzmF7zT-hQa_VT_SlseVnCaxtvghyi2WxCkZmpxZtDyQ
+
+### Root endpoint
+GET {{base_url}}/
+Content-Type: application/json
+
+### Health check endpoint (root level)
+GET {{base_url}}/health
+Content-Type: application/json
+
+### API health endpoint
+GET {{base_url}}/api/health
+Content-Type: application/json
+
+### API status endpoint
+GET {{base_url}}/api/status
+Content-Type: application/json
+
+### POST /api/v1/documents/external/create (requires service authentication)
+POST {{base_url}}/api/v1/documents/external/create
+Content-Type: application/json
+Authorization: Bearer eyJraWQiOiJ5bWJ3OEpMYTZLZXh4NUxuZHZVUnhwSS0zWi1Ud2o5NmNxS3RiQWlmVHJZIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULm42TmV0TDY3OUJVb0ZnUEk4bVdjVlM4UUIxZEg5VURtYkJSYjRSSEFZOHciLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2x4eHBtOWhyeVQyb1ZMMWQ3IiwiYXVkIjoidmlraS5kZXYud2VsbHNreS5pbyIsImlhdCI6MTc1NDkyMTc1NywiZXhwIjoxNzU0OTI1MzU3LCJjaWQiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MuZGV2Lmx0YyIsInNjcCI6WyJhcGkud2VsbHNreS52aWtpLmFpLnBhcGVyZ2xhc3MiXSwic3ViIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzLmRldi5sdGMifQ.No90oBTF38EGZqZX5A9gxKJ6re5QsooKSdDfW2X_5PzLU0i-UyvoQ8DJVEsVlrpfgiiJNxtX1XIobGZmLi8p-3Y2GS6GR4v3fyXBCqPi6VsFWPa0pd-jdtqg6F6RnSNgrrlrzPjPy1_1_RSs8XXMzEfW4pIJuDgSLR7uHYJ2OpLXmDNCgquKfXwYDqwsHakv7eDKY-5IKJBSxTGy9keVt9OTpk6DK75yZ9PSpWYj-qPkJuJy9FeKHW_6_xunC2ZjIzya_J_6cmqtYN5NznNR2TLySM_YkSzdXeTQxECUdD-PHpitBxavQDkmfXLO6j6YsFbDqoTWHwCNArh9obLHCg
+
+{
+  "appId": "007",
+  "tenantId": "54321",
+  "patientId": "53a9f083ae55450ebacae7e8003d2e41",
+  "hostFileId": "test-file-00000000000004",
+  "fileName": "test-document.jpg",
+  "fileType": "image/jpeg",
+  "fileLength": 1024000,
+  "title": "Test Document",
+  "description": "A test document for API testing",
+  "createdOn": "2025-01-28T21:30:00Z",
+  "updatedOn": "2025-01-28T21:30:00Z",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "metadata": {
+    "source": "test",
+    "category": "medical",
+    "isMetadataPreserved": true
+  },
+  "active": true,
+  "repositoryType": "API",
+  "api": {
+    "method": "GET",
+    "url": "https://www.medicareinteractive.org/wp-content/uploads/2024/12/medicarecard.jpg",
+    "headers": {}
+  }
+}
+
+### API document status endpoint (requires authentication)
+GET {{base_url}}/api/v1/documents/status?host_attachment_id=test-00002&app_id=007&tenant_id=54321&patient_id=53a9f083ae55450ebacae7e8003d2e41
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### POST /api/v1/entities/search (requires authentication)
+POST {{base_url}}/api/v1/entities/search
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "appId": "007",
+  "tenantId": "54321",
+  "patientId": "53a9f083ae55450ebacae7e8003d2e41",  
+  "hostAttachmentId": "test-00002"
+}
+
+### FastAPI docs (only available in debug mode)
+GET {{base_url}}/docs
+Content-Type: text/html
+
+### FastAPI redoc (only available in debug mode)
+GET {{base_url}}/redoc
+Content-Type: text/html

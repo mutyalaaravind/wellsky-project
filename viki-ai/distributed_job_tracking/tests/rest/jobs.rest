@@ -1,0 +1,161 @@
+### Variables
+@local = http://localhost:19000
+@dev = https://ai-distributed-job-tracking-145042810266.us-east4.run.app
+@qa =
+@stage =
+@prod =
+
+@baseUrl = {{dev}}
+
+# gcloud print-identity-token  $(gcloud auth print-identity-token)
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6ImRkNTMwMTIwNGZjMWQ2YTBkNjhjNzgzYTM1Y2M5YzEwYjI1ZTFmNGEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IjlzZ2o0eDAwTWFzR0RCUmZjMXlucXciLCJpYXQiOjE3NTQwODIyNDgsImV4cCI6MTc1NDA4NTg0OH0.N4Cl8XOlioOeT6LoIZA4TyDm-QNLFYvJLM7wyx9Y2HMWJMj7DrfvXBCpiHIsSmq7xEbhTyTCRXDs4hRba9WlRIyHKB0wrvZpCkhVaLnWM1mt0r5eFM0kJ3uRWDNyh8oL6bOlJ1TxTkOjxFCrU_9Ozu3zQ2z4TsegTeb8UrURpPdAjLSrN9DuZHYru0geZXYzfkDXp56O0PqTooA4S0cKyYYpMT24_IsRMSrfrU2wwqDJb4pasFRazXG5M67-GYkr3he2v_I2oZkmAfoTurSYrTG9vtcXOH6Y5htTsXdT8eNCdRRV6HCCPzCbZS5p7N2s86YoLOhSL8Yoz0wM0i1MNA
+@contentType = application/json
+
+### Health Check
+GET {{baseUrl}}/api/health
+Authorization: Bearer {{token}}
+
+### DEBUG
+POST {{baseUrl}}/api/v1/jobs/20250715T140957-40614610d0da4eafa7a372b4a95fed76/pipelines/default:medication_extraction/status
+Content-Type: application/json
+
+{
+  "id": "default.medication_extraction",
+  "status": "COMPLETED",
+  "page_number": 1,
+  "metadata": {
+    "final_task_id": "MEDICATION_EXTRACT",
+    "final_task_results": {
+      "serialization_error": "'context'"
+    },
+    "pipeline_completion_reason": "no_next_tasks"
+  },
+  "app_id": "007",
+  "tenant_id": "54321",
+  "patient_id": "53a9f083ae55450ebacae7e8003d2e41",
+  "document_id": "6250a5ec618511f0b1260242ac140003",
+  "pages": 1
+}
+
+
+
+
+### Create a new job
+POST {{baseUrl}}/api/v1/jobs
+Content-Type: {{contentType}}
+
+{
+    "app_id": "test-app-001",
+    "tenant_id": "tenant-123",
+    "patient_id": "patient-456",
+    "document_id": "doc-789",
+    "run_id": "test-001",
+    "name": "Test Document Processing Job",
+    "pages": 8,
+    "metadata": {
+        "priority": "high",
+        "source": "upload",
+        "document_type": "medical_record"
+    }
+}
+
+### Create another job with different run_id
+POST {{baseUrl}}/api/v1/jobs
+Content-Type: {{contentType}}
+
+{
+    "app_id": "test-app-002",
+    "tenant_id": "tenant-456",
+    "patient_id": "patient-789",
+    "document_id": "doc-012",
+    "run_id": "run-002-test",
+    "name": "Another Test Job",
+    "pages": 12,
+    "metadata": {
+        "priority": "normal",
+        "source": "scan",
+        "document_type": "lab_report"
+    }
+}
+
+### Try to create duplicate job (should fail with 409)
+POST {{baseUrl}}/api/v1/jobs
+Content-Type: {{contentType}}
+
+{
+    "app_id": "test-app-001",
+    "tenant_id": "tenant-123",
+    "patient_id": "patient-456",
+    "document_id": "doc-789",
+    "run_id": "run-001-test",
+    "name": "Duplicate Job",
+    "pages": 5,
+    "metadata": {}
+}
+
+### Get job by run_id
+GET {{baseUrl}}/api/v1/jobs/test-001
+
+### Get non-existent job (should return 404)
+GET {{baseUrl}}/api/v1/jobs/non-existent-run-id
+
+### Update job
+PUT {{baseUrl}}/api/v1/jobs/run-001-test
+Content-Type: {{contentType}}
+
+{
+    "name": "Updated Test Document Processing Job",
+    "pages": 10,
+    "metadata": {
+        "priority": "urgent",
+        "source": "upload",
+        "document_type": "medical_record",
+        "updated": true
+    }
+}
+
+### Update non-existent job (should return 404)
+PUT {{baseUrl}}/api/v1/jobs/non-existent-run-id
+Content-Type: {{contentType}}
+
+{
+    "name": "This should fail"
+}
+
+### Get updated job to verify changes
+GET {{baseUrl}}/api/v1/jobs/run-001-test
+
+### Delete job
+DELETE {{baseUrl}}/api/v1/jobs/run-001-test
+
+### Try to get deleted job (should return 404)
+GET {{baseUrl}}/api/v1/jobs/run-002-test
+
+### Try to delete non-existent job (should return 404)
+DELETE {{baseUrl}}/api/v1/jobs/non-existent-run-id
+
+### Clean up - delete remaining test job
+DELETE {{baseUrl}}/api/v1/jobs/run-001-test
+
+### Verify cleanup
+GET {{baseUrl}}/api/v1/jobs/run-001-test
+
+### Test with minimal required fields
+POST {{baseUrl}}/api/v1/jobs
+Content-Type: {{contentType}}
+
+{
+    "app_id": "minimal-app",
+    "tenant_id": "minimal-tenant",
+    "patient_id": "minimal-patient",
+    "document_id": "minimal-doc",
+    "run_id": "minimal-run-id",
+    "name": "Minimal Job",
+    "pages": 1
+}
+
+### Get minimal job
+GET {{baseUrl}}/api/v1/jobs/minimal-run-id
+
+### Clean up minimal job
+DELETE {{baseUrl}}/api/v1/jobs/minimal-run-id

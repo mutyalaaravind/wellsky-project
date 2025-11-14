@@ -1,0 +1,1 @@
+"""Tests for viki_shared package."""

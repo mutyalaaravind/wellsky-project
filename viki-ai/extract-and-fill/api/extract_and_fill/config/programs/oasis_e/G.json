@@ -1,0 +1,226 @@
+{
+    "GG0100-1": {
+      "question": "were you able to take care of yourself prior to this illness or injury while bathing, dressing or using toilet?",
+      "instructions": "if totaly dependant, select 1. if needs some help, select 2. if independant, select 3. if unknown, select 8. if not applicable, select 9. "
+    },
+    "GG0100-2": {
+      "question": "were you able to move properly in the house prior to this illness or injury like walking from room to room?",
+      "instructions": "if totaly dependant, select 1. if needs some help, select 2. if independant, select 3. if unknown, select 8. if not applicable, select 9."
+    },
+    "GG0100-3": {
+      "question": "were you able to use stairs prior to this illness or injury?",
+      "instructions": "if totaly dependant, select 1. if needs some help, select 2. if independant, select 3. if unknown, select 8. if not applicable, select 9."
+    },
+    "GG0100-4": {
+        "question": "were you able to plan or schedule things prior to this illness or injury?",
+        "instructions": "if totaly dependant, select 1. if needs some help, select 2. if independant, select 3. if unknown, select 8. if not applicable, select 9."
+    },
+    "GG0110": {
+        "question": "were you using any device or aid prior to this illness or injury?",
+        "instructions": "if patient was using manual wheelchair, select A. if motorized wheelchair or scooter, select B. if mechanical lift, select C. if walker, select D. if prostetics or orthotics, select E. if none of the above, select Z."
+    },
+    "GG0130-A1": {
+        "question": "are you able to eat properly once the meal is placed before you?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-A2": {
+        "question": "what is your discharge goal for eating conditions?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-B1": {
+        "question": "are you able to take care of your oral health?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-B2": {
+        "question": "what is your discharge goal for oral health conditions?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-C1": {
+        "question": "are you able to take care of your toileting hygine?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-C2": {
+        "question": "what is your discharge goal for toileting conditions?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-E1": {
+        "question": "are you able to bath or take showers by yourself?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-E2": {
+        "question": "what is your discharge goal for bathing conditions?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-F1": {
+        "question": "are you able to dress and undress yourself from waist above?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-F2": {
+        "question": "what is your discharge goal for dressing conditions from waist above?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-G1": {
+        "question": "are you able to dress and undress yourself from waist below?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-G2": {
+        "question": "what is your discharge goal for dressing conditions from waist below?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-H1": {
+        "question": "are you able to wear or remove footwear?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0130-H2": {
+        "question": "what is your discharge goal for footwear conditions?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-A1": {
+        "question": "are you able to roll left and right while lying on back?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-A2": {
+        "question": "what is your discharge goal for rolling condition while lying?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-B1": {
+        "question": "are you able to move from sitting on the side of the bed to lying flat on the bed?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-B2": {
+        "question": "what is your discharge goal for moving from sitting on side of the bed to lying flat on the bed?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-C1": {
+        "question": "are you able to move from lying flat on the bed to sitting on the side of the bed?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-C2": {
+        "question": "what is your discharge goal for moving from lying flat on the bed to sitting on side of the bed?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-D1": {
+        "question": "are you able to stand from the sitting position?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-D2": {
+        "question": "what is your discharge goal for standing from sitting position?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-E1": {
+        "question": "are you able to transfer to and from chair to bed?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-E2": {
+        "question": "what is your discharge goal for transferring from or to chair?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-F1": {
+        "question": "are you able to get on and off a toilet or commode?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-F2": {
+        "question": "what is your discharge goal for getting on and off a toilet or commode?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-G1": {
+        "question": "are you able to get in and out of a car on passanger side?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-G2": {
+        "question": "what is your discharge goal for getting in and out of the car?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-I1": {
+        "question": "are you able to walk 10 feet while you are standing?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-I2": {
+        "question": "what is your discharge goal for walking 10 feet while standing?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-J1": {
+        "question": "are you able to walk 50 feet with two turns?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-J2": {
+        "question": "what is your discharge goal for walking 50 feet with two turns?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-K1": {
+        "question": "are you able to walk 150 feet?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-K2": {
+        "question": "what is your discharge goal for walking 150 feet?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-L1": {
+        "question": "are you able to walk 10 feet on an uneven surface?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-L2": {
+        "question": "what is your discharge goal for walking 10 feet on an uneven surface?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-M1": {
+        "question": "are you able to go up and down on a curb or step?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-M2": {
+        "question": "what is your discharge goal for getting up and down a curb or step?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-N1": {
+        "question": "are you able to go up and down 4 steps with or without a rail?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-N2": {
+        "question": "what is your discharge goal for getting up and down 4 steps with or without a rail?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-O1": {
+        "question": "are you able to go up and down 12 steps with or without a rail?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-O2": {
+        "question": "what is your discharge goal for getting up and down 12 steps with or without rail?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-P1": {
+        "question": "are you able to pick up small objects while standing?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-P2": {
+        "question": "what is your discharge goal for picking up small objects while standing?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-Q": {
+        "question": "do you use wheelchair or scooter?",
+        "instructions": "if yes, select 1 else select 0."
+    },
+    "GG0170-R1": {
+        "question": "are you able to wheel atleast 50 feet with 2 turns while sitting in a wheelchair?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-R2": {
+        "question": "what is your discharge goal for wheeling atleast 50 feet with 2 turns while sitting on wheelchair?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-RR1": {
+        "question": "what type of wheelchair or scooter do you use?",
+        "instructions": "if manual, select 1. if motorized, select 2."
+    },
+    "GG0170-S1": {
+        "question": "are you able to wheel atleast 150 feet while sitting in a wheelchair?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-S2": {
+        "question": "what is your discharge goal for wheeling atleast 150 feet while sitting on wheelchair?",
+        "instructions": "if totaly dependant, select 01. if needs maximal help, select 02. if needs moderate help, select 03. if needs supervision, select 04. if needs setup or clean-up help, select 05.if independant, select 06. if patient refused help, select 07. if not applicable, select 09. If not attempted due to environmental limitations, select 10. if not attempted due medical or safety conditions, select 88."
+    },
+    "GG0170-SS1": {
+        "question": "what type of wheelchair or scooter do you use?",
+        "instructions": "if manual, select 1. if motorized, select 2."
+    }
+}

@@ -1,0 +1,41 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiohttp = "==3.8.5"
+ariadne = "==0.20.1"  # GraphQL executor
+starlette = "==0.23.1"  # AsyncIO HTTP microframework
+uvicorn = "==0.18.3"  # ASGI web server
+kink = "==0.6.5"  # Dependency injection
+google-cloud-firestore = "==2.9.1"
+google-cloud-storage = "==2.7.0"
+watchdog = "==3.0.0"  # `watchmedo` command for auto-reloading
+pydantic = "==1.10.8"  # Typed models
+gcloud-aio-storage = "==8.2.0"  # AsyncIO version of google-cloud-storage
+google-cloud-speech = "==2.21.0"
+async-timeout = "==4.0.3"  # Required by aiohttp
+coloredlogs = "==15.0.1"  # Because colors
+websockets = "==11.0.3"
+okta-jwt-verifier = "==0.2.4"
+# awscli = {path = "./assets/healthscribe/aws-healthscribe-python-sdk/awscli-1.29.9-py3-none-any.whl"}
+# boto3 = {path = "./assets/healthscribe/aws-healthscribe-python-sdk/boto3-1.28.9-py3-none-any.whl"}
+# botocore = {path = "./assets/healthscribe/aws-healthscribe-python-sdk/botocore-1.31.9-py3-none-any.whl"}
+amazon-transcribe = "==0.6.2"
+# boto3-stubs = {version = "==1.28.69", extras = ["transcribe"]}
+aioboto3 = "==12.0.0"
+google-auth = "==2.23.3"
+aiocache = "==0.12.2"
+
+[dev-packages]
+black = "==23.7.0"
+pylint = "==2.16.1"
+pytest = "==7.2.1"
+pytest-cov = "==4.0.0"
+radon = "==6.0.1"
+mypy = "==0.991"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.5"

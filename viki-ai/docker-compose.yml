@@ -1,0 +1,140 @@
+version: '3.0'
+services:
+
+  firebase-tools:
+    extends:
+      file: ./common/docker-compose.yml
+      service: firebase-tools
+
+  jaegar:
+    extends:
+      file: ./common/docker-compose.yml
+      service: jaeger
+
+  redis:
+    extends:
+      file: ./common/docker-compose.yml
+      service: redis
+
+  # DOCX and HTML conversion to PDF Service
+  # gotenberg:
+  #   extends:
+  #     file: ./common/docker-compose.yml
+  #     service: gotenberg
+
+  # autoscribe-widget:
+  #   extends:
+  #     file: ./autoscribe/docker-compose.yml
+  #     service: widget
+
+  # autoscribe-api:
+  #   extends:
+  #     file: ./autoscribe/docker-compose.yml
+  #     service: api
+
+  # extract-widget:
+  #   extends:
+  #     file: ./extract-and-fill/docker-compose.yml
+  #     service: widget
+
+  # extract-api:
+  #   extends:
+  #     file: ./extract-and-fill/docker-compose.yml
+  #     service: api
+
+  # extract-events:
+  #   extends:
+  #     file: ./extract-and-fill/docker-compose.yml
+  #     service: events
+
+  # nlparse-widget:
+  #   extends:
+  #     file: ./nlparse/docker-compose.yml
+  #     service: widget
+
+  # nlparse-api:
+  #   extends:
+  #     file: ./nlparse/docker-compose.yml
+  #     service: api
+
+  # paperglass-widget:
+  #   extends:
+  #     file: ./paperglass/docker-compose.yml
+  #     service: widget
+
+  paperglass-api:
+    extends:
+      file: ./paperglass/docker-compose.yml
+      service: api
+
+  paperglass-external-api:
+    extends:
+      file: ./paperglass/docker-compose.yml
+      service: external-api
+
+  paperglass-events:
+    extends:
+      file: ./paperglass/docker-compose.yml
+      service: events
+
+  demo-api:
+    extends:
+      file: ./demo/docker-compose.yml
+      service: api
+
+  # demo-mcp:
+  #   extends:
+  #     file: ./demo-mcp/docker-compose.yml
+  #     service: demo-mcp
+
+  demo-dashboard:
+    extends:
+      file: ./demo/docker-compose.yml
+      service: dashboard
+
+  frontends-medwidget:
+    extends:
+      file: ./frontends/docker-compose.yml
+      service: medwidget
+  
+  medication-extraction-api:
+    extends:
+      file: ./medication_extraction/docker-compose.yml
+      service: medication-extraction-api
+
+  entity-extraction-api:
+    extends:
+      file: ./entity_extraction/docker-compose.yml
+      service: entity-extraction-api
+
+  cloudtask-emulator:
+    extends:
+      file: ./cloudtask-emulator/docker-compose.yml
+      service: cloudtask-emulator
+
+  distributed-job-tracking-api:
+    extends:
+      file: ./distributed_job_tracking/docker-compose.yml
+      service: distributed-job-tracking-api
+
+  admin-api:
+    extends:
+      file: ./admin/docker-compose.yml
+      service: admin-api
+
+  admin-ui:
+    extends:
+      file: ./admin/docker-compose.yml
+      service: admin-ui
+
+  # prompt-logger-api:
+  #   extends:
+  #     file: ./prompt_logger/docker-compose.yml
+  #     service: prompt-logger-api
+
+volumes:
+  redis_data:
+
+secrets:
+  npmrc:
+    file: .npmrc

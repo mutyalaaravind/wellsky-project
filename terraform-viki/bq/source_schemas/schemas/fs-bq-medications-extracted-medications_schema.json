@@ -1,0 +1,218 @@
+[
+  {
+    "name": "active",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "change_sets",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "deleted",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_reference",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "explaination",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.classification",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.discontinued_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.dosage",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.end_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.form",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.frequency",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.instructions",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.is_long_standing",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "medication.is_nonstandard_dose",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "medication.medispan_id",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.name",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.name_original",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.route",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.start_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medication.strength",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_id",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.classification",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.discontinued_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.dosage",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.end_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.form",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.frequency",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.instructions",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.is_long_standing",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "medispan_medication.is_nonstandard_dose",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "medispan_medication.medispan_id",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.name",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.name_original",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.route",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.start_date",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_medication.strength",
+    "type": "STRING"
+  },
+  {
+    "name": "medispan_status",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "page_id",
+    "type": "STRING"
+  },
+  {
+    "name": "page_number",
+    "type": "INTEGER"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "reason",
+    "type": "STRING"
+  },
+  {
+    "name": "route",
+    "type": "STRING"
+  },
+  {
+    "name": "score",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  }
+]

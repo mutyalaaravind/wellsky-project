@@ -1,0 +1,318 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_dev}}
+
+# Test token for 007 app, tenant 54321, patient c211f67a0a594ceab691e566b8b37c32
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNDk3N2ZjM2UxZDRmNWI4MTIzYzRhNzIwMGJlMzIxIiwidHlwIjoiSldUIn0.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiJjMjExZjY3YTBhNTk0Y2VhYjY5MWU1NjZiOGIzN2MzMiIsImFtdXNlcmtleSI6IjEyMzQ1IiwiaWF0IjoxNzUwMTc0NDY5LCJleHAiOjE3NTAxNzgwNjl9.Q_GxyjfPcFT09vx4PUjn-phY2ZHT0JNiQz3WtIMZCV95bBCeTmDz6HiFFb8KRCQjdC857zeg4yTK5dewBETEHlFi-o5Ip2Lvco4yPRLASVry1t5cC2C7PsqtcD1H04QbXBBd0zYyXdR0px9D9Tj1gQuUBW4yWVo62W8E_fxLp3ncxIYHbfrYo4C7Gk1ogLNRC6dOoXOb8ytKk6_yigj_Zl4R4M3HawOagwcuH4E6q2j8fkXsc2BS-vUS7OgP2OHvDvancl7Um5E3OCY-l2t4hLpEsYtwwSsoVofx-uP_AClYZmhnuFj1A-3ll8A9aMhUryP5DHoKQBAmRgFrw_CgNA
+
+### Admin Endpoints Tests ===================================================================
+
+GET {{host}}/api/admin/entity_schema/search?fqn=http://viki-ai-paperglass-api-1/api/schemas/007/insurance_data.json
+
+
+
+### Create Entity Schema - Basic Test (New Format)
+POST {{host}}/api/admin/entity_schema
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Insurance Data Schema",
+  "description": "A insurance data schema",
+  "app_id": "007",
+  "label": "Insurance",
+  "required_scopes": {
+    "extract": [],
+    "publish": ["memberId", "groupNumber"]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/schemas/007/insurance_data.json",
+    "title": "Insurance Data Schema",
+    "description": "A insurance data schema",
+    "type": "object",
+    "properties": {
+      "providerName": {
+        "type": "string",
+        "description": "Name of the insurance provider"
+      },
+      "employerName": {
+        "type": "string",
+        "description": "Name of insured's employer",
+        "maxLength": 100
+      },
+      "groupNumber": {
+        "type": "string",
+        "description": "Group number for the insurance policy"      
+      },
+      "memberName": {
+        "type": "string",
+        "description": "name of the insured member"      
+      },
+      "memberId": {
+        "type": "string",
+        "description": "Unique identifier for the insured member"
+      },
+      "planName": {
+        "type": "string",
+        "description": "Name of the insurance plan"
+      },
+      "metadata": {
+        "type": "object",
+        "description": "Additional metadata",
+        "additionalProperties": true
+      }
+    },  
+    "additionalProperties": false
+  }
+}
+
+### Create Entity Schema - Processing Object Example (New Format)
+POST {{host}}/api/admin/entity_schema
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Processing Object Schema",
+  "description": "Schema for processing objects with validation scopes",
+  "app_id": "GLOBAL",
+  "required_scopes": {
+    "extract": ["id"],
+    "publish": ["name"]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/schemas/processing-object.json",
+    "title": "Processing Object Schema",
+    "description": "Schema for processing objects with validation scopes",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Unique identifier for the object"
+      },
+      "name": {
+        "type": "string",
+        "description": "Name of the processing object",
+        "maxLength": 25
+      },
+      "run_id": {
+        "type": "string",
+        "description": "Identifier for the processing run"
+      },
+      "processing_progress": {
+        "type": "number",
+        "description": "Progress of processing as a decimal between 0 and 1",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "context": {
+        "type": "object",
+        "description": "Additional context information as key-value pairs",
+        "additionalProperties": true
+      }
+    },
+    "additionalProperties": false
+  }
+}
+
+### Create Entity Schema - Medical Entity Example (New Format)
+POST {{host}}/api/admin/entity_schema
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Medication Entity Schema",
+  "description": "Schema for medication entities extracted from documents",
+  "app_id": "007",
+  "required_scopes": {
+    "extract": ["medication_id", "name"],
+    "publish": ["medication_id", "name", "dosage", "extracted_from"]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/schemas/medication-entity.json",
+    "title": "Medication Entity Schema",
+    "description": "Schema for medication entities extracted from documents",
+    "type": "object",
+    "properties": {
+      "medication_id": {
+        "type": "string",
+        "description": "Unique identifier for the medication"
+      },
+      "name": {
+        "type": "string",
+        "description": "Name of the medication",
+        "maxLength": 200
+      },
+      "dosage": {
+        "type": "string",
+        "description": "Dosage information"
+      },
+      "frequency": {
+        "type": "string",
+        "description": "Frequency of administration"
+      },
+      "route": {
+        "type": "string",
+        "description": "Route of administration",
+        "enum": ["oral", "topical", "injection", "inhalation", "other"]
+      },
+      "start_date": {
+        "type": "string",
+        "description": "Start date in ISO format",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "end_date": {
+        "type": "string",
+        "description": "End date in ISO format",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "confidence_score": {
+        "type": "number",
+        "description": "Extraction confidence score",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "extracted_from": {
+        "type": "object",
+        "description": "Source information",
+        "properties": {
+          "document_id": {
+            "type": "string"
+          },
+          "page_number": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["document_id"],
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+}
+
+### Create Entity Schema - Invalid Schema (Missing ID) - Should Fail
+POST {{host}}/api/admin/entity_schema
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Invalid Schema",
+  "description": "This schema should fail because it has no ID",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Invalid Schema",
+    "description": "This schema should fail because it has no ID",
+    "type": "object",
+    "properties": {
+      "test": {
+        "type": "string"
+      }
+    }
+  }
+}
+
+### Create Entity Schema - Duplicate ID Test (Run after first test) - Should Fail
+POST {{host}}/api/admin/entity_schema
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Duplicate Test Entity Schema",
+  "description": "This should fail because the ID already exists",
+  "app_id": "007",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/schemas/007/insurance_data.json",
+    "title": "Duplicate Test Entity Schema",
+    "description": "This should fail because the ID already exists",
+    "type": "object",
+    "properties": {
+      "duplicate_test": {
+        "type": "string"
+      }
+    }
+  }
+}
+
+### Create Entity Schema - Complex Nested Schema (New Format)
+POST {{host}}/api/admin/entity_schema
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Complex Entity Schema",
+  "description": "A complex schema with nested objects and arrays",
+  "app_id": "007",
+  "required_scopes": {
+    "extract": ["entity_id"],
+    "publish": ["entity_id", "patient_info"]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/schemas/complex-entity.json",
+    "title": "Complex Entity Schema",
+    "description": "A complex schema with nested objects and arrays",
+    "type": "object",
+    "properties": {
+      "entity_id": {
+        "type": "string",
+        "description": "Unique identifier"
+      },
+      "patient_info": {
+        "type": "object",
+        "description": "Patient information",
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "age": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 150
+          }
+        },
+        "required": ["patient_id"],
+        "additionalProperties": false
+      },
+      "medications": {
+        "type": "array",
+        "description": "List of medications",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dosage": {
+              "type": "string"
+            }
+          },
+          "required": ["name"]
+        },
+        "minItems": 0,
+        "maxItems": 50
+      },
+      "tags": {
+        "type": "array",
+        "description": "Entity tags",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+}

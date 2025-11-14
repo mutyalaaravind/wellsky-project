@@ -1,0 +1,78 @@
+[
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "context",
+    "type": "RECORD"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "document_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_definition_id",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "elapsed_time",
+    "type": "FLOAT"
+  },
+  {
+    "name": "end_datetime",
+    "type": "STRING"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "page_number",
+    "type": "INTEGER"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "start_datetime",
+    "type": "STRING"
+  },
+  {
+    "name": "status",
+    "type": "STRING"
+  },
+  {
+    "name": "step_id",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  }
+]

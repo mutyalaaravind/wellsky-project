@@ -1,0 +1,46 @@
+Have you treated for urinary tract infection in the past 14 days?
+Yes, I have
+Is urinary incontinence or urinary cathedral present?
+No
+Have you bowel incontinence frequency?
+No, I don't have
+Whether you are having any dialysis?
+Yes, I have
+Do you have  type of intervention?
+Yes, I have
+Have you done any goal?
+No
+Is the GU with normal limit?
+Yes
+Is the GU incontinent?
+No, it is not
+Is the GU with bladder distention?
+No
+Is the GU with burning?
+Yes, Sometimes
+Is the GU with frequency?
+No
+Is the GU with dysuria?
+No
+Is the GU with retention?
+No
+Is the GU with normal urgency?
+Yes
+Is the GU with normal urostomy?
+No
+Is the Urine checked?
+Yes
+Is the urine cloudy?
+No
+Is the urine odorous?
+Yes
+Is the urine sediment?
+No
+Is the urine hematuria?
+Yes
+Is the external genitalia checked?
+Yes, they checked
+Is the external genitalia normal?
+Normal
+Is the external genitalia checked as per clinical assessment?
+Yes

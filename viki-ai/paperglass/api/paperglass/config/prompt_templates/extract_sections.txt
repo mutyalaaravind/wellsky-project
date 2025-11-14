@@ -1,0 +1,48 @@
+You are high performing data analyst. 
+You mission is to extract the all sections, sub sections along with a summary and a hypothetical question at each section and sub section in a json format
+Please transform tabular content (marked with |) into text based sections
+Please think step by step and look at the example for more understanding
+
+Example:
+context: 
+## Page 1 **Comprehensive Details:****HOME HEALTH CERTIFICATION AND PLAN OF CARE*** **Patient's Medicare No.:** * **SOC Date:** 1/10/2022 * **Certification Period:** 1/10/2022 to 3/10/2022* **Medical Record No.:** 123456789* **Order Number:** 1111111* **Provider No.:** 44444444 **Patient's Name and Address:*** MINNIE MOUSE (123) 456-7890 * 1234 MAIN ST* ANY CITY, USA 12345**ICD-10 Diagnoses:**| Order | Code | Description | Onset or Exacerbation | O/E Date ||---|---|---|---|---| | 1 | 195.1 | ORTHOSTATIC HYPOTENSION | ONSET | 01/04/2022 || 2 | R65.21 | SEVERE SEPSIS WITH SEPTIC SHOCK | EXACERBATION | 12/29/2021 || 3 | 182.403 | ACUTE EMBOLISM AND THOMBOS UNSP DEEP VEINS OF LOW EXTRM, BI | ONSET | 01/04/2022 | ****Medications:**| Medication/Dose | Reason | Frequency | Route | Start Date/End Date ||---|---|---|---|---|| BETHANECHOL CHLORIDE 10 MG TABLET (1 tablet) | BLADDER | 3 TIMES DAILY | ORAL | 01/10/2022 || BIOTIN 1 MG CAPSULE (1 capsule) | SUPPLEMENT | DAILY | ORAL | 01/10/2022 || IRBESARTAN 150 MG TABLET (0.5 tablet) | BLOOD PRESSURE | DAILY | ORAL | 01/10/2022 || LABETALOL 100 MG TABLET (1 tablet) | BLOOD PRESSURE | 3 TIMES DAILY | ORAL | 01/10/2022 || MIRTAZAPINE 15 MG TABLET (1 tablet) | DEPRESSION | DAILY | ORAL | 01/10/2022 || OXYCODONE-ACETAMINOPHEN 5 MG-325 MG TABLET (1 tablet) | PAIN AS NEEDED, NOT TO EXCEED 3 GM PER DAY  | AS NEEDED EVERY 4 HOURS/PRN | ORAL | 01/10/2022 | | SPIRONOLACTONE 25 MG TABLET (1 tablet) | BLOOD PRESSURE | 2 TIMES DAILY | ORAL | 01/10/2022 || VITAMIN D3 25 MCG (1,000 UNIT) CAPSULE (1 capsule) | SUPPLEMENT | DAILY | ORAL | 01/10/2022 |
+expected output:
+[
+{
+	"sectionName":"Patient's Medicare No."
+	"sectionDetails":"",
+	"summary":"Patient has no medicare No"
+        "question":"what is patient's medicare Number?"
+},
+{
+        "sectionName":"SOC Date:"
+	"sectionDetails":"1/10/2022",
+	"summary":"Patient SOC Date is 1/10/2022",
+        "question":"what is patient's SOC Date?"
+},
+{
+       "sectionName":"Patient's Name and Address::"
+	"sectionDetails":"MINNIE MOUSE (123) 456-7890 * 1234 MAIN ST* ANY CITY, USA 12345",
+	"summary":"MINNIE MOUSE (123) 456-7890 * 1234 MAIN ST* ANY CITY, USA 12345"
+        "question":"what is patient's Name and Address?"
+},
+{
+       "sectionName":"ICD-10 Diagnoses:"
+       "sectionDetails":"order:1,code:I95.1,description:ORTHOSTATIC HYPOTENSION,Onset or Exacerbation:ONSET,O/E:01/04/2022"
+       "question":"what are patient's Diagnosis Codes?"
+},
+{
+        "sectionName":"Medications:"
+        "sectionDetails":"Medication/Dose:BETHANECHOL CHLORIDE 10 MG TABLET (1 tablet),Reason:BLADDER,Frequency:3 Times DAILY,ROUTE: ORAL,Start Date/End Date: 01/10/2022"
+        "question":"what are patient's medications?",
+        "summary":"Patient takes various medications with varying frequency,route and times"
+}
+]
+
+
+Important Instructions:
+please do not include ```json in the final extracted output
+please do not incude ## Extracted Sections: in the final extracted output
+
+context: <context></context>
+ 

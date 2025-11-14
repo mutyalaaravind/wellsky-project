@@ -1,0 +1,24 @@
+@host_local = http://localhost:18000
+@host_dev = https://ai-entity-extraction-145042810266.us-east4.run.app
+@host_qa = https://ai-entity-extraction-18900418456.us-east4.run.app
+@host_stage = https://ai-entity-extraction-884147005953.us-east4.run.app
+@host_prod = https://ai-entity-extraction-446272789005.us-east4.run.app
+@host = {{host_dev}}
+
+@token = eyJhbGciOiJSUzI1NiIsImtpZCI6ImRkNTMwMTIwNGZjMWQ2YTBkNjhjNzgzYTM1Y2M5YzEwYjI1ZTFmNGEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3NDgxMDY3MjcwMzQ2MDk5MjM1IiwiaGQiOiJ3ZWxsc2t5LmNvbSIsImVtYWlsIjoiZXJpYy5jb2luZXJAd2VsbHNreS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IjlzZ2o0eDAwTWFzR0RCUmZjMXlucXciLCJpYXQiOjE3NTQwODIyNDgsImV4cCI6MTc1NDA4NTg0OH0.N4Cl8XOlioOeT6LoIZA4TyDm-QNLFYvJLM7wyx9Y2HMWJMj7DrfvXBCpiHIsSmq7xEbhTyTCRXDs4hRba9WlRIyHKB0wrvZpCkhVaLnWM1mt0r5eFM0kJ3uRWDNyh8oL6bOlJ1TxTkOjxFCrU_9Ozu3zQ2z4TsegTeb8UrURpPdAjLSrN9DuZHYru0geZXYzfkDXp56O0PqTooA4S0cKyYYpMT24_IsRMSrfrU2wwqDJb4pasFRazXG5M67-GYkr3he2v_I2oZkmAfoTurSYrTG9vtcXOH6Y5htTsXdT8eNCdRRV6HCCPzCbZS5p7N2s86YoLOhSL8Yoz0wM0i1MNA
+
+### Test the health endpoint
+GET {{host}}/api/health
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Test the status endpoint with a sample run_id
+GET {{host}}/api/status/20250715T151709-a0aec40535434557bb058e45cb01c858
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+POST  http://localhost:15000/api/v5/status_update/entity_extraction
+
+{"app_id": "007", "tenant_id": "54321", "patient_id": "53a9f083ae55450ebacae7e8003d2e41", "document_id": "6ee8a1a45c0a11f0bb300242ac140005", "run_id": "20250708T144715-08b814ed72d44b9ea704efdc70c4d8a4", "status": "COMPLETED", "elapsed_time": 13.586283, "pipelines": [{"id": "default:medication_extraction", "status": "COMPLETED", "elapsed_time": 8.392509, "is_page_level": true, "tasks": {"1": {"id": "default:medication_extraction", "status": "COMPLETED", "page_number": 1, "metadata": {"cloud_task_response": {"name": "projects/viki-dev-app-wsky/locations/us/queues/entry_med_extract_{app_id}_{priority}_queue/tasks/pipeline-medication_extraction-20250708T144715-08b814ed72d44b9ea704efdc70c4d8a4", "scheduleTime": "2025-07-08T14:47:21.161260", "createTime": "2025-07-08T14:47:21.161438"}, "queue": "entry_med_extract_{app_id}_{priority}_queue", "url": "http://entity-extraction-api:18000/api/pipeline/default/medication_extraction/start", "pipeline_scope": "default"}, "app_id": "007", "tenant_id": "54321", "patient_id": "53a9f083ae55450ebacae7e8003d2e41", "document_id": "6ee8a1a45c0a11f0bb300242ac140005", "pages": 1, "created_at": "2025-07-08T14:47:21.202742Z", "updated_at": "2025-07-08T14:47:29.584702Z"}}}, {"id": "default:start", "status": "COMPLETED", "elapsed_time": 13.586259, "is_page_level": true, "tasks": {"1": {"id": "default:start", "status": "COMPLETED", "page_number": 1, "metadata": {"final_task_id": "INVOKE_MEDICATION_EXTRACTION_PIPELINE", "final_task_results": {"success": true, "results": null, "error_message": null, "execution_time_ms": null, "metadata": {"invoker_type": "pipelines", "pipeline_count": 1, "pipelines_executed": "default.medication_extraction", "pipeline_results": [{"pipeline_id": "medication_extraction", "status": "queued", "message": "Pipeline medication_extraction queued successfully", "cloud_task_response": {"name": "projects/viki-dev-app-wsky/locations/us/queues/entry_med_extract_{app_id}_{priority}_queue/tasks/pipeline-medication_extraction-20250708T144715-08b814ed72d44b9ea704efdc70c4d8a4", "scheduleTime": "2025-07-08T14:47:21.161260", "createTime": "2025-07-08T14:47:21.161438"}}]}}, "pipeline_completion_reason": "no_next_tasks"}, "app_id": "007", "tenant_id": "54321", "patient_id": "53a9f083ae55450ebacae7e8003d2e41", "document_id": "6ee8a1a45c0a11f0bb300242ac140005", "pages": 1, "created_at": "2025-07-08T14:47:21.837648Z", "updated_at": "2025-07-08T14:47:21.837651Z"}, "document": {"id": "default:start", "status": "COMPLETED", "page_number": null, "metadata": {"pipeline_scope": "default", "pipeline_key": "start", "pipeline_name": "Document Prep Pipeline 3", "pipeline_version": "1.1", "task_count": 3, "first_task": "SPLIT_PAGES", "pipeline_start_date": "2025-07-08T14:47:15.866866+00:00"}, "app_id": "007", "tenant_id": "54321", "patient_id": "53a9f083ae55450ebacae7e8003d2e41", "document_id": "6ee8a1a45c0a11f0bb300242ac140005", "pages": 1, "created_at": "2025-07-08T14:47:16.009549Z", "updated_at": "2025-07-08T14:47:21.880070Z"}}}]}

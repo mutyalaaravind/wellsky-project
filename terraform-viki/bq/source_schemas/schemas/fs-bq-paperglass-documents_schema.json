@@ -1,0 +1,106 @@
+[
+  {
+    "name": "active",
+    "type": "BOOLEAN"
+  },
+  {
+    "name": "app_id",
+    "type": "STRING"
+  },
+  {
+    "name": "created_at",
+    "type": "STRING"
+  },
+  {
+    "name": "created_by",
+    "type": "STRING"
+  },
+  {
+    "name": "document_operation_instance_id",
+    "type": "STRING"
+  },
+  {
+    "name": "embedding_chunking_strategy",
+    "type": "INTEGER"
+  },
+  {
+    "name": "embedding_strategy",
+    "type": "INTEGER"
+  },
+  {
+    "name": "execution_id",
+    "type": "STRING"
+  },
+  {
+    "name": "file_name",
+    "type": "STRING"
+  },
+  {
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "name": "metadata",
+    "type": "STRING"
+  },
+  {
+    "name": "metadata.campaign_id",
+    "type": "STRING"
+  },
+  {
+    "name": "metadata.iteration_key",
+    "type": "STRING"
+  },
+  {
+    "name": "metadata.labels",
+    "type": "ARRAY<STRING>"
+  },
+  {
+    "name": "modified_at",
+    "type": "STRING"
+  },
+  {
+    "name": "modified_by",
+    "type": "STRING"
+  },
+  {
+    "name": "page_count",
+    "type": "INTEGER"
+  },
+  {
+    "name": "pages",
+    "type": "ARRAY<RECORD>"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING"
+  },
+  {
+    "name": "priority",
+    "type": "STRING"
+  },
+  {
+    "name": "source",
+    "type": "STRING"
+  },
+  {
+    "name": "source_storage_uri",
+    "type": "STRING"
+  },
+  {
+    "name": "storage_uri",
+    "type": "STRING"
+  },
+  {
+    "name": "tenant_id",
+    "type": "STRING"
+  },
+  {
+    "name": "token",
+    "type": "STRING"
+  },
+  {
+    "name":"operation_status",
+    "type":"RECORD"
+  }
+]

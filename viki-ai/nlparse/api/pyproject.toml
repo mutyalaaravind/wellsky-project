@@ -1,0 +1,17 @@
+[tool.black]
+line-length = 120
+target-version = ['py311']
+skip-string-normalization = true
+extend-exclude = 'tests_integration/'
+
+[tool.isort]
+profile = 'black'
+skip_glob = ['**/tests_integration']
+
+[tool.pyright]
+
+[tool.mypy]
+mypy_path = './stubs/'
+
+[tool.coverage.run]
+omit = ['**/generated.py']

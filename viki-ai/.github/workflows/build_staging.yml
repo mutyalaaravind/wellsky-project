@@ -1,0 +1,169 @@
+name: Build & push
+
+on:
+  # Run on push
+  push:
+    # Run on pushes to main
+    branches:
+      - 'old-staging1-x'
+    # Run on tag pushes
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: read   # This is required for actions/checkout
+  id-token: write  # This is required for requesting the JWT
+
+env:
+  # Do not modify following parameters
+  DEV_WIP: projects/711793311977/locations/global/workloadIdentityPools/ci-cd/providers/wellsky-github
+  DEV_SA: github-builder@viki-prod-mgmt-wsky.iam.gserviceaccount.com
+  DEV_GAR_URL: us-east4-docker.pkg.dev/viki-prod-mgmt-wsky/images
+  DEV_GCS_BUCKET: viki-static-prod
+
+jobs:
+  build-push-images:
+    strategy:
+      matrix:
+        service:
+          - [autoscribe, api]
+          - [autoscribe, widget]
+          - [extract-and-fill, api]
+          - [extract-and-fill, widget]
+          - [demo, api]
+          - [demo, dashboard]
+          - [nlparse, api]
+          - [nlparse, widget]
+          - [paperglass, api]
+          - [paperglass, widget]
+    name: Build & push image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all tags
+          # https://github.com/actions/checkout/issues/426#issuecomment-764193404
+          # https://github.com/actions/checkout#Checkout-pull-request-HEAD-commit-instead-of-merge-commit
+          # Always use SHA1 of the latest real commit, not the merge commit
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Generate image tag
+        id: generate_image_tag
+        run: |
+          IMAGE_TAG=`git describe --tags --always`  # e.g. v1.34.0-3-g6772a6a3
+          HEAD_REF=`git rev-parse HEAD`  # e.g. 6772a6a378ed9e1a382237497ac5bd9aeae73c13
+          echo "Image tag: $IMAGE_TAG"
+          echo "HEAD ref: $HEAD_REF"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
+          echo "HEAD_REF=$HEAD_REF" >> "$GITHUB_ENV"
+      # Build & push to dev
+
+      - name: Authenticate to Google Cloud
+        id: auth_dev
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: ${{ env.DEV_WIP }}
+          service_account: ${{ env.DEV_SA }}
+          token_format: access_token
+
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v2
+        with:
+          registry: us-east4-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth_dev.outputs.access_token }}
+
+      - name: Build & push image
+        uses: docker/build-push-action@v4
+        with:
+          context: ${{matrix.service[0]}}/${{matrix.service[1]}}
+          secrets: |
+            "npmrc=${{ secrets.NPMRC }}"
+          tags: |
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}:latest
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}:${{env.IMAGE_TAG}}
+            ${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}:${{env.HEAD_REF}}
+          cache-from: type=registry,ref=${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}-cache
+          cache-to: type=registry,ref=${{env.DEV_GAR_URL}}/ai-${{matrix.service[0]}}-${{matrix.service[1]}}-cache
+          push: true
+
+  build-push-frontends:
+    name: Build & push static
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        frontend:
+          - sample
+          - medwidget
+
+    defaults:
+      run:
+        working-directory: ./frontends/${{matrix.frontend}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all tags
+          # https://github.com/actions/checkout/issues/426#issuecomment-764193404
+          # https://github.com/actions/checkout#Checkout-pull-request-HEAD-commit-instead-of-merge-commit
+          # Always use SHA1 of the latest real commit, not the merge commit
+          ref: ${{ github.ref == 'refs/heads/main' && github.sha || github.event.pull_request.head.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: ./frontends/${{matrix.frontend}}/package-lock.json
+
+      - name: Generate version
+        id: generate_version
+        run: |
+          VERSION=`git describe --tags --always`  # e.g. v1.34.0-3-g6772a6a3
+          HEAD_REF=`git rev-parse HEAD`  # e.g. 6772a6a378ed9e1a382237497ac5bd9aeae73c13
+          echo "Version: $VERSION"
+          echo "HEAD ref: $HEAD_REF"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "HEAD_REF=$HEAD_REF" >> "$GITHUB_ENV"
+      - name: Authenticate to Google Cloud
+        id: auth_dev
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ env.DEV_WIP }}
+          service_account: ${{ env.DEV_SA }}
+          # create_credentials_file: true
+          # export_environment_variables: true
+          # token_format: access_token
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 450.0.0'
+          project_id: viki-dev-mgmt-wsky
+
+      - name: 'Configure .npmrc'
+        env:
+          NPMRC: ${{ secrets.NPMRC }}
+        run: |
+          printf "$NPMRC" > ./.npmrc
+      - name: 'Print info'
+        run: |
+          pwd
+          ls -l
+          gcloud info
+          npm config get
+      - name: 'Build static'
+        run: |
+          pwd
+          ls -l
+          npm ci
+          npm run build
+      - name: 'Copy static to GCS'
+        run: |
+          gsutil -m cp -r ./build/* gs://${{ env.DEV_GCS_BUCKET }}/frontends/${{ matrix.frontend }}/${{env.VERSION}}/
+          gsutil -m cp -r ./build/* gs://${{ env.DEV_GCS_BUCKET }}/frontends/${{ matrix.frontend }}/${{env.HEAD_REF}}/

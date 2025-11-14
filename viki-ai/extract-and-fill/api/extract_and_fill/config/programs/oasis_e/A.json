@@ -1,0 +1,50 @@
+{
+    "M1021-1": {
+        "question": "Are you having vaping-related disorder in the primary diagnosis?",
+        "instructions": "if yes, select true as the value otherwise false"
+    },
+    "M1021-2": {
+        "question": "Are you having COVID-19 acute respirator disease in the primary diagnosis?",
+        "instructions": "if yes, select true as the value otherwise false"
+    },
+    "M1021-3": {
+        "question": "Are you having O/E Exacerbation in the primary diagnosis?",
+        "instructions": "if yes, select Exacerbation as the value otherwise Onset"
+    },
+    "M1023-1": {
+        "question": "Are you having vaping-related disorder in any other diagnosis?",
+        "instructions": "if yes, select true as the value otherwise false"
+    },
+    "M1023-2": {
+        "question": "Are you having COVID-19 acute respirator disease in any other diagnosis?",
+        "instructions": "if yes, select true as the value otherwise false"
+    },
+    "M1023-3": {
+        "question": "Are you having O/E Exacerbation in any other diagnosis?",
+        "instructions": "if yes, select Exacerbation as the value otherwise Onset"
+    },
+    "M1028-1": {
+        "question": "Do you have Peripheral Vascular Disease or Peripheral Arterial Disease?",
+        "instructions": "if yes, select true as the value otherwise false"
+    },
+    "M1028-2": {
+        "question": "Do you have Peripheral Vascular Disease or Peripheral Arterial Disease?",
+        "instructions": "if patient say no idea or not assessed, select true as the value otherwise false"
+    },
+    "M1028-3": {
+        "question": "Do you have Diabetes Mellitus?",
+        "instructions": "if yes, select true as the value otherwise false"
+    },
+    "M1028-4": {
+        "question": "Do you have Diabetes Mellitus?",
+        "instructions": "if patient say no idea or not assessed, select true as the value otherwise false"
+    },
+    "M1028-5": {
+        "question": "Do you have Peripheral Vascular Disease or Peripheral Arterial Disease or Diabetes Mellitus?",
+        "instructions": "if no, select true as the value otherwise false"
+    },
+    "M1028-6": {
+        "question": "Do you have Peripheral Vascular Disease or Peripheral Arterial Disease or Diabetes Mellitus?",
+        "instructions": "if patient say no idea or not assessed, select true as the value otherwise false"
+    }
+}

@@ -1,0 +1,23 @@
+@host_local = http://127.0.0.1:15000
+@host_dev = https://ai-paperglass-api-zqftmopgsq-uk.a.run.app
+@host_qa = https://ai-paperglass-api-p32qledfyq-uk.a.run.app
+@host_stage = https://ai-paperglass-api-zzygbs3ypa-uk.a.run.app
+@host_prod = https://ai-paperglass-api-cocynqqo6a-uk.a.run.app
+
+@host = {{host_local}}
+
+@okta_token = eyJraWQiOiJXX1p2QzE0aHhfZnNFTUsxUzVDeGJWQndCUXNKeWxaTUIySXJlNnN1dE5FIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkFOc2FCX0R2cV9Zdk1rcjI0ZkkwZWw2TzI3d1U3eXpQS2hmTWRqX0c4RkEiLCJpc3MiOiJodHRwczovL3dlbGxza3ktY2lhbS5va3RhcHJldmlldy5jb20vb2F1dGgyL2F1c2FqdDhodjFCOFM3aGtoMWQ3IiwiYXVkIjoidmlraS5wcm9kLndlbGxza3kuaW8iLCJpYXQiOjE3NTI2MDAzNDksImV4cCI6MTc1MjYwMzk0OSwiY2lkIjoiYXBpLndlbGxza3kudmlraS5wYXBlcmdsYXNzIiwic2NwIjpbImFwaS53ZWxsc2t5LnZpa2kuYWkucGFwZXJnbGFzcyJdLCJzdWIiOiJhcGkud2VsbHNreS52aWtpLnBhcGVyZ2xhc3MifQ.CKTmj2Hc_i8Av2s0P_4OgGe2dqXrYNLTfElAz1kk-VHqfgVFwm-aIa47k9Ip_55AC_yA2OWkCfYMvi-lvL57HkFnEeBxY3bKv-vGVm5u12FUd5w3JuknlHaCvWK1D36JD90wG0M2Phey9eirwCcDZpubMqCJHVF5ZyCZq8ujjB14j2MvgzCspGEHItycVpxRVQqwwTaYYRyB2WqZG8MixAmeYGVLkHWgC99TgGtFcP1hGvXrY0H71T4S-MyGEAazKUIKj_SUvdTQiS7lv44dGZRRzMU7XIjbJbvRvHiTkXSNlPllvjYiBLCm5pbprxz0NY_Fcb10St_UNXCrxVno6A
+
+#@token = eyJwYXRpZW50SWQiOiI0NjM4ZTY0MmIyZDQ0YjhjOWRiNmYyY2VkMTllYjg5OCIsInRlbmFudElkIjoiNTQzMjEiLCJhcHBJZCI6IjAwNyIsInJvbGUiOiJwYXRpZW50IiwidXNlcklkIjoiMTIzNDUifQ==
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjAwNyIsInRlbmFudElkIjoiNTQzMjEiLCJwYXRpZW50SWQiOiI1M2E5ZjA4M2FlNTU0NTBlYmFjYWU3ZTgwMDNkMmU0MSIsImFtdXNlcmtleSI6IjEyMzQ1In0.oys6pxsYfYgRr-UbN7x09CfFmrEqpISIOzjjQCKY2XY
+
+###
+GET {{host}}/api/documents_with_pagination?patientId=53a9f083ae55450ebacae7e8003d2e41&startAt=2025-07-15T19:29:18.403Z&endAt=null&limit=10
+Authorization: Bearer {{token}}
+Okta-Token: {{okta_token}}
+
+
+###
+GET {{host}}/api/v2/documents/189f7190625111f094a80242ac140005/toc
+Authorization: Bearer {{token}}
+Okta-Token: {{okta_token}}

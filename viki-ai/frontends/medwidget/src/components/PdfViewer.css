@@ -1,0 +1,16 @@
+.left-annotation {
+  border: 2px solid #FF0000;
+  color: transparent;
+  font-size: 0.75rem; /* TODO */
+}
+
+.left-annotation.highlighted {
+  background: rgba(255, 255, 0, 0.75);
+  color: #000000;
+}
+
+.right-annotation.highlighted {
+  background: rgba(255, 255, 0, 0.75);
+  color: #000000;
+}
+

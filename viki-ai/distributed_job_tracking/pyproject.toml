@@ -1,0 +1,43 @@
+[project]
+name = "distributed-job-tracking"
+version = "0.1.0"
+description = "Distributed job tracking service using FastAPI"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "pydantic>=2.5.3",
+    "pydantic-settings>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "google-cloud-firestore>=2.19.0",
+    "google-cloud-storage>=2.10.0",
+    "google-cloud-tasks>=2.18.0",
+    "google-genai[aiohttp]>=0.8.0",
+    "google-cloud-logging>=3.8.0",
+    "coloredlogs>=15.0.1",
+    "aiocache>=0.12.2",
+    "httpx>=0.24.0",
+    "celery>=5.3.0",
+    "redis>=5.0.0",
+    "pyjwt[crypto]>=2.8.0",
+    "setuptools<81",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.11.1",
+    "httpx>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=src --cov-report=term-missing"
+pythonpath = ["src"]
+markers = [
+    "integration: marks tests as integration tests (deselect with '-m \"not integration\"')",
+]

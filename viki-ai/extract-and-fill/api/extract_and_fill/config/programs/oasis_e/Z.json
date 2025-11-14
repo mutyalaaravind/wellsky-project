@@ -1,0 +1,51 @@
+{
+    "Z0000-0": {
+      "question": "Are you within normal limits?",
+      "instructions": "if patient is within normal limits , select true otherwise false"
+    },
+    "Z0000-1": {
+      "question": "Do you feel any Dizziness?",
+      "instructions": "if patient feels dizziness, select true otherwise false"
+    },
+    "Z0000-2": {
+      "question": "Do you feel any Chest pain?",
+      "instructions": "if patient is experiencing any chest pain, select true otherwise false"
+    },
+    "Z0000-3": {
+        "question": "Do you have an edema",
+        "instructions": "if patient has edema, select true otherwise false"
+    },
+    "Z0000-4": {
+        "question": "Do you have dependent edema",
+        "instructions": "if patient has any form of dependant edema, select true otherwise false"
+    },
+    "Z0000-5": {
+        "question": "Is there any Neck Vein Distention",
+        "instructions": "if patient has a Neck Vein Distention, select true otherwise false"
+    },
+    "Z0000-6": {
+        "question": "Do you feel any Peripheral Pulses",
+        "instructions": "if patient has any perpheral pulses, select true otherwise false"
+    },
+    "Z0000-7": {
+        "question": "Do you require Cap refills",
+        "instructions": "if patient requires cap refills, select true otherwise false"
+    },
+    "Z0000-8": {
+        "question": "Do you hear any sort of heart sounds",
+        "instructions": "if patient hears any sort of heart sounds, select true otherwise false"
+    },
+    "Z0000-9": {
+        "question": "Could you tell me when you had your Pacemaker inserted?",
+        "instructions": "If patient has provided with the insertion date select true otherwise false"
+    },
+    "Z0000-10": {
+        "question": "Could you tell me when you had you AICD inserted",
+        "instructions": "If patient has provided with the insertion date select true otherwise false"
+    },
+    "Z0000-11": {
+        "question": "Do you want to share any further comments?",
+        "instructions": "If patient has provided addition information then select true otherwise false"
+    }
+  }
+  

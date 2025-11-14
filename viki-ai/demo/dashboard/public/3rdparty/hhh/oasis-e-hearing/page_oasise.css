@@ -1,0 +1,322 @@
+/*
+NOTE TO DEVELOPER -- Remember that everything is case sensitive!
+*/
+
+/*Header that is on all pages
+--------------------------------------------------------------------------------*/
+/* hotBox*/
+.hRowBg {
+    background: #E4F0F1;
+}
+
+/* tiger strip */
+.mr0 {
+    background-color: #F7F7F7;
+}
+
+/* rollOver Color */
+.mr2 {
+    background-color: #D5DCEC;
+}
+
+/* tiger strip */
+.tr0 {
+    background-color: #F7F7F7;
+}
+
+/* regular row bg color */
+.tr1 {
+    background-color: #fff;
+}
+
+/* border around the content */
+.sectionContentTable, .sectionContentTableTop {
+    border-color: #BBC3CB;
+}
+
+/* Top Grayish Blue area*/
+.sectionViewTable, .sectionViewTableShort, .sectionView {
+    border-color: #BBC3CB;
+    background-color: #dddddd;
+}
+
+/* Blue area for form areas. */
+.blueInputFieldTable {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 1px;
+}
+
+/* The Footer area on most pages */
+.footerActionButtonTable {
+    border: #F7F7F7 solid 1px;
+    background-image: none;
+}
+
+.menuBoxTable, .menuBoxWideTable {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 1px;
+}
+
+.menuBoxHalfLeft {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 1px;
+}
+
+.menuBoxHalfFloatLeft {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 0px;
+}
+
+.menuBoxHalfLeftOasis {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 1px;
+}
+
+.menuBoxHalfRight {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 1px;
+}
+
+.menuBoxHalfFloatRight {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 0px;
+}
+
+.menuBoxFullSize {
+    background-color: #F7F7F7;
+}
+
+/* taskBoxHeader the header, Tan gradient header areas */
+.taskBoxHeader {
+    background-image: none;
+    background-color: #E4F0F1;
+}
+
+.OasisTaskBoxHeader {
+    background-image: none;
+    background-color: #E4F0F1;
+}
+
+/* hover ToolTips */
+.episodeManagerToolTip {
+    background-color: #F7F7F7;
+    border: 1px solid #BBC3CB;
+}
+
+.footerActionButton, .footerActionButtonNoMargin, .footerActionButtonSmallMargin, .footerActionButtonTall {
+    border: #F7F7F7 solid 1px;
+    background-image: none;
+}
+
+.footerActionButtonTall {
+    background-color: #E4F0F1;
+}
+
+.sigAreaBtn {
+    border-top: #F7F7F7 solid 1px;
+    background-image: none;
+}
+
+/* Alerts */
+.alert-yellow, .alert-yellow-small, .alert-yellow-wide, .alert-yellow-left, .alert-yellow-right {
+    background-color: #E4F0F1;
+    border: 1px solid #BBC3CB;
+    background-image: none;
+}
+
+/* Episode Manager Specific Styles
+--------------------------------------------------------------------------------*/
+/* Patient Info Hover Table */
+.patientToolTipBlue {
+    background-color: #F7F7F7;
+    border: 1px solid #BBC3CB;
+}
+
+/* Add File To EM */
+.addFileEm {
+    border: 1px Solid #BBC3CB;
+    background-color: #F7F7F7;
+}
+
+/* Calender Styles
+--------------------------------------------------------------------------------*/
+
+.oasisCborder {
+    border: 1px solid #BBC3CB;
+}
+
+/* Oasis Specific Styles
+--------------------------------------------------------------------------------*/
+/* box485 is just like oasisBox but with different background color */
+.oasisBox, .box485, .boxCaseMix {
+    background-color: #F7F7F7;
+    border: #BBC3CB solid 1px;
+}
+
+.formBox {
+    border: #BBC3CB solid 1px;
+}
+
+.box485 {
+    background-color: #F7F7F7
+}
+
+.boxCaseMix {
+    background-color: #F7F7F7
+}
+
+.oasisMaskedInput {
+    background-color: #FFFFFF;
+}
+
+/* This is for the table with the up and down arrows only */
+
+.oasisListTable {
+    border: 1px solid #BBC3CB;
+    background-color: #FFFFFF;
+}
+
+.oasisListTable ul {
+    border-right: 1px solid #BBC3CB;
+}
+
+.oltImageArea {
+    border-right: 1px solid #BBC3CB;
+}
+
+.oasisInnerBox {
+    background-color: #FFFFFF;
+    border: #BBC3CB solid 1px;
+}
+
+.oasisBox table#mainTable, .box485 table#mainTable, .boxCaseMix table#mainTable {
+    border-color: #BBC3CB;
+}
+
+.oasisBox table#mainTable td, .oasisBox table#mainTable2 td, .box485 table#mainTable td, .boxCaseMix table#mainTable td {
+    background-color: #FFFFFF !important;
+    border-color: #BBC3CB;
+}
+
+.oasisBox table#mainTable th, .oasisBox table#mainTable2 th, .box485 table#mainTable th, .boxCaseMix table#mainTable th {
+    border-color: #BBC3CB;
+    background-image: none;
+    background-color: #E4F0F1 !important;
+}
+
+.oasisBox table#mainTable .backgroundFilled {
+    background-color: #E4F0F1;
+}
+
+#mainTable .o0110-table .o0110-header {
+    background-image: none;
+    background-color: #E4F0F1;
+}
+
+#mainTable .o0110-table .o0110-item-row td {
+    border-top: 1px solid #BBC3CB;
+    border-bottom: 1px solid #BBC3CB;
+}
+
+.menuBoxWideTable table#mainTable th {
+    border-color: #BBC3CB;
+    background-color: #E4F0F1;
+    background-image: none;
+}
+
+.oasisBox table#mainTable table td, .menuBoxWideTable table#mainTable table td, .box485 table#noBorder table td, .boxCaseMix table#noBorder table td {
+    background-color: #FFFFFF;
+}
+
+.oasisBox table#mainTable table, .menuBoxWideTable table#mainTable table, .box485 table#noBorder table, .boxCaseMix table#noBorder table {
+    background-color: #FFFFFF;
+}
+
+.m170ggc .bordered-bottom {
+    border-bottom: 1px solid #BBC3CB !important;
+}
+
+.m170ggc .bordered-right {
+    border-right: 1px solid #BBC3CB !important;
+}
+
+/* MISC items */
+div.divTitle {
+    background-image: none;
+    background-color: #E4F0F1;
+}
+
+/* section headers */
+.formHeader {
+    background: #f1f3f5;
+}
+
+.formSectionHeaderBlue {
+    background-color: #F7F7F7;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #E4F0F1;
+}
+
+.formSectionHeader, .formSectionHeaderLeft, .formSectionHeaderLeftHalf, .formSectionHeaderHalf, .formSectionHeaderINNER, .formSectionHeaderFull {
+    border-top: 1px solid #E4F0F1;
+    border-left: 1px solid #E4F0F1;
+    border-right: 1px solid #E4F0F1;
+    border-bottom: 1px solid #E4F0F1;
+    background-image: none;
+    background-color: #E4F0F1;
+}
+
+.episodeDateEM {
+    background-color: #F7F7F7;
+    border-color: #BBC3CB
+}
+
+.emNav a:hover {
+    background-color: #F7F7F7;
+}
+
+.emNavActive {
+    background-color: #F7F7F7;
+}
+
+.dialogFooter {
+    background-color: #E4F0F1;
+}
+
+.hospice-search .search-result .row-odd {
+    background-color: #F7F7F7;
+}
+
+.ca_advanced_directives_title {
+    border: 1px solid #BBC3CB;
+    background-image: none;
+}
+
+.homebound_header_container {
+    border-bottom: 1px solid #BBC3CB;
+}
+
+.homebound_gral_container {
+    border: 1px solid #BBC3CB;
+    background-color: #F7F7F7;
+}
+
+.ptg-goals--button-v2,
+.tm-Button-v2 {
+    background-color: #228189 !important;
+    color: #FFF;
+    border: 1px solid #228189;
+}
+
+.sigFormElement {
+    background-color: #F7F7F7;
+    border-top: 1px solid #BBC3CB;
+}
+
+.wcws-accordion .accordion-inner {
+    background-color: #F7F7F7 !important;
+}
+
+.wcws-accordion .accordion-heading{
+    background-color: #E4F0F1 !important;
+}
